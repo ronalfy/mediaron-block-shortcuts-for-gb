@@ -99,15 +99,18 @@ Namespace: `mediaron/block-shortcuts-for-gb/v1`
 | --- | --- | --- |
 | `/process_image` | POST | Sideload a remote image for Pattern Inserter |
 | `/regenerate_css_files` | POST | Clear `generateblocks_dynamic_css_posts`; Pro calls `GenerateBlocks_Pro_Enqueue_Styles::build_css()` |
+| `/asset_icon_groups` | GET | Unique group names from `generateblocks_svg_icons` (Pro) |
+| `/save_asset_icon` | POST | Append one icon to `generateblocks_svg_icons` (Pro); reuse an existing group item when the SVG markup already matches |
 
-Permission callbacks require appropriate upload / publish capabilities (see `Blocks::rest_image_sideload_permissions`).
+`/process_image` uses `Blocks::rest_image_sideload_permissions` (`upload_files` and `publish_posts`). `/regenerate_css_files`, `/asset_icon_groups`, and `/save_asset_icon` require `manage_options`. Asset Library routes return 400 when GenerateBlocks Pro is inactive.
 
 ## Localized script globals
 
 | Global | Script | Contents |
 | --- | --- | --- |
 | `mrshortcutsgbAdmin` | Admin settings | Nonces, `ajaxurl`, post type list, `isProActive` |
-| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags, REST URL/nonce, v1/v2 suffix strings |
+| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags, REST URL/nonce, v1/v2 suffix strings, `isProActive`, `canManageAssetLibrary` |
+| `mrshortcutsgbCommands` | Block-editor commands | `isProActive` |
 
 ## Coding standards
 

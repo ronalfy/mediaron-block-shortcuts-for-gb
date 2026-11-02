@@ -263,6 +263,40 @@ class Blocks {
 				'permission_callback' => array( $this, 'rest_can_regenerate_css_files' ),
 			)
 		);
+		register_rest_route(
+			'mediaron/block-shortcuts-for-gb/v1',
+			'/asset_icon_groups',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'rest_get_asset_icon_groups' ),
+				'permission_callback' => array( $this, 'rest_can_manage_asset_library' ),
+			)
+		);
+		register_rest_route(
+			'mediaron/block-shortcuts-for-gb/v1',
+			'/save_asset_icon',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'rest_save_asset_icon' ),
+				'permission_callback' => array( $this, 'rest_can_manage_asset_library' ),
+				'args'                => array(
+					'name'  => array(
+						'required'          => true,
+						'type'              => 'string',
+						'sanitize_callback' => 'sanitize_text_field',
+					),
+					'group' => array(
+						'required'          => true,
+						'type'              => 'string',
+						'sanitize_callback' => 'sanitize_text_field',
+					),
+					'svg'   => array(
+						'required' => true,
+						'type'     => 'string',
+					),
+				),
+			)
+		);
 	}
 
 	/**
@@ -411,6 +445,301 @@ class Blocks {
 	}
 
 	/**
+	 * Check if user can manage the GenerateBlocks Pro asset library.
+	 *
+	 * @return bool
+	 */
+	public function rest_can_manage_asset_library() {
+		return current_user_can( 'manage_options' );
+	}
+
+	/**
+	 * Allowed HTML for Asset Library SVG markup.
+	 *
+	 * @return array
+	 */
+	private function get_asset_svg_allowed_html() {
+		if ( function_exists( 'generateblocks_pro_kses_svg' ) ) {
+			return \generateblocks_pro_kses_svg();
+		}
+
+		$kses_defaults = wp_kses_allowed_html( 'post' );
+		$svg_args      = array(
+			'svg'   => array(
+				'class'           => true,
+				'aria-hidden'     => true,
+				'aria-labelledby' => true,
+				'role'            => true,
+				'xmlns'           => true,
+				'width'           => true,
+				'height'          => true,
+				'viewbox'         => true,
+			),
+			'g'     => array(
+				'fill' => true,
+			),
+			'title' => array(
+				'title' => true,
+			),
+			'path'  => array(
+				'd'    => true,
+				'fill' => true,
+			),
+		);
+
+		return array_merge( $kses_defaults, $svg_args );
+	}
+
+	/**
+	 * Sanitize SVG markup for the Asset Library.
+	 *
+	 * @param mixed $svg Raw SVG markup.
+	 * @return string
+	 */
+	private function sanitize_asset_svg( $svg ) {
+		if ( ! is_string( $svg ) ) {
+			return '';
+		}
+
+		return wp_kses( $svg, $this->get_asset_svg_allowed_html() );
+	}
+
+	/**
+	 * Normalize SVG markup for duplicate comparison.
+	 *
+	 * GenerateBlocks' icon picker highlights every library item whose SVG
+	 * string matches the block, so whitespace-only differences still collide.
+	 *
+	 * @param string $svg SVG markup.
+	 * @return string
+	 */
+	private function normalize_asset_svg_for_compare( $svg ) {
+		$normalized = preg_replace( '/\s+/', ' ', trim( (string) $svg ) );
+
+		return is_string( $normalized ) ? $normalized : '';
+	}
+
+	/**
+	 * Find an existing icon in a group with equivalent SVG markup.
+	 *
+	 * @param array  $icons Group icons.
+	 * @param string $svg   Sanitized SVG markup.
+	 * @return array|null
+	 */
+	private function find_existing_asset_icon( $icons, $svg ) {
+		if ( ! is_array( $icons ) ) {
+			return null;
+		}
+
+		$normalized = $this->normalize_asset_svg_for_compare( $svg );
+		if ( '' === $normalized ) {
+			return null;
+		}
+
+		foreach ( $icons as $maybe_icon ) {
+			if ( ! is_array( $maybe_icon ) || empty( $maybe_icon['icon'] ) || ! is_string( $maybe_icon['icon'] ) ) {
+				continue;
+			}
+
+			if ( $this->normalize_asset_svg_for_compare( $maybe_icon['icon'] ) === $normalized ) {
+				return $maybe_icon;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Keep one icon per unique SVG string in each Asset Library group.
+	 *
+	 * @param array $icons generateblocks_svg_icons option value.
+	 * @return array
+	 */
+	private function dedupe_asset_library_icons( $icons ) {
+		if ( ! is_array( $icons ) ) {
+			return array();
+		}
+
+		foreach ( $icons as $index => $data ) {
+			if ( empty( $data['icons'] ) || ! is_array( $data['icons'] ) ) {
+				continue;
+			}
+
+			$seen   = array();
+			$unique = array();
+
+			foreach ( $data['icons'] as $icon ) {
+				if ( ! is_array( $icon ) || empty( $icon['icon'] ) || ! is_string( $icon['icon'] ) ) {
+					continue;
+				}
+
+				$normalized = $this->normalize_asset_svg_for_compare( $icon['icon'] );
+				if ( '' === $normalized || isset( $seen[ $normalized ] ) ) {
+					continue;
+				}
+
+				$seen[ $normalized ] = true;
+				$unique[]            = $icon;
+			}
+
+			$icons[ $index ]['icons'] = $unique;
+		}
+
+		return $icons;
+	}
+
+	/**
+	 * Return unique Asset Library icon group names.
+	 *
+	 * @param \WP_REST_Request $request REST request.
+	 * @return \WP_REST_Response|\WP_Error
+	 */
+	public function rest_get_asset_icon_groups( $request ) {
+		unset( $request );
+
+		if ( ! Functions::is_generateblocks_pro_active() ) {
+			return new \WP_Error(
+				'gb_pro_required',
+				__( 'GenerateBlocks Pro is required to use the Asset Library.', 'mediaron-block-shortcuts-for-gb' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		$icons  = get_option( 'generateblocks_svg_icons', array() );
+		$groups = array();
+
+		if ( is_array( $icons ) ) {
+			foreach ( $icons as $data ) {
+				if ( ! empty( $data['group'] ) && is_string( $data['group'] ) ) {
+					$groups[] = $data['group'];
+				}
+			}
+		}
+
+		$groups = array_values( array_unique( $groups ) );
+
+		return new \WP_REST_Response(
+			array(
+				'success' => true,
+				'groups'  => $groups,
+			),
+			200
+		);
+	}
+
+	/**
+	 * Append an icon to the GenerateBlocks Pro Asset Library.
+	 *
+	 * @param \WP_REST_Request $request REST request.
+	 * @return \WP_REST_Response|\WP_Error
+	 */
+	public function rest_save_asset_icon( $request ) {
+		if ( ! Functions::is_generateblocks_pro_active() ) {
+			return new \WP_Error(
+				'gb_pro_required',
+				__( 'GenerateBlocks Pro is required to use the Asset Library.', 'mediaron-block-shortcuts-for-gb' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		$name  = sanitize_text_field( $request->get_param( 'name' ) );
+		$group = sanitize_text_field( $request->get_param( 'group' ) );
+		$svg   = $this->sanitize_asset_svg( $request->get_param( 'svg' ) );
+
+		if ( '' === $name || '' === $group ) {
+			return new \WP_Error(
+				'invalid_asset_icon',
+				__( 'Icon name and group are required.', 'mediaron-block-shortcuts-for-gb' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		if ( '' === $svg || false === stripos( $svg, '<svg' ) ) {
+			return new \WP_Error(
+				'invalid_asset_svg',
+				__( 'A valid SVG is required.', 'mediaron-block-shortcuts-for-gb' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		$icons = get_option( 'generateblocks_svg_icons', array() );
+		if ( ! is_array( $icons ) ) {
+			$icons = array();
+		}
+		$icons = $this->dedupe_asset_library_icons( $icons );
+
+		$group_index = null;
+		foreach ( $icons as $index => $data ) {
+			if ( isset( $data['group'] ) && is_string( $data['group'] ) && 0 === strcasecmp( $data['group'], $group ) ) {
+				$group_index = $index;
+				$group       = $data['group'];
+				break;
+			}
+		}
+
+		$existing_icon = null;
+		if ( null !== $group_index && ! empty( $icons[ $group_index ]['icons'] ) ) {
+			$existing_icon = $this->find_existing_asset_icon( $icons[ $group_index ]['icons'], $svg );
+		}
+
+		if ( is_array( $existing_icon ) ) {
+			$existing_id   = ! empty( $existing_icon['id'] ) ? sanitize_key( $existing_icon['id'] ) : '';
+			$existing_name = ! empty( $existing_icon['name'] ) ? $existing_icon['name'] : $name;
+			$existing_svg  = ! empty( $existing_icon['icon'] ) ? $existing_icon['icon'] : $svg;
+
+			update_option( 'generateblocks_svg_icons', $icons, false );
+
+			return new \WP_REST_Response(
+				array(
+					'success'       => true,
+					'id'            => $existing_id,
+					'name'          => $existing_name,
+					'group'         => $group,
+					'groupKey'      => sanitize_key( $group ),
+					'icon'          => $existing_svg,
+					'alreadyExists' => true,
+				),
+				200
+			);
+		}
+
+		$icon_id = sanitize_key( $name . '-' . uniqid() );
+		$icon    = array(
+			'id'   => $icon_id,
+			'name' => $name,
+			'icon' => $svg,
+		);
+
+		if ( null === $group_index ) {
+			$icons[] = array(
+				'group'    => $group,
+				'group_id' => str_replace( ' ', '-', strtolower( $group ) ),
+				'icons'    => array( $icon ),
+			);
+		} else {
+			if ( empty( $icons[ $group_index ]['icons'] ) || ! is_array( $icons[ $group_index ]['icons'] ) ) {
+				$icons[ $group_index ]['icons'] = array();
+			}
+			$icons[ $group_index ]['icons'][] = $icon;
+		}
+
+		update_option( 'generateblocks_svg_icons', $icons, false );
+
+		return new \WP_REST_Response(
+			array(
+				'success'       => true,
+				'id'            => $icon_id,
+				'name'          => $name,
+				'group'         => $group,
+				'groupKey'      => sanitize_key( $group ),
+				'icon'          => $svg,
+				'alreadyExists' => false,
+			),
+			200
+		);
+	}
+
+	/**
 	 * Init action callback.
 	 */
 	public function init() {
@@ -525,6 +854,8 @@ class Blocks {
 				'v2CategoryLabel'               => esc_html( $options['v2CategoryLabel'] ?? esc_html__( 'GenerateBlocks v2', 'mediaron-block-shortcuts-for-gb' ) ),
 				'v1BlockSuffix'                 => esc_html( $options['v1BlockSuffix'] ?? esc_html__( '(v1)', 'mediaron-block-shortcuts-for-gb' ) ),
 				'v2BlockSuffix'                 => esc_html( $options['v2BlockSuffix'] ?? esc_html__( '(v2)', 'mediaron-block-shortcuts-for-gb' ) ),
+				'isProActive'                   => Functions::is_generateblocks_pro_active() ? 'true' : 'false',
+				'canManageAssetLibrary'         => current_user_can( 'manage_options' ) ? 'true' : 'false',
 			)
 		);
 
@@ -557,6 +888,14 @@ class Blocks {
 			$deps['dependencies'],
 			$deps['version'],
 			true
+		);
+
+		wp_localize_script(
+			'mrshortcuts-gb-commands-block-editor',
+			'mrshortcutsgbCommands',
+			array(
+				'isProActive' => Functions::is_generateblocks_pro_active() ? 'true' : 'false',
+			)
 		);
 	}
 

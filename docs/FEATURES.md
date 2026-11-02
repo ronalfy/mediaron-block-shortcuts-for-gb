@@ -59,6 +59,7 @@ Block overflow menu items (`PluginBlockSettingsMenuItem` in `src/index.js`):
 | Clear Block Styles | GenerateBlocks v2 block selected |
 | Unwrap Container / Unwrap Grid | Container or Element with inner blocks |
 | Transform Shape to Link | Shape block selected |
+| Save SVG to Asset Library | Pro active; Shape, Text, Headline, or Button with SVG markup; `manage_options` |
 | Convert v1 Blocks to v2 | Single selection containing v1 blocks; requires `enableV1Transformations` |
 
 Also registered:
@@ -71,6 +72,17 @@ Also registered:
 
 - Block: `mediaron/mrshortcuts-pattern-inserter`
 - Paste pattern markup, sideload remote images via REST `POST mediaron/block-shortcuts-for-gb/v1/process_image`, regenerate unique IDs.
+
+## Asset Library capture (Pro)
+
+Save an icon into `generateblocks_svg_icons` without leaving the editor:
+
+- Command palette: paste SVG markup, name, and group.
+- Overflow menu: capture SVG already on a Shape (`html`) or Text/Headline/Button (`icon`).
+
+After save, `generateBlocksPro.svgIcons` is patched so Pro’s icon picker lists the new icon the next time that panel renders.
+
+GenerateBlocks highlights a library tile when its SVG string matches the block, not by unique id. Saving the same markup twice into one group would select both tiles, so the save route skips (and prunes) duplicate SVG strings in that group.
 
 ## Command palette
 

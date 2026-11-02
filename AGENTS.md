@@ -72,7 +72,7 @@ Renaming any of these needs a migration plan (saved options, content with the pa
 ## Known debt (document; do not drive-by “fix” in unrelated PRs)
 
 - `.gitignore` ignores `dist/` and `package-lock.json` while runtime may need built `dist/` assets.
-- Dead / incomplete: `allowedGoogleFonts` option, unused `SaveSVGToAssetLibraryModal.js`, `enableDefaultHeadlineBlock` referenced in UI without a default in `Options.php`.
+- Dead / incomplete: `allowedGoogleFonts` option, `enableDefaultHeadlineBlock` referenced in UI without a default in `Options.php`.
 - Misnamed leftovers: `wppic_block_file_extensions` filter in `Functions.php`; occasional wrong text domains (`alerts-dlx`).
 - License wording: header GPL v2+, `package.json` GPL-3.0, `LICENSE` GPLv3.
 

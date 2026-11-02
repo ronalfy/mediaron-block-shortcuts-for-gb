@@ -12,15 +12,17 @@ import {
 	transformBlockSubtreeFromContext,
 	hasV1BlockInSubtree,
 } from './js/blocks/commands/utils/blockTransforms.js';
+import { extractSvgFromBlock } from './js/blocks/utils/svgAssetLibrary';
+import SaveSVGToAssetLibraryModal from './js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal';
 
-const UnGroupIcon = (props) => {
+const UnGroupIcon = ( props ) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 640 512"
 			width="24"
 			height="24"
-			{...props}
+			{ ...props }
 		>
 			<path
 				fill="currentColor"
@@ -36,14 +38,14 @@ const UnGroupIcon = (props) => {
  * @param {Object} props - The props object.
  * @return {JSX.Element} The LinkIcon component.
  */
-const LinkIcon = (props) => {
+const LinkIcon = ( props ) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
 			height="24"
 			viewBox="0 0 32 32"
-			{...props}
+			{ ...props }
 		>
 			<path
 				d="M26.606 5.394a7.51 7.51 0 0 0-10.606 0l-.707.707a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.707-.707a3.5 3.5 0 0 1 4.95 4.95l-3.536 3.535a3.522 3.522 0 0 1-4.712.217l-.768-.641a1 1 0 0 0-1.408.127l-1.282 1.535a1 1 0 0 0 .127 1.409l.767.64a7.458 7.458 0 0 0 10.105-.459L26.607 16a7.5 7.5 0 0 0 0-10.606z"
@@ -57,7 +59,28 @@ const LinkIcon = (props) => {
 	);
 };
 
-const ClearIcon = (props) => {
+const SaveLibraryIcon = ( props ) => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			{ ...props }
+		>
+			<path
+				d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"
+				stroke="currentColor"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	);
+};
+
+const ClearIcon = ( props ) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +88,7 @@ const ClearIcon = (props) => {
 			height="24"
 			fill="none"
 			viewBox="0 0 97 97"
-			{...props}
+			{ ...props }
 		>
 			<g fill="currentColor">
 				<path
@@ -77,72 +100,72 @@ const ClearIcon = (props) => {
 	);
 };
 // Run on load.
-(function (wp) {
+( function( wp ) {
 	/**
 	 * Add a toolbar option to wrap selected blocks in a container.
 	 *
 	 * Updated for v2 blocks.
 	 */
-	registerPlugin('mrshortcuts-gb-wrap-container', {
+	registerPlugin( 'mrshortcuts-gb-wrap-container', {
 		render: () => {
-			const [clientIds, setClientIds] = useState([]);
+			const [ clientIds, setClientIds ] = useState( [] );
 
 			// Get the selected block clientIds.
 			const { selectedBlocks, selectedBlock, selectedBlockCount, getMultiSelectedBlockClientIds } = useSelect(
-				(select) => {
+				( select ) => {
 					return {
 						selectedBlocks:
-							select('core/block-editor').getMultiSelectedBlocks(),
-						selectedBlock: select('core/block-editor').getSelectedBlock(),
-						selectedBlockCount: select('core/block-editor').getSelectedBlockCount(),
+							select( 'core/block-editor' ).getMultiSelectedBlocks(),
+						selectedBlock: select( 'core/block-editor' ).getSelectedBlock(),
+						selectedBlockCount: select( 'core/block-editor' ).getSelectedBlockCount(),
 						getMultiSelectedBlockClientIds:
-							select('core/block-editor').getMultiSelectedBlockClientIds,
+							select( 'core/block-editor' ).getMultiSelectedBlockClientIds,
 					};
 				},
 				[]
 			);
 
-			const { replaceBlocks, replaceBlock } = useDispatch(store)('core/block-editor');
+			const { replaceBlocks, replaceBlock } = useDispatch( store )( 'core/block-editor' );
 
-			useEffect(() => {
-				if (selectedBlockCount > 1) {
-					setClientIds(selectedBlocks);
-				} else if (selectedBlockCount === 1) {
-					setClientIds([selectedBlock.clientId]);
+			useEffect( () => {
+				if ( selectedBlockCount > 1 ) {
+					setClientIds( selectedBlocks );
+				} else if ( selectedBlockCount === 1 ) {
+					setClientIds( [ selectedBlock.clientId ] );
 				}
-			}, [selectedBlocks, selectedBlock, selectedBlockCount]);
+			}, [ selectedBlocks, selectedBlock, selectedBlockCount ] );
 
 			// If no blocks are selected, return.
-			if (clientIds.length === 0) {
+			if ( clientIds.length === 0 ) {
 				return null;
 			}
 
 			// If a block is selected, add toolbar option to wrap container.
-			if (clientIds.length > 0) {
+			if ( clientIds.length > 0 ) {
 				return (
 					<PluginBlockSettingsMenuItem
-						icon={<ContainerLogo />}
+						icon={ <ContainerLogo /> }
 						label="Wrap in Container"
-						onClick={() => {
-							if (selectedBlockCount > 1) {
+						onClick={ () => {
+							if ( selectedBlockCount > 1 ) {
 								const innerBlocks = [];
-								clientIds.forEach((clientId) => {
-									innerBlocks.push(cloneBlock(clientId));
-								});
+								clientIds.forEach( ( clientId ) => {
+									innerBlocks.push( cloneBlock( clientId ) );
+								} );
 								replaceBlocks(
 									getMultiSelectedBlockClientIds(),
-									wp.blocks.createBlock('generateblocks/element', {}, innerBlocks)
+									wp.blocks.createBlock( 'generateblocks/element', {}, innerBlocks )
 								);
 							} else {
-								replaceBlock(selectedBlock.clientId, wp.blocks.createBlock('generateblocks/element', {}, [cloneBlock(selectedBlock)]));
+								replaceBlock( selectedBlock.clientId, wp.blocks.createBlock( 'generateblocks/element', {}, [ cloneBlock( selectedBlock ) ] ) );
 							}
-						}}
+						} }
 					/>
-				)
+				);
 			}
 			return null;
-		}
-	});
+		},
+	} );
 
 	// Unique ID storing.
 	const uniqueIds = [];
@@ -151,19 +174,19 @@ const ClearIcon = (props) => {
 	 *
 	 * For v1 blocks.
 	 */
-	registerPlugin('mrshortcuts-gb-generate-unique-ids', {
+	registerPlugin( 'mrshortcuts-gb-generate-unique-ids', {
 		render: () => {
-			const { selectedBlock } = useSelect((select) => {
+			const { selectedBlock } = useSelect( ( select ) => {
 				return {
-					selectedBlock: select('core/block-editor').getSelectedBlock(),
+					selectedBlock: select( 'core/block-editor' ).getSelectedBlock(),
 				};
-			}, []);
+			}, [] );
 
-			const { replaceBlocks } = useDispatch(store)('core/block-editor');
+			const { replaceBlocks } = useDispatch( store )( 'core/block-editor' );
 			/**
 			 * Return early if no block is selected.
 			 */
-			if (null === selectedBlock) {
+			if ( null === selectedBlock ) {
 				return null;
 			}
 
@@ -171,40 +194,40 @@ const ClearIcon = (props) => {
 			const { name } = selectedBlock;
 
 			// If name contains `generateblocks`, proceed.
-			if (!v1Blocks.includes(name) && !v2Blocks.includes(name)) {
+			if ( ! v1Blocks.includes( name ) && ! v2Blocks.includes( name ) ) {
 				return null;
 			}
 
 			// If more than one block is selected, add toolbar option to replace the Unique ID.
 			return (
 				<PluginBlockSettingsMenuItem
-					icon={<ReplaceIcon />}
+					icon={ <ReplaceIcon /> }
 					label="Generate New Unique IDs"
-					onClick={() => {
-						const newBlock = replaceUniqueIds(selectedBlock); // This gets the selected block and all innerBlocks.
-						replaceBlocks(selectedBlock.clientId, newBlock);
-					}}
+					onClick={ () => {
+						const newBlock = replaceUniqueIds( selectedBlock ); // This gets the selected block and all innerBlocks.
+						replaceBlocks( selectedBlock.clientId, newBlock );
+					} }
 				/>
 			);
 		},
-	});
+	} );
 
 	/**
 	 * Clear block styles for v2 blocks.
 	 */
-	registerPlugin('mrshortcuts-gb-clear-block-styles', {
+	registerPlugin( 'mrshortcuts-gb-clear-block-styles', {
 		render: () => {
-			const { selectedBlock } = useSelect((select) => {
+			const { selectedBlock } = useSelect( ( select ) => {
 				return {
-					selectedBlock: select('core/block-editor').getSelectedBlock(),
+					selectedBlock: select( 'core/block-editor' ).getSelectedBlock(),
 				};
-			}, []);
+			}, [] );
 
-			const { updateBlockAttributes } = useDispatch('core/block-editor');
+			const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 			/**
 			 * Return early if no block is selected.
 			 */
-			if (null === selectedBlock) {
+			if ( null === selectedBlock ) {
 				return null;
 			}
 
@@ -212,36 +235,36 @@ const ClearIcon = (props) => {
 			const { name } = selectedBlock;
 
 			// If name contains `generateblocks`, proceed.
-			if (!v2Blocks.includes(name)) {
+			if ( ! v2Blocks.includes( name ) ) {
 				return null;
 			}
 
 			// If more than one block is selected, add toolbar option to replace the Unique ID.
 			return (
 				<PluginBlockSettingsMenuItem
-					icon={<ClearIcon />}
+					icon={ <ClearIcon /> }
 					label="Clear Block Styles"
-					onClick={() => {
-						updateBlockAttributes(selectedBlock.clientId, { styles: {} });
-					}}
+					onClick={ () => {
+						updateBlockAttributes( selectedBlock.clientId, { styles: {} } );
+					} }
 				/>
 			);
 		},
-	});
+	} );
 
 	/**
 	 * Register a plugin that unwraps (flattens) a container block.
 	 *
 	 * Updated to use the v2 blocks.
 	 */
-	registerPlugin('mrshortcuts-gb-unwrap-container', {
+	registerPlugin( 'mrshortcuts-gb-unwrap-container', {
 		render: () => {
-			const selectedBlock = useSelect((select) => {
-				return select('core/block-editor').getSelectedBlock();
-			}, []);
+			const selectedBlock = useSelect( ( select ) => {
+				return select( 'core/block-editor' ).getSelectedBlock();
+			}, [] );
 
 			// If no block is selected, return.
-			if (null === selectedBlock) {
+			if ( null === selectedBlock ) {
 				return null;
 			}
 
@@ -254,119 +277,167 @@ const ClearIcon = (props) => {
 			}
 
 			// If block has no innerBlocks, return.
-			if (selectedBlock.innerBlocks.length === 0) {
+			if ( selectedBlock.innerBlocks.length === 0 ) {
 				return null;
 			}
 
 			let unwrapLabel = 'Unwrap Container';
-			if ('grid' === selectedBlock.attributes?.styles?.display) {
+			if ( 'grid' === selectedBlock.attributes?.styles?.display ) {
 				unwrapLabel = 'Unwrap Grid';
 			}
 
 			// Get the first child block.
-			const firstChildBlock = selectedBlock.innerBlocks[0] || null;
+			const firstChildBlock = selectedBlock.innerBlocks[ 0 ] || null;
 
 			// If more than one block is selected, add toolbar option to unwrap container.
 			return (
 				<PluginBlockSettingsMenuItem
-					icon={<UnGroupIcon />}
-					label={unwrapLabel}
-					onClick={() => {
+					icon={ <UnGroupIcon /> }
+					label={ unwrapLabel }
+					onClick={ () => {
 						const innerBlocks = selectedBlock.innerBlocks;
 						wp.data
-							.dispatch('core/block-editor')
-							.replaceBlocks(selectedBlock.clientId, innerBlocks);
+							.dispatch( 'core/block-editor' )
+							.replaceBlocks( selectedBlock.clientId, innerBlocks );
 
 						// Select the first child block in the editor.
 						wp.data
-							.dispatch('core/block-editor')
-							.selectBlock(firstChildBlock.clientId);
-					}}
+							.dispatch( 'core/block-editor' )
+							.selectBlock( firstChildBlock.clientId );
+					} }
 				/>
 			);
 		},
-	});
+	} );
 
 	/**
 	 * Register a plugin that changes a shape to a link.
 	 *
 	 * Updated to use the v2 blocks.
 	 */
-	registerPlugin('mrshortcuts-gb-convert-shape-to-link', {
+	registerPlugin( 'mrshortcuts-gb-convert-shape-to-link', {
 		render: () => {
-			const selectedBlock = useSelect((select) => {
-				return select('core/block-editor').getSelectedBlock();
-			}, []);
+			const selectedBlock = useSelect( ( select ) => {
+				return select( 'core/block-editor' ).getSelectedBlock();
+			}, [] );
 
 			// If no block is selected, return.
-			if (null === selectedBlock) {
+			if ( null === selectedBlock ) {
 				return null;
 			}
 
 			// If block is not a shape, return.
-			if (selectedBlock.name !== 'generateblocks/shape') {
+			if ( selectedBlock.name !== 'generateblocks/shape' ) {
 				return null;
 			}
 
 			// If more than one block is selected, add toolbar option to unwrap container.
 			return (
 				<PluginBlockSettingsMenuItem
-					icon={<LinkIcon />}
+					icon={ <LinkIcon /> }
 					label="Transform Shape to Link"
-					onClick={() => {
-						const newBlock = wp.blocks.createBlock('generateblocks/text', {
+					onClick={ () => {
+						const newBlock = wp.blocks.createBlock( 'generateblocks/text', {
 							icon: selectedBlock.attributes.html,
 							iconLocation: 'before',
 							iconOnly: true,
 							tagName: 'a',
 							...selectedBlock.attributes,
-						});
+						} );
 						wp.data
-							.dispatch('core/block-editor')
-							.replaceBlocks(selectedBlock.clientId, newBlock);
-					}}
+							.dispatch( 'core/block-editor' )
+							.replaceBlocks( selectedBlock.clientId, newBlock );
+					} }
 				/>
 			);
 		},
-	});
+	} );
+
+	/**
+	 * Save the selected block's SVG into the GenerateBlocks Pro Asset Library.
+	 */
+	registerPlugin( 'mrshortcuts-gb-save-svg-to-asset-library', {
+		render: () => {
+			const [ isOpen, setIsOpen ] = useState( false );
+			const [ capturedSvg, setCapturedSvg ] = useState( '' );
+			const selectedBlock = useSelect( ( selectStore ) => {
+				return selectStore( 'core/block-editor' ).getSelectedBlock();
+			}, [] );
+			const selectedBlockCount = useSelect( ( selectStore ) => {
+				return selectStore( 'core/block-editor' ).getSelectedBlockCount();
+			}, [] );
+
+			const canManageLibrary =
+				typeof mrshortcutsgbPatternInserter !== 'undefined' &&
+				'true' === mrshortcutsgbPatternInserter.isProActive &&
+				'true' === mrshortcutsgbPatternInserter.canManageAssetLibrary;
+			const svgMarkup = extractSvgFromBlock( selectedBlock );
+			const showMenuItem =
+				canManageLibrary &&
+				selectedBlockCount === 1 &&
+				selectedBlock !== null &&
+				!! svgMarkup;
+
+			return (
+				<>
+					{ showMenuItem && (
+						<PluginBlockSettingsMenuItem
+							icon={ <SaveLibraryIcon /> }
+							label="Save SVG to Asset Library"
+							onClick={ () => {
+								setCapturedSvg( svgMarkup );
+								setIsOpen( true );
+							} }
+						/>
+					) }
+					<SaveSVGToAssetLibraryModal
+						isOpen={ isOpen }
+						onClose={ () => setIsOpen( false ) }
+						mode="from-block"
+						initialSvg={ capturedSvg }
+					/>
+				</>
+			);
+		},
+	} );
 
 	/**
 	 * Convert selected block and its descendants from v1 to v2 (contextual).
 	 */
-	registerPlugin('mrshortcuts-gb-convert-to-v2-contextual', {
+	registerPlugin( 'mrshortcuts-gb-convert-to-v2-contextual', {
 		render: () => {
-			const selectedBlock = useSelect((selectStore) => {
-				return selectStore('core/block-editor').getSelectedBlock();
-			}, []);
-			const selectedBlockCount = useSelect((selectStore) => {
-				return selectStore('core/block-editor').getSelectedBlockCount();
-			}, []);
+			const selectedBlock = useSelect( ( selectStore ) => {
+				return selectStore( 'core/block-editor' ).getSelectedBlock();
+			}, [] );
+			const selectedBlockCount = useSelect( ( selectStore ) => {
+				return selectStore( 'core/block-editor' ).getSelectedBlockCount();
+			}, [] );
 			const dispatch = useDispatch();
 
-			if (selectedBlockCount !== 1 || selectedBlock === null) {
+			if ( selectedBlockCount !== 1 || selectedBlock === null ) {
 				return null;
 			}
 			if (
 				typeof mrshortcutsgbPatternInserter !== 'undefined' &&
-				'false' === (mrshortcutsgbPatternInserter.enableV1Transformations || 'false')
+				'false' === ( mrshortcutsgbPatternInserter.enableV1Transformations || 'false' )
 			) {
 				return null;
 			}
-			if (!hasV1BlockInSubtree(selectedBlock)) {
+			if ( ! hasV1BlockInSubtree( selectedBlock ) ) {
 				return null;
 			}
 
 			return (
 				<PluginBlockSettingsMenuItem
-					icon={<ReplaceIcon />}
+					icon={ <ReplaceIcon /> }
 					label="Convert v1 Blocks to v2"
-					onClick={() => {
-						transformBlockSubtreeFromContext(selectedBlock, select, dispatch);
-					}}
+					onClick={ () => {
+						transformBlockSubtreeFromContext( selectedBlock, select, dispatch );
+					} }
 				/>
 			);
 		},
-	});
+	} );
 
 	/**
 	 * Allow transform from group block.
@@ -376,20 +447,20 @@ const ClearIcon = (props) => {
 	wp.hooks.addFilter(
 		'blocks.registerBlockType',
 		'generateblocks/transform/group',
-		(blockSettings) => {
-			if (blockSettings.name === 'core/group') {
+		( blockSettings ) => {
+			if ( blockSettings.name === 'core/group' ) {
 				const transformsTo = blockSettings.transforms?.to || [];
-				transformsTo.push({
+				transformsTo.push( {
 					type: 'block',
-					blocks: ['generateblocks/element'],
-					transform: (attributes, innerBlocks) => {
+					blocks: [ 'generateblocks/element' ],
+					transform: ( attributes, innerBlocks ) => {
 						return wp.blocks.createBlock(
 							'generateblocks/element',
 							{},
 							innerBlocks
 						);
 					},
-				});
+				} );
 				blockSettings.transforms.to = transformsTo;
 			}
 			return blockSettings;
@@ -404,13 +475,13 @@ const ClearIcon = (props) => {
 	wp.hooks.addFilter(
 		'blocks.registerBlockType',
 		'generateblocks/transform/shape',
-		(blockSettings) => {
-			if (blockSettings.name === 'generateblocks/shape') {
+		( blockSettings ) => {
+			if ( blockSettings.name === 'generateblocks/shape' ) {
 				const transformsTo = blockSettings.transforms?.to || [];
-				transformsTo.push({
+				transformsTo.push( {
 					type: 'block',
-					blocks: ['generateblocks/text'],
-					transform: (attributes, innerBlocks) => {
+					blocks: [ 'generateblocks/text' ],
+					transform: ( attributes, innerBlocks ) => {
 						const newAttributes = {
 							...attributes,
 							icon: attributes.html,
@@ -423,11 +494,11 @@ const ClearIcon = (props) => {
 							innerBlocks
 						);
 					},
-				});
-				if (!blockSettings.hasOwnProperty('transforms')) {
+				} );
+				if ( ! blockSettings.hasOwnProperty( 'transforms' ) ) {
 					blockSettings.transforms = {};
 				}
-				if (!blockSettings.transforms.hasOwnProperty('to')) {
+				if ( ! blockSettings.transforms.hasOwnProperty( 'to' ) ) {
 					blockSettings.transforms.to = [];
 				}
 				blockSettings.transforms.to = transformsTo;
@@ -441,82 +512,82 @@ const ClearIcon = (props) => {
 	 *
 	 * Updated for v2 blocks.
 	 */
-	if (mrshortcutsgbPatternInserter.enableMarkdownToHeadlineBlock) {
+	if ( mrshortcutsgbPatternInserter.enableMarkdownToHeadlineBlock ) {
 		wp.hooks.addFilter(
 			'blocks.registerBlockType',
 			'generateblocks/transform/markdown',
-			(blockSettings) => {
+			( blockSettings ) => {
 				if (
 					blockSettings.name === 'core/paragraph' ||
 					blockSettings.name === 'generateblocks/text'
 				) {
 					const transformFrom = blockSettings.transforms?.from || [];
-					transformFrom.push({
+					transformFrom.push( {
 						type: 'prefix',
 						prefix: '#',
-						transform: (content) => {
-							return wp.blocks.createBlock('generateblocks/text', {
+						transform: ( content ) => {
+							return wp.blocks.createBlock( 'generateblocks/text', {
 								content,
 								tagName: 'h1',
-							});
+							} );
 						},
 						priority: 1,
-					});
-					transformFrom.push({
+					} );
+					transformFrom.push( {
 						type: 'prefix',
 						prefix: '##',
-						transform: (content) => {
-							return wp.blocks.createBlock('generateblocks/text', {
+						transform: ( content ) => {
+							return wp.blocks.createBlock( 'generateblocks/text', {
 								content,
 								tagName: 'h2',
-							});
+							} );
 						},
 						priority: 1,
-					});
-					transformFrom.push({
+					} );
+					transformFrom.push( {
 						type: 'prefix',
 						prefix: '###',
-						transform: (content) => {
-							return wp.blocks.createBlock('generateblocks/text', {
+						transform: ( content ) => {
+							return wp.blocks.createBlock( 'generateblocks/text', {
 								content,
 								tagName: 'h3',
-							});
+							} );
 						},
 						priority: 1,
-					});
-					transformFrom.push({
+					} );
+					transformFrom.push( {
 						type: 'prefix',
 						prefix: '####',
-						transform: (content) => {
-							return wp.blocks.createBlock('generateblocks/text', {
+						transform: ( content ) => {
+							return wp.blocks.createBlock( 'generateblocks/text', {
 								content,
 								tagName: 'h4',
-							});
+							} );
 						},
 						priority: 1,
-					});
-					transformFrom.push({
+					} );
+					transformFrom.push( {
 						type: 'prefix',
 						prefix: '#####',
-						transform: (content) => {
-							return wp.blocks.createBlock('generateblocks/text', {
+						transform: ( content ) => {
+							return wp.blocks.createBlock( 'generateblocks/text', {
 								content,
 								tagName: 'h5',
-							});
+							} );
 						},
 						priority: 1,
-					});
-					transformFrom.push({
+					} );
+					transformFrom.push( {
 						type: 'prefix',
 						prefix: '######',
-						transform: (content) => {
-							return wp.blocks.createBlock('generateblocks/text', {
+						transform: ( content ) => {
+							return wp.blocks.createBlock( 'generateblocks/text', {
 								content,
 								tagName: 'h6',
-							});
+							} );
 						},
 						priority: 1,
-					});
+					} );
 
 					blockSettings.transforms.from = transformFrom;
 				}
@@ -524,4 +595,4 @@ const ClearIcon = (props) => {
 			}
 		);
 	}
-}(window.wp));
+}( window.wp ) );
