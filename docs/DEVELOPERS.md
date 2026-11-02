@@ -100,7 +100,7 @@ Namespace: `mediaron/block-shortcuts-for-gb/v1`
 | `/process_image` | POST | Sideload a remote image for Pattern Inserter |
 | `/regenerate_css_files` | POST | Clear `generateblocks_dynamic_css_posts`; Pro calls `GenerateBlocks_Pro_Enqueue_Styles::build_css()` |
 | `/asset_icon_groups` | GET | Unique group names from `generateblocks_svg_icons` (Pro) |
-| `/save_asset_icon` | POST | Append one icon to `generateblocks_svg_icons` (Pro); reuse an existing group item when the SVG markup already matches |
+| `/save_asset_icon` | POST | Append one icon to `generateblocks_svg_icons` (Pro); reuse an existing group item when the SVG markup already matches. Sanitizes via Safe SVG when present, else Pro’s `unfiltered_html` / `generateblocks_pro_kses_svg()` path. |
 
 `/process_image` uses `Blocks::rest_image_sideload_permissions` (`upload_files` and `publish_posts`). `/regenerate_css_files`, `/asset_icon_groups`, and `/save_asset_icon` require `manage_options`. Asset Library routes return 400 when GenerateBlocks Pro is inactive.
 

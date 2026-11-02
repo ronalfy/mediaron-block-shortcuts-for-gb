@@ -456,42 +456,226 @@ class Blocks {
 	/**
 	 * Allowed HTML for Asset Library SVG markup.
 	 *
+	 * Starts from GenerateBlocks Pro's kses map, then adds presentation tags
+	 * Pro's list omits (gradients, defs, basic shapes) so filtered users can
+	 * still save typical icon SVGs.
+	 *
 	 * @return array
 	 */
 	private function get_asset_svg_allowed_html() {
 		if ( function_exists( 'generateblocks_pro_kses_svg' ) ) {
-			return \generateblocks_pro_kses_svg();
+			$allowed = \generateblocks_pro_kses_svg();
+		} else {
+			$allowed = wp_kses_allowed_html( 'post' );
 		}
 
-		$kses_defaults = wp_kses_allowed_html( 'post' );
-		$svg_args      = array(
-			'svg'   => array(
-				'class'           => true,
-				'aria-hidden'     => true,
-				'aria-labelledby' => true,
-				'role'            => true,
-				'xmlns'           => true,
-				'width'           => true,
-				'height'          => true,
-				'viewbox'         => true,
+		if ( ! is_array( $allowed ) ) {
+			$allowed = array();
+		}
+
+		$common = array(
+			'id'                => true,
+			'class'             => true,
+			'fill'              => true,
+			'stroke'            => true,
+			'stroke-width'      => true,
+			'stroke-linecap'    => true,
+			'stroke-linejoin'   => true,
+			'stroke-miterlimit' => true,
+			'stroke-dasharray'  => true,
+			'stroke-opacity'    => true,
+			'fill-opacity'      => true,
+			'fill-rule'         => true,
+			'clip-rule'         => true,
+			'clip-path'         => true,
+			'opacity'           => true,
+			'transform'         => true,
+			'display'           => true,
+		);
+
+		$svg_args = array(
+			'svg'            => array_merge(
+				$common,
+				array(
+					'aria-hidden'         => true,
+					'aria-labelledby'     => true,
+					'role'                => true,
+					'xmlns'               => true,
+					'width'               => true,
+					'height'              => true,
+					'viewbox'             => true,
+					'x'                   => true,
+					'y'                   => true,
+					'preserveaspectratio' => true,
+					'version'             => true,
+					'focusable'           => true,
+				)
 			),
-			'g'     => array(
-				'fill' => true,
-			),
-			'title' => array(
+			'g'              => $common,
+			'title'          => array(
 				'title' => true,
+				'id'    => true,
 			),
-			'path'  => array(
-				'd'    => true,
-				'fill' => true,
+			'desc'           => array(
+				'id' => true,
+			),
+			'defs'           => array(
+				'id' => true,
+			),
+			'path'           => array_merge(
+				$common,
+				array(
+					'd' => true,
+				)
+			),
+			'circle'         => array_merge(
+				$common,
+				array(
+					'cx' => true,
+					'cy' => true,
+					'r'  => true,
+				)
+			),
+			'ellipse'        => array_merge(
+				$common,
+				array(
+					'cx' => true,
+					'cy' => true,
+					'rx' => true,
+					'ry' => true,
+				)
+			),
+			'rect'           => array_merge(
+				$common,
+				array(
+					'x'      => true,
+					'y'      => true,
+					'width'  => true,
+					'height' => true,
+					'rx'     => true,
+					'ry'     => true,
+				)
+			),
+			'line'           => array_merge(
+				$common,
+				array(
+					'x1' => true,
+					'y1' => true,
+					'x2' => true,
+					'y2' => true,
+				)
+			),
+			'polyline'       => array_merge(
+				$common,
+				array(
+					'points' => true,
+				)
+			),
+			'polygon'        => array_merge(
+				$common,
+				array(
+					'points' => true,
+				)
+			),
+			'lineargradient' => array(
+				'id'                => true,
+				'x1'                => true,
+				'x2'                => true,
+				'y1'                => true,
+				'y2'                => true,
+				'gradientunits'     => true,
+				'gradienttransform' => true,
+				'spreadmethod'      => true,
+				'href'              => true,
+			),
+			'radialgradient' => array(
+				'id'                => true,
+				'cx'                => true,
+				'cy'                => true,
+				'r'                 => true,
+				'fx'                => true,
+				'fy'                => true,
+				'fr'                => true,
+				'gradientunits'     => true,
+				'gradienttransform' => true,
+				'spreadmethod'      => true,
+				'href'              => true,
+			),
+			'stop'           => array(
+				'offset'       => true,
+				'stop-color'   => true,
+				'stop-opacity' => true,
+			),
+			'clippath'       => array(
+				'id'            => true,
+				'clippathunits' => true,
+			),
+			'mask'           => array(
+				'id'               => true,
+				'x'                => true,
+				'y'                => true,
+				'width'            => true,
+				'height'           => true,
+				'maskunits'        => true,
+				'maskcontentunits' => true,
+			),
+			'symbol'         => array(
+				'id'                  => true,
+				'viewbox'             => true,
+				'preserveaspectratio' => true,
 			),
 		);
 
-		return array_merge( $kses_defaults, $svg_args );
+		foreach ( $svg_args as $tag => $attrs ) {
+			$allowed[ $tag ] = isset( $allowed[ $tag ] ) && is_array( $allowed[ $tag ] )
+				? array_merge( $allowed[ $tag ], $attrs )
+				: $attrs;
+		}
+
+		return $allowed;
+	}
+
+	/**
+	 * Strip XML prolog so the markup can be inlined in the icon picker.
+	 *
+	 * @param string $svg SVG markup.
+	 * @return string
+	 */
+	private function prepare_inline_svg( $svg ) {
+		$svg = preg_replace( '/^\xEF\xBB\xBF/', '', $svg );
+		$svg = preg_replace( '/<\?xml[^>]*\?>/i', '', $svg );
+		$svg = preg_replace( '/<!DOCTYPE[^>]*>/i', '', $svg );
+
+		return is_string( $svg ) ? trim( $svg ) : '';
+	}
+
+	/**
+	 * Sanitize SVG with Safe SVG / enshrined when that plugin is available.
+	 *
+	 * @param string $svg Raw SVG markup.
+	 * @return string Clean markup, or empty when the sanitizer is unavailable.
+	 */
+	private function sanitize_asset_svg_with_safe_svg( $svg ) {
+		if ( class_exists( '\SafeSvg\Svg_Sanitizer' ) && method_exists( '\SafeSvg\Svg_Sanitizer', 'sanitize_markup' ) ) {
+			$clean = \SafeSvg\Svg_Sanitizer::sanitize_markup( $svg );
+			return is_string( $clean ) ? $this->prepare_inline_svg( $clean ) : '';
+		}
+
+		if ( class_exists( '\enshrined\svgSanitize\Sanitizer' ) ) {
+			$sanitizer = new \enshrined\svgSanitize\Sanitizer();
+			$sanitizer->minify( true );
+			$clean = $sanitizer->sanitize( $svg );
+			return is_string( $clean ) ? $this->prepare_inline_svg( $clean ) : '';
+		}
+
+		return '';
 	}
 
 	/**
 	 * Sanitize SVG markup for the Asset Library.
+	 *
+	 * Matches GenerateBlocks Pro's icon REST save: Safe SVG when present,
+	 * otherwise skip kses for unfiltered_html, otherwise wp_kses.
 	 *
 	 * @param mixed $svg Raw SVG markup.
 	 * @return string
@@ -499,6 +683,20 @@ class Blocks {
 	private function sanitize_asset_svg( $svg ) {
 		if ( ! is_string( $svg ) ) {
 			return '';
+		}
+
+		$svg = trim( $svg );
+		if ( '' === $svg ) {
+			return '';
+		}
+
+		$safe_svg = $this->sanitize_asset_svg_with_safe_svg( $svg );
+		if ( '' !== $safe_svg ) {
+			return $safe_svg;
+		}
+
+		if ( current_user_can( 'unfiltered_html' ) ) {
+			return $svg;
 		}
 
 		return wp_kses( $svg, $this->get_asset_svg_allowed_html() );

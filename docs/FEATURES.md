@@ -82,6 +82,8 @@ Save an icon into `generateblocks_svg_icons` without leaving the editor:
 
 After save, `generateBlocksPro.svgIcons` is patched so Pro’s icon picker lists the new icon the next time that panel renders.
 
+SVG markup is sanitized the same way Pro’s Asset Library REST save does: Safe SVG (when that plugin is active), otherwise skip kses for `unfiltered_html`, otherwise `generateblocks_pro_kses_svg()` plus extra presentation tags (gradients, defs, basic shapes).
+
 GenerateBlocks highlights a library tile when its SVG string matches the block, not by unique id. Saving the same markup twice into one group would select both tiles, so the save route skips (and prunes) duplicate SVG strings in that group.
 
 ## Command palette
