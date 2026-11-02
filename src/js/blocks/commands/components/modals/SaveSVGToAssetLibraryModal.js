@@ -169,6 +169,7 @@ const SaveSVGToAssetLibraryModal = ( { isOpen, onClose, mode = 'paste', initialS
 			isDismissible={ ! isSaving }
 			shouldCloseOnClickOutside={ ! isSaving }
 			shouldCloseOnEsc={ ! isSaving }
+			size="medium"
 			title={ __( 'Save SVG to Asset Library', 'mediaron-block-shortcuts-for-gb' ) }
 			onRequestClose={ handleClose }
 		>
@@ -244,20 +245,24 @@ const SaveSVGToAssetLibraryModal = ( { isOpen, onClose, mode = 'paste', initialS
 						value={ name }
 						onChange={ setName }
 						disabled={ isSaving }
+						style={ { marginBottom: '16px' } }
 					/>
-					<SelectControl
-						label={ __( 'Group', 'mediaron-block-shortcuts-for-gb' ) }
-						value={ selectedGroup }
-						options={ groupOptions }
-						onChange={ setSelectedGroup }
-						disabled={ isSaving || isLoadingGroups }
-					/>
+					<div style={ { marginBottom: '16px' } }>
+						<SelectControl
+							label={ __( 'Group', 'mediaron-block-shortcuts-for-gb' ) }
+							value={ selectedGroup }
+							options={ groupOptions }
+							onChange={ setSelectedGroup }
+							disabled={ isSaving || isLoadingGroups }
+						/>
+					</div>
 					{ isAddingGroup && (
 						<TextControl
 							label={ __( 'New group name', 'mediaron-block-shortcuts-for-gb' ) }
 							value={ customGroup }
 							onChange={ setCustomGroup }
 							disabled={ isSaving }
+							style={ { marginBottom: '16px' } }
 						/>
 					) }
 					{ ! isFromBlock && (
@@ -267,6 +272,7 @@ const SaveSVGToAssetLibraryModal = ( { isOpen, onClose, mode = 'paste', initialS
 							onChange={ setSvg }
 							rows={ 8 }
 							disabled={ isSaving }
+							style={ { marginBottom: '16px' } }
 						/>
 					) }
 					{ sanitizedPreview && (
@@ -286,7 +292,7 @@ const SaveSVGToAssetLibraryModal = ( { isOpen, onClose, mode = 'paste', initialS
 							/>
 						</div>
 					) }
-					<div style={ { display: 'flex', justifyContent: 'flex-end', gap: '8px' } }>
+					<div style={ { display: 'flex', justifyContent: 'flex-end', gap: '8px', marginTop: '16px' } }>
 						<Button
 							variant="tertiary"
 							onClick={ handleClose }

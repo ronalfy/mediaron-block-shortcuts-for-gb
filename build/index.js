@@ -211,6 +211,7 @@ var SaveSVGToAssetLibraryModal = function SaveSVGToAssetLibraryModal(_ref) {
     isDismissible: !isSaving,
     shouldCloseOnClickOutside: !isSaving,
     shouldCloseOnEsc: !isSaving,
+    size: "medium",
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Save SVG to Asset Library', 'mediaron-block-shortcuts-for-gb'),
     onRequestClose: handleClose
   }, 'saving' === status && /*#__PURE__*/React.createElement("div", {
@@ -260,24 +261,37 @@ var SaveSVGToAssetLibraryModal = function SaveSVGToAssetLibraryModal(_ref) {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon name', 'mediaron-block-shortcuts-for-gb'),
     value: name,
     onChange: setName,
-    disabled: isSaving
-  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+    disabled: isSaving,
+    style: {
+      marginBottom: '16px'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '16px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Group', 'mediaron-block-shortcuts-for-gb'),
     value: selectedGroup,
     options: groupOptions,
     onChange: setSelectedGroup,
     disabled: isSaving || isLoadingGroups
-  }), isAddingGroup && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+  })), isAddingGroup && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('New group name', 'mediaron-block-shortcuts-for-gb'),
     value: customGroup,
     onChange: setCustomGroup,
-    disabled: isSaving
+    disabled: isSaving,
+    style: {
+      marginBottom: '16px'
+    }
   }), !isFromBlock && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('SVG markup', 'mediaron-block-shortcuts-for-gb'),
     value: svg,
     onChange: setSvg,
     rows: 8,
-    disabled: isSaving
+    disabled: isSaving,
+    style: {
+      marginBottom: '16px'
+    }
   }), sanitizedPreview && /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: '16px'
@@ -297,7 +311,8 @@ var SaveSVGToAssetLibraryModal = function SaveSVGToAssetLibraryModal(_ref) {
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
-      gap: '8px'
+      gap: '8px',
+      marginTop: '16px'
     }
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     variant: "tertiary",
