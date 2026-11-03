@@ -18,15 +18,18 @@ MediaRon Block Shortcuts for GenerateBlocks is an add-on for <a href="https://ge
 3. **Adobe Font Support**: Integrate Adobe Fonts from popular font plugins like <a href="https://wordpress.org/plugins/custom-typekit-fonts/">Astra’s Typekit plugin</a> and <a href="https://creativethemes.com/blocksy/docs/extensions/adobe-typekit-fonts/">Blocksy’s Adobe Font module</a>.
 4. **Container Block Wrapping and Unwrapping**: Select multiple blocks and wrap them in a Container block with ease. Just as easily, you can unwrap the container via a contextual shortcut.
 5. **Transform the Group block to a Container**: Convert Group blocks into Container blocks, maintaining all internal blocks.
-6. **Command Palette Shortcuts**: Access GenerateBlocks settings quickly with shortcut commands in the block editor’s Command Palette. This includes a post-wide v1 to v2 block conversion shortcut. Other commands allow for quick regeneration of GenerateBlocks styles, and a command for outlining different blocks such as grids and containers.
+6. **Command Palette Shortcuts**: Access GenerateBlocks settings quickly with shortcut commands in the block editor’s Command Palette. This includes a post-wide v1 to v2 block conversion shortcut. Other commands allow for quick regeneration of GenerateBlocks styles, and a command for outlining different blocks such as grids and containers. Add SVGs to the asset libary. Generate new unique IDs for the entire page.
 7. **Unique ID Generation**: Avoid style conflicts by generating new unique IDs for duplicated or copied blocks. This is still very useful today.
 8. **Build Styles for Select Post Types and Templates**: Have GenerateBlocks regenerate site-wide styles based on your selected post types or FSE templates.
 9. **Useful Block Commands**: Convert all paragraph blocks into Text blocks (with paragraphs being selected) as well as converting all headlines into a Text block with appropriate headings selected.
 10. **Add a Global Menu Toolbar Shortcut**: The current admin bar only shows overlays. With Block Shortcuts, you can see all available menu items from a top-level admin menu in the toolbar in both the admin and the frontend.
+11. **SVG Asset Libary** Add an SVG to the asset library without leaving the post. This works via a contextual menu or the command palette.
 
 MediaRon Block Shortcuts for GenerateBlocks is perfect for users looking to streamline their GenerateBlocks workflow and add more versatility to the block editor design experience.
 
 > The source code for this plugin <a href="https://github.com/ronalfy/mediaron-block-shortcuts-for-gb">is open source and available on GitHub</a>.
+
+> A <a href="https://generatepress.com/pricing/">GeneratePress One subscription</a> is recommended, but not required for this plugin to work.
 
 == Installation ==
 
@@ -68,6 +71,10 @@ The Pattern Importer allows you to import GenerateBlocks patterns, automatically
 = Is this plugin free? =
 
 Yes, free as in beer. It was called "GB Extras" when it was a pro plugin, but the parent company had to close its doors. Rather than let a useful tool languish on GitHub unnoticed, I've decided to release it for free on .org to be open-source and freely available as long as possible.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.]( https://patchstack.com/database/vdp/5b5e3d3e-b587-442c-835e-a82e16deec66 )
 
 == Screenshots ==
 
