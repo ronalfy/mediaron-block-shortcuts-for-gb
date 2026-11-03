@@ -2,7 +2,7 @@
 Tags: blocks, gutenberg, helpers, add-ons, gutenberg blocks
 Requires at least: 7.0
 Tested up to: 7.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -83,10 +83,15 @@ Yes, free as in beer. It was called "GB Extras" when it was a pro plugin, but th
 
 == Changelog ==
 
+= 1.1.0 =
+* Released 2026-11-03
+* New: Add SVGs to the asset library from the block editor, either via contextual shortcut or command palette.
+* New: Generate Unique IDs from the command palette for the entire post.
+
 = 1.0.0 =
 * Initial WordPress.org release.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-Initial WordPress.org release.
+= 1.1.0 =
+Add SVGs to the asset library from the block editor, either via contextual shortcut or command palette. Generate Unique IDs from the command palette for the entire post.
