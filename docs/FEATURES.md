@@ -88,4 +88,6 @@ GenerateBlocks highlights a library tile when its SVG string matches the block, 
 
 ## Command palette
 
+- **Generate New Unique IDs** regenerates `uniqueId` on every GenerateBlocks block in the current post, including blocks nested inside core groups, and rewrites each block’s saved `css` selectors. Synced patterns are left unchanged. Query loop pagination keys change with the new IDs. The editor undo stack can revert the edit.
+
 See [COMMANDS.md](COMMANDS.md) for IDs and contexts.

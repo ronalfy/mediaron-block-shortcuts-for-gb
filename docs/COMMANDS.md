@@ -20,6 +20,7 @@ Commands register via `@wordpress/commands` `useCommand`. Source lives under `sr
 | `mrshortcuts-gb-transform-paragraphs-to-gb-text` | GenerateBlocks: Convert Paragraphs to Text Blocks | Block editor | Bulk-convert core paragraphs |
 | `mrshortcuts-gb-refresh-css-files` | GenerateBlocks: Generate CSS Files | Admin + frontend | `POST mediaron/block-shortcuts-for-gb/v1/regenerate_css_files` |
 | `mrshortcuts-gb-save-svg-to-asset-library` | GenerateBlocks: Save SVG to Asset Library | Block editor | Pro only; paste SVG into the Asset Library |
+| `mrshortcuts-gb-generate-unique-ids` | GenerateBlocks: Generate New Unique IDs | Block editor | New `uniqueId` for every GenerateBlocks block in the post. Rewrites saved `css` selectors. Skips synced patterns (`core/block`). |
 
 ## Implementation tips
 

@@ -8,6 +8,7 @@ import { useTransformV1ToV2Command } from './components/commands/TransformV1ToV2
 import { useTransformHeadingToGBTextCommand } from './components/commands/TransformHeadingToGBText';
 import { useTransformParagraphToGBTextCommand } from './components/commands/TransformParagraphToGBText';
 import { useSaveSVGToAssetLibraryCommand } from './components/commands/SaveSVGToAssetLibrary';
+import { useGenerateUniqueIdsCommand } from './components/commands/GenerateUniqueIds';
 
 /**
  * Commands block editor component.
@@ -20,6 +21,7 @@ const CommandsBlockEditor = () => {
 	const headingTransformModal = useTransformHeadingToGBTextCommand();
 	const paragraphTransformModal = useTransformParagraphToGBTextCommand();
 	const saveSvgModal = useSaveSVGToAssetLibraryCommand();
+	const generateUniqueIdsModal = useGenerateUniqueIdsCommand();
 
 	// Return all modals (they handle their own visibility).
 	return (
@@ -28,6 +30,7 @@ const CommandsBlockEditor = () => {
 			{ headingTransformModal }
 			{ paragraphTransformModal }
 			{ saveSvgModal }
+			{ generateUniqueIdsModal }
 		</>
 	);
 };
