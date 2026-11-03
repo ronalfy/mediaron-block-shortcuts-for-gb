@@ -7,6 +7,7 @@ import { useToggleContainerOutlinesCommand } from './components/commands/ToggleC
 import { useTransformV1ToV2Command } from './components/commands/TransformV1ToV2';
 import { useTransformHeadingToGBTextCommand } from './components/commands/TransformHeadingToGBText';
 import { useTransformParagraphToGBTextCommand } from './components/commands/TransformParagraphToGBText';
+import { useSaveSVGToAssetLibraryCommand } from './components/commands/SaveSVGToAssetLibrary';
 
 /**
  * Commands block editor component.
@@ -18,6 +19,7 @@ const CommandsBlockEditor = () => {
 	const transformModal = useTransformV1ToV2Command();
 	const headingTransformModal = useTransformHeadingToGBTextCommand();
 	const paragraphTransformModal = useTransformParagraphToGBTextCommand();
+	const saveSvgModal = useSaveSVGToAssetLibraryCommand();
 
 	// Return all modals (they handle their own visibility).
 	return (
@@ -25,6 +27,7 @@ const CommandsBlockEditor = () => {
 			{ transformModal }
 			{ headingTransformModal }
 			{ paragraphTransformModal }
+			{ saveSvgModal }
 		</>
 	);
 };

@@ -6,7 +6,9 @@
 		"window": true,
 		"document": true,
 		"mrshortcutsgbAdmin": "readonly",
-		"mrshortcutsgbPatternInserter": "readonly"
+		"mrshortcutsgbPatternInserter": "readonly",
+		"mrshortcutsgbCommands": "readonly",
+		"generateBlocksPro": "readonly"
 	},
 	"env": {
 		"browser": true,

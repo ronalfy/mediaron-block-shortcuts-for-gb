@@ -1,1 +1,5072 @@
-(()=>{"use strict";const t=window.wp.plugins,e=window.React,r=window.wp.commands,n=window.wp.data;function o(){return o=Object.assign?Object.assign.bind():function(t){for(var e=1;e<arguments.length;e++){var r=arguments[e];for(var n in r)({}).hasOwnProperty.call(r,n)&&(t[n]=r[n])}return t},o.apply(null,arguments)}const a=function(t){return React.createElement("svg",o({viewBox:"0 0 50 60.12",xmlns:"http://www.w3.org/2000/svg"},t),React.createElement("path",{d:"M6.686 31.622V18.918a.077.077 0 0 1 .05-.072l6.5-2.313 6.5-2.313 9.682-3.445L39.1 7.33a.067.067 0 0 0 .036-.028.074.074 0 0 0 .014-.044V.076a.077.077 0 0 0-.032-.062.076.076 0 0 0-.069-.009l-13 4.625-13 4.625-6.5 2.313-6.5 2.313a.067.067 0 0 0-.036.028.097.097 0 0 0-.013.046V52.067c0 .026.013.048.032.062s.044.018.069.009l3.267-1.163 3.267-1.163c.015-.005.028-.015.036-.028s.014-.028.014-.044V37.999l.001-6.377c-.001 0 0 0 0 0z"}),React.createElement("path",{d:"m23.949 29.976 13-4.625 13-4.625c.015-.005.028-.015.036-.028s.015-.028.015-.044V8.056a.077.077 0 0 0-.032-.062.076.076 0 0 0-.069-.009l-13 4.625-13 4.625-6.5 2.313-6.5 2.313a.067.067 0 0 0-.036.028.074.074 0 0 0-.014.044V60.045c0 .026.013.048.032.062a.076.076 0 0 0 .069.009l6.475-2.304 6.475-2.304 6.525-2.322 6.525-2.322 6.5-2.313 6.5-2.313c.015-.005.028-.015.036-.028s.014-.025.014-.041V27.193a.077.077 0 0 0-.032-.062.076.076 0 0 0-.069-.009l-6.45 2.295L37 31.711a.067.067 0 0 0-.036.028.074.074 0 0 0-.014.044v6.272a.077.077 0 0 1-.05.072l-6.45 2.295L24 42.715a.075.075 0 0 1-.101-.071V30.046c0-.016.005-.031.014-.044a.08.08 0 0 1 .036-.026z"}))};function c(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}function i(){var t,o,i=(t=(0,e.useState)(!1),o=2,function(t){if(Array.isArray(t))return t}(t)||function(t,e){var r=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=r){var n,o,a,c,i=[],u=!0,l=!1;try{if(a=(r=r.call(t)).next,0===e){if(Object(r)!==r)return;u=!1}else for(;!(u=(n=a.call(r)).done)&&(i.push(n.value),i.length!==e);u=!0);}catch(t){l=!0,o=t}finally{try{if(!u&&null!=r.return&&(c=r.return(),Object(c)!==c))return}finally{if(l)throw o}}return i}}(t,o)||function(t,e){if(t){if("string"==typeof t)return c(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?c(t,e):void 0}}(t,o)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()),u=i[0],l=i[1],s=(0,e.useRef)(null);(0,e.useEffect)(function(){},[u]),(0,e.useEffect)(function(){var t,e,r,o,a=(null==(e=document.querySelector(".editor-canvas__iframe")||document.querySelector('iframe[name="editor-canvas"]'))?void 0:e.contentDocument)||(null==e||null===(t=e.contentWindow)||void 0===t?void 0:t.document)||document;if(!u)return r=(0,n.select)("core/block-editor").getBlocks(),o=function(t){var e=a.querySelector('[data-block="'.concat(t.clientId,'"]'));e&&(e.removeAttribute("data-container-type"),t.innerBlocks&&t.innerBlocks.forEach(o))},r.forEach(o),void(s.current&&(s.current.disconnect(),s.current=null));var c=function(){var t=(0,n.select)("core/block-editor").getBlocks(),e=function(t){var r=a.querySelector('[data-block="'.concat(t.clientId,'"]'));if(r){var n="generateblocks/container"===r.getAttribute("data-type"),o="generateblocks/element"===r.getAttribute("data-type");"Grid"===r.getAttribute("data-title")?r.setAttribute("data-container-type","grid"):n?r.setAttribute("data-container-type","container"):o&&r.setAttribute("data-container-type","element"),t.innerBlocks&&t.innerBlocks.forEach(e)}};t.forEach(e)};c();var i=new MutationObserver(function(){setTimeout(c,10)}),l=a.querySelector(".block-editor-writing-flow")||a.body;return l&&(i.observe(l,{childList:!0,subtree:!0}),s.current=i),function(){s.current&&(s.current.disconnect(),s.current=null)}},[u]),(0,r.useCommand)({name:"mrshortcuts-gb-toggle-container-outlines",label:"GenerateBlocks: Toggle Container/Element Outlines",keywords:["generateblocks","outline","container","element","grid","toggle","show","hide","visual","debug"],icon:React.createElement(a,{width:"16",height:"16"}),callback:function(t){var e=t.close;l(function(t){return!t}),e()},context:"block-editor"})}const u=window.wp.components,l=window.wp.i18n;function s(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}const f=function(t){var r,n,o=t.isOpen,a=t.onClose,c=t.onConfirm,i=t.transforming,f=(r=(0,e.useState)(!1),n=2,function(t){if(Array.isArray(t))return t}(r)||function(t,e){var r=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=r){var n,o,a,c,i=[],u=!0,l=!1;try{if(a=(r=r.call(t)).next,0===e){if(Object(r)!==r)return;u=!1}else for(;!(u=(n=a.call(r)).done)&&(i.push(n.value),i.length!==e);u=!0);}catch(t){l=!0,o=t}finally{try{if(!u&&null!=r.return&&(c=r.return(),Object(c)!==c))return}finally{if(l)throw o}}return i}}(r,n)||function(t,e){if(t){if("string"==typeof t)return s(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?s(t,e):void 0}}(r,n)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()),b=f[0],p=f[1];return o?React.createElement(u.Modal,{isDismissible:!i,shouldCloseOnClickOutside:!1,onRequestClose:a,title:(0,l.__)("Convert v1 Blocks to v2","mediaron-block-shortcuts-for-gb")},React.createElement("div",{style:{marginBottom:"20px"}},React.createElement("p",null,(0,l.__)("Please back up your blocks before transforming. There is no undo for this operation.","mediaron-block-shortcuts-for-gb")),React.createElement("p",null,(0,l.__)("This will convert all v1 blocks to v2 blocks.","mediaron-block-shortcuts-for-gb"))),React.createElement("div",{style:{marginBottom:"20px"}},React.createElement(u.CheckboxControl,{label:(0,l.__)("I understand and want to proceed.","mediaron-block-shortcuts-for-gb"),checked:b,onChange:p,help:(0,l.__)("Please back up your blocks before transforming. There is no undo for this operation.","mediaron-block-shortcuts-for-gb")})),React.createElement("div",{style:{display:"flex",justifyContent:"flex-end",gap:"10px"}},React.createElement(u.Button,{variant:"primary",onClick:c,disabled:!b||i,isBusy:i},i?(0,l.__)("Transforming…","mediaron-block-shortcuts-for-gb"):(0,l.__)("Transform","mediaron-block-shortcuts-for-gb")),React.createElement(u.Button,{variant:"secondary",onClick:a,disabled:i},(0,l.__)("Cancel","mediaron-block-shortcuts-for-gb")))):null};function b(){var t=(arguments.length>0&&void 0!==arguments[0]?arguments[0]:null)||(0,n.select)("core/block-editor").getBlocks(),e=0;return t.forEach(function(t){if(t.innerBlocks.length>0){var r=1+b(t.innerBlocks);e=Math.max(e,r)}}),e}const p=window.wp.blocks;var y=["generateblocks/button-container","generateblocks/buttons","generateblocks/button","generateblocks/headline","generateblocks/container","generateblocks/grid","generateblocks/image","generateblocks/query-loop"],m=["tabs","accordion"],d=["generateblocks/text","generateblocks/element","generateblocks/media","generateblocks/shape","generateblocks/query","generateblocks/looper","generateblocks/query-no-results","generateblocks/query-page-numbers","generateblocks/loop-item","generateblocks-pro/accordion","generateblocks-pro/accordion-item","generateblocks-pro/accordion-toggle","generateblocks-pro/accordion-toggle-icon","generateblocks-pro/accordion-content","generateblocks-pro/tabs","generateblocks-pro/tabs-menu","generateblocks-pro/tab-menu-item","generateblocks-pro/tab-items","generateblocks-pro/tab-item","generateblocks/button-container","generateblocks-pro/navigation","generateblocks-pro/menu-container","generateblocks-pro/menu-toggle","generateblocks-pro/classic-menu","generateblocks-pro/classic-menu-item","generateblocks-pro/classic-sub-menu","generateblocks-pro/site-header"];function v(){var t,e,r="function"==typeof Symbol?Symbol:{},n=r.iterator||"@@iterator",o=r.toStringTag||"@@toStringTag";function a(r,n,o,a){var u=n&&n.prototype instanceof i?n:i,l=Object.create(u.prototype);return h(l,"_invoke",function(r,n,o){var a,i,u,l=0,s=o||[],f=!1,b={p:0,n:0,v:t,a:p,f:p.bind(t,4),d:function(e,r){return a=e,i=0,u=t,b.n=r,c}};function p(r,n){for(i=r,u=n,e=0;!f&&l&&!o&&e<s.length;e++){var o,a=s[e],p=b.p,y=a[2];r>3?(o=y===n)&&(u=a[(i=a[4])?5:(i=3,3)],a[4]=a[5]=t):a[0]<=p&&((o=r<2&&p<a[1])?(i=0,b.v=n,b.n=a[1]):p<y&&(o=r<3||a[0]>n||n>y)&&(a[4]=r,a[5]=n,b.n=y,i=0))}if(o||r>1)return c;throw f=!0,n}return function(o,s,y){if(l>1)throw TypeError("Generator is already running");for(f&&1===s&&p(s,y),i=s,u=y;(e=i<2?t:u)||!f;){a||(i?i<3?(i>1&&(b.n=-1),p(i,u)):b.n=u:b.v=u);try{if(l=2,a){if(i||(o="next"),e=a[o]){if(!(e=e.call(a,u)))throw TypeError("iterator result is not an object");if(!e.done)return e;u=e.value,i<2&&(i=0)}else 1===i&&(e=a.return)&&e.call(a),i<2&&(u=TypeError("The iterator does not provide a '"+o+"' method"),i=1);a=t}else if((e=(f=b.n<0)?u:r.call(n,b))!==c)break}catch(e){a=t,i=1,u=e}finally{l=1}}return{value:e,done:f}}}(r,o,a),!0),l}var c={};function i(){}function u(){}function l(){}e=Object.getPrototypeOf;var s=[][n]?e(e([][n]())):(h(e={},n,function(){return this}),e),f=l.prototype=i.prototype=Object.create(s);function b(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,l):(t.__proto__=l,h(t,o,"GeneratorFunction")),t.prototype=Object.create(f),t}return u.prototype=l,h(f,"constructor",l),h(l,"constructor",u),u.displayName="GeneratorFunction",h(l,o,"GeneratorFunction"),h(f),h(f,o,"Generator"),h(f,n,function(){return this}),h(f,"toString",function(){return"[object Generator]"}),(v=function(){return{w:a,m:b}})()}function h(t,e,r,n){var o=Object.defineProperty;try{o({},"",{})}catch(t){o=0}h=function(t,e,r,n){function a(e,r){h(t,e,function(t){return this._invoke(e,r,t)})}e?o?o(t,e,{value:r,enumerable:!n,configurable:!n,writable:!n}):t[e]=r:(a("next",0),a("throw",1),a("return",2))},h(t,e,r,n)}function g(t,e){var r="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(!r){if(Array.isArray(t)||(r=function(t,e){if(t){if("string"==typeof t)return k(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?k(t,e):void 0}}(t))||e&&t&&"number"==typeof t.length){r&&(t=r);var _n=0,n=function(){};return{s:n,n:function(){return _n>=t.length?{done:!0}:{done:!1,value:t[_n++]}},e:function(t){throw t},f:n}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var o,a=!0,c=!1;return{s:function(){r=r.call(t)},n:function(){var t=r.next();return a=t.done,t},e:function(t){c=!0,o=t},f:function(){try{a||null==r.return||r.return()}finally{if(c)throw o}}}}function k(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}function w(t,e,r,n,o,a,c){try{var i=t[a](c),u=i.value}catch(t){return void r(t)}i.done?e(u):Promise.resolve(u).then(n,o)}function O(t){return function(){var e=this,r=arguments;return new Promise(function(n,o){var a=t.apply(e,r);function c(t){w(a,n,o,c,i,"next",t)}function i(t){w(a,n,o,c,i,"throw",t)}c(void 0)})}}function j(t){return t&&t.name&&(y.includes(t.name)||m.includes(t.name))||!1}function S(_x,t){return _.apply(this,arguments)}function _(){return(_=O(v().m(function t(e,r){var n,o,a,c,i,u,l,s,f,b;return v().w(function(t){for(;;)switch(t.p=t.n){case 0:if(j(e)){t.n=1;break}return t.a(2,null);case 1:if(n=(0,p.getBlockTransforms)("to",e.name)){t.n=2;break}return t.a(2,null);case 2:o=g(n),t.p=3,o.s();case 4:if((a=o.n()).done){t.n=16;break}if((c=a.value).blocks){t.n=5;break}return t.a(3,15);case 5:i=g(c.blocks),t.p=6,i.s();case 7:if((u=i.n()).done){t.n=12;break}if(l=u.value,d.includes(l)){t.n=8;break}return t.a(3,11);case 8:if(!(s=c.transform(e.attributes,e.innerBlocks))){t.n=10;break}return t.n=9,r("core/block-editor").replaceBlocks([e.clientId],s);case 9:return t.a(2,s);case 10:console.error("Failed to transform",e.name,"to",l);case 11:t.n=7;break;case 12:t.n=14;break;case 13:t.p=13,f=t.v,i.e(f);case 14:return t.p=14,i.f(),t.f(14);case 15:t.n=4;break;case 16:t.n=18;break;case 17:t.p=17,b=t.v,o.e(b);case 18:return t.p=18,o.f(),t.f(18);case 19:return t.a(2,null)}},t,null,[[6,13,14,15],[3,17,18,19]])}))).apply(this,arguments)}function E(t){return C.apply(this,arguments)}function C(){return(C=O(v().m(function t(e){return v().w(function(t){for(;;)if(0===t.n)return t.a(2,S(e,n.dispatch))},t)}))).apply(this,arguments)}function P(t){return x.apply(this,arguments)}function x(){return x=O(v().m(function t(e){var r;return v().w(function(t){for(;;)switch(t.n){case 0:return r=e.map(function(){var t=O(v().m(function t(e){return v().w(function(t){for(;;)switch(t.n){case 0:if(!(e.innerBlocks.length>0)){t.n=3;break}return t.n=1,E(e);case 1:return t.n=2,P(e.innerBlocks);case 2:t.n=4;break;case 3:return t.n=4,E(e);case 4:return t.a(2)}},t)}));return function(e){return t.apply(this,arguments)}}()),t.n=1,Promise.all(r);case 1:return t.a(2,e)}},t)})),x.apply(this,arguments)}function B(){var t,e,r="function"==typeof Symbol?Symbol:{},n=r.iterator||"@@iterator",o=r.toStringTag||"@@toStringTag";function a(r,n,o,a){var u=n&&n.prototype instanceof i?n:i,l=Object.create(u.prototype);return T(l,"_invoke",function(r,n,o){var a,i,u,l=0,s=o||[],f=!1,b={p:0,n:0,v:t,a:p,f:p.bind(t,4),d:function(e,r){return a=e,i=0,u=t,b.n=r,c}};function p(r,n){for(i=r,u=n,e=0;!f&&l&&!o&&e<s.length;e++){var o,a=s[e],p=b.p,y=a[2];r>3?(o=y===n)&&(u=a[(i=a[4])?5:(i=3,3)],a[4]=a[5]=t):a[0]<=p&&((o=r<2&&p<a[1])?(i=0,b.v=n,b.n=a[1]):p<y&&(o=r<3||a[0]>n||n>y)&&(a[4]=r,a[5]=n,b.n=y,i=0))}if(o||r>1)return c;throw f=!0,n}return function(o,s,y){if(l>1)throw TypeError("Generator is already running");for(f&&1===s&&p(s,y),i=s,u=y;(e=i<2?t:u)||!f;){a||(i?i<3?(i>1&&(b.n=-1),p(i,u)):b.n=u:b.v=u);try{if(l=2,a){if(i||(o="next"),e=a[o]){if(!(e=e.call(a,u)))throw TypeError("iterator result is not an object");if(!e.done)return e;u=e.value,i<2&&(i=0)}else 1===i&&(e=a.return)&&e.call(a),i<2&&(u=TypeError("The iterator does not provide a '"+o+"' method"),i=1);a=t}else if((e=(f=b.n<0)?u:r.call(n,b))!==c)break}catch(e){a=t,i=1,u=e}finally{l=1}}return{value:e,done:f}}}(r,o,a),!0),l}var c={};function i(){}function u(){}function l(){}e=Object.getPrototypeOf;var s=[][n]?e(e([][n]())):(T(e={},n,function(){return this}),e),f=l.prototype=i.prototype=Object.create(s);function b(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,l):(t.__proto__=l,T(t,o,"GeneratorFunction")),t.prototype=Object.create(f),t}return u.prototype=l,T(f,"constructor",l),T(l,"constructor",u),u.displayName="GeneratorFunction",T(l,o,"GeneratorFunction"),T(f),T(f,o,"Generator"),T(f,n,function(){return this}),T(f,"toString",function(){return"[object Generator]"}),(B=function(){return{w:a,m:b}})()}function T(t,e,r,n){var o=Object.defineProperty;try{o({},"",{})}catch(t){o=0}T=function(t,e,r,n){function a(e,r){T(t,e,function(t){return this._invoke(e,r,t)})}e?o?o(t,e,{value:r,enumerable:!n,configurable:!n,writable:!n}):t[e]=r:(a("next",0),a("throw",1),a("return",2))},T(t,e,r,n)}function A(t,e,r,n,o,a,c){try{var i=t[a](c),u=i.value}catch(t){return void r(t)}i.done?e(u):Promise.resolve(u).then(n,o)}function G(t,e){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var r=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=r){var n,o,a,c,i=[],u=!0,l=!1;try{if(a=(r=r.call(t)).next,0===e){if(Object(r)!==r)return;u=!1}else for(;!(u=(n=a.call(r)).done)&&(i.push(n.value),i.length!==e);u=!0);}catch(t){l=!0,o=t}finally{try{if(!u&&null!=r.return&&(c=r.return(),Object(c)!==c))return}finally{if(l)throw o}}return i}}(t,e)||function(t,e){if(t){if("string"==typeof t)return R(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?R(t,e):void 0}}(t,e)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function R(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}const I=function(t){var e=t.isOpen,r=t.onClose,n=t.onConfirm,o=t.transforming,a=t.headingCount;return e?React.createElement(u.Modal,{isDismissible:!o,shouldCloseOnClickOutside:!1,onRequestClose:r,title:(0,l.__)("Convert Headings to GenerateBlocks Text Blocks","mediaron-block-shortcuts-for-gb")},React.createElement("div",{style:{marginBottom:"20px"}},React.createElement("p",null,(0,l.__)("This will convert all core heading blocks to GenerateBlocks v2 text blocks.","mediaron-block-shortcuts-for-gb")),a>0&&React.createElement("p",null,(0,l.__)("Found ","mediaron-block-shortcuts-for-gb"),React.createElement("strong",null,a),1===a?(0,l.__)(" heading block to convert.","mediaron-block-shortcuts-for-gb"):(0,l.__)(" heading blocks to convert.","mediaron-block-shortcuts-for-gb")),a>0&&React.createElement("p",null,(0,l.__)("Please back up your content before converting. There is no undo for this operation.","mediaron-block-shortcuts-for-gb")),0===a&&React.createElement("p",null,(0,l.__)("No heading blocks found to convert.","mediaron-block-shortcuts-for-gb"))),React.createElement("div",{style:{display:"flex",justifyContent:"flex-end",gap:"10px"}},React.createElement(u.Button,{variant:"primary",onClick:n,disabled:o||0===a,isBusy:o},o?(0,l.__)("Converting…","mediaron-block-shortcuts-for-gb"):(0,l.__)("Convert Headings","mediaron-block-shortcuts-for-gb")),React.createElement(u.Button,{variant:"secondary",onClick:r,disabled:o},(0,l.__)("Cancel","mediaron-block-shortcuts-for-gb")))):null};function F(){var t,e,r="function"==typeof Symbol?Symbol:{},n=r.iterator||"@@iterator",o=r.toStringTag||"@@toStringTag";function a(r,n,o,a){var u=n&&n.prototype instanceof i?n:i,l=Object.create(u.prototype);return M(l,"_invoke",function(r,n,o){var a,i,u,l=0,s=o||[],f=!1,b={p:0,n:0,v:t,a:p,f:p.bind(t,4),d:function(e,r){return a=e,i=0,u=t,b.n=r,c}};function p(r,n){for(i=r,u=n,e=0;!f&&l&&!o&&e<s.length;e++){var o,a=s[e],p=b.p,y=a[2];r>3?(o=y===n)&&(u=a[(i=a[4])?5:(i=3,3)],a[4]=a[5]=t):a[0]<=p&&((o=r<2&&p<a[1])?(i=0,b.v=n,b.n=a[1]):p<y&&(o=r<3||a[0]>n||n>y)&&(a[4]=r,a[5]=n,b.n=y,i=0))}if(o||r>1)return c;throw f=!0,n}return function(o,s,y){if(l>1)throw TypeError("Generator is already running");for(f&&1===s&&p(s,y),i=s,u=y;(e=i<2?t:u)||!f;){a||(i?i<3?(i>1&&(b.n=-1),p(i,u)):b.n=u:b.v=u);try{if(l=2,a){if(i||(o="next"),e=a[o]){if(!(e=e.call(a,u)))throw TypeError("iterator result is not an object");if(!e.done)return e;u=e.value,i<2&&(i=0)}else 1===i&&(e=a.return)&&e.call(a),i<2&&(u=TypeError("The iterator does not provide a '"+o+"' method"),i=1);a=t}else if((e=(f=b.n<0)?u:r.call(n,b))!==c)break}catch(e){a=t,i=1,u=e}finally{l=1}}return{value:e,done:f}}}(r,o,a),!0),l}var c={};function i(){}function u(){}function l(){}e=Object.getPrototypeOf;var s=[][n]?e(e([][n]())):(M(e={},n,function(){return this}),e),f=l.prototype=i.prototype=Object.create(s);function b(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,l):(t.__proto__=l,M(t,o,"GeneratorFunction")),t.prototype=Object.create(f),t}return u.prototype=l,M(f,"constructor",l),M(l,"constructor",u),u.displayName="GeneratorFunction",M(l,o,"GeneratorFunction"),M(f),M(f,o,"Generator"),M(f,n,function(){return this}),M(f,"toString",function(){return"[object Generator]"}),(F=function(){return{w:a,m:b}})()}function M(t,e,r,n){var o=Object.defineProperty;try{o({},"",{})}catch(t){o=0}M=function(t,e,r,n){function a(e,r){M(t,e,function(t){return this._invoke(e,r,t)})}e?o?o(t,e,{value:r,enumerable:!n,configurable:!n,writable:!n}):t[e]=r:(a("next",0),a("throw",1),a("return",2))},M(t,e,r,n)}function q(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);e&&(n=n.filter(function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable})),r.push.apply(r,n)}return r}function D(t){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{};e%2?q(Object(r),!0).forEach(function(e){V(t,e,r[e])}):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):q(Object(r)).forEach(function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))})}return t}function V(t,e,r){return(e=function(t){var e=function(t){if("object"!=N(t)||!t)return t;var e;if("undefined"!=typeof Symbol&&void 0!==(e=t[Symbol.toPrimitive])){var r=e.call(t,"string");if("object"!=N(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==N(e)?e:e+""}(e))in t?Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}):t[e]=r,t}function N(t){return N="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},N(t)}function U(t,e,r,n,o,a,c){try{var i=t[a](c),u=i.value}catch(t){return void r(t)}i.done?e(u):Promise.resolve(u).then(n,o)}function $(t){return function(){var e=this,r=arguments;return new Promise(function(n,o){var a=t.apply(e,r);function c(t){U(a,n,o,c,i,"next",t)}function i(t){U(a,n,o,c,i,"throw",t)}c(void 0)})}}function L(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}function z(t){var e=[];return t.forEach(function(t){var r;"core/heading"===t.name&&e.push(t),t.innerBlocks&&t.innerBlocks.length>0&&e.push.apply(e,function(t){if(Array.isArray(t))return L(t)}(r=z(t.innerBlocks))||function(t){if("undefined"!=typeof Symbol&&null!=t[Symbol.iterator]||null!=t["@@iterator"])return Array.from(t)}(r)||function(t,e){if(t){if("string"==typeof t)return L(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?L(t,e):void 0}}(r)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}())}),e}function H(_x){return W.apply(this,arguments)}function W(){return(W=$(F().m(function t(e){var r,o,a,c,i,u,l,s,f,b,y,m,d,v;return F().w(function(t){for(;;)switch(t.n){case 0:if("core/heading"===e.name){t.n=1;break}return t.a(2,null);case 1:return r=e.attributes||{},o=r.level,a=void 0===o?2:o,c=r.content,i=void 0===c?"":c,u=r.align,l=r.anchor,s=r.textColor,f=r.backgroundColor,b=r.fontSize,y=r.style,m="h".concat(a),d={tagName:m,content:i||""},u&&(d.align=u),l&&(d.anchor=l),y&&"object"===N(y)&&(d.style=D({},y)),s&&(d.textColor=s),f&&(d.backgroundColor=f),b&&(d.fontSize=b),v=(0,p.createBlock)("generateblocks/text",d,e.innerBlocks||[]),t.n=2,(0,n.dispatch)("core/block-editor").replaceBlocks([e.clientId],[v]);case 2:return t.a(2,v)}},t)}))).apply(this,arguments)}function J(){return K.apply(this,arguments)}function K(){return(K=$(F().m(function t(){var e,r,o;return F().w(function(t){for(;;)switch(t.n){case 0:return e=(0,n.select)("core/block-editor").getBlocks(),r=z(e),o=r.map(function(t){return H(t)}),t.n=1,Promise.all(o);case 1:return t.a(2,r.length)}},t)}))).apply(this,arguments)}function Q(){var t,e,r="function"==typeof Symbol?Symbol:{},n=r.iterator||"@@iterator",o=r.toStringTag||"@@toStringTag";function a(r,n,o,a){var u=n&&n.prototype instanceof i?n:i,l=Object.create(u.prototype);return X(l,"_invoke",function(r,n,o){var a,i,u,l=0,s=o||[],f=!1,b={p:0,n:0,v:t,a:p,f:p.bind(t,4),d:function(e,r){return a=e,i=0,u=t,b.n=r,c}};function p(r,n){for(i=r,u=n,e=0;!f&&l&&!o&&e<s.length;e++){var o,a=s[e],p=b.p,y=a[2];r>3?(o=y===n)&&(u=a[(i=a[4])?5:(i=3,3)],a[4]=a[5]=t):a[0]<=p&&((o=r<2&&p<a[1])?(i=0,b.v=n,b.n=a[1]):p<y&&(o=r<3||a[0]>n||n>y)&&(a[4]=r,a[5]=n,b.n=y,i=0))}if(o||r>1)return c;throw f=!0,n}return function(o,s,y){if(l>1)throw TypeError("Generator is already running");for(f&&1===s&&p(s,y),i=s,u=y;(e=i<2?t:u)||!f;){a||(i?i<3?(i>1&&(b.n=-1),p(i,u)):b.n=u:b.v=u);try{if(l=2,a){if(i||(o="next"),e=a[o]){if(!(e=e.call(a,u)))throw TypeError("iterator result is not an object");if(!e.done)return e;u=e.value,i<2&&(i=0)}else 1===i&&(e=a.return)&&e.call(a),i<2&&(u=TypeError("The iterator does not provide a '"+o+"' method"),i=1);a=t}else if((e=(f=b.n<0)?u:r.call(n,b))!==c)break}catch(e){a=t,i=1,u=e}finally{l=1}}return{value:e,done:f}}}(r,o,a),!0),l}var c={};function i(){}function u(){}function l(){}e=Object.getPrototypeOf;var s=[][n]?e(e([][n]())):(X(e={},n,function(){return this}),e),f=l.prototype=i.prototype=Object.create(s);function b(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,l):(t.__proto__=l,X(t,o,"GeneratorFunction")),t.prototype=Object.create(f),t}return u.prototype=l,X(f,"constructor",l),X(l,"constructor",u),u.displayName="GeneratorFunction",X(l,o,"GeneratorFunction"),X(f),X(f,o,"Generator"),X(f,n,function(){return this}),X(f,"toString",function(){return"[object Generator]"}),(Q=function(){return{w:a,m:b}})()}function X(t,e,r,n){var o=Object.defineProperty;try{o({},"",{})}catch(t){o=0}X=function(t,e,r,n){function a(e,r){X(t,e,function(t){return this._invoke(e,r,t)})}e?o?o(t,e,{value:r,enumerable:!n,configurable:!n,writable:!n}):t[e]=r:(a("next",0),a("throw",1),a("return",2))},X(t,e,r,n)}function Y(t,e,r,n,o,a,c){try{var i=t[a](c),u=i.value}catch(t){return void r(t)}i.done?e(u):Promise.resolve(u).then(n,o)}function Z(t,e){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var r=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=r){var n,o,a,c,i=[],u=!0,l=!1;try{if(a=(r=r.call(t)).next,0===e){if(Object(r)!==r)return;u=!1}else for(;!(u=(n=a.call(r)).done)&&(i.push(n.value),i.length!==e);u=!0);}catch(t){l=!0,o=t}finally{try{if(!u&&null!=r.return&&(c=r.return(),Object(c)!==c))return}finally{if(l)throw o}}return i}}(t,e)||function(t,e){if(t){if("string"==typeof t)return tt(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?tt(t,e):void 0}}(t,e)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function tt(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}const et=function(t){var e=t.isOpen,r=t.onClose,n=t.onConfirm,o=t.transforming,a=t.paragraphCount;return e?React.createElement(u.Modal,{isDismissible:!o,shouldCloseOnClickOutside:!1,onRequestClose:r,title:(0,l.__)("Convert Paragraphs to GenerateBlocks Text Blocks","mediaron-block-shortcuts-for-gb")},React.createElement("div",{style:{marginBottom:"20px"}},React.createElement("p",null,(0,l.__)("This will convert all core paragraph blocks to GenerateBlocks v2 text blocks.","mediaron-block-shortcuts-for-gb")),a>0&&React.createElement("p",null,(0,l.__)("Found ","mediaron-block-shortcuts-for-gb"),React.createElement("strong",null,a),1===a?(0,l.__)(" paragraph block to convert.","mediaron-block-shortcuts-for-gb"):(0,l.__)(" paragraph blocks to convert.","mediaron-block-shortcuts-for-gb")),a>0&&React.createElement("p",null,(0,l.__)("Please back up your content before converting. There is no undo for this operation.","mediaron-block-shortcuts-for-gb")),0===a&&React.createElement("p",null,(0,l.__)("No paragraph blocks found to convert.","mediaron-block-shortcuts-for-gb"))),React.createElement("div",{style:{display:"flex",justifyContent:"flex-end",gap:"10px"}},React.createElement(u.Button,{variant:"primary",onClick:n,disabled:o||0===a,isBusy:o},o?(0,l.__)("Converting…","mediaron-block-shortcuts-for-gb"):(0,l.__)("Convert Paragraphs","mediaron-block-shortcuts-for-gb")),React.createElement(u.Button,{variant:"secondary",onClick:r,disabled:o},(0,l.__)("Cancel","mediaron-block-shortcuts-for-gb")))):null};function rt(){var t,e,r="function"==typeof Symbol?Symbol:{},n=r.iterator||"@@iterator",o=r.toStringTag||"@@toStringTag";function a(r,n,o,a){var u=n&&n.prototype instanceof i?n:i,l=Object.create(u.prototype);return nt(l,"_invoke",function(r,n,o){var a,i,u,l=0,s=o||[],f=!1,b={p:0,n:0,v:t,a:p,f:p.bind(t,4),d:function(e,r){return a=e,i=0,u=t,b.n=r,c}};function p(r,n){for(i=r,u=n,e=0;!f&&l&&!o&&e<s.length;e++){var o,a=s[e],p=b.p,y=a[2];r>3?(o=y===n)&&(u=a[(i=a[4])?5:(i=3,3)],a[4]=a[5]=t):a[0]<=p&&((o=r<2&&p<a[1])?(i=0,b.v=n,b.n=a[1]):p<y&&(o=r<3||a[0]>n||n>y)&&(a[4]=r,a[5]=n,b.n=y,i=0))}if(o||r>1)return c;throw f=!0,n}return function(o,s,y){if(l>1)throw TypeError("Generator is already running");for(f&&1===s&&p(s,y),i=s,u=y;(e=i<2?t:u)||!f;){a||(i?i<3?(i>1&&(b.n=-1),p(i,u)):b.n=u:b.v=u);try{if(l=2,a){if(i||(o="next"),e=a[o]){if(!(e=e.call(a,u)))throw TypeError("iterator result is not an object");if(!e.done)return e;u=e.value,i<2&&(i=0)}else 1===i&&(e=a.return)&&e.call(a),i<2&&(u=TypeError("The iterator does not provide a '"+o+"' method"),i=1);a=t}else if((e=(f=b.n<0)?u:r.call(n,b))!==c)break}catch(e){a=t,i=1,u=e}finally{l=1}}return{value:e,done:f}}}(r,o,a),!0),l}var c={};function i(){}function u(){}function l(){}e=Object.getPrototypeOf;var s=[][n]?e(e([][n]())):(nt(e={},n,function(){return this}),e),f=l.prototype=i.prototype=Object.create(s);function b(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,l):(t.__proto__=l,nt(t,o,"GeneratorFunction")),t.prototype=Object.create(f),t}return u.prototype=l,nt(f,"constructor",l),nt(l,"constructor",u),u.displayName="GeneratorFunction",nt(l,o,"GeneratorFunction"),nt(f),nt(f,o,"Generator"),nt(f,n,function(){return this}),nt(f,"toString",function(){return"[object Generator]"}),(rt=function(){return{w:a,m:b}})()}function nt(t,e,r,n){var o=Object.defineProperty;try{o({},"",{})}catch(t){o=0}nt=function(t,e,r,n){function a(e,r){nt(t,e,function(t){return this._invoke(e,r,t)})}e?o?o(t,e,{value:r,enumerable:!n,configurable:!n,writable:!n}):t[e]=r:(a("next",0),a("throw",1),a("return",2))},nt(t,e,r,n)}function ot(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);e&&(n=n.filter(function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable})),r.push.apply(r,n)}return r}function at(t){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{};e%2?ot(Object(r),!0).forEach(function(e){ct(t,e,r[e])}):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):ot(Object(r)).forEach(function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))})}return t}function ct(t,e,r){return(e=function(t){var e=function(t){if("object"!=it(t)||!t)return t;var e;if("undefined"!=typeof Symbol&&void 0!==(e=t[Symbol.toPrimitive])){var r=e.call(t,"string");if("object"!=it(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==it(e)?e:e+""}(e))in t?Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}):t[e]=r,t}function it(t){return it="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},it(t)}function ut(t,e,r,n,o,a,c){try{var i=t[a](c),u=i.value}catch(t){return void r(t)}i.done?e(u):Promise.resolve(u).then(n,o)}function lt(t){return function(){var e=this,r=arguments;return new Promise(function(n,o){var a=t.apply(e,r);function c(t){ut(a,n,o,c,i,"next",t)}function i(t){ut(a,n,o,c,i,"throw",t)}c(void 0)})}}function st(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}function ft(t){var e=[];return t.forEach(function(t){var r;"core/paragraph"===t.name&&e.push(t),t.innerBlocks&&t.innerBlocks.length>0&&e.push.apply(e,function(t){if(Array.isArray(t))return st(t)}(r=ft(t.innerBlocks))||function(t){if("undefined"!=typeof Symbol&&null!=t[Symbol.iterator]||null!=t["@@iterator"])return Array.from(t)}(r)||function(t,e){if(t){if("string"==typeof t)return st(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?st(t,e):void 0}}(r)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}())}),e}function bt(_x){return pt.apply(this,arguments)}function pt(){return(pt=lt(rt().m(function t(e){var r,o,a,c,i,u,l,s,f,b,y;return rt().w(function(t){for(;;)switch(t.n){case 0:if("core/paragraph"===e.name){t.n=1;break}return t.a(2,null);case 1:return r=e.attributes||{},o=r.content,a=void 0===o?"":o,c=r.align,i=r.anchor,u=r.textColor,l=r.backgroundColor,s=r.fontSize,f=r.style,b={tagName:"p",element:"paragraph",content:a||""},c&&(b.align=c),i&&(b.anchor=i),f&&"object"===it(f)&&(b.style=at({},f)),u&&(b.textColor=u),l&&(b.backgroundColor=l),s&&(b.fontSize=s),y=(0,p.createBlock)("generateblocks/text",b,e.innerBlocks||[]),t.n=2,(0,n.dispatch)("core/block-editor").replaceBlocks([e.clientId],[y]);case 2:return t.a(2,y)}},t)}))).apply(this,arguments)}function yt(){return mt.apply(this,arguments)}function mt(){return(mt=lt(rt().m(function t(){var e,r,o;return rt().w(function(t){for(;;)switch(t.n){case 0:return e=(0,n.select)("core/block-editor").getBlocks(),r=ft(e),o=r.map(function(t){return bt(t)}),t.n=1,Promise.all(o);case 1:return t.a(2,r.length)}},t)}))).apply(this,arguments)}function dt(){var t,e,r="function"==typeof Symbol?Symbol:{},n=r.iterator||"@@iterator",o=r.toStringTag||"@@toStringTag";function a(r,n,o,a){var u=n&&n.prototype instanceof i?n:i,l=Object.create(u.prototype);return vt(l,"_invoke",function(r,n,o){var a,i,u,l=0,s=o||[],f=!1,b={p:0,n:0,v:t,a:p,f:p.bind(t,4),d:function(e,r){return a=e,i=0,u=t,b.n=r,c}};function p(r,n){for(i=r,u=n,e=0;!f&&l&&!o&&e<s.length;e++){var o,a=s[e],p=b.p,y=a[2];r>3?(o=y===n)&&(u=a[(i=a[4])?5:(i=3,3)],a[4]=a[5]=t):a[0]<=p&&((o=r<2&&p<a[1])?(i=0,b.v=n,b.n=a[1]):p<y&&(o=r<3||a[0]>n||n>y)&&(a[4]=r,a[5]=n,b.n=y,i=0))}if(o||r>1)return c;throw f=!0,n}return function(o,s,y){if(l>1)throw TypeError("Generator is already running");for(f&&1===s&&p(s,y),i=s,u=y;(e=i<2?t:u)||!f;){a||(i?i<3?(i>1&&(b.n=-1),p(i,u)):b.n=u:b.v=u);try{if(l=2,a){if(i||(o="next"),e=a[o]){if(!(e=e.call(a,u)))throw TypeError("iterator result is not an object");if(!e.done)return e;u=e.value,i<2&&(i=0)}else 1===i&&(e=a.return)&&e.call(a),i<2&&(u=TypeError("The iterator does not provide a '"+o+"' method"),i=1);a=t}else if((e=(f=b.n<0)?u:r.call(n,b))!==c)break}catch(e){a=t,i=1,u=e}finally{l=1}}return{value:e,done:f}}}(r,o,a),!0),l}var c={};function i(){}function u(){}function l(){}e=Object.getPrototypeOf;var s=[][n]?e(e([][n]())):(vt(e={},n,function(){return this}),e),f=l.prototype=i.prototype=Object.create(s);function b(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,l):(t.__proto__=l,vt(t,o,"GeneratorFunction")),t.prototype=Object.create(f),t}return u.prototype=l,vt(f,"constructor",l),vt(l,"constructor",u),u.displayName="GeneratorFunction",vt(l,o,"GeneratorFunction"),vt(f),vt(f,o,"Generator"),vt(f,n,function(){return this}),vt(f,"toString",function(){return"[object Generator]"}),(dt=function(){return{w:a,m:b}})()}function vt(t,e,r,n){var o=Object.defineProperty;try{o({},"",{})}catch(t){o=0}vt=function(t,e,r,n){function a(e,r){vt(t,e,function(t){return this._invoke(e,r,t)})}e?o?o(t,e,{value:r,enumerable:!n,configurable:!n,writable:!n}):t[e]=r:(a("next",0),a("throw",1),a("return",2))},vt(t,e,r,n)}function ht(t,e,r,n,o,a,c){try{var i=t[a](c),u=i.value}catch(t){return void r(t)}i.done?e(u):Promise.resolve(u).then(n,o)}function gt(t,e){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var r=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=r){var n,o,a,c,i=[],u=!0,l=!1;try{if(a=(r=r.call(t)).next,0===e){if(Object(r)!==r)return;u=!1}else for(;!(u=(n=a.call(r)).done)&&(i.push(n.value),i.length!==e);u=!0);}catch(t){l=!0,o=t}finally{try{if(!u&&null!=r.return&&(c=r.return(),Object(c)!==c))return}finally{if(l)throw o}}return i}}(t,e)||function(t,e){if(t){if("string"==typeof t)return kt(t,e);var r={}.toString.call(t).slice(8,-1);return"Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?kt(t,e):void 0}}(t,e)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function kt(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}(0,t.registerPlugin)("mrshortcuts-gb-commands-block-editor",{render:function(){i();var t=function(){var t=G((0,e.useState)(!1),2),o=t[0],c=t[1],i=G((0,e.useState)(!1),2),u=i[0],l=i[1];(0,r.useCommand)({name:"mrshortcuts-gb-transform-v1-blocks-to-v2",label:"GenerateBlocks: Convert v1 Blocks to v2 (Experimental)",searchLabel:"Transform/convert all GB GenerateBlocks V1 Blocks to V2 (Experimental)",keywords:["generateblocks","transform","convert","v1","v2","version","migrate","upgrade","experimental"],icon:React.createElement(a,{width:"16",height:"16"}),callback:function(){c(!0)},disabled:"undefined"!=typeof mrshortcutsgbPatternInserter&&"false"===(mrshortcutsgbPatternInserter.enableV1Transformations||"false")});var s=function(){var t,e=(t=B().m(function t(){var e,r;return B().w(function(t){for(;;)switch(t.n){case 0:e=b(),l(!0),r=0;case 1:if(!(r<e)){t.n=3;break}return t.n=2,P((0,n.select)("core/block-editor").getBlocks());case 2:r++,t.n=1;break;case 3:c(!1),l(!1);case 4:return t.a(2)}},t)}),function(){var e=this,r=arguments;return new Promise(function(n,o){var a=t.apply(e,r);function c(t){A(a,n,o,c,i,"next",t)}function i(t){A(a,n,o,c,i,"throw",t)}c(void 0)})});return function(){return e.apply(this,arguments)}}();return React.createElement(f,{isOpen:o,onClose:function(){return c(!1)},onConfirm:s,transforming:u})}(),o=function(){var t=Z((0,e.useState)(!1),2),o=t[0],c=t[1],i=Z((0,e.useState)(!1),2),u=i[0],l=i[1],s=Z((0,e.useState)(0),2),f=s[0],b=s[1];(0,e.useEffect)(function(){if(o){var t=z((0,n.select)("core/block-editor").getBlocks());b(t.length)}},[o]),(0,r.useCommand)({name:"mrshortcuts-gb-transform-headings-to-gb-text",label:"GenerateBlocks: Convert Headings to Text Blocks",searchLabel:"Convert/transform all core heading blocks to GenerateBlocks v2 text blocks",keywords:["generateblocks","transform","convert","heading","headline","text","block","core","h1","h2","h3","h4","h5","h6","bulk"],icon:React.createElement(a,{width:"16",height:"16"}),callback:function(){c(!0)}});var p=function(){var t,e=(t=Q().m(function t(){var e;return Q().w(function(t){for(;;)switch(t.p=t.n){case 0:return l(!0),t.p=1,t.n=2,J();case 2:t.n=4;break;case 3:t.p=3,e=t.v,console.error("Error transforming heading blocks:",e);case 4:return t.p=4,c(!1),l(!1),t.f(4);case 5:return t.a(2)}},t,null,[[1,3,4,5]])}),function(){var e=this,r=arguments;return new Promise(function(n,o){var a=t.apply(e,r);function c(t){Y(a,n,o,c,i,"next",t)}function i(t){Y(a,n,o,c,i,"throw",t)}c(void 0)})});return function(){return e.apply(this,arguments)}}();return React.createElement(I,{isOpen:o,onClose:function(){return c(!1)},onConfirm:p,transforming:u,headingCount:f})}(),c=function(){var t=gt((0,e.useState)(!1),2),o=t[0],c=t[1],i=gt((0,e.useState)(!1),2),u=i[0],l=i[1],s=gt((0,e.useState)(0),2),f=s[0],b=s[1];(0,e.useEffect)(function(){if(o){var t=ft((0,n.select)("core/block-editor").getBlocks());b(t.length)}},[o]),(0,r.useCommand)({name:"mrshortcuts-gb-transform-paragraphs-to-gb-text",label:"GenerateBlocks: Convert Paragraphs to Text Blocks",searchLabel:"Convert/transform all core paragraph blocks to GenerateBlocks v2 text blocks",keywords:["generateblocks","transform","convert","paragraph","text","block","core","p","bulk"],icon:React.createElement(a,{width:"16",height:"16"}),callback:function(){c(!0)}});var p=function(){var t,e=(t=dt().m(function t(){var e;return dt().w(function(t){for(;;)switch(t.p=t.n){case 0:return l(!0),t.p=1,t.n=2,yt();case 2:t.n=4;break;case 3:t.p=3,e=t.v,console.error("Error transforming paragraph blocks:",e);case 4:return t.p=4,c(!1),l(!1),t.f(4);case 5:return t.a(2)}},t,null,[[1,3,4,5]])}),function(){var e=this,r=arguments;return new Promise(function(n,o){var a=t.apply(e,r);function c(t){ht(a,n,o,c,i,"next",t)}function i(t){ht(a,n,o,c,i,"throw",t)}c(void 0)})});return function(){return e.apply(this,arguments)}}();return React.createElement(et,{isOpen:o,onClose:function(){return c(!1)},onConfirm:p,transforming:u,paragraphCount:f})}();return React.createElement(React.Fragment,null,t,o,c)}})})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/js/blocks/commands/components/commands/SaveSVGToAssetLibrary.js"
+/*!*****************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/commands/SaveSVGToAssetLibrary.js ***!
+  \*****************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useSaveSVGToAssetLibraryCommand: () => (/* binding */ useSaveSVGToAssetLibraryCommand)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/commands */ "@wordpress/commands");
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modals_SaveSVGToAssetLibraryModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modals/SaveSVGToAssetLibraryModal */ "./src/js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal.js");
+/* harmony import */ var _icons_GBIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../icons/GBIcon */ "./src/js/blocks/commands/components/icons/GBIcon.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Command to save a pasted SVG to the GenerateBlocks Pro Asset Library.
+ */
+
+;
+
+
+
+
+/**
+ * Whether the command should be available.
+ *
+ * @return {boolean} True when Pro is localized as active.
+ */
+var isProCommandEnabled = function isProCommandEnabled() {
+  if (typeof mrshortcutsgbCommands !== 'undefined') {
+    return 'true' === mrshortcutsgbCommands.isProActive;
+  }
+  if (typeof mrshortcutsgbPatternInserter !== 'undefined') {
+    return 'true' === mrshortcutsgbPatternInserter.isProActive;
+  }
+  return typeof generateBlocksPro !== 'undefined';
+};
+
+/**
+ * Hook to register the Save SVG to Asset Library command.
+ *
+ * @return {JSX.Element} Modal for the command.
+ */
+function useSaveSVGToAssetLibraryCommand() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isOpen = _useState2[0],
+    setIsOpen = _useState2[1];
+  (0,_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__.useCommand)({
+    name: 'mrshortcuts-gb-save-svg-to-asset-library',
+    label: 'GenerateBlocks: Save SVG to Asset Library',
+    keywords: ['generateblocks', 'svg', 'icon', 'asset', 'library', 'save', 'paste'],
+    icon: /*#__PURE__*/React.createElement(_icons_GBIcon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      width: "16",
+      height: "16"
+    }),
+    callback: function callback(_ref) {
+      var close = _ref.close;
+      setIsOpen(true);
+      if (close) {
+        close();
+      }
+    },
+    disabled: !isProCommandEnabled()
+  });
+  return /*#__PURE__*/React.createElement(_modals_SaveSVGToAssetLibraryModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    isOpen: isOpen,
+    onClose: function onClose() {
+      return setIsOpen(false);
+    },
+    mode: "paste"
+  });
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/commands/ToggleContainerOutlines.js"
+/*!*******************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/commands/ToggleContainerOutlines.js ***!
+  \*******************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useToggleContainerOutlinesCommand: () => (/* binding */ useToggleContainerOutlinesCommand)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/commands */ "@wordpress/commands");
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_outlineClasses__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/outlineClasses */ "./src/js/blocks/commands/utils/outlineClasses.js");
+/* harmony import */ var _icons_GBIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../icons/GBIcon */ "./src/js/blocks/commands/components/icons/GBIcon.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Command to toggle container/element outlines.
+ */
+
+;
+
+
+
+
+
+/**
+ * Hook to register the Toggle Container Outlines command.
+ *
+ * @return {void}
+ */
+function useToggleContainerOutlinesCommand() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    showContainerOutlines = _useState2[0],
+    setShowContainerOutlines = _useState2[1];
+  var observerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  // Update global state when local state changes.
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    (0,_utils_outlineClasses__WEBPACK_IMPORTED_MODULE_3__.setGlobalShowContainerOutlines)(showContainerOutlines);
+  }, [showContainerOutlines]);
+
+  // Set up MutationObserver to maintain outline classes.
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var editorDoc = (0,_utils_outlineClasses__WEBPACK_IMPORTED_MODULE_3__.getEditorDocument)();
+
+    // Function to remove outline data attributes from all blocks.
+    var removeOutlineAttributes = function removeOutlineAttributes() {
+      var blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core/block-editor').getBlocks();
+      var _processBlock = function processBlock(block) {
+        var blockElement = editorDoc.querySelector("[data-block=\"".concat(block.clientId, "\"]"));
+        if (!blockElement) {
+          return;
+        }
+
+        // Remove outline data attribute.
+        blockElement.removeAttribute('data-container-type');
+
+        // Process inner blocks.
+        if (block.innerBlocks) {
+          block.innerBlocks.forEach(_processBlock);
+        }
+      };
+      blocks.forEach(_processBlock);
+    };
+    if (!showContainerOutlines) {
+      // Remove all outline data attributes when disabled.
+      removeOutlineAttributes();
+
+      // Clean up observer when outlines are disabled.
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+      return;
+    }
+
+    // Function to add outline data attributes to blocks.
+    var addOutlineAttributes = function addOutlineAttributes() {
+      var blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core/block-editor').getBlocks();
+      var _processBlock2 = function processBlock(block) {
+        var blockElement = editorDoc.querySelector("[data-block=\"".concat(block.clientId, "\"]"));
+        if (!blockElement) {
+          return;
+        }
+        var isContainer = blockElement.getAttribute('data-type') === 'generateblocks/container';
+        var isElement = blockElement.getAttribute('data-type') === 'generateblocks/element';
+        var isGrid = blockElement.getAttribute('data-title') === 'Grid';
+        if (isGrid) {
+          blockElement.setAttribute('data-container-type', 'grid');
+        } else if (isContainer) {
+          blockElement.setAttribute('data-container-type', 'container');
+        } else if (isElement) {
+          blockElement.setAttribute('data-container-type', 'element');
+        }
+
+        // Process inner blocks.
+        if (block.innerBlocks) {
+          block.innerBlocks.forEach(_processBlock2);
+        }
+      };
+      blocks.forEach(_processBlock2);
+    };
+
+    // Initial add.
+    addOutlineAttributes();
+
+    // Set up MutationObserver to re-add data attributes when blocks are added/changed.
+    var observer = new MutationObserver(function () {
+      // Reapply attributes when DOM changes (debounced).
+      setTimeout(addOutlineAttributes, 10);
+    });
+
+    // Observe the editor container for DOM changes.
+    var editorContainer = editorDoc.querySelector('.block-editor-writing-flow') || editorDoc.body;
+    if (editorContainer) {
+      observer.observe(editorContainer, {
+        childList: true,
+        subtree: true
+      });
+      observerRef.current = observer;
+    }
+
+    // Cleanup.
+    return function () {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+    };
+  }, [showContainerOutlines]);
+  (0,_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__.useCommand)({
+    name: 'mrshortcuts-gb-toggle-container-outlines',
+    label: 'GenerateBlocks: Toggle Container/Element Outlines',
+    keywords: ['generateblocks', 'outline', 'container', 'element', 'grid', 'toggle', 'show', 'hide', 'visual', 'debug'],
+    icon: /*#__PURE__*/React.createElement(_icons_GBIcon__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      width: "16",
+      height: "16"
+    }),
+    callback: function callback(_ref) {
+      var close = _ref.close;
+      setShowContainerOutlines(function (prev) {
+        return !prev;
+      });
+      close();
+    },
+    context: 'block-editor'
+  });
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/commands/TransformHeadingToGBText.js"
+/*!********************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/commands/TransformHeadingToGBText.js ***!
+  \********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useTransformHeadingToGBTextCommand: () => (/* binding */ useTransformHeadingToGBTextCommand)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/commands */ "@wordpress/commands");
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modals_TransformHeadingModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modals/TransformHeadingModal */ "./src/js/blocks/commands/components/modals/TransformHeadingModal.js");
+/* harmony import */ var _utils_headingTransforms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/headingTransforms */ "./src/js/blocks/commands/utils/headingTransforms.js");
+/* harmony import */ var _icons_GBIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../icons/GBIcon */ "./src/js/blocks/commands/components/icons/GBIcon.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Command to transform core/heading blocks to GenerateBlocks v2 text blocks.
+ */
+
+;
+
+
+
+
+
+
+/**
+ * Hook to register the Transform Heading to GB Text command.
+ *
+ * @return {JSX.Element|null} The TransformHeadingToGBText component.
+ */
+function useTransformHeadingToGBTextCommand() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    headingTransformConfirmation = _useState2[0],
+    setHeadingTransformConfirmation = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    transforming = _useState4[0],
+    setTransforming = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState6 = _slicedToArray(_useState5, 2),
+    headingCount = _useState6[0],
+    setHeadingCount = _useState6[1];
+
+  // Update heading count when modal opens.
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (headingTransformConfirmation) {
+      var blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core/block-editor').getBlocks();
+      var headings = (0,_utils_headingTransforms__WEBPACK_IMPORTED_MODULE_4__.getAllHeadingBlocks)(blocks);
+      setHeadingCount(headings.length);
+    }
+  }, [headingTransformConfirmation]);
+  (0,_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__.useCommand)({
+    name: 'mrshortcuts-gb-transform-headings-to-gb-text',
+    label: 'GenerateBlocks: Convert Headings to Text Blocks',
+    searchLabel: 'Convert/transform all core heading blocks to GenerateBlocks v2 text blocks',
+    keywords: ['generateblocks', 'transform', 'convert', 'heading', 'headline', 'text', 'block', 'core', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bulk'],
+    icon: /*#__PURE__*/React.createElement(_icons_GBIcon__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      width: "16",
+      height: "16"
+    }),
+    callback: function callback() {
+      setHeadingTransformConfirmation(true);
+    }
+  });
+  var handleConfirm = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            setTransforming(true);
+            _context.p = 1;
+            _context.n = 2;
+            return (0,_utils_headingTransforms__WEBPACK_IMPORTED_MODULE_4__.transformAllHeadingBlocks)();
+          case 2:
+            _context.n = 4;
+            break;
+          case 3:
+            _context.p = 3;
+            _t = _context.v;
+            // eslint-disable-next-line no-console
+            console.error('Error transforming heading blocks:', _t);
+          case 4:
+            _context.p = 4;
+            setHeadingTransformConfirmation(false);
+            setTransforming(false);
+            return _context.f(4);
+          case 5:
+            return _context.a(2);
+        }
+      }, _callee, null, [[1, 3, 4, 5]]);
+    }));
+    return function handleConfirm() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/React.createElement(_modals_TransformHeadingModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    isOpen: headingTransformConfirmation,
+    onClose: function onClose() {
+      return setHeadingTransformConfirmation(false);
+    },
+    onConfirm: handleConfirm,
+    transforming: transforming,
+    headingCount: headingCount
+  });
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/commands/TransformParagraphToGBText.js"
+/*!**********************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/commands/TransformParagraphToGBText.js ***!
+  \**********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useTransformParagraphToGBTextCommand: () => (/* binding */ useTransformParagraphToGBTextCommand)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/commands */ "@wordpress/commands");
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modals_TransformParagraphModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modals/TransformParagraphModal */ "./src/js/blocks/commands/components/modals/TransformParagraphModal.js");
+/* harmony import */ var _utils_paragraphTransforms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/paragraphTransforms */ "./src/js/blocks/commands/utils/paragraphTransforms.js");
+/* harmony import */ var _icons_GBIcon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../icons/GBIcon */ "./src/js/blocks/commands/components/icons/GBIcon.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Command to transform core/paragraph blocks to GenerateBlocks v2 text blocks.
+ */
+
+;
+
+
+
+
+
+
+/**
+ * Hook to register the Transform Paragraph to GB Text command.
+ *
+ * @return {JSX.Element|null} The TransformParagraphToGBText component.
+ */
+function useTransformParagraphToGBTextCommand() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    paragraphTransformConfirmation = _useState2[0],
+    setParagraphTransformConfirmation = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    transforming = _useState4[0],
+    setTransforming = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState6 = _slicedToArray(_useState5, 2),
+    paragraphCount = _useState6[0],
+    setParagraphCount = _useState6[1];
+
+  // Update paragraph count when modal opens.
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (paragraphTransformConfirmation) {
+      var blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core/block-editor').getBlocks();
+      var paragraphs = (0,_utils_paragraphTransforms__WEBPACK_IMPORTED_MODULE_4__.getAllParagraphBlocks)(blocks);
+      setParagraphCount(paragraphs.length);
+    }
+  }, [paragraphTransformConfirmation]);
+  (0,_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__.useCommand)({
+    name: 'mrshortcuts-gb-transform-paragraphs-to-gb-text',
+    label: 'GenerateBlocks: Convert Paragraphs to Text Blocks',
+    searchLabel: 'Convert/transform all core paragraph blocks to GenerateBlocks v2 text blocks',
+    keywords: ['generateblocks', 'transform', 'convert', 'paragraph', 'text', 'block', 'core', 'p', 'bulk'],
+    icon: /*#__PURE__*/React.createElement(_icons_GBIcon__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      width: "16",
+      height: "16"
+    }),
+    callback: function callback() {
+      setParagraphTransformConfirmation(true);
+    }
+  });
+  var handleConfirm = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            setTransforming(true);
+            _context.p = 1;
+            _context.n = 2;
+            return (0,_utils_paragraphTransforms__WEBPACK_IMPORTED_MODULE_4__.transformAllParagraphBlocks)();
+          case 2:
+            _context.n = 4;
+            break;
+          case 3:
+            _context.p = 3;
+            _t = _context.v;
+            // eslint-disable-next-line no-console
+            console.error('Error transforming paragraph blocks:', _t);
+          case 4:
+            _context.p = 4;
+            setParagraphTransformConfirmation(false);
+            setTransforming(false);
+            return _context.f(4);
+          case 5:
+            return _context.a(2);
+        }
+      }, _callee, null, [[1, 3, 4, 5]]);
+    }));
+    return function handleConfirm() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/React.createElement(_modals_TransformParagraphModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    isOpen: paragraphTransformConfirmation,
+    onClose: function onClose() {
+      return setParagraphTransformConfirmation(false);
+    },
+    onConfirm: handleConfirm,
+    transforming: transforming,
+    paragraphCount: paragraphCount
+  });
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/commands/TransformV1ToV2.js"
+/*!***********************************************************************!*\
+  !*** ./src/js/blocks/commands/components/commands/TransformV1ToV2.js ***!
+  \***********************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useTransformV1ToV2Command: () => (/* binding */ useTransformV1ToV2Command)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/commands */ "@wordpress/commands");
+/* harmony import */ var _wordpress_commands__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modals_TransformV1ToV2Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modals/TransformV1ToV2Modal */ "./src/js/blocks/commands/components/modals/TransformV1ToV2Modal.js");
+/* harmony import */ var _utils_blockNesting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/blockNesting */ "./src/js/blocks/commands/utils/blockNesting.js");
+/* harmony import */ var _utils_blockTransforms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/blockTransforms */ "./src/js/blocks/commands/utils/blockTransforms.js");
+/* harmony import */ var _icons_GBIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../icons/GBIcon */ "./src/js/blocks/commands/components/icons/GBIcon.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Command to transform v1 blocks to v2.
+ */
+
+;
+
+
+
+
+
+
+
+/**
+ * Hook to register the Transform V1 to V2 command.
+ *
+ * @return {JSX.Element|null} The TransformV1ToV2 component.
+ */
+function useTransformV1ToV2Command() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    blockTransformConfirmation = _useState2[0],
+    setBlockTransformConfirmation = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    transforming = _useState4[0],
+    setTransforming = _useState4[1];
+  (0,_wordpress_commands__WEBPACK_IMPORTED_MODULE_1__.useCommand)({
+    name: 'mrshortcuts-gb-transform-v1-blocks-to-v2',
+    label: 'GenerateBlocks: Convert v1 Blocks to v2 (Experimental)',
+    searchLabel: 'Transform/convert all GB GenerateBlocks V1 Blocks to V2 (Experimental)',
+    keywords: ['generateblocks', 'transform', 'convert', 'v1', 'v2', 'version', 'migrate', 'upgrade', 'experimental'],
+    icon: /*#__PURE__*/React.createElement(_icons_GBIcon__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      width: "16",
+      height: "16"
+    }),
+    callback: function callback() {
+      setBlockTransformConfirmation(true);
+    },
+    disabled: typeof mrshortcutsgbPatternInserter !== 'undefined' && 'false' === (mrshortcutsgbPatternInserter.enableV1Transformations || 'false')
+  });
+  var handleConfirm = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var nestingLevel, i;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.n) {
+          case 0:
+            nestingLevel = (0,_utils_blockNesting__WEBPACK_IMPORTED_MODULE_4__.getBlockNestingLevel)();
+            setTransforming(true);
+            i = 0;
+          case 1:
+            if (!(i < nestingLevel)) {
+              _context.n = 3;
+              break;
+            }
+            _context.n = 2;
+            return (0,_utils_blockTransforms__WEBPACK_IMPORTED_MODULE_5__.transformBlocks)((0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.select)('core/block-editor').getBlocks());
+          case 2:
+            i++;
+            _context.n = 1;
+            break;
+          case 3:
+            setBlockTransformConfirmation(false);
+            setTransforming(false);
+          case 4:
+            return _context.a(2);
+        }
+      }, _callee);
+    }));
+    return function handleConfirm() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/React.createElement(_modals_TransformV1ToV2Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    isOpen: blockTransformConfirmation,
+    onClose: function onClose() {
+      return setBlockTransformConfirmation(false);
+    },
+    onConfirm: handleConfirm,
+    transforming: transforming
+  });
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/icons/GBIcon.js"
+/*!***********************************************************!*\
+  !*** ./src/js/blocks/commands/components/icons/GBIcon.js ***!
+  \***********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/**
+ * GenerateBlocks icon component for GB-related commands.
+ *
+ * @param {Object} props - Component props.
+ * @return {JSX.Element} The GBIcon component.
+ */
+var GBIcon = function GBIcon(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    viewBox: "0 0 50 60.12",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.686 31.622V18.918a.077.077 0 0 1 .05-.072l6.5-2.313 6.5-2.313 9.682-3.445L39.1 7.33a.067.067 0 0 0 .036-.028.074.074 0 0 0 .014-.044V.076a.077.077 0 0 0-.032-.062.076.076 0 0 0-.069-.009l-13 4.625-13 4.625-6.5 2.313-6.5 2.313a.067.067 0 0 0-.036.028.097.097 0 0 0-.013.046V52.067c0 .026.013.048.032.062s.044.018.069.009l3.267-1.163 3.267-1.163c.015-.005.028-.015.036-.028s.014-.028.014-.044V37.999l.001-6.377c-.001 0 0 0 0 0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "m23.949 29.976 13-4.625 13-4.625c.015-.005.028-.015.036-.028s.015-.028.015-.044V8.056a.077.077 0 0 0-.032-.062.076.076 0 0 0-.069-.009l-13 4.625-13 4.625-6.5 2.313-6.5 2.313a.067.067 0 0 0-.036.028.074.074 0 0 0-.014.044V60.045c0 .026.013.048.032.062a.076.076 0 0 0 .069.009l6.475-2.304 6.475-2.304 6.525-2.322 6.525-2.322 6.5-2.313 6.5-2.313c.015-.005.028-.015.036-.028s.014-.025.014-.041V27.193a.077.077 0 0 0-.032-.062.076.076 0 0 0-.069-.009l-6.45 2.295L37 31.711a.067.067 0 0 0-.036.028.074.074 0 0 0-.014.044v6.272a.077.077 0 0 1-.05.072l-6.45 2.295L24 42.715a.075.075 0 0 1-.101-.071V30.046c0-.016.005-.031.014-.044a.08.08 0 0 1 .036-.026z"
+  }));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GBIcon);
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal.js"
+/*!********************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal.js ***!
+  \********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/svgAssetLibrary */ "./src/js/blocks/utils/svgAssetLibrary.js");
+/* harmony import */ var _utils_sanitize_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/sanitize-svg */ "./src/js/blocks/utils/sanitize-svg/index.js");
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Modal for saving an SVG into the GenerateBlocks Pro Asset Library.
+ */
+
+;
+
+
+
+
+
+var NEW_GROUP_VALUE = '__mrshortcuts_new_group__';
+
+/**
+ * SaveSVGToAssetLibraryModal component.
+ *
+ * @param {Object}   props            Component props.
+ * @param {boolean}  props.isOpen     Whether the modal is visible.
+ * @param {Function} props.onClose    Close callback.
+ * @param {string}   props.mode       `paste` or `from-block`.
+ * @param {string}   props.initialSvg Prefill SVG for from-block mode.
+ * @return {JSX.Element|null} Modal, or null when closed.
+ */
+var SaveSVGToAssetLibraryModal = function SaveSVGToAssetLibraryModal(_ref) {
+  var isOpen = _ref.isOpen,
+    onClose = _ref.onClose,
+    _ref$mode = _ref.mode,
+    mode = _ref$mode === void 0 ? 'paste' : _ref$mode,
+    _ref$initialSvg = _ref.initialSvg,
+    initialSvg = _ref$initialSvg === void 0 ? '' : _ref$initialSvg;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    name = _useState2[0],
+    setName = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedGroup = _useState4[0],
+    setSelectedGroup = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState6 = _slicedToArray(_useState5, 2),
+    customGroup = _useState6[0],
+    setCustomGroup = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState8 = _slicedToArray(_useState7, 2),
+    groups = _useState8[0],
+    setGroups = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState0 = _slicedToArray(_useState9, 2),
+    svg = _useState0[0],
+    setSvg = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState10 = _slicedToArray(_useState1, 2),
+    capturedSvg = _useState10[0],
+    setCapturedSvg = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    isLoadingGroups = _useState12[0],
+    setIsLoadingGroups = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    isSaving = _useState14[0],
+    setIsSaving = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState16 = _slicedToArray(_useState15, 2),
+    error = _useState16[0],
+    setError = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState18 = _slicedToArray(_useState17, 2),
+    success = _useState18[0],
+    setSuccess = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('idle'),
+    _useState20 = _slicedToArray(_useState19, 2),
+    status = _useState20[0],
+    setStatus = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState22 = _slicedToArray(_useState21, 2),
+    savedName = _useState22[0],
+    setSavedName = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState24 = _slicedToArray(_useState23, 2),
+    savedGroup = _useState24[0],
+    setSavedGroup = _useState24[1];
+  var isFromBlock = 'from-block' === mode;
+  var isAddingGroup = NEW_GROUP_VALUE === selectedGroup;
+  var resolvedGroup = isAddingGroup ? customGroup : selectedGroup;
+  var resolvedSvg = isFromBlock ? capturedSvg : svg;
+  var sanitizedPreview = resolvedSvg ? (0,_utils_sanitize_svg__WEBPACK_IMPORTED_MODULE_5__["default"])(resolvedSvg) : '';
+  var isResult = 'success' === status || 'exists' === status;
+  var canSave = !isSaving && !isResult && name.trim() && resolvedGroup.trim() && resolvedSvg.trim();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!isOpen) {
+      return;
+    }
+    var openingSvg = isFromBlock ? initialSvg : '';
+    setName('');
+    setSelectedGroup('');
+    setCustomGroup('');
+    setSvg(openingSvg);
+    setCapturedSvg(openingSvg);
+    setError('');
+    setSuccess('');
+    setStatus('idle');
+    setSavedName('');
+    setSavedGroup('');
+    setIsSaving(false);
+    setIsLoadingGroups(true);
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
+      path: '/mediaron/block-shortcuts-for-gb/v1/asset_icon_groups'
+    }).then(function (result) {
+      var loadedGroups = Array.isArray(result.groups) ? result.groups : [];
+      setGroups(loadedGroups);
+      setSelectedGroup(loadedGroups.length ? loadedGroups[0] : NEW_GROUP_VALUE);
+    })["catch"](function (err) {
+      setError(err.message || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Could not load Asset Library groups.', 'mediaron-block-shortcuts-for-gb'));
+      setStatus('error');
+      setSelectedGroup(NEW_GROUP_VALUE);
+    })["finally"](function () {
+      setIsLoadingGroups(false);
+    });
+    // Reset form state only when the modal opens so a later picker refresh cannot wipe the result.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+  if (!isOpen) {
+    return null;
+  }
+  var handleClose = function handleClose() {
+    if (isSaving) {
+      return;
+    }
+    if (isResult) {
+      (0,_utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_4__.forceGenerateBlocksIconPickerRefresh)();
+    }
+    onClose();
+  };
+  var groupOptions = [].concat(_toConsumableArray(groups.map(function (groupName) {
+    return {
+      label: groupName,
+      value: groupName
+    };
+  })), [{
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Add new group', 'mediaron-block-shortcuts-for-gb'),
+    value: NEW_GROUP_VALUE
+  }]);
+  var handleSave = function handleSave() {
+    if (!canSave) {
+      return;
+    }
+    var nameToSave = name.trim();
+    var groupToSave = resolvedGroup.trim();
+    setIsSaving(true);
+    setStatus('saving');
+    setError('');
+    setSuccess('');
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
+      path: '/mediaron/block-shortcuts-for-gb/v1/save_asset_icon',
+      method: 'POST',
+      data: {
+        name: nameToSave,
+        group: groupToSave,
+        svg: resolvedSvg
+      }
+    }).then(function (result) {
+      (0,_utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_4__.patchGenerateBlocksProIcons)(result, {
+        refresh: false
+      });
+      setSavedName(result.name || nameToSave);
+      setSavedGroup(result.group || groupToSave);
+      setStatus(result.alreadyExists ? 'exists' : 'success');
+      setSuccess(result.alreadyExists ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('This SVG is already in that group, so it was not added again.', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Saved to the Asset Library. It will appear in the icon picker when you close this dialog.', 'mediaron-block-shortcuts-for-gb'));
+    })["catch"](function (err) {
+      setStatus('error');
+      setError(err.message || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Could not save the SVG to the Asset Library.', 'mediaron-block-shortcuts-for-gb'));
+    })["finally"](function () {
+      setIsSaving(false);
+    });
+  };
+  return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Modal, {
+    isDismissible: !isSaving,
+    shouldCloseOnClickOutside: !isSaving,
+    shouldCloseOnEsc: !isSaving,
+    size: "medium",
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Save SVG to Asset Library', 'mediaron-block-shortcuts-for-gb'),
+    onRequestClose: handleClose
+  }, 'saving' === status && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      marginBottom: '12px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, null), /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Saving to the Asset Library…', 'mediaron-block-shortcuts-for-gb'))), error && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+    status: "error",
+    isDismissible: false
+  }, error), success && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+    status: 'exists' === status ? 'warning' : 'success',
+    isDismissible: false
+  }, success), isResult && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon name', 'mediaron-block-shortcuts-for-gb'), ": "), savedName), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Group', 'mediaron-block-shortcuts-for-gb'), ": "), savedGroup), sanitizedPreview && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '16px'
+    }
+  }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Preview', 'mediaron-block-shortcuts-for-gb'))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: '48px',
+      height: '48px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    dangerouslySetInnerHTML: {
+      __html: sanitizedPreview
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    variant: "primary",
+    onClick: handleClose
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Done', 'mediaron-block-shortcuts-for-gb')))), !isResult && /*#__PURE__*/React.createElement(React.Fragment, null, isLoadingGroups && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      marginBottom: '12px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, null), /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Loading groups…', 'mediaron-block-shortcuts-for-gb'))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon name', 'mediaron-block-shortcuts-for-gb'),
+    value: name,
+    onChange: setName,
+    disabled: isSaving,
+    style: {
+      marginBottom: '16px'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '16px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Group', 'mediaron-block-shortcuts-for-gb'),
+    value: selectedGroup,
+    options: groupOptions,
+    onChange: setSelectedGroup,
+    disabled: isSaving || isLoadingGroups
+  })), isAddingGroup && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('New group name', 'mediaron-block-shortcuts-for-gb'),
+    value: customGroup,
+    onChange: setCustomGroup,
+    disabled: isSaving,
+    style: {
+      marginBottom: '16px'
+    }
+  }), !isFromBlock && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('SVG markup', 'mediaron-block-shortcuts-for-gb'),
+    value: svg,
+    onChange: setSvg,
+    rows: 8,
+    disabled: isSaving,
+    style: {
+      marginBottom: '16px'
+    }
+  }), sanitizedPreview && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '16px'
+    }
+  }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Preview', 'mediaron-block-shortcuts-for-gb'))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: '48px',
+      height: '48px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    dangerouslySetInnerHTML: {
+      __html: sanitizedPreview
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      gap: '8px',
+      marginTop: '16px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    variant: "tertiary",
+    onClick: handleClose,
+    disabled: isSaving
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Cancel', 'mediaron-block-shortcuts-for-gb')), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    variant: "primary",
+    onClick: handleSave,
+    disabled: !canSave,
+    isBusy: isSaving
+  }, isSaving ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Saving…', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Save to Asset Library', 'mediaron-block-shortcuts-for-gb')))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SaveSVGToAssetLibraryModal);
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/modals/TransformHeadingModal.js"
+/*!***************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/modals/TransformHeadingModal.js ***!
+  \***************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * Modal for transforming heading blocks to GB text blocks.
+ */
+
+
+
+
+/**
+ * TransformHeadingModal component.
+ *
+ * @param {Object}   props            - Component props.
+ * @param {boolean}  props.isOpen     - Boolean to control modal visibility.
+ * @param {Function} props.onClose    - Callback when modal is closed.
+ * @param {Function} props.onConfirm  - Callback when transformation is confirmed.
+ * @param {boolean}  props.transforming - Boolean indicating transforming state.
+ * @param {number}   props.headingCount - Number of heading blocks found.
+ * @return {JSX.Element|null} The TransformHeadingModal component.
+ */
+var TransformHeadingModal = function TransformHeadingModal(_ref) {
+  var isOpen = _ref.isOpen,
+    onClose = _ref.onClose,
+    onConfirm = _ref.onConfirm,
+    transforming = _ref.transforming,
+    headingCount = _ref.headingCount;
+  if (!isOpen) {
+    return null;
+  }
+  return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Modal, {
+    isDismissible: !transforming,
+    shouldCloseOnClickOutside: false,
+    onRequestClose: onClose,
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Convert Headings to GenerateBlocks Text Blocks', 'mediaron-block-shortcuts-for-gb')
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '20px'
+    }
+  }, /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('This will convert all core heading blocks to GenerateBlocks v2 text blocks.', 'mediaron-block-shortcuts-for-gb')), headingCount > 0 && /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Found ', 'mediaron-block-shortcuts-for-gb'), /*#__PURE__*/React.createElement("strong", null, headingCount), headingCount === 1 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' heading block to convert.', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' heading blocks to convert.', 'mediaron-block-shortcuts-for-gb')), headingCount > 0 && /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Please back up your content before converting. There is no undo for this operation.', 'mediaron-block-shortcuts-for-gb')), headingCount === 0 && /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('No heading blocks found to convert.', 'mediaron-block-shortcuts-for-gb'))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      gap: '10px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    variant: "primary",
+    onClick: onConfirm,
+    disabled: transforming || headingCount === 0,
+    isBusy: transforming
+  }, transforming ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Converting…', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Convert Headings', 'mediaron-block-shortcuts-for-gb')), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    variant: "secondary",
+    onClick: onClose,
+    disabled: transforming
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Cancel', 'mediaron-block-shortcuts-for-gb'))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TransformHeadingModal);
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/modals/TransformParagraphModal.js"
+/*!*****************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/modals/TransformParagraphModal.js ***!
+  \*****************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * Modal for transforming paragraph blocks to GB text blocks.
+ */
+
+
+
+
+/**
+ * TransformParagraphModal component.
+ *
+ * @param {Object}   props            - Component props.
+ * @param {boolean}  props.isOpen     - Boolean to control modal visibility.
+ * @param {Function} props.onClose    - Callback when modal is closed.
+ * @param {Function} props.onConfirm  - Callback when transformation is confirmed.
+ * @param {boolean}  props.transforming - Boolean indicating transforming state.
+ * @param {number}   props.paragraphCount - Number of paragraph blocks found.
+ * @return {JSX.Element|null} The TransformParagraphModal component.
+ */
+var TransformParagraphModal = function TransformParagraphModal(_ref) {
+  var isOpen = _ref.isOpen,
+    onClose = _ref.onClose,
+    onConfirm = _ref.onConfirm,
+    transforming = _ref.transforming,
+    paragraphCount = _ref.paragraphCount;
+  if (!isOpen) {
+    return null;
+  }
+  return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Modal, {
+    isDismissible: !transforming,
+    shouldCloseOnClickOutside: false,
+    onRequestClose: onClose,
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Convert Paragraphs to GenerateBlocks Text Blocks', 'mediaron-block-shortcuts-for-gb')
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '20px'
+    }
+  }, /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('This will convert all core paragraph blocks to GenerateBlocks v2 text blocks.', 'mediaron-block-shortcuts-for-gb')), paragraphCount > 0 && /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Found ', 'mediaron-block-shortcuts-for-gb'), /*#__PURE__*/React.createElement("strong", null, paragraphCount), paragraphCount === 1 ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' paragraph block to convert.', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' paragraph blocks to convert.', 'mediaron-block-shortcuts-for-gb')), paragraphCount > 0 && /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Please back up your content before converting. There is no undo for this operation.', 'mediaron-block-shortcuts-for-gb')), paragraphCount === 0 && /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('No paragraph blocks found to convert.', 'mediaron-block-shortcuts-for-gb'))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      gap: '10px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    variant: "primary",
+    onClick: onConfirm,
+    disabled: transforming || paragraphCount === 0,
+    isBusy: transforming
+  }, transforming ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Converting…', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Convert Paragraphs', 'mediaron-block-shortcuts-for-gb')), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    variant: "secondary",
+    onClick: onClose,
+    disabled: transforming
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Cancel', 'mediaron-block-shortcuts-for-gb'))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TransformParagraphModal);
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/components/modals/TransformV1ToV2Modal.js"
+/*!**************************************************************************!*\
+  !*** ./src/js/blocks/commands/components/modals/TransformV1ToV2Modal.js ***!
+  \**************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Modal for transforming v1 blocks to v2.
+ */
+
+;
+
+
+
+/**
+ * TransformV1ToV2Modal component.
+ *
+ * @param {Object}   props            - Component props.
+ * @param {boolean}  props.isOpen     - Boolean to control modal visibility.
+ * @param {Function} props.onClose    - Callback when modal is closed.
+ * @param {Function} props.onConfirm  - Callback when transformation is confirmed.
+ * @param {boolean}  props.transforming - Boolean indicating transforming state.
+ * @return {JSX.Element|null} The TransformV1ToV2Modal component.
+ */
+var TransformV1ToV2Modal = function TransformV1ToV2Modal(_ref) {
+  var isOpen = _ref.isOpen,
+    onClose = _ref.onClose,
+    onConfirm = _ref.onConfirm,
+    transforming = _ref.transforming;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    confirmed = _useState2[0],
+    setConfirmed = _useState2[1];
+  if (!isOpen) {
+    return null;
+  }
+  return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Modal, {
+    isDismissible: !transforming,
+    shouldCloseOnClickOutside: false,
+    onRequestClose: onClose,
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Convert v1 Blocks to v2', 'mediaron-block-shortcuts-for-gb')
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '20px'
+    }
+  }, /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Please back up your blocks before transforming. There is no undo for this operation.', 'mediaron-block-shortcuts-for-gb')), /*#__PURE__*/React.createElement("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('This will convert all v1 blocks to v2 blocks.', 'mediaron-block-shortcuts-for-gb'))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: '20px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('I understand and want to proceed.', 'mediaron-block-shortcuts-for-gb'),
+    checked: confirmed,
+    onChange: setConfirmed,
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Please back up your blocks before transforming. There is no undo for this operation.', 'mediaron-block-shortcuts-for-gb')
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      gap: '10px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    variant: "primary",
+    onClick: onConfirm,
+    disabled: !confirmed || transforming,
+    isBusy: transforming
+  }, transforming ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Transforming…', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Transform', 'mediaron-block-shortcuts-for-gb')), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    variant: "secondary",
+    onClick: onClose,
+    disabled: transforming
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Cancel', 'mediaron-block-shortcuts-for-gb'))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TransformV1ToV2Modal);
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/utils/blockNesting.js"
+/*!******************************************************!*\
+  !*** ./src/js/blocks/commands/utils/blockNesting.js ***!
+  \******************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getBlockNestingLevel: () => (/* binding */ getBlockNestingLevel)
+/* harmony export */ });
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * Utilities for calculating block nesting.
+ */
+
+
+
+/**
+ * Get block nesting level.
+ *
+ * @param {Array} blocks Array of blocks to check.
+ * @return {number} Maximum nesting level.
+ */
+function getBlockNestingLevel() {
+  var blocks = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var blocksToCheck = blocks || (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)('core/block-editor').getBlocks();
+  var maxLevel = 0;
+  blocksToCheck.forEach(function (block) {
+    if (block.innerBlocks.length > 0) {
+      var innerLevel = 1 + getBlockNestingLevel(block.innerBlocks);
+      maxLevel = Math.max(maxLevel, innerLevel);
+    }
+  });
+  return maxLevel;
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/utils/blockTransforms.js"
+/*!*********************************************************!*\
+  !*** ./src/js/blocks/commands/utils/blockTransforms.js ***!
+  \*********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   hasV1BlockInSubtree: () => (/* binding */ hasV1BlockInSubtree),
+/* harmony export */   isV1Block: () => (/* binding */ isV1Block),
+/* harmony export */   replaceBlockWithV2Transform: () => (/* binding */ replaceBlockWithV2Transform),
+/* harmony export */   transformBlock: () => (/* binding */ transformBlock),
+/* harmony export */   transformBlockSubtreeFromContext: () => (/* binding */ transformBlockSubtreeFromContext),
+/* harmony export */   transformBlocks: () => (/* binding */ transformBlocks)
+/* harmony export */ });
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_BlockTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/BlockTypes */ "./src/js/blocks/utils/BlockTypes.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+/**
+ * Utilities for block transformation.
+ */
+
+;
+
+
+
+/**
+ * Whether a block is a v1 block (or v1 variation).
+ *
+ * @param {Object} block Block object.
+ * @return {boolean} True if block is v1.
+ */
+function isV1Block(block) {
+  return block && block.name && (_utils_BlockTypes__WEBPACK_IMPORTED_MODULE_2__.v1Blocks.includes(block.name) || _utils_BlockTypes__WEBPACK_IMPORTED_MODULE_2__.v1VariationNames.includes(block.name)) || false;
+}
+
+/**
+ * Whether the block or any of its descendants is a v1 block.
+ *
+ * @param {Object} block Block object (with innerBlocks).
+ * @return {boolean} True if block or any descendant is v1.
+ */
+function hasV1BlockInSubtree(block) {
+  if (!block) {
+    return false;
+  }
+  if (isV1Block(block)) {
+    return true;
+  }
+  if (block.innerBlocks && block.innerBlocks.length > 0) {
+    return block.innerBlocks.some(function (child) {
+      return hasV1BlockInSubtree(child);
+    });
+  }
+  return false;
+}
+
+/**
+ * Transform a single block to v2 and replace it in the editor (shared logic).
+ *
+ * @param {Object}   block         Block to transform.
+ * @param {Function} storeDispatch Global store dispatch (from @wordpress/data).
+ * @return {Promise<?Object>} The transform result if replaced, null otherwise.
+ */
+function replaceBlockWithV2Transform(_x, _x2) {
+  return _replaceBlockWithV2Transform.apply(this, arguments);
+}
+
+/**
+ * Transform a block.
+ *
+ * @param {Object} block Block to transform.
+ * @return {Promise} Promise that resolves when the block is transformed.
+ */
+function _replaceBlockWithV2Transform() {
+  _replaceBlockWithV2Transform = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(block, storeDispatch) {
+    var transformOptions, _iterator, _step, transform, _iterator2, _step2, transformBlockName, result, _t, _t2;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.p = _context.n) {
+        case 0:
+          if (isV1Block(block)) {
+            _context.n = 1;
+            break;
+          }
+          return _context.a(2, null);
+        case 1:
+          transformOptions = (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.getBlockTransforms)('to', block.name);
+          if (transformOptions) {
+            _context.n = 2;
+            break;
+          }
+          return _context.a(2, null);
+        case 2:
+          _iterator = _createForOfIteratorHelper(transformOptions);
+          _context.p = 3;
+          _iterator.s();
+        case 4:
+          if ((_step = _iterator.n()).done) {
+            _context.n = 16;
+            break;
+          }
+          transform = _step.value;
+          if (transform.blocks) {
+            _context.n = 5;
+            break;
+          }
+          return _context.a(3, 15);
+        case 5:
+          _iterator2 = _createForOfIteratorHelper(transform.blocks);
+          _context.p = 6;
+          _iterator2.s();
+        case 7:
+          if ((_step2 = _iterator2.n()).done) {
+            _context.n = 12;
+            break;
+          }
+          transformBlockName = _step2.value;
+          if (_utils_BlockTypes__WEBPACK_IMPORTED_MODULE_2__.v2Blocks.includes(transformBlockName)) {
+            _context.n = 8;
+            break;
+          }
+          return _context.a(3, 11);
+        case 8:
+          result = transform.transform(block.attributes, block.innerBlocks);
+          if (!result) {
+            _context.n = 10;
+            break;
+          }
+          _context.n = 9;
+          return storeDispatch('core/block-editor').replaceBlocks([block.clientId], result);
+        case 9:
+          return _context.a(2, result);
+        case 10:
+          // eslint-disable-next-line no-console
+          console.error('Failed to transform', block.name, 'to', transformBlockName);
+        case 11:
+          _context.n = 7;
+          break;
+        case 12:
+          _context.n = 14;
+          break;
+        case 13:
+          _context.p = 13;
+          _t = _context.v;
+          _iterator2.e(_t);
+        case 14:
+          _context.p = 14;
+          _iterator2.f();
+          return _context.f(14);
+        case 15:
+          _context.n = 4;
+          break;
+        case 16:
+          _context.n = 18;
+          break;
+        case 17:
+          _context.p = 17;
+          _t2 = _context.v;
+          _iterator.e(_t2);
+        case 18:
+          _context.p = 18;
+          _iterator.f();
+          return _context.f(18);
+        case 19:
+          return _context.a(2, null);
+      }
+    }, _callee, null, [[6, 13, 14, 15], [3, 17, 18, 19]]);
+  }));
+  return _replaceBlockWithV2Transform.apply(this, arguments);
+}
+function transformBlock(_x3) {
+  return _transformBlock.apply(this, arguments);
+}
+
+/**
+ * Recursively get all blocks.
+ *
+ * @param {Array} blocks Array of blocks to transform.
+ * @return {Promise<Array>} Promise that resolves with the same blocks array when all are transformed.
+ */
+function _transformBlock() {
+  _transformBlock = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(block) {
+    return _regenerator().w(function (_context2) {
+      while (1) switch (_context2.n) {
+        case 0:
+          return _context2.a(2, replaceBlockWithV2Transform(block, _wordpress_data__WEBPACK_IMPORTED_MODULE_1__.dispatch));
+      }
+    }, _callee2);
+  }));
+  return _transformBlock.apply(this, arguments);
+}
+function transformBlocks(_x4) {
+  return _transformBlocks.apply(this, arguments);
+}
+
+/**
+ * Transform the given block and its descendants from v1 to v2 (outside-in).
+ * Uses position-based resolution after each replace so the replacement block
+ * is found reliably. Non-v1 blocks are skipped but their inner blocks are still processed.
+ *
+ * @param {Object}   block         The block to process (selected block or a child).
+ * @param {Function} storeSelect   Store select (from @wordpress/data).
+ * @param {Function} storeDispatch Global store dispatch (from @wordpress/data).
+ * @return {Promise<void>} Resolves when the subtree has been processed.
+ */
+function _transformBlocks() {
+  _transformBlocks = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(blocks) {
+    var transformPromises;
+    return _regenerator().w(function (_context4) {
+      while (1) switch (_context4.n) {
+        case 0:
+          transformPromises = blocks.map(/*#__PURE__*/function () {
+            var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(block) {
+              return _regenerator().w(function (_context3) {
+                while (1) switch (_context3.n) {
+                  case 0:
+                    if (!(block.innerBlocks.length > 0)) {
+                      _context3.n = 3;
+                      break;
+                    }
+                    _context3.n = 1;
+                    return transformBlock(block);
+                  case 1:
+                    _context3.n = 2;
+                    return transformBlocks(block.innerBlocks);
+                  case 2:
+                    _context3.n = 4;
+                    break;
+                  case 3:
+                    _context3.n = 4;
+                    return transformBlock(block);
+                  case 4:
+                    return _context3.a(2);
+                }
+              }, _callee3);
+            }));
+            return function (_x8) {
+              return _ref.apply(this, arguments);
+            };
+          }());
+          _context4.n = 1;
+          return Promise.all(transformPromises);
+        case 1:
+          return _context4.a(2, blocks);
+      }
+    }, _callee4);
+  }));
+  return _transformBlocks.apply(this, arguments);
+}
+function transformBlockSubtreeFromContext(_x5, _x6, _x7) {
+  return _transformBlockSubtreeFromContext.apply(this, arguments);
+}
+function _transformBlockSubtreeFromContext() {
+  _transformBlockSubtreeFromContext = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(block, storeSelect, storeDispatch) {
+    var blockEditorSelect, rootClientId, index, didReplace, order, newClientId, newBlock, childIds, _iterator3, _step3, childId, childBlock, _childIds, _iterator4, _step4, _childId, _childBlock, _t3, _t4;
+    return _regenerator().w(function (_context5) {
+      while (1) switch (_context5.p = _context5.n) {
+        case 0:
+          if (!(!block || !block.clientId)) {
+            _context5.n = 1;
+            break;
+          }
+          return _context5.a(2);
+        case 1:
+          blockEditorSelect = storeSelect('core/block-editor');
+          if (!isV1Block(block)) {
+            _context5.n = 13;
+            break;
+          }
+          rootClientId = blockEditorSelect.getBlockRootClientId(block.clientId);
+          index = blockEditorSelect.getBlockIndex(block.clientId, rootClientId !== null && rootClientId !== void 0 ? rootClientId : '');
+          _context5.n = 2;
+          return replaceBlockWithV2Transform(block, storeDispatch);
+        case 2:
+          didReplace = _context5.v;
+          if (didReplace) {
+            _context5.n = 3;
+            break;
+          }
+          return _context5.a(2);
+        case 3:
+          order = blockEditorSelect.getBlockOrder(rootClientId === '' ? undefined : rootClientId);
+          newClientId = order && order[index] !== undefined ? order[index] : null;
+          if (newClientId) {
+            _context5.n = 4;
+            break;
+          }
+          return _context5.a(2);
+        case 4:
+          newBlock = blockEditorSelect.getBlock(newClientId);
+          if (newBlock) {
+            _context5.n = 5;
+            break;
+          }
+          return _context5.a(2);
+        case 5:
+          childIds = blockEditorSelect.getBlockOrder(newClientId);
+          if (!(childIds && childIds.length > 0)) {
+            _context5.n = 12;
+            break;
+          }
+          _iterator3 = _createForOfIteratorHelper(childIds);
+          _context5.p = 6;
+          _iterator3.s();
+        case 7:
+          if ((_step3 = _iterator3.n()).done) {
+            _context5.n = 9;
+            break;
+          }
+          childId = _step3.value;
+          childBlock = blockEditorSelect.getBlock(childId);
+          if (!childBlock) {
+            _context5.n = 8;
+            break;
+          }
+          _context5.n = 8;
+          return transformBlockSubtreeFromContext(childBlock, storeSelect, storeDispatch);
+        case 8:
+          _context5.n = 7;
+          break;
+        case 9:
+          _context5.n = 11;
+          break;
+        case 10:
+          _context5.p = 10;
+          _t3 = _context5.v;
+          _iterator3.e(_t3);
+        case 11:
+          _context5.p = 11;
+          _iterator3.f();
+          return _context5.f(11);
+        case 12:
+          _context5.n = 20;
+          break;
+        case 13:
+          _childIds = blockEditorSelect.getBlockOrder(block.clientId);
+          if (!(_childIds && _childIds.length > 0)) {
+            _context5.n = 20;
+            break;
+          }
+          _iterator4 = _createForOfIteratorHelper(_childIds);
+          _context5.p = 14;
+          _iterator4.s();
+        case 15:
+          if ((_step4 = _iterator4.n()).done) {
+            _context5.n = 17;
+            break;
+          }
+          _childId = _step4.value;
+          _childBlock = blockEditorSelect.getBlock(_childId);
+          if (!_childBlock) {
+            _context5.n = 16;
+            break;
+          }
+          _context5.n = 16;
+          return transformBlockSubtreeFromContext(_childBlock, storeSelect, storeDispatch);
+        case 16:
+          _context5.n = 15;
+          break;
+        case 17:
+          _context5.n = 19;
+          break;
+        case 18:
+          _context5.p = 18;
+          _t4 = _context5.v;
+          _iterator4.e(_t4);
+        case 19:
+          _context5.p = 19;
+          _iterator4.f();
+          return _context5.f(19);
+        case 20:
+          return _context5.a(2);
+      }
+    }, _callee5, null, [[14, 18, 19, 20], [6, 10, 11, 12]]);
+  }));
+  return _transformBlockSubtreeFromContext.apply(this, arguments);
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/utils/headingTransforms.js"
+/*!***********************************************************!*\
+  !*** ./src/js/blocks/commands/utils/headingTransforms.js ***!
+  \***********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getAllHeadingBlocks: () => (/* binding */ getAllHeadingBlocks),
+/* harmony export */   transformAllHeadingBlocks: () => (/* binding */ transformAllHeadingBlocks),
+/* harmony export */   transformHeadingBlock: () => (/* binding */ transformHeadingBlock)
+/* harmony export */ });
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, e) { if ("object" != _typeof(t) || !t) return t; var r; if ("undefined" != typeof Symbol && void 0 !== (r = t[Symbol.toPrimitive])) { var i = r.call(t, e || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === e ? String : Number)(t); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+/**
+ * Utilities for transforming heading blocks.
+ */
+
+;
+
+
+/**
+ * Recursively find all heading blocks in the editor.
+ *
+ * @param {Array} blocks Array of blocks to search.
+ * @return {Array} Array of heading block objects.
+ */
+function getAllHeadingBlocks(blocks) {
+  var headingBlocks = [];
+  blocks.forEach(function (block) {
+    if (block.name === 'core/heading') {
+      headingBlocks.push(block);
+    }
+    // Recursively search inner blocks.
+    if (block.innerBlocks && block.innerBlocks.length > 0) {
+      headingBlocks.push.apply(headingBlocks, _toConsumableArray(getAllHeadingBlocks(block.innerBlocks)));
+    }
+  });
+  return headingBlocks;
+}
+
+/**
+ * Transform a core/heading block to generateblocks/text.
+ *
+ * @param {Object} block The heading block to transform.
+ * @return {Promise} Promise that resolves when the block is transformed.
+ */
+function transformHeadingBlock(_x) {
+  return _transformHeadingBlock.apply(this, arguments);
+}
+
+/**
+ * Transform all heading blocks in the editor.
+ *
+ * @return {Promise} Promise that resolves when all blocks are transformed.
+ */
+function _transformHeadingBlock() {
+  _transformHeadingBlock = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(block) {
+    var _ref, _ref$level, level, _ref$content, content, align, anchor, textColor, backgroundColor, fontSize, style, tagName, newAttributes, newBlock;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.n) {
+        case 0:
+          if (!(block.name !== 'core/heading')) {
+            _context.n = 1;
+            break;
+          }
+          return _context.a(2, null);
+        case 1:
+          // Get the heading block attributes.
+          _ref = block.attributes || {}, _ref$level = _ref.level, level = _ref$level === void 0 ? 2 : _ref$level, _ref$content = _ref.content, content = _ref$content === void 0 ? '' : _ref$content, align = _ref.align, anchor = _ref.anchor, textColor = _ref.textColor, backgroundColor = _ref.backgroundColor, fontSize = _ref.fontSize, style = _ref.style; // Map level to tagName (h1-h6).
+          tagName = "h".concat(level); // Create the new GenerateBlocks text block attributes.
+          // Start with essential attributes: tagName and content.
+          newAttributes = {
+            tagName: tagName,
+            content: content || ''
+          }; // Preserve alignment if set.
+          if (align) {
+            newAttributes.align = align;
+          }
+
+          // Preserve anchor if set (for linking to specific headings).
+          if (anchor) {
+            newAttributes.anchor = anchor;
+          }
+
+          // Preserve style object if it exists (contains custom CSS and other style properties).
+          // This preserves colors, spacing, typography, and other custom styles.
+          if (style && _typeof(style) === 'object') {
+            newAttributes.style = _objectSpread({}, style);
+          }
+
+          // Preserve text color slug if set (WordPress theme color support).
+          if (textColor) {
+            newAttributes.textColor = textColor;
+          }
+
+          // Preserve background color slug if set (WordPress theme color support).
+          if (backgroundColor) {
+            newAttributes.backgroundColor = backgroundColor;
+          }
+
+          // Preserve font size if set (WordPress core typography support).
+          if (fontSize) {
+            newAttributes.fontSize = fontSize;
+          }
+
+          // Create the new block.
+          newBlock = (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('generateblocks/text', newAttributes, block.innerBlocks || []); // Replace the old block with the new one.
+          _context.n = 2;
+          return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.dispatch)('core/block-editor').replaceBlocks([block.clientId], [newBlock]);
+        case 2:
+          return _context.a(2, newBlock);
+      }
+    }, _callee);
+  }));
+  return _transformHeadingBlock.apply(this, arguments);
+}
+function transformAllHeadingBlocks() {
+  return _transformAllHeadingBlocks.apply(this, arguments);
+}
+function _transformAllHeadingBlocks() {
+  _transformAllHeadingBlocks = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+    var blocks, headingBlocks, transformPromises;
+    return _regenerator().w(function (_context2) {
+      while (1) switch (_context2.n) {
+        case 0:
+          blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor').getBlocks();
+          headingBlocks = getAllHeadingBlocks(blocks); // Transform all heading blocks.
+          transformPromises = headingBlocks.map(function (block) {
+            return transformHeadingBlock(block);
+          });
+          _context2.n = 1;
+          return Promise.all(transformPromises);
+        case 1:
+          return _context2.a(2, headingBlocks.length);
+      }
+    }, _callee2);
+  }));
+  return _transformAllHeadingBlocks.apply(this, arguments);
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/utils/outlineClasses.js"
+/*!********************************************************!*\
+  !*** ./src/js/blocks/commands/utils/outlineClasses.js ***!
+  \********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getEditorDocument: () => (/* binding */ getEditorDocument),
+/* harmony export */   getGlobalShowContainerOutlines: () => (/* binding */ getGlobalShowContainerOutlines),
+/* harmony export */   setGlobalShowContainerOutlines: () => (/* binding */ setGlobalShowContainerOutlines)
+/* harmony export */ });
+/**
+ * Utilities for managing outline classes.
+ */
+
+// Create a global state for outline visibility (for reference).
+var globalShowContainerOutlines = false;
+
+/**
+ * Set the global outline visibility state.
+ *
+ * @param {boolean} value - The value to set.
+ */
+function setGlobalShowContainerOutlines(value) {
+  globalShowContainerOutlines = value;
+}
+
+/**
+ * Get the global outline visibility state.
+ *
+ * @return {boolean} The current state.
+ */
+function getGlobalShowContainerOutlines() {
+  return globalShowContainerOutlines;
+}
+
+/**
+ * Get the iframe document if it exists, otherwise return main document.
+ *
+ * @return {Document} The document to use.
+ */
+function getEditorDocument() {
+  var _iframe$contentWindow;
+  var iframe = document.querySelector('.editor-canvas__iframe') || document.querySelector('iframe[name="editor-canvas"]');
+  return (iframe === null || iframe === void 0 ? void 0 : iframe.contentDocument) || (iframe === null || iframe === void 0 || (_iframe$contentWindow = iframe.contentWindow) === null || _iframe$contentWindow === void 0 ? void 0 : _iframe$contentWindow.document) || document;
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/commands/utils/paragraphTransforms.js"
+/*!*************************************************************!*\
+  !*** ./src/js/blocks/commands/utils/paragraphTransforms.js ***!
+  \*************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getAllParagraphBlocks: () => (/* binding */ getAllParagraphBlocks),
+/* harmony export */   transformAllParagraphBlocks: () => (/* binding */ transformAllParagraphBlocks),
+/* harmony export */   transformParagraphBlock: () => (/* binding */ transformParagraphBlock)
+/* harmony export */ });
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, e) { if ("object" != _typeof(t) || !t) return t; var r; if ("undefined" != typeof Symbol && void 0 !== (r = t[Symbol.toPrimitive])) { var i = r.call(t, e || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === e ? String : Number)(t); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+/**
+ * Utilities for transforming paragraph blocks.
+ */
+
+;
+
+
+/**
+ * Recursively find all paragraph blocks in the editor.
+ *
+ * @param {Array} blocks Array of blocks to search.
+ * @return {Array} Array of paragraph block objects.
+ */
+function getAllParagraphBlocks(blocks) {
+  var paragraphBlocks = [];
+  blocks.forEach(function (block) {
+    if (block.name === 'core/paragraph') {
+      paragraphBlocks.push(block);
+    }
+    // Recursively search inner blocks.
+    if (block.innerBlocks && block.innerBlocks.length > 0) {
+      paragraphBlocks.push.apply(paragraphBlocks, _toConsumableArray(getAllParagraphBlocks(block.innerBlocks)));
+    }
+  });
+  return paragraphBlocks;
+}
+
+/**
+ * Transform a core/paragraph block to generateblocks/text.
+ *
+ * @param {Object} block The paragraph block to transform.
+ * @return {Promise} Promise that resolves when the block is transformed.
+ */
+function transformParagraphBlock(_x) {
+  return _transformParagraphBlock.apply(this, arguments);
+}
+
+/**
+ * Transform all paragraph blocks in the editor.
+ *
+ * @return {Promise} Promise that resolves when all blocks are transformed.
+ */
+function _transformParagraphBlock() {
+  _transformParagraphBlock = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(block) {
+    var _ref, _ref$content, content, align, anchor, textColor, backgroundColor, fontSize, style, newAttributes, newBlock;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.n) {
+        case 0:
+          if (!(block.name !== 'core/paragraph')) {
+            _context.n = 1;
+            break;
+          }
+          return _context.a(2, null);
+        case 1:
+          // Get the paragraph block attributes.
+          _ref = block.attributes || {}, _ref$content = _ref.content, content = _ref$content === void 0 ? '' : _ref$content, align = _ref.align, anchor = _ref.anchor, textColor = _ref.textColor, backgroundColor = _ref.backgroundColor, fontSize = _ref.fontSize, style = _ref.style; // Create the new GenerateBlocks text block attributes.
+          // Start with essential attributes: tagName (p for paragraph) and content.
+          newAttributes = {
+            tagName: 'p',
+            element: 'paragraph',
+            content: content || ''
+          }; // Preserve alignment if set.
+          if (align) {
+            newAttributes.align = align;
+          }
+
+          // Preserve anchor if set (for linking to specific paragraphs).
+          if (anchor) {
+            newAttributes.anchor = anchor;
+          }
+
+          // Preserve style object if it exists (contains custom CSS and other style properties).
+          // This preserves colors, spacing, typography, and other custom styles.
+          if (style && _typeof(style) === 'object') {
+            newAttributes.style = _objectSpread({}, style);
+          }
+
+          // Preserve text color slug if set (WordPress theme color support).
+          if (textColor) {
+            newAttributes.textColor = textColor;
+          }
+
+          // Preserve background color slug if set (WordPress theme color support).
+          if (backgroundColor) {
+            newAttributes.backgroundColor = backgroundColor;
+          }
+
+          // Preserve font size if set (WordPress core typography support).
+          if (fontSize) {
+            newAttributes.fontSize = fontSize;
+          }
+
+          // Create the new block.
+          newBlock = (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('generateblocks/text', newAttributes, block.innerBlocks || []); // Replace the old block with the new one.
+          _context.n = 2;
+          return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.dispatch)('core/block-editor').replaceBlocks([block.clientId], [newBlock]);
+        case 2:
+          return _context.a(2, newBlock);
+      }
+    }, _callee);
+  }));
+  return _transformParagraphBlock.apply(this, arguments);
+}
+function transformAllParagraphBlocks() {
+  return _transformAllParagraphBlocks.apply(this, arguments);
+}
+function _transformAllParagraphBlocks() {
+  _transformAllParagraphBlocks = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+    var blocks, paragraphBlocks, transformPromises;
+    return _regenerator().w(function (_context2) {
+      while (1) switch (_context2.n) {
+        case 0:
+          blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor').getBlocks();
+          paragraphBlocks = getAllParagraphBlocks(blocks); // Transform all paragraph blocks.
+          transformPromises = paragraphBlocks.map(function (block) {
+            return transformParagraphBlock(block);
+          });
+          _context2.n = 1;
+          return Promise.all(transformPromises);
+        case 1:
+          return _context2.a(2, paragraphBlocks.length);
+      }
+    }, _callee2);
+  }));
+  return _transformAllParagraphBlocks.apply(this, arguments);
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/utils/BlockTypes.js"
+/*!*******************************************!*\
+  !*** ./src/js/blocks/utils/BlockTypes.js ***!
+  \*******************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   v1Blocks: () => (/* binding */ v1Blocks),
+/* harmony export */   v1VariationNames: () => (/* binding */ v1VariationNames),
+/* harmony export */   v2Blocks: () => (/* binding */ v2Blocks),
+/* harmony export */   vdVariationNames: () => (/* binding */ vdVariationNames)
+/* harmony export */ });
+/**
+ * Begin v1 legacy block modifications.
+ */
+var v1Blocks = ['generateblocks/button-container', 'generateblocks/buttons', 'generateblocks/button', 'generateblocks/headline', 'generateblocks/container', 'generateblocks/grid', 'generateblocks/image', 'generateblocks/query-loop'];
+var v1VariationNames = ['tabs', 'accordion'];
+
+/**
+ * V2 blocks that need to be labeled.
+ */
+var v2Blocks = ['generateblocks/text', 'generateblocks/element', 'generateblocks/media', 'generateblocks/shape', 'generateblocks/query', 'generateblocks/looper', 'generateblocks/query-no-results', 'generateblocks/query-page-numbers', 'generateblocks/loop-item', 'generateblocks-pro/accordion', 'generateblocks-pro/accordion-item', 'generateblocks-pro/accordion-toggle', 'generateblocks-pro/accordion-toggle-icon', 'generateblocks-pro/accordion-content', 'generateblocks-pro/tabs', 'generateblocks-pro/tabs-menu', 'generateblocks-pro/tab-menu-item', 'generateblocks-pro/tab-items', 'generateblocks-pro/tab-item', 'generateblocks/button-container', 'generateblocks-pro/navigation', 'generateblocks-pro/menu-container', 'generateblocks-pro/menu-toggle', 'generateblocks-pro/classic-menu', 'generateblocks-pro/classic-menu-item', 'generateblocks-pro/classic-sub-menu', 'generateblocks-pro/site-header'];
+var vdVariationNames = [];
+
+
+/***/ },
+
+/***/ "./src/js/blocks/utils/sanitize-svg/index.js"
+/*!***************************************************!*\
+  !*** ./src/js/blocks/utils/sanitize-svg/index.js ***!
+  \***************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ sanitizeSVG)
+/* harmony export */ });
+/* harmony import */ var dompurify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dompurify */ "./node_modules/dompurify/dist/purify.es.mjs");
+
+function sanitizeSVG(svg) {
+  return dompurify__WEBPACK_IMPORTED_MODULE_0__["default"].sanitize(svg, {
+    USE_PROFILES: {
+      svg: true,
+      svgFilters: true
+    }
+  });
+}
+
+/***/ },
+
+/***/ "./src/js/blocks/utils/svgAssetLibrary.js"
+/*!************************************************!*\
+  !*** ./src/js/blocks/utils/svgAssetLibrary.js ***!
+  \************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   extractSvgFromBlock: () => (/* binding */ extractSvgFromBlock),
+/* harmony export */   forceGenerateBlocksIconPickerRefresh: () => (/* binding */ forceGenerateBlocksIconPickerRefresh),
+/* harmony export */   patchGenerateBlocksProIcons: () => (/* binding */ patchGenerateBlocksProIcons)
+/* harmony export */ });
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, e) { if ("object" != _typeof(t) || !t) return t; var r; if ("undefined" != typeof Symbol && void 0 !== (r = t[Symbol.toPrimitive])) { var i = r.call(t, e || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === e ? String : Number)(t); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+/**
+ * Helpers for capturing SVGs into the GenerateBlocks Pro Asset Library.
+ */
+
+;
+
+var SVG_BLOCKS = {
+  'generateblocks/shape': 'html',
+  'generateblocks/text': 'icon',
+  'generateblocks/headline': 'icon',
+  'generateblocks/button': 'icon'
+};
+var LIVE_ICONS_KEY = 'mrshortcutsgbLiveSvgIcons';
+var FILTER_FLAG_KEY = 'mrshortcutsgbLiveSvgIconsFilterAdded';
+
+/**
+ * Shared live icon map so separate webpack bundles patch the same object.
+ *
+ * @return {Object} Live icon groups keyed like generateBlocksPro.svgIcons.
+ */
+function getLiveIcons() {
+  if (!window[LIVE_ICONS_KEY] || 'object' !== _typeof(window[LIVE_ICONS_KEY])) {
+    window[LIVE_ICONS_KEY] = {};
+  }
+  return window[LIVE_ICONS_KEY];
+}
+
+/**
+ * Collapse whitespace so equivalent SVGs compare as one library item.
+ *
+ * GenerateBlocks' IconLibrary uses `isPressed: icon === value` on the SVG
+ * string, not the unique id, so duplicate markup all appear selected.
+ *
+ * @param {string} markup SVG markup.
+ * @return {string} Normalized markup.
+ */
+function normalizeSvgMarkup(markup) {
+  if ('string' !== typeof markup) {
+    return '';
+  }
+  return markup.replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Return the first svg id in a group whose markup matches.
+ *
+ * @param {Object} svgs Group svgs keyed by id.
+ * @param {string} icon SVG markup.
+ * @return {string} Matching id, or an empty string.
+ */
+function findExistingSvgId(svgs, icon) {
+  var normalized = normalizeSvgMarkup(icon);
+  if (!normalized || !svgs || 'object' !== _typeof(svgs)) {
+    return '';
+  }
+  var ids = Object.keys(svgs);
+  for (var i = 0; i < ids.length; i++) {
+    var item = svgs[ids[i]];
+    if (item && normalizeSvgMarkup(item.icon) === normalized) {
+      return ids[i];
+    }
+  }
+  return '';
+}
+
+/**
+ * Keep one library tile per unique SVG string in each group.
+ *
+ * Built-in GenerateBlocks icons are React elements, not markup strings.
+ * Those must be kept as-is or the picker would show only custom SVGs.
+ *
+ * @param {Object} sets Icon SVG sets.
+ * @return {Object} Deduped sets.
+ */
+function dedupeSvgSetsByMarkup(sets) {
+  if (!sets || 'object' !== _typeof(sets)) {
+    return sets;
+  }
+  var next = {};
+  Object.keys(sets).forEach(function (key) {
+    var group = sets[key];
+    if (!group || 'object' !== _typeof(group) || !group.svgs || 'object' !== _typeof(group.svgs)) {
+      next[key] = group;
+      return;
+    }
+    var svgs = {};
+    var seen = {};
+    Object.keys(group.svgs).forEach(function (id) {
+      var item = group.svgs[id];
+      if (!item) {
+        return;
+      }
+      if ('string' !== typeof item.icon) {
+        svgs[id] = item;
+        return;
+      }
+      var normalized = normalizeSvgMarkup(item.icon);
+      if (!normalized || seen[normalized]) {
+        return;
+      }
+      seen[normalized] = true;
+      svgs[id] = item;
+    });
+    next[key] = _objectSpread(_objectSpread({}, group), {}, {
+      svgs: svgs
+    });
+  });
+  return next;
+}
+
+/**
+ * Overlay live Asset Library groups without replacing built-in sets.
+ *
+ * @param {Object} sets      Filtered icon SVG sets.
+ * @param {Object} liveIcons Live custom groups.
+ * @return {Object} Merged sets.
+ */
+function mergeLiveIconSets(sets, liveIcons) {
+  var next = sets && 'object' === _typeof(sets) ? _objectSpread({}, sets) : {};
+  if (!liveIcons || 'object' !== _typeof(liveIcons)) {
+    return next;
+  }
+  Object.keys(liveIcons).forEach(function (key) {
+    var liveGroup = liveIcons[key];
+    if (!liveGroup || 'object' !== _typeof(liveGroup)) {
+      return;
+    }
+    var existing = next[key];
+    if (!existing || 'object' !== _typeof(existing)) {
+      next[key] = liveGroup;
+      return;
+    }
+    next[key] = _objectSpread(_objectSpread({}, existing), {}, {
+      group: existing.group || liveGroup.group,
+      svgs: _objectSpread(_objectSpread({}, existing.svgs || {}), liveGroup.svgs || {})
+    });
+  });
+  return next;
+}
+if (!window[FILTER_FLAG_KEY]) {
+  window[FILTER_FLAG_KEY] = true;
+  (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.addFilter)('generateblocks.editor.iconSVGSets', 'mrshortcuts-gb/live-asset-icons', function (sets) {
+    return mergeLiveIconSets(sets, getLiveIcons());
+  });
+}
+
+/**
+ * Extract SVG markup from a supported GenerateBlocks block.
+ *
+ * @param {Object|null} block Selected block.
+ * @return {string} SVG markup, or an empty string.
+ */
+function extractSvgFromBlock(block) {
+  if (!block || !block.name || !block.attributes) {
+    return '';
+  }
+  var attributeName = SVG_BLOCKS[block.name];
+  if (!attributeName) {
+    return '';
+  }
+  var markup = block.attributes[attributeName];
+  if ('string' !== typeof markup || -1 === markup.toLowerCase().indexOf('<svg')) {
+    return '';
+  }
+  return markup;
+}
+
+/**
+ * Force GenerateBlocks inspector controls to re-run iconSVGSets filters.
+ */
+function forceGenerateBlocksIconPickerRefresh() {
+  var settings = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)('core/block-editor').getSettings();
+  (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)('core/block-editor').updateSettings(_objectSpread(_objectSpread({}, settings), {}, {
+    mrshortcutsGbIconLibraryRev: (settings.mrshortcutsGbIconLibraryRev || 0) + 1
+  }));
+  var clientId = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)('core/block-editor').getSelectedBlockClientId();
+  if (!clientId) {
+    return;
+  }
+
+  // Deselect/reselect remounts inspector controls that already rendered the icon list.
+  ;(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)('core/block-editor').clearSelectedBlock();
+  window.requestAnimationFrame(function () {
+    (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)('core/block-editor').selectBlock(clientId);
+  });
+}
+
+/**
+ * Patch Pro's localized icon list so the chooser sees a newly saved icon on next render.
+ *
+ * @param {Object}  icon            Saved icon payload from REST.
+ * @param {string}  icon.group      Group label.
+ * @param {string}  icon.groupKey   sanitize_key() group key used by Pro.
+ * @param {string}  icon.id         Icon id.
+ * @param {string}  icon.name       Icon label.
+ * @param {string}  icon.icon       Sanitized SVG markup.
+ * @param {Object}  options         Patch options.
+ * @param {boolean} options.refresh Whether to remount inspector controls. Defaults to true.
+ */
+function patchGenerateBlocksProIcons(_ref) {
+  var group = _ref.group,
+    groupKey = _ref.groupKey,
+    id = _ref.id,
+    name = _ref.name,
+    icon = _ref.icon;
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var key = groupKey || group;
+  if (!key) {
+    return;
+  }
+  var liveIcons = getLiveIcons();
+  var existingGroup = typeof generateBlocksPro !== 'undefined' && generateBlocksPro.svgIcons && generateBlocksPro.svgIcons[key] || liveIcons[key] || {
+    group: group || key,
+    svgs: {}
+  };
+  var existingSvgs = existingGroup.svgs || {};
+  var existingId = findExistingSvgId(existingSvgs, icon);
+  var resolvedId = existingId || id;
+  var nextGroup = {
+    group: existingGroup.group || group || key,
+    svgs: _objectSpread(_objectSpread({}, existingSvgs), {}, _defineProperty({}, resolvedId, existingId && existingSvgs[existingId] ? existingSvgs[existingId] : {
+      label: name,
+      icon: icon
+    }))
+  };
+  var collapsedGroup = dedupeSvgSetsByMarkup(_defineProperty({}, key, nextGroup))[key];
+  liveIcons[key] = collapsedGroup;
+  if (typeof generateBlocksPro !== 'undefined') {
+    if (!generateBlocksPro.svgIcons || 'object' !== _typeof(generateBlocksPro.svgIcons)) {
+      generateBlocksPro.svgIcons = {};
+    }
+    generateBlocksPro.svgIcons[key] = collapsedGroup;
+  }
+  if (false !== options.refresh) {
+    forceGenerateBlocksIconPickerRefresh();
+  }
+}
+
+/***/ },
+
+/***/ "react"
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+(module) {
+
+module.exports = window["React"];
+
+/***/ },
+
+/***/ "@wordpress/api-fetch"
+/*!**********************************!*\
+  !*** external ["wp","apiFetch"] ***!
+  \**********************************/
+(module) {
+
+module.exports = window["wp"]["apiFetch"];
+
+/***/ },
+
+/***/ "@wordpress/blocks"
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+(module) {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ },
+
+/***/ "@wordpress/commands"
+/*!**********************************!*\
+  !*** external ["wp","commands"] ***!
+  \**********************************/
+(module) {
+
+module.exports = window["wp"]["commands"];
+
+/***/ },
+
+/***/ "@wordpress/components"
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ },
+
+/***/ "@wordpress/data"
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+(module) {
+
+module.exports = window["wp"]["data"];
+
+/***/ },
+
+/***/ "@wordpress/hooks"
+/*!*******************************!*\
+  !*** external ["wp","hooks"] ***!
+  \*******************************/
+(module) {
+
+module.exports = window["wp"]["hooks"];
+
+/***/ },
+
+/***/ "@wordpress/i18n"
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+(module) {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ },
+
+/***/ "@wordpress/plugins"
+/*!*********************************!*\
+  !*** external ["wp","plugins"] ***!
+  \*********************************/
+(module) {
+
+module.exports = window["wp"]["plugins"];
+
+/***/ },
+
+/***/ "./node_modules/dompurify/dist/purify.es.mjs"
+/*!***************************************************!*\
+  !*** ./node_modules/dompurify/dist/purify.es.mjs ***!
+  \***************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ purify_default)
+/* harmony export */ });
+/*! @license DOMPurify 3.4.17 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/3.4.17/LICENSE */
+function _OverloadYield(e, d) {
+	this.v = e, this.k = d;
+}
+function _arrayLikeToArray(r, a) {
+	(null == a || a > r.length) && (a = r.length);
+	for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+	return n;
+}
+function _arrayWithHoles(r) {
+	if (Array.isArray(r)) return r;
+}
+function _iterableToArrayLimit(r, l) {
+	var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+	if (null != t) {
+		var e, n, i, u, a = [], f = !0, o = !1;
+		try {
+			if (i = (t = t.call(r)).next, 0 === l) {
+				if (Object(t) !== t) return;
+				f = !1;
+			} else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+		} catch (r) {
+			o = !0, n = r;
+		} finally {
+			try {
+				if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return;
+			} finally {
+				if (o) throw n;
+			}
+		}
+		return a;
+	}
+}
+function _nonIterableRest() {
+	throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */
+function _slicedToArray(r, e) {
+	return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest();
+}
+function _unsupportedIterableToArray(r, a) {
+	if (r) {
+		if ("string" == typeof r) return _arrayLikeToArray(r, a);
+		var t = {}.toString.call(r).slice(8, -1);
+		return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
+	}
+}
+function AsyncGenerator(e) {
+	var t, n;
+	function resume(t, n) {
+		try {
+			var r = e[t](n), o = r.value, u = o instanceof _OverloadYield;
+			Promise.resolve(u ? o.v : o).then(function(n) {
+				if (u) {
+					var i = "return" === t && o.k ? t : "next";
+					if (!o.k || n.done) return resume(i, n);
+					n = e[i](n).value;
+				}
+				settle(!!r.done, n);
+			}, function(e) {
+				resume("throw", e);
+			});
+		} catch (e) {
+			settle(2, e);
+		}
+	}
+	function settle(e, r) {
+		2 === e ? t.reject(r) : t.resolve({
+			value: r,
+			done: e
+		}), (t = t.next) ? resume(t.key, t.arg) : n = null;
+	}
+	this._invoke = function(e, r) {
+		return new Promise(function(o, u) {
+			var i = {
+				key: e,
+				arg: r,
+				resolve: o,
+				reject: u,
+				next: null
+			};
+			n ? n = n.next = i : (t = n = i, resume(e, r));
+		});
+	}, "function" != typeof e.return && (this.return = void 0);
+}
+AsyncGenerator.prototype["function" == typeof Symbol && Symbol.asyncIterator || "@@asyncIterator"] = function() {
+	return this;
+}, AsyncGenerator.prototype.next = function(e) {
+	return this._invoke("next", e);
+}, AsyncGenerator.prototype.throw = function(e) {
+	return this._invoke("throw", e);
+}, AsyncGenerator.prototype.return = function(e) {
+	return this._invoke("return", e);
+};
+const entries = Object.entries;
+const setPrototypeOf = Object.setPrototypeOf;
+const isFrozen = Object.isFrozen;
+const getPrototypeOf = Object.getPrototypeOf;
+const getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+let freeze = Object.freeze;
+let seal = Object.seal;
+let create = Object.create;
+let _ref = typeof Reflect !== "undefined" && Reflect;
+let apply = _ref.apply;
+let construct = _ref.construct;
+if (!freeze) freeze = function freeze(x) {
+	return x;
+};
+if (!seal) seal = function seal(x) {
+	return x;
+};
+if (!apply) apply = function apply(func, thisArg) {
+	for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) args[_key - 2] = arguments[_key];
+	return func.apply(thisArg, args);
+};
+if (!construct) construct = function construct(Func) {
+	for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) args[_key2 - 1] = arguments[_key2];
+	return new Func(...args);
+};
+const arrayForEach = unapply(Array.prototype.forEach);
+Array.prototype.indexOf;
+const arrayLastIndexOf = unapply(Array.prototype.lastIndexOf);
+const arrayPop = unapply(Array.prototype.pop);
+const arrayPush = unapply(Array.prototype.push);
+const arraySlice = unapply(Array.prototype.slice);
+const arraySplice = unapply(Array.prototype.splice);
+const arrayIsArray = Array.isArray;
+const setCreate = unconstruct(Set);
+const setAdd = unapply(Set.prototype.add);
+const setHas = unapply(Set.prototype.has);
+const stringToLowerCase = unapply(String.prototype.toLowerCase);
+const stringToString = unapply(String.prototype.toString);
+const stringMatch = unapply(String.prototype.match);
+const stringReplace = unapply(String.prototype.replace);
+const stringIndexOf = unapply(String.prototype.indexOf);
+const stringTrim = unapply(String.prototype.trim);
+const numberToString = unapply(Number.prototype.toString);
+const booleanToString = unapply(Boolean.prototype.toString);
+const bigintToString = typeof BigInt === "undefined" ? null : unapply(BigInt.prototype.toString);
+const symbolToString = typeof Symbol === "undefined" ? null : unapply(Symbol.prototype.toString);
+const objectHasOwnProperty = unapply(Object.prototype.hasOwnProperty);
+const objectToString = unapply(Object.prototype.toString);
+const regExpTest = unapply(RegExp.prototype.test);
+const typeErrorCreate = unconstruct(TypeError);
+/**
+* Creates a new function that calls the given function with a specified thisArg and arguments.
+*
+* @param func - The function to be wrapped and called.
+* @returns A new function that calls the given function with a specified thisArg and arguments.
+*/
+function unapply(func) {
+	return function(thisArg) {
+		if (thisArg instanceof RegExp) thisArg.lastIndex = 0;
+		for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) args[_key3 - 1] = arguments[_key3];
+		return apply(func, thisArg, args);
+	};
+}
+/**
+* Creates a new function that constructs an instance of the given constructor function with the provided arguments.
+*
+* @param func - The constructor function to be wrapped and called.
+* @returns A new function that constructs an instance of the given constructor function with the provided arguments.
+*/
+function unconstruct(Func) {
+	return function() {
+		for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) args[_key4] = arguments[_key4];
+		return construct(Func, args);
+	};
+}
+/**
+* Add properties to a lookup table
+*
+* @param set - The set to which elements will be added.
+* @param array - The array containing elements to be added to the set.
+* @param transformCaseFunc - An optional function to transform the case of each element before adding to the set.
+* @returns The modified set with added elements.
+*/
+function addToSet(set, array) {
+	let transformCaseFunc = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : stringToLowerCase;
+	if (setPrototypeOf) setPrototypeOf(set, null);
+	if (!arrayIsArray(array)) return set;
+	let l = array.length;
+	while (l--) {
+		let element = array[l];
+		if (typeof element === "string") {
+			const lcElement = transformCaseFunc(element);
+			if (lcElement !== element) {
+				if (!isFrozen(array)) array[l] = lcElement;
+				element = lcElement;
+			}
+		}
+		set[element] = true;
+	}
+	return set;
+}
+/**
+* Clean up an array to harden against CSPP
+*
+* @param array - The array to be cleaned.
+* @returns The cleaned version of the array
+*/
+function cleanArray(array) {
+	for (let index = 0; index < array.length; index++) if (!objectHasOwnProperty(array, index)) array[index] = null;
+	return array;
+}
+/**
+* Shallow clone an object
+*
+* @param object - The object to be cloned.
+* @returns A new object that copies the original.
+*/
+function clone(object) {
+	const newObject = create(null);
+	for (const _ref2 of entries(object)) {
+		var _ref3 = _slicedToArray(_ref2, 2);
+		const property = _ref3[0];
+		const value = _ref3[1];
+		if (objectHasOwnProperty(object, property)) {
+			if (arrayIsArray(value)) newObject[property] = cleanArray(value);
+			else if (value && typeof value === "object" && value.constructor === Object) newObject[property] = clone(value);
+			else newObject[property] = value;
+		}
+	}
+	return newObject;
+}
+/**
+* Convert non-node values into strings without depending on direct property access.
+*
+* @param value - The value to stringify.
+* @returns A string representation of the provided value.
+*/
+function stringifyValue(value) {
+	switch (typeof value) {
+		case "string": return value;
+		case "number": return numberToString(value);
+		case "boolean": return booleanToString(value);
+		case "bigint": return bigintToString ? bigintToString(value) : "0";
+		case "symbol": return symbolToString ? symbolToString(value) : "Symbol()";
+		case "undefined": return objectToString(value);
+		case "function":
+		case "object": {
+			if (value === null) return objectToString(value);
+			const valueAsRecord = value;
+			const valueToString = lookupGetter(valueAsRecord, "toString");
+			if (typeof valueToString === "function") {
+				const stringified = valueToString(valueAsRecord);
+				return typeof stringified === "string" ? stringified : objectToString(stringified);
+			}
+			return objectToString(value);
+		}
+		default: return objectToString(value);
+	}
+}
+/**
+* This method automatically checks if the prop is function or getter and behaves accordingly.
+*
+* @param object - The object to look up the getter function in its prototype chain.
+* @param prop - The property name for which to find the getter function.
+* @returns The getter function found in the prototype chain or a fallback function.
+*/
+function lookupGetter(object, prop) {
+	while (object !== null) {
+		const desc = getOwnPropertyDescriptor(object, prop);
+		if (desc) {
+			if (desc.get) return unapply(desc.get);
+			if (typeof desc.value === "function") return unapply(desc.value);
+		}
+		object = getPrototypeOf(object);
+	}
+	function fallbackValue() {
+		return null;
+	}
+	return fallbackValue;
+}
+/**
+* Like lookupGetter, but for accessor properties only, and returns null
+* instead of a null-returning fallback when no getter exists on the chain.
+* Lets a caller fall back to a direct property read in environments that
+* lack the getter, where a fallback returning null would be indistinguishable
+* from a legitimate null value (e.g. namespaceURI of a no-namespace element).
+*
+* @param object - The object (usually a prototype) to start the lookup at.
+* @param prop - The accessor property name.
+* @returns The unapplied getter, or null if none was found.
+*/
+function lookupAccessor(object, prop) {
+	while (object !== null) {
+		const desc = getOwnPropertyDescriptor(object, prop);
+		if (desc) return desc.get ? unapply(desc.get) : null;
+		object = getPrototypeOf(object);
+	}
+	return null;
+}
+function isRegex(value) {
+	try {
+		regExpTest(value, "");
+		return true;
+	} catch (_unused) {
+		return false;
+	}
+}
+const html$1 = freeze([
+	"a",
+	"abbr",
+	"acronym",
+	"address",
+	"area",
+	"article",
+	"aside",
+	"audio",
+	"b",
+	"bdi",
+	"bdo",
+	"big",
+	"blink",
+	"blockquote",
+	"body",
+	"br",
+	"button",
+	"canvas",
+	"caption",
+	"center",
+	"cite",
+	"code",
+	"col",
+	"colgroup",
+	"content",
+	"data",
+	"datalist",
+	"dd",
+	"decorator",
+	"del",
+	"details",
+	"dfn",
+	"dialog",
+	"dir",
+	"div",
+	"dl",
+	"dt",
+	"element",
+	"em",
+	"fieldset",
+	"figcaption",
+	"figure",
+	"font",
+	"footer",
+	"form",
+	"h1",
+	"h2",
+	"h3",
+	"h4",
+	"h5",
+	"h6",
+	"head",
+	"header",
+	"hgroup",
+	"hr",
+	"html",
+	"i",
+	"img",
+	"input",
+	"ins",
+	"kbd",
+	"label",
+	"legend",
+	"li",
+	"main",
+	"map",
+	"mark",
+	"marquee",
+	"menu",
+	"menuitem",
+	"meter",
+	"nav",
+	"nobr",
+	"ol",
+	"optgroup",
+	"option",
+	"output",
+	"p",
+	"picture",
+	"pre",
+	"progress",
+	"q",
+	"rp",
+	"rt",
+	"ruby",
+	"s",
+	"samp",
+	"search",
+	"section",
+	"select",
+	"shadow",
+	"slot",
+	"small",
+	"source",
+	"spacer",
+	"span",
+	"strike",
+	"strong",
+	"style",
+	"sub",
+	"summary",
+	"sup",
+	"table",
+	"tbody",
+	"td",
+	"template",
+	"textarea",
+	"tfoot",
+	"th",
+	"thead",
+	"time",
+	"tr",
+	"track",
+	"tt",
+	"u",
+	"ul",
+	"var",
+	"video",
+	"wbr"
+]);
+const svg$1 = freeze([
+	"svg",
+	"a",
+	"altglyph",
+	"altglyphdef",
+	"altglyphitem",
+	"animatecolor",
+	"animatemotion",
+	"animatetransform",
+	"circle",
+	"clippath",
+	"defs",
+	"desc",
+	"ellipse",
+	"enterkeyhint",
+	"exportparts",
+	"filter",
+	"font",
+	"g",
+	"glyph",
+	"glyphref",
+	"hkern",
+	"image",
+	"inputmode",
+	"line",
+	"lineargradient",
+	"marker",
+	"mask",
+	"metadata",
+	"mpath",
+	"part",
+	"path",
+	"pattern",
+	"polygon",
+	"polyline",
+	"radialgradient",
+	"rect",
+	"stop",
+	"style",
+	"switch",
+	"symbol",
+	"text",
+	"textpath",
+	"title",
+	"tref",
+	"tspan",
+	"view",
+	"vkern"
+]);
+const svgFilters = freeze([
+	"feBlend",
+	"feColorMatrix",
+	"feComponentTransfer",
+	"feComposite",
+	"feConvolveMatrix",
+	"feDiffuseLighting",
+	"feDisplacementMap",
+	"feDistantLight",
+	"feDropShadow",
+	"feFlood",
+	"feFuncA",
+	"feFuncB",
+	"feFuncG",
+	"feFuncR",
+	"feGaussianBlur",
+	"feImage",
+	"feMerge",
+	"feMergeNode",
+	"feMorphology",
+	"feOffset",
+	"fePointLight",
+	"feSpecularLighting",
+	"feSpotLight",
+	"feTile",
+	"feTurbulence"
+]);
+const svgDisallowed = freeze([
+	"animate",
+	"color-profile",
+	"cursor",
+	"discard",
+	"font-face",
+	"font-face-format",
+	"font-face-name",
+	"font-face-src",
+	"font-face-uri",
+	"foreignobject",
+	"hatch",
+	"hatchpath",
+	"mesh",
+	"meshgradient",
+	"meshpatch",
+	"meshrow",
+	"missing-glyph",
+	"script",
+	"set",
+	"solidcolor",
+	"unknown",
+	"use"
+]);
+const mathMl$1 = freeze([
+	"math",
+	"menclose",
+	"merror",
+	"mfenced",
+	"mfrac",
+	"mglyph",
+	"mi",
+	"mlabeledtr",
+	"mmultiscripts",
+	"mn",
+	"mo",
+	"mover",
+	"mpadded",
+	"mphantom",
+	"mroot",
+	"mrow",
+	"ms",
+	"mspace",
+	"msqrt",
+	"mstyle",
+	"msub",
+	"msup",
+	"msubsup",
+	"mtable",
+	"mtd",
+	"mtext",
+	"mtr",
+	"munder",
+	"munderover",
+	"mprescripts"
+]);
+const mathMlDisallowed = freeze([
+	"maction",
+	"maligngroup",
+	"malignmark",
+	"mlongdiv",
+	"mscarries",
+	"mscarry",
+	"msgroup",
+	"mstack",
+	"msline",
+	"msrow",
+	"semantics",
+	"annotation",
+	"annotation-xml",
+	"mprescripts",
+	"none"
+]);
+const text = freeze(["#text"]);
+const html = freeze([
+	"accept",
+	"action",
+	"align",
+	"alt",
+	"autocapitalize",
+	"autocomplete",
+	"autopictureinpicture",
+	"autoplay",
+	"background",
+	"bgcolor",
+	"border",
+	"capture",
+	"cellpadding",
+	"cellspacing",
+	"checked",
+	"cite",
+	"class",
+	"clear",
+	"color",
+	"cols",
+	"colspan",
+	"command",
+	"commandfor",
+	"controls",
+	"controlslist",
+	"coords",
+	"crossorigin",
+	"datetime",
+	"decoding",
+	"default",
+	"dir",
+	"disabled",
+	"disablepictureinpicture",
+	"disableremoteplayback",
+	"download",
+	"draggable",
+	"enctype",
+	"enterkeyhint",
+	"exportparts",
+	"face",
+	"for",
+	"headers",
+	"height",
+	"hidden",
+	"high",
+	"href",
+	"hreflang",
+	"id",
+	"inert",
+	"inputmode",
+	"integrity",
+	"ismap",
+	"kind",
+	"label",
+	"lang",
+	"list",
+	"loading",
+	"loop",
+	"low",
+	"max",
+	"maxlength",
+	"media",
+	"method",
+	"min",
+	"minlength",
+	"multiple",
+	"muted",
+	"name",
+	"nonce",
+	"noshade",
+	"novalidate",
+	"nowrap",
+	"open",
+	"optimum",
+	"part",
+	"pattern",
+	"placeholder",
+	"playsinline",
+	"popover",
+	"popovertarget",
+	"popovertargetaction",
+	"poster",
+	"preload",
+	"pubdate",
+	"radiogroup",
+	"readonly",
+	"rel",
+	"required",
+	"rev",
+	"reversed",
+	"role",
+	"rows",
+	"rowspan",
+	"spellcheck",
+	"scope",
+	"selected",
+	"shape",
+	"size",
+	"sizes",
+	"slot",
+	"span",
+	"srclang",
+	"start",
+	"src",
+	"srcset",
+	"step",
+	"style",
+	"summary",
+	"tabindex",
+	"title",
+	"translate",
+	"type",
+	"usemap",
+	"valign",
+	"value",
+	"width",
+	"wrap",
+	"xmlns"
+]);
+const svg = freeze([
+	"accent-height",
+	"accumulate",
+	"additive",
+	"alignment-baseline",
+	"amplitude",
+	"ascent",
+	"attributename",
+	"attributetype",
+	"azimuth",
+	"basefrequency",
+	"baseline-shift",
+	"begin",
+	"bias",
+	"by",
+	"class",
+	"clip",
+	"clippathunits",
+	"clip-path",
+	"clip-rule",
+	"color",
+	"color-interpolation",
+	"color-interpolation-filters",
+	"color-profile",
+	"color-rendering",
+	"cx",
+	"cy",
+	"d",
+	"dx",
+	"dy",
+	"diffuseconstant",
+	"direction",
+	"display",
+	"divisor",
+	"dominant-baseline",
+	"dur",
+	"edgemode",
+	"elevation",
+	"end",
+	"exponent",
+	"fill",
+	"fill-opacity",
+	"fill-rule",
+	"filter",
+	"filterunits",
+	"flood-color",
+	"flood-opacity",
+	"font-family",
+	"font-size",
+	"font-size-adjust",
+	"font-stretch",
+	"font-style",
+	"font-variant",
+	"font-weight",
+	"fx",
+	"fy",
+	"g1",
+	"g2",
+	"glyph-name",
+	"glyphref",
+	"gradientunits",
+	"gradienttransform",
+	"height",
+	"href",
+	"id",
+	"image-rendering",
+	"in",
+	"in2",
+	"intercept",
+	"k",
+	"k1",
+	"k2",
+	"k3",
+	"k4",
+	"kerning",
+	"keypoints",
+	"keysplines",
+	"keytimes",
+	"lang",
+	"lengthadjust",
+	"letter-spacing",
+	"kernelmatrix",
+	"kernelunitlength",
+	"lighting-color",
+	"local",
+	"marker-end",
+	"marker-mid",
+	"marker-start",
+	"markerheight",
+	"markerunits",
+	"markerwidth",
+	"maskcontentunits",
+	"maskunits",
+	"max",
+	"mask",
+	"mask-type",
+	"media",
+	"method",
+	"mode",
+	"min",
+	"name",
+	"numoctaves",
+	"offset",
+	"operator",
+	"opacity",
+	"order",
+	"orient",
+	"orientation",
+	"origin",
+	"overflow",
+	"paint-order",
+	"path",
+	"pathlength",
+	"patterncontentunits",
+	"patterntransform",
+	"patternunits",
+	"pointer-events",
+	"points",
+	"preservealpha",
+	"preserveaspectratio",
+	"primitiveunits",
+	"r",
+	"rx",
+	"ry",
+	"radius",
+	"refx",
+	"refy",
+	"repeatcount",
+	"repeatdur",
+	"restart",
+	"result",
+	"rotate",
+	"scale",
+	"seed",
+	"shape-rendering",
+	"slope",
+	"specularconstant",
+	"specularexponent",
+	"spreadmethod",
+	"startoffset",
+	"stddeviation",
+	"stitchtiles",
+	"stop-color",
+	"stop-opacity",
+	"stroke-dasharray",
+	"stroke-dashoffset",
+	"stroke-linecap",
+	"stroke-linejoin",
+	"stroke-miterlimit",
+	"stroke-opacity",
+	"stroke",
+	"stroke-width",
+	"style",
+	"surfacescale",
+	"systemlanguage",
+	"tabindex",
+	"tablevalues",
+	"targetx",
+	"targety",
+	"transform",
+	"transform-origin",
+	"text-anchor",
+	"text-decoration",
+	"text-orientation",
+	"text-rendering",
+	"textlength",
+	"type",
+	"u1",
+	"u2",
+	"unicode",
+	"values",
+	"vector-effect",
+	"viewbox",
+	"visibility",
+	"version",
+	"vert-adv-y",
+	"vert-origin-x",
+	"vert-origin-y",
+	"width",
+	"word-spacing",
+	"wrap",
+	"writing-mode",
+	"xchannelselector",
+	"ychannelselector",
+	"x",
+	"x1",
+	"x2",
+	"xmlns",
+	"y",
+	"y1",
+	"y2",
+	"z",
+	"zoomandpan"
+]);
+const mathMl = freeze([
+	"accent",
+	"accentunder",
+	"align",
+	"bevelled",
+	"close",
+	"columnalign",
+	"columnlines",
+	"columnspacing",
+	"columnspan",
+	"denomalign",
+	"depth",
+	"dir",
+	"display",
+	"displaystyle",
+	"encoding",
+	"fence",
+	"frame",
+	"height",
+	"href",
+	"id",
+	"largeop",
+	"length",
+	"linethickness",
+	"lquote",
+	"lspace",
+	"mathbackground",
+	"mathcolor",
+	"mathsize",
+	"mathvariant",
+	"maxsize",
+	"minsize",
+	"movablelimits",
+	"notation",
+	"numalign",
+	"open",
+	"rowalign",
+	"rowlines",
+	"rowspacing",
+	"rowspan",
+	"rspace",
+	"rquote",
+	"scriptlevel",
+	"scriptminsize",
+	"scriptsizemultiplier",
+	"selection",
+	"separator",
+	"separators",
+	"stretchy",
+	"subscriptshift",
+	"supscriptshift",
+	"symmetric",
+	"voffset",
+	"width",
+	"xmlns"
+]);
+const xml = freeze([
+	"xlink:href",
+	"xml:id",
+	"xlink:title",
+	"xml:space",
+	"xmlns:xlink"
+]);
+const MUSTACHE_EXPR = seal(/{{[\w\W]*|^[\w\W]*}}/g);
+const ERB_EXPR = seal(/<%[\w\W]*|^[\w\W]*%>/g);
+const TMPLIT_EXPR = seal(/\${[\w\W]*/g);
+const DATA_ATTR = seal(/^data-[\-\w.\u00B7-\uFFFF]+$/);
+const ARIA_ATTR = seal(/^aria-[\-\w]+$/);
+const IS_ALLOWED_URI = seal(/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp|matrix):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i);
+const IS_SCRIPT_OR_DATA = seal(/^(?:\w+script|data):/i);
+const ATTR_WHITESPACE = seal(/[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g);
+const DOCTYPE_NAME = seal(/^html$/i);
+const CUSTOM_ELEMENT = seal(/^[a-z][.\w]*(-[.\w]+)+$/i);
+const ELEMENT_MARKUP_PROBE = seal(/<[/\w!]/g);
+const COMMENT_MARKUP_PROBE = seal(/<[/\w]/g);
+const FALLBACK_TAG_CLOSE = seal(/<\/no(script|embed|frames)/i);
+const SELF_CLOSING_TAG = seal(/\/>/i);
+const NODE_TYPE = {
+	element: 1,
+	attribute: 2,
+	text: 3,
+	cdataSection: 4,
+	entityReference: 5,
+	entityNode: 6,
+	processingInstruction: 7,
+	comment: 8,
+	document: 9,
+	documentType: 10,
+	documentFragment: 11,
+	notation: 12
+};
+const LITERAL_TEXT_ELEMENTS = freeze(addToSet({}, [
+	"style",
+	"script",
+	"xmp",
+	"iframe",
+	"noembed",
+	"noframes",
+	"plaintext",
+	"noscript"
+]));
+const getGlobal = function getGlobal() {
+	return typeof window === "undefined" ? null : window;
+};
+/**
+* Creates a no-op policy for internal use only.
+* Don't export this function outside this module!
+* @param trustedTypes The policy factory.
+* @param purifyHostElement The Script element used to load DOMPurify (to determine policy name suffix).
+* @return The policy created (or null, if Trusted Types
+* are not supported or creating the policy failed).
+*/
+const _createTrustedTypesPolicy = function _createTrustedTypesPolicy(trustedTypes, purifyHostElement) {
+	if (typeof trustedTypes !== "object" || typeof trustedTypes.createPolicy !== "function") return null;
+	let suffix = null;
+	const ATTR_NAME = "data-tt-policy-suffix";
+	if (purifyHostElement && purifyHostElement.hasAttribute(ATTR_NAME)) suffix = purifyHostElement.getAttribute(ATTR_NAME);
+	const policyName = "dompurify" + (suffix ? "#" + suffix : "");
+	try {
+		return trustedTypes.createPolicy(policyName, {
+			createHTML(html) {
+				return html;
+			},
+			createScriptURL(scriptUrl) {
+				return scriptUrl;
+			}
+		});
+	} catch (_) {
+		console.warn("TrustedTypes policy " + policyName + " could not be created.");
+		return null;
+	}
+};
+const _createHooksMap = function _createHooksMap() {
+	return {
+		afterSanitizeAttributes: [],
+		afterSanitizeElements: [],
+		afterSanitizeShadowDOM: [],
+		beforeSanitizeAttributes: [],
+		beforeSanitizeElements: [],
+		beforeSanitizeShadowDOM: [],
+		uponSanitizeAttribute: [],
+		uponSanitizeElement: [],
+		uponSanitizeShadowNode: []
+	};
+};
+/**
+* Resolve a set-valued configuration option: a fresh set built from
+* cfg[key] when it is an own array property (seeded with a clone of
+* options.base when given, case-normalized via options.transform),
+* the fallback set otherwise.
+*
+* @param cfg the cloned, prototype-free configuration object
+* @param key the configuration property to read
+* @param fallback the set to use when the option is absent or not an array
+* @param options transform and optional base set to merge into
+* @returns the resolved set
+*/
+const _resolveSetOption = function _resolveSetOption(cfg, key, fallback, options) {
+	return objectHasOwnProperty(cfg, key) && arrayIsArray(cfg[key]) ? addToSet(options.base ? clone(options.base) : {}, cfg[key], options.transform) : fallback;
+};
+/**
+* Resolve an object-valued configuration option: a prototype-free clone
+* of cfg[key] when it is an own, truthy object property, else a fresh
+* fallback built by makeFallback (fresh on every parse, so a previous
+* parse can never leak state into the next one).
+*
+* @param cfg the cloned, prototype-free configuration object
+* @param key the configuration property to read
+* @param makeFallback builds the fallback value when the option is absent
+* @returns the resolved object
+*/
+const _resolveObjectOption = function _resolveObjectOption(cfg, key, makeFallback) {
+	const value = objectHasOwnProperty(cfg, key) ? cfg[key] : void 0;
+	return value && typeof value === "object" ? clone(value) : makeFallback();
+};
+function createDOMPurify() {
+	let window = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : getGlobal();
+	const DOMPurify = (root) => createDOMPurify(root);
+	DOMPurify.version = "3.4.17";
+	DOMPurify.removed = [];
+	if (!window || !window.document || window.document.nodeType !== NODE_TYPE.document || !window.Element) {
+		DOMPurify.isSupported = false;
+		return DOMPurify;
+	}
+	let document = window.document;
+	const originalDocument = document;
+	const currentScript = originalDocument.currentScript;
+	window.DocumentFragment;
+	const HTMLTemplateElement = window.HTMLTemplateElement, Node = window.Node, Element = window.Element, NodeFilter = window.NodeFilter;
+	window.NamedNodeMap === void 0 && (window.NamedNodeMap || window.MozNamedAttrMap);
+	window.HTMLFormElement;
+	const DOMParser = window.DOMParser, trustedTypes = window.trustedTypes;
+	const ElementPrototype = Element.prototype;
+	const cloneNode = lookupGetter(ElementPrototype, "cloneNode");
+	const remove = lookupGetter(ElementPrototype, "remove");
+	const removeAttributeNode = lookupGetter(ElementPrototype, "removeAttributeNode");
+	const getNextSibling = lookupGetter(ElementPrototype, "nextSibling");
+	const getChildNodes = lookupGetter(ElementPrototype, "childNodes");
+	const getParentNode = lookupGetter(ElementPrototype, "parentNode");
+	const getShadowRoot = lookupGetter(ElementPrototype, "shadowRoot");
+	const getAttributes = lookupGetter(ElementPrototype, "attributes");
+	const getNodeType = Node && Node.prototype ? lookupGetter(Node.prototype, "nodeType") : null;
+	const getNodeName = Node && Node.prototype ? lookupGetter(Node.prototype, "nodeName") : null;
+	const getOwnerDocument = Node && Node.prototype ? lookupGetter(Node.prototype, "ownerDocument") : null;
+	const _readNodeType = function _readNodeType(node) {
+		return getNodeType ? getNodeType(node) : node.nodeType;
+	};
+	const _readNodeName = function _readNodeName(node) {
+		return getNodeName ? getNodeName(node) : node.nodeName;
+	};
+	const getNamespaceURI = lookupAccessor(ElementPrototype, "namespaceURI");
+	const _readNamespaceURI = function _readNamespaceURI(element) {
+		return getNamespaceURI ? getNamespaceURI(element) : element.namespaceURI;
+	};
+	if (typeof HTMLTemplateElement === "function") {
+		const template = document.createElement("template");
+		if (template.content && template.content.ownerDocument) document = template.content.ownerDocument;
+	}
+	let trustedTypesPolicy;
+	let emptyHTML = "";
+	let defaultTrustedTypesPolicy;
+	let defaultTrustedTypesPolicyResolved = false;
+	let IN_TRUSTED_TYPES_POLICY = 0;
+	const _assertNotInTrustedTypesPolicy = function _assertNotInTrustedTypesPolicy() {
+		if (IN_TRUSTED_TYPES_POLICY > 0) throw typeErrorCreate("A configured TRUSTED_TYPES_POLICY callback (createHTML or createScriptURL) must not call DOMPurify.sanitize, as that causes infinite recursion. Do not pass a policy whose callbacks wrap DOMPurify as TRUSTED_TYPES_POLICY; see the \"DOMPurify and Trusted Types\" section of the README.");
+	};
+	const _createTrustedHTML = function _createTrustedHTML(html) {
+		_assertNotInTrustedTypesPolicy();
+		IN_TRUSTED_TYPES_POLICY++;
+		try {
+			return trustedTypesPolicy.createHTML(html);
+		} finally {
+			IN_TRUSTED_TYPES_POLICY--;
+		}
+	};
+	const _createTrustedScriptURL = function _createTrustedScriptURL(scriptUrl) {
+		_assertNotInTrustedTypesPolicy();
+		IN_TRUSTED_TYPES_POLICY++;
+		try {
+			return trustedTypesPolicy.createScriptURL(scriptUrl);
+		} finally {
+			IN_TRUSTED_TYPES_POLICY--;
+		}
+	};
+	const _getDefaultTrustedTypesPolicy = function _getDefaultTrustedTypesPolicy() {
+		if (!defaultTrustedTypesPolicyResolved) {
+			defaultTrustedTypesPolicy = _createTrustedTypesPolicy(trustedTypes, currentScript);
+			defaultTrustedTypesPolicyResolved = true;
+		}
+		return defaultTrustedTypesPolicy;
+	};
+	const _document = document, implementation = _document.implementation, createNodeIterator = _document.createNodeIterator, createDocumentFragment = _document.createDocumentFragment, getElementsByTagName = _document.getElementsByTagName;
+	const importNode = originalDocument.importNode;
+	let hooks = _createHooksMap();
+	/**
+	* Expose whether this browser supports running the full DOMPurify.
+	*/
+	DOMPurify.isSupported = typeof entries === "function" && typeof getParentNode === "function" && implementation && implementation.createHTMLDocument !== void 0;
+	const MUSTACHE_EXPR$1 = MUSTACHE_EXPR, ERB_EXPR$1 = ERB_EXPR, TMPLIT_EXPR$1 = TMPLIT_EXPR, DATA_ATTR$1 = DATA_ATTR, ARIA_ATTR$1 = ARIA_ATTR, IS_SCRIPT_OR_DATA$1 = IS_SCRIPT_OR_DATA, ATTR_WHITESPACE$1 = ATTR_WHITESPACE, CUSTOM_ELEMENT$1 = CUSTOM_ELEMENT;
+	let IS_ALLOWED_URI$1 = IS_ALLOWED_URI;
+	/**
+	* We consider the elements and attributes below to be safe. Ideally
+	* don't add any new ones but feel free to remove unwanted ones.
+	*/
+	let ALLOWED_TAGS = null;
+	const DEFAULT_ALLOWED_TAGS = addToSet({}, [
+		...html$1,
+		...svg$1,
+		...svgFilters,
+		...mathMl$1,
+		...text
+	]);
+	let ALLOWED_ATTR = null;
+	const DEFAULT_ALLOWED_ATTR = addToSet({}, [
+		...html,
+		...svg,
+		...mathMl,
+		...xml
+	]);
+	let CUSTOM_ELEMENT_HANDLING = Object.seal(create(null, {
+		tagNameCheck: {
+			writable: true,
+			configurable: false,
+			enumerable: true,
+			value: null
+		},
+		attributeNameCheck: {
+			writable: true,
+			configurable: false,
+			enumerable: true,
+			value: null
+		},
+		allowCustomizedBuiltInElements: {
+			writable: true,
+			configurable: false,
+			enumerable: true,
+			value: false
+		}
+	}));
+	let FORBID_TAGS = null;
+	let FORBID_ATTR = null;
+	const EXTRA_ELEMENT_HANDLING = Object.seal(create(null, {
+		tagCheck: {
+			writable: true,
+			configurable: false,
+			enumerable: true,
+			value: null
+		},
+		attributeCheck: {
+			writable: true,
+			configurable: false,
+			enumerable: true,
+			value: null
+		}
+	}));
+	let ALLOW_ARIA_ATTR = true;
+	let ALLOW_DATA_ATTR = true;
+	let ALLOW_UNKNOWN_PROTOCOLS = false;
+	let ALLOW_SELF_CLOSE_IN_ATTR = true;
+	let SAFE_FOR_TEMPLATES = false;
+	let SAFE_FOR_XML = true;
+	let WHOLE_DOCUMENT = false;
+	let SET_CONFIG = false;
+	let SET_CONFIG_ALLOWED_TAGS = null;
+	let SET_CONFIG_ALLOWED_ATTR = null;
+	let FORCE_BODY = false;
+	let RETURN_DOM = false;
+	let RETURN_DOM_FRAGMENT = false;
+	let RETURN_TRUSTED_TYPE = false;
+	let SANITIZE_DOM = true;
+	let SANITIZE_NAMED_PROPS = false;
+	const SANITIZE_NAMED_PROPS_PREFIX = "user-content-";
+	let KEEP_CONTENT = true;
+	let IN_PLACE = false;
+	let IN_PLACE_VISITED = null;
+	let USE_PROFILES = {};
+	let FORBID_CONTENTS = null;
+	const DEFAULT_FORBID_CONTENTS = addToSet({}, [
+		"annotation-xml",
+		"audio",
+		"colgroup",
+		"desc",
+		"foreignobject",
+		"head",
+		"iframe",
+		"math",
+		"mi",
+		"mn",
+		"mo",
+		"ms",
+		"mtext",
+		"noembed",
+		"noframes",
+		"noscript",
+		"plaintext",
+		"script",
+		"selectedcontent",
+		"style",
+		"svg",
+		"template",
+		"thead",
+		"title",
+		"video",
+		"xmp"
+	]);
+	let DATA_URI_TAGS = null;
+	const DEFAULT_DATA_URI_TAGS = addToSet({}, [
+		"audio",
+		"video",
+		"img",
+		"source",
+		"image",
+		"track"
+	]);
+	let URI_SAFE_ATTRIBUTES = null;
+	const DEFAULT_URI_SAFE_ATTRIBUTES = addToSet({}, [
+		"alt",
+		"class",
+		"for",
+		"id",
+		"label",
+		"name",
+		"pattern",
+		"placeholder",
+		"role",
+		"summary",
+		"title",
+		"value",
+		"style",
+		"xmlns"
+	]);
+	const MATHML_NAMESPACE = "http://www.w3.org/1998/Math/MathML";
+	const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
+	const HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
+	let NAMESPACE = HTML_NAMESPACE;
+	let IS_EMPTY_INPUT = false;
+	let ALLOWED_NAMESPACES = null;
+	const DEFAULT_ALLOWED_NAMESPACES = addToSet({}, [
+		MATHML_NAMESPACE,
+		SVG_NAMESPACE,
+		HTML_NAMESPACE
+	], stringToString);
+	const DEFAULT_MATHML_TEXT_INTEGRATION_POINTS = freeze([
+		"mi",
+		"mo",
+		"mn",
+		"ms",
+		"mtext"
+	]);
+	let MATHML_TEXT_INTEGRATION_POINTS = addToSet({}, DEFAULT_MATHML_TEXT_INTEGRATION_POINTS);
+	const DEFAULT_HTML_INTEGRATION_POINTS = freeze(["annotation-xml"]);
+	let HTML_INTEGRATION_POINTS = addToSet({}, DEFAULT_HTML_INTEGRATION_POINTS);
+	const COMMON_SVG_AND_HTML_ELEMENTS = addToSet({}, [
+		"title",
+		"style",
+		"font",
+		"a",
+		"script"
+	]);
+	let PARSER_MEDIA_TYPE = null;
+	const SUPPORTED_PARSER_MEDIA_TYPES = ["application/xhtml+xml", "text/html"];
+	const DEFAULT_PARSER_MEDIA_TYPE = "text/html";
+	let transformCaseFunc = null;
+	let CONFIG = null;
+	const formElement = document.createElement("form");
+	const isRegexOrFunction = function isRegexOrFunction(testValue) {
+		return testValue instanceof RegExp || testValue instanceof Function;
+	};
+	/**
+	* _parseConfig
+	*
+	* @param cfg optional config literal
+	*/
+	const _parseConfig = function _parseConfig() {
+		let cfg = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+		if (CONFIG && CONFIG === cfg) return;
+		if (!cfg || typeof cfg !== "object") cfg = {};
+		cfg = clone(cfg);
+		PARSER_MEDIA_TYPE = SUPPORTED_PARSER_MEDIA_TYPES.indexOf(cfg.PARSER_MEDIA_TYPE) === -1 ? DEFAULT_PARSER_MEDIA_TYPE : cfg.PARSER_MEDIA_TYPE;
+		transformCaseFunc = PARSER_MEDIA_TYPE === "application/xhtml+xml" ? stringToString : stringToLowerCase;
+		ALLOWED_TAGS = _resolveSetOption(cfg, "ALLOWED_TAGS", DEFAULT_ALLOWED_TAGS, { transform: transformCaseFunc });
+		ALLOWED_ATTR = _resolveSetOption(cfg, "ALLOWED_ATTR", DEFAULT_ALLOWED_ATTR, { transform: transformCaseFunc });
+		ALLOWED_NAMESPACES = _resolveSetOption(cfg, "ALLOWED_NAMESPACES", DEFAULT_ALLOWED_NAMESPACES, { transform: stringToString });
+		URI_SAFE_ATTRIBUTES = _resolveSetOption(cfg, "ADD_URI_SAFE_ATTR", DEFAULT_URI_SAFE_ATTRIBUTES, {
+			transform: transformCaseFunc,
+			base: DEFAULT_URI_SAFE_ATTRIBUTES
+		});
+		DATA_URI_TAGS = _resolveSetOption(cfg, "ADD_DATA_URI_TAGS", DEFAULT_DATA_URI_TAGS, {
+			transform: transformCaseFunc,
+			base: DEFAULT_DATA_URI_TAGS
+		});
+		FORBID_CONTENTS = _resolveSetOption(cfg, "FORBID_CONTENTS", DEFAULT_FORBID_CONTENTS, { transform: transformCaseFunc });
+		FORBID_TAGS = _resolveSetOption(cfg, "FORBID_TAGS", clone({}), { transform: transformCaseFunc });
+		FORBID_ATTR = _resolveSetOption(cfg, "FORBID_ATTR", clone({}), { transform: transformCaseFunc });
+		USE_PROFILES = objectHasOwnProperty(cfg, "USE_PROFILES") ? cfg.USE_PROFILES && typeof cfg.USE_PROFILES === "object" ? clone(cfg.USE_PROFILES) : cfg.USE_PROFILES : false;
+		ALLOW_ARIA_ATTR = cfg.ALLOW_ARIA_ATTR !== false;
+		ALLOW_DATA_ATTR = cfg.ALLOW_DATA_ATTR !== false;
+		ALLOW_UNKNOWN_PROTOCOLS = cfg.ALLOW_UNKNOWN_PROTOCOLS || false;
+		ALLOW_SELF_CLOSE_IN_ATTR = cfg.ALLOW_SELF_CLOSE_IN_ATTR !== false;
+		SAFE_FOR_TEMPLATES = cfg.SAFE_FOR_TEMPLATES || false;
+		SAFE_FOR_XML = cfg.SAFE_FOR_XML !== false;
+		WHOLE_DOCUMENT = cfg.WHOLE_DOCUMENT || false;
+		RETURN_DOM = cfg.RETURN_DOM || false;
+		RETURN_DOM_FRAGMENT = cfg.RETURN_DOM_FRAGMENT || false;
+		RETURN_TRUSTED_TYPE = cfg.RETURN_TRUSTED_TYPE || false;
+		FORCE_BODY = cfg.FORCE_BODY || false;
+		SANITIZE_DOM = cfg.SANITIZE_DOM !== false;
+		SANITIZE_NAMED_PROPS = cfg.SANITIZE_NAMED_PROPS || false;
+		KEEP_CONTENT = cfg.KEEP_CONTENT !== false;
+		IN_PLACE = cfg.IN_PLACE || false;
+		IS_ALLOWED_URI$1 = isRegex(cfg.ALLOWED_URI_REGEXP) ? cfg.ALLOWED_URI_REGEXP : IS_ALLOWED_URI;
+		NAMESPACE = typeof cfg.NAMESPACE === "string" ? cfg.NAMESPACE : HTML_NAMESPACE;
+		MATHML_TEXT_INTEGRATION_POINTS = _resolveObjectOption(cfg, "MATHML_TEXT_INTEGRATION_POINTS", () => addToSet({}, DEFAULT_MATHML_TEXT_INTEGRATION_POINTS));
+		HTML_INTEGRATION_POINTS = _resolveObjectOption(cfg, "HTML_INTEGRATION_POINTS", () => addToSet({}, DEFAULT_HTML_INTEGRATION_POINTS));
+		const customElementHandling = _resolveObjectOption(cfg, "CUSTOM_ELEMENT_HANDLING", () => create(null));
+		CUSTOM_ELEMENT_HANDLING = create(null);
+		if (objectHasOwnProperty(customElementHandling, "tagNameCheck") && isRegexOrFunction(customElementHandling.tagNameCheck)) CUSTOM_ELEMENT_HANDLING.tagNameCheck = customElementHandling.tagNameCheck;
+		if (objectHasOwnProperty(customElementHandling, "attributeNameCheck") && isRegexOrFunction(customElementHandling.attributeNameCheck)) CUSTOM_ELEMENT_HANDLING.attributeNameCheck = customElementHandling.attributeNameCheck;
+		if (objectHasOwnProperty(customElementHandling, "allowCustomizedBuiltInElements") && typeof customElementHandling.allowCustomizedBuiltInElements === "boolean") CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements = customElementHandling.allowCustomizedBuiltInElements;
+		seal(CUSTOM_ELEMENT_HANDLING);
+		if (SAFE_FOR_TEMPLATES) ALLOW_DATA_ATTR = false;
+		if (RETURN_DOM_FRAGMENT) RETURN_DOM = true;
+		if (USE_PROFILES) {
+			ALLOWED_TAGS = addToSet({}, text);
+			ALLOWED_ATTR = create(null);
+			if (USE_PROFILES.html === true) {
+				addToSet(ALLOWED_TAGS, html$1);
+				addToSet(ALLOWED_ATTR, html);
+			}
+			if (USE_PROFILES.svg === true) {
+				addToSet(ALLOWED_TAGS, svg$1);
+				addToSet(ALLOWED_ATTR, svg);
+				addToSet(ALLOWED_ATTR, xml);
+			}
+			if (USE_PROFILES.svgFilters === true) {
+				addToSet(ALLOWED_TAGS, svgFilters);
+				addToSet(ALLOWED_ATTR, svg);
+				addToSet(ALLOWED_ATTR, xml);
+			}
+			if (USE_PROFILES.mathMl === true) {
+				addToSet(ALLOWED_TAGS, mathMl$1);
+				addToSet(ALLOWED_ATTR, mathMl);
+				addToSet(ALLOWED_ATTR, xml);
+			}
+		}
+		EXTRA_ELEMENT_HANDLING.tagCheck = null;
+		EXTRA_ELEMENT_HANDLING.attributeCheck = null;
+		if (objectHasOwnProperty(cfg, "ADD_TAGS")) {
+			if (typeof cfg.ADD_TAGS === "function") EXTRA_ELEMENT_HANDLING.tagCheck = cfg.ADD_TAGS;
+			else if (arrayIsArray(cfg.ADD_TAGS)) {
+				if (ALLOWED_TAGS === DEFAULT_ALLOWED_TAGS) ALLOWED_TAGS = clone(ALLOWED_TAGS);
+				addToSet(ALLOWED_TAGS, cfg.ADD_TAGS, transformCaseFunc);
+			}
+		}
+		if (objectHasOwnProperty(cfg, "ADD_ATTR")) {
+			if (typeof cfg.ADD_ATTR === "function") EXTRA_ELEMENT_HANDLING.attributeCheck = cfg.ADD_ATTR;
+			else if (arrayIsArray(cfg.ADD_ATTR)) {
+				if (ALLOWED_ATTR === DEFAULT_ALLOWED_ATTR) ALLOWED_ATTR = clone(ALLOWED_ATTR);
+				addToSet(ALLOWED_ATTR, cfg.ADD_ATTR, transformCaseFunc);
+			}
+		}
+		if (objectHasOwnProperty(cfg, "ADD_FORBID_CONTENTS") && arrayIsArray(cfg.ADD_FORBID_CONTENTS)) {
+			if (FORBID_CONTENTS === DEFAULT_FORBID_CONTENTS) FORBID_CONTENTS = clone(FORBID_CONTENTS);
+			addToSet(FORBID_CONTENTS, cfg.ADD_FORBID_CONTENTS, transformCaseFunc);
+		}
+		if (KEEP_CONTENT) ALLOWED_TAGS["#text"] = true;
+		if (WHOLE_DOCUMENT) addToSet(ALLOWED_TAGS, [
+			"html",
+			"head",
+			"body"
+		]);
+		if (ALLOWED_TAGS.table) {
+			addToSet(ALLOWED_TAGS, ["tbody"]);
+			delete FORBID_TAGS.tbody;
+		}
+		if (cfg.TRUSTED_TYPES_POLICY) {
+			if (typeof cfg.TRUSTED_TYPES_POLICY.createHTML !== "function") throw typeErrorCreate("TRUSTED_TYPES_POLICY configuration option must provide a \"createHTML\" hook.");
+			if (typeof cfg.TRUSTED_TYPES_POLICY.createScriptURL !== "function") throw typeErrorCreate("TRUSTED_TYPES_POLICY configuration option must provide a \"createScriptURL\" hook.");
+			const previousTrustedTypesPolicy = trustedTypesPolicy;
+			trustedTypesPolicy = cfg.TRUSTED_TYPES_POLICY;
+			try {
+				emptyHTML = _createTrustedHTML("");
+			} catch (error) {
+				trustedTypesPolicy = previousTrustedTypesPolicy;
+				throw error;
+			}
+		} else if (cfg.TRUSTED_TYPES_POLICY === null) {
+			trustedTypesPolicy = void 0;
+			emptyHTML = "";
+		} else {
+			if (trustedTypesPolicy === void 0) trustedTypesPolicy = _getDefaultTrustedTypesPolicy();
+			if (trustedTypesPolicy && typeof emptyHTML === "string") emptyHTML = _createTrustedHTML("");
+		}
+		if (freeze) freeze(cfg);
+		CONFIG = cfg;
+	};
+	const ALL_SVG_TAGS = addToSet({}, [
+		...svg$1,
+		...svgFilters,
+		...svgDisallowed
+	]);
+	const ALL_MATHML_TAGS = addToSet({}, [...mathMl$1, ...mathMlDisallowed]);
+	/**
+	* Namespace rules for an element in the SVG namespace.
+	*
+	* @param tagName the element's lowercase tag name
+	* @param parent the (possibly simulated) parent node
+	* @param parentTagName the parent's lowercase tag name
+	* @returns true if a spec-compliant parser could produce this element
+	*/
+	const _checkSvgNamespace = function _checkSvgNamespace(tagName, parent, parentTagName) {
+		if (parent.namespaceURI === HTML_NAMESPACE) return tagName === "svg";
+		if (parent.namespaceURI === MATHML_NAMESPACE) return tagName === "svg" && (parentTagName === "annotation-xml" || MATHML_TEXT_INTEGRATION_POINTS[parentTagName]);
+		return Boolean(ALL_SVG_TAGS[tagName]);
+	};
+	/**
+	* Namespace rules for an element in the MathML namespace.
+	*
+	* @param tagName the element's lowercase tag name
+	* @param parent the (possibly simulated) parent node
+	* @param parentTagName the parent's lowercase tag name
+	* @returns true if a spec-compliant parser could produce this element
+	*/
+	const _checkMathMlNamespace = function _checkMathMlNamespace(tagName, parent, parentTagName) {
+		if (parent.namespaceURI === HTML_NAMESPACE) return tagName === "math";
+		if (parent.namespaceURI === SVG_NAMESPACE) return tagName === "math" && HTML_INTEGRATION_POINTS[parentTagName];
+		return Boolean(ALL_MATHML_TAGS[tagName]);
+	};
+	/**
+	* Namespace rules for an element in the HTML namespace.
+	*
+	* @param tagName the element's lowercase tag name
+	* @param parent the (possibly simulated) parent node
+	* @param parentTagName the parent's lowercase tag name
+	* @returns true if a spec-compliant parser could produce this element
+	*/
+	const _checkHtmlNamespace = function _checkHtmlNamespace(tagName, parent, parentTagName) {
+		if (parent.namespaceURI === SVG_NAMESPACE && !HTML_INTEGRATION_POINTS[parentTagName]) return false;
+		if (parent.namespaceURI === MATHML_NAMESPACE && !MATHML_TEXT_INTEGRATION_POINTS[parentTagName]) return false;
+		return !ALL_MATHML_TAGS[tagName] && (COMMON_SVG_AND_HTML_ELEMENTS[tagName] || !ALL_SVG_TAGS[tagName]);
+	};
+	/**
+	* @param element a DOM element whose namespace is being checked
+	* @returns Return false if the element has a
+	*  namespace that a spec-compliant parser would never
+	*  return. Return true otherwise.
+	*/
+	const _checkValidNamespace = function _checkValidNamespace(element) {
+		const elementNamespace = _readNamespaceURI(element);
+		const tagName = stringToLowerCase(_readNodeName(element));
+		const parentNode = getParentNode(element);
+		let parent;
+		let parentTagName;
+		if (parentNode && _readNodeType(parentNode) === NODE_TYPE.element) {
+			parent = { namespaceURI: _readNamespaceURI(parentNode) };
+			parentTagName = stringToLowerCase(_readNodeName(parentNode));
+		} else {
+			parent = { namespaceURI: NAMESPACE };
+			parentTagName = "template";
+		}
+		if (!ALLOWED_NAMESPACES[elementNamespace]) return false;
+		if (elementNamespace === SVG_NAMESPACE) return _checkSvgNamespace(tagName, parent, parentTagName);
+		if (elementNamespace === MATHML_NAMESPACE) return _checkMathMlNamespace(tagName, parent, parentTagName);
+		if (elementNamespace === HTML_NAMESPACE) return _checkHtmlNamespace(tagName, parent, parentTagName);
+		if (PARSER_MEDIA_TYPE === "application/xhtml+xml" && ALLOWED_NAMESPACES[elementNamespace]) return true;
+		return false;
+	};
+	/**
+	* _forceRemove
+	*
+	* @param node a DOM node
+	*/
+	const _forceRemove = function _forceRemove(node) {
+		arrayPush(DOMPurify.removed, { element: node });
+		try {
+			getParentNode(node).removeChild(node);
+		} catch (_) {
+			remove(node);
+			if (!getParentNode(node)) throw typeErrorCreate("a node selected for removal could not be detached from its tree and cannot be safely returned; refusing to sanitize in place");
+		}
+	};
+	/**
+	* _stripAttributeNode
+	*
+	* Remove a single Attr node case/namespace-exactly on an attribute-teardown
+	* path. Name-based removeAttribute() ASCII-lowercases its lookup key for an
+	* HTML element in an HTML document and so silently misses a case-preserved
+	* handler (e.g. `ONERROR` off an XML/XHTML import) - the same defect
+	* _removeAttribute() was fixed for, which a name-based call would reintroduce
+	* on these IN_PLACE teardown paths. Unlike _removeAttribute this does not
+	* record into DOMPurify.removed: the neutralize passes intentionally do not
+	* book-keep. A clobbered/detached node falls back to best-effort name-based
+	* removal.
+	*
+	* @param element the element to strip the attribute from
+	* @param attribute the Attr node to remove
+	* @param name the attribute's name, for the fallback path
+	*/
+	const _stripAttributeNode = function _stripAttributeNode(element, attribute, name) {
+		try {
+			removeAttributeNode(element, attribute);
+		} catch (_) {
+			try {
+				element.removeAttribute(name);
+			} catch (_) {}
+		}
+	};
+	/**
+	* Fail-closed teardown of an in-place root: strip every disallowed attribute
+	* in the subtree first, so nothing armed is left behind, then remove all
+	* children and the root's own attributes.
+	*
+	* @param root the in-place root to empty
+	*/
+	const _neutralizeRoot = function _neutralizeRoot(root) {
+		_neutralizeSubtree(root);
+		const childNodes = getChildNodes(root);
+		if (childNodes) arrayForEach(arraySlice(childNodes), (child) => {
+			try {
+				remove(child);
+			} catch (_) {}
+		});
+		const attributes = _readNodeType(root) === NODE_TYPE.element ? getAttributes(root) : null;
+		if (attributes) for (let i = attributes.length - 1; i >= 0; --i) {
+			const attribute = attributes[i];
+			const name = attribute && attribute.name;
+			if (typeof name === "string") _stripAttributeNode(root, attribute, name);
+		}
+	};
+	/**
+	* Removes an attribute, preferably as its exact Attr node: name-based
+	* removal lowercases the name in HTML documents and misses case-preserved
+	* names, e.g. from imported XHTML.
+	*
+	* @param name an Attribute name
+	* @param element a DOM node
+	* @param attr the exact Attr node to remove, when the caller has it
+	*/
+	const _removeAttribute = function _removeAttribute(name, element, attr) {
+		if (!attr) try {
+			attr = element.getAttributeNode(name);
+		} catch (_) {
+			attr = null;
+		}
+		arrayPush(DOMPurify.removed, {
+			attribute: attr || null,
+			from: element
+		});
+		try {
+			if (attr) removeAttributeNode(element, attr);
+			else element.removeAttribute(name);
+		} catch (_) {
+			try {
+				element.removeAttribute(name);
+			} catch (_) {}
+		}
+		if (name === "is") {
+			if (RETURN_DOM || RETURN_DOM_FRAGMENT) try {
+				_forceRemove(element);
+			} catch (_) {}
+			else try {
+				element.setAttribute(name, "");
+			} catch (_) {}
+		}
+	};
+	/**
+	* Removes every attribute the configuration does not allow. Used to
+	* neutralize nodes discarded from an in-place tree.
+	*
+	* @param element the element to strip
+	*/
+	const _stripDisallowedAttributes = function _stripDisallowedAttributes(element) {
+		const attributes = getAttributes(element);
+		if (!attributes) return;
+		for (let i = attributes.length - 1; i >= 0; --i) {
+			const attribute = attributes[i];
+			const name = attribute && attribute.name;
+			if (typeof name !== "string" || ALLOWED_ATTR[transformCaseFunc(name)]) continue;
+			_stripAttributeNode(element, attribute, name);
+		}
+	};
+	/**
+	* Iterative depth-first walk, so deep trees cannot overflow the call stack,
+	* reading through the cached getters, so clobbering cannot hide children.
+	* When `visit` returns false, the node's children are skipped. With
+	* `intoShadow`, open shadow roots are walked after their host's children.
+	*
+	* @param root where to start
+	* @param visit called for every node
+	* @param intoShadow whether to enter open shadow roots
+	*/
+	const _walkTree = function _walkTree(root, visit) {
+		let intoShadow = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : false;
+		const stack = [root];
+		while (stack.length > 0) {
+			const node = stack.pop();
+			if (visit(node) === false) continue;
+			if (intoShadow && _readNodeType(node) === NODE_TYPE.element) {
+				const shadowRoot = getShadowRoot(node);
+				if (_isDocumentFragment(shadowRoot)) stack.push(shadowRoot);
+			}
+			const childNodes = getChildNodes(node);
+			if (childNodes) for (let i = childNodes.length - 1; i >= 0; --i) stack.push(childNodes[i]);
+		}
+	};
+	/**
+	* Strips disallowed attributes from every element of a discarded subtree,
+	* so a handler that is already queued (a loading image) cannot fire.
+	*
+	* @param root the root of a removed subtree
+	*/
+	const _neutralizeSubtree = function _neutralizeSubtree(root) {
+		_walkTree(root, (node) => {
+			if (_readNodeType(node) === NODE_TYPE.element) _stripDisallowedAttributes(node);
+		});
+	};
+	/**
+	* All nodes under `root`, root first, including open shadow roots. Template
+	* content is not entered, it is inert.
+	*
+	* @param root the in-place root
+	* @return the nodes
+	*/
+	const _collectLiveNodes = function _collectLiveNodes(root) {
+		const nodes = [];
+		_walkTree(root, (node) => {
+			nodes.push(node);
+		}, true);
+		return nodes;
+	};
+	/**
+	* Strips disallowed attributes from every element that was under the
+	* in-place root when the call started and no longer is, whatever removed
+	* or moved it.
+	*
+	* @param root the in-place root
+	* @param before the root's nodes, collected before the walk
+	*/
+	const _neutralizeEscapedElements = function _neutralizeEscapedElements(root, before) {
+		const reachable = setCreate();
+		arrayForEach(_collectLiveNodes(root), (node) => {
+			if (_readNodeType(node) === NODE_TYPE.element) setAdd(reachable, node);
+		});
+		arrayForEach(before, (node) => {
+			if (_readNodeType(node) === NODE_TYPE.element && !setHas(reachable, node)) _stripDisallowedAttributes(node);
+		});
+	};
+	/**
+	* Neutralizes everything that left the in-place tree during the call: what
+	* DOMPurify removed, and what hooks or custom elements removed or moved out.
+	*
+	* @param root the in-place root
+	* @param before the root's nodes, collected before the walk
+	* @return true if the root itself was removed
+	*/
+	const _neutralizeDiscarded = function _neutralizeDiscarded(root, before) {
+		let rootRemoved = false;
+		arrayForEach(DOMPurify.removed, (entry) => {
+			if (entry.element) {
+				rootRemoved = rootRemoved || entry.element === root;
+				_neutralizeSubtree(entry.element);
+			}
+		});
+		_neutralizeEscapedElements(root, before);
+		return rootRemoved;
+	};
+	const MAX_UNVISITED_ROUNDS = 8;
+	/**
+	* The walk only moves forward, so a node moved to a position it already
+	* passed is never visited. Give every original node that is still in the
+	* tree but unvisited the normal treatment, hooks included. Nodes created
+	* during the call are left alone. Fails closed if the tree keeps changing.
+	*
+	* @param root the in-place root
+	* @param before the root's nodes, collected before the walk
+	*/
+	const _sanitizeUnvisitedNodes = function _sanitizeUnvisitedNodes(root, before) {
+		const visited = IN_PLACE_VISITED;
+		let original = null;
+		const getOriginal = () => {
+			if (!original) {
+				original = setCreate();
+				arrayForEach(before, (beforeNode) => {
+					setAdd(original, beforeNode);
+				});
+			}
+			return original;
+		};
+		for (let round = 0;; round++) {
+			const live = _collectLiveNodes(root);
+			const containers = [root];
+			let pending = false;
+			arrayForEach(live, (node) => {
+				if (_readNodeType(node) === NODE_TYPE.documentFragment) arrayPush(containers, node);
+				else if (!pending && !setHas(visited, node)) pending = setHas(getOriginal(), node);
+			});
+			if (!pending) return;
+			if (round >= MAX_UNVISITED_ROUNDS) throw typeErrorCreate("the tree kept changing during in-place sanitization; refusing to return it");
+			arrayForEach(containers, (container, index) => {
+				_sanitizeUnvisitedIn(container, index > 0, root, getOriginal());
+			});
+		}
+	};
+	/**
+	* One _sanitizeUnvisitedNodes pass over the root or an open shadow root.
+	*
+	* @param container the root or an open shadow root
+	* @param inShadow whether container is a shadow root
+	* @param root the in-place root
+	* @param original the root's nodes collected before the walk, as a set
+	*/
+	const _sanitizeUnvisitedIn = function _sanitizeUnvisitedIn(container, inShadow, root, original) {
+		const iterator = _createNodeIterator(container);
+		let node;
+		while (node = iterator.nextNode()) {
+			if (!setHas(original, node) || setHas(IN_PLACE_VISITED, node)) continue;
+			if (inShadow) _executeHooks(hooks.uponSanitizeShadowNode, node, null);
+			_sanitizeElements(node, root);
+			_sanitizeAttributes(node, root);
+			if (_isDocumentFragment(node.content)) _sanitizeShadowDOM2(node.content);
+		}
+	};
+	/**
+	* Records that _sanitizeElements processed `node`. No-op outside IN_PLACE.
+	*
+	* @param node the node being processed
+	*/
+	const _markVisited = function _markVisited(node) {
+		if (IN_PLACE_VISITED) setAdd(IN_PLACE_VISITED, node);
+	};
+	/**
+	* Patch-linkage attributes (declarative partial updates): `patchsrc`
+	* always, `for` everywhere except on <label> and <output>. Gated on
+	* SAFE_FOR_XML. Shared by the IN_PLACE pre-pass and _isValidAttribute.
+	*
+	* @param lcName the transformCaseFunc'd attribute name
+	* @param lcTag the transformCaseFunc'd tag name of the carrying element
+	* @return true if the attribute is patch linkage and must be dropped
+	*/
+	const _isPatchLinkageAttribute = function _isPatchLinkageAttribute(lcName, lcTag) {
+		if (!SAFE_FOR_XML) return false;
+		if (lcName === "patchsrc") return true;
+		return lcName === "for" && lcTag !== "label" && lcTag !== "output";
+	};
+	/**
+	* IN_PLACE pre-pass: sever all patch linkage before the walk, so no patch
+	* can fire mid-walk into a part of the tree the walker already passed.
+	* Removes range markers (processing instructions, comments with markup)
+	* and strips linkage attributes. It cannot undo a patch that already fired.
+	*
+	* TODO: if the shipped feature can patch through `for` on <label>/<output>,
+	* drop that pair here too (see test/declarative-patch-probe.html).
+	*
+	* @param root the in-place root to sweep
+	*/
+	const _neutralizePatchLinkage = function _neutralizePatchLinkage(root) {
+		if (!SAFE_FOR_XML) return;
+		_walkTree(root, (node) => {
+			const nodeType = _readNodeType(node);
+			if (nodeType === NODE_TYPE.processingInstruction || nodeType === NODE_TYPE.comment && regExpTest(COMMENT_MARKUP_PROBE, node.data)) {
+				try {
+					remove(node);
+				} catch (_) {}
+				return false;
+			}
+			if (nodeType === NODE_TYPE.element) {
+				const element = node;
+				const lcTag = transformCaseFunc(_readNodeName(node));
+				try {
+					if (element.hasAttribute && element.hasAttribute("patchsrc")) element.removeAttribute("patchsrc");
+					if (element.hasAttribute && element.hasAttribute("for") && _isPatchLinkageAttribute("for", lcTag)) element.removeAttribute("for");
+				} catch (_) {}
+			}
+			return true;
+		});
+	};
+	/**
+	* _initDocument
+	*
+	* @param dirty - a string of dirty markup
+	* @return a DOM, filled with the dirty markup
+	*/
+	const _initDocument = function _initDocument(dirty) {
+		let doc = null;
+		let leadingWhitespace = null;
+		if (FORCE_BODY) dirty = "<remove></remove>" + dirty;
+		else {
+			const matches = stringMatch(dirty, /^[\r\n\t ]+/);
+			leadingWhitespace = matches && matches[0];
+		}
+		if (PARSER_MEDIA_TYPE === "application/xhtml+xml" && NAMESPACE === HTML_NAMESPACE) dirty = "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head></head><body>" + dirty + "</body></html>";
+		const dirtyPayload = trustedTypesPolicy ? _createTrustedHTML(dirty) : dirty;
+		if (NAMESPACE === HTML_NAMESPACE) try {
+			doc = new DOMParser().parseFromString(dirtyPayload, PARSER_MEDIA_TYPE);
+		} catch (_) {}
+		if (!doc || !doc.documentElement) {
+			doc = implementation.createDocument(NAMESPACE, "template", null);
+			try {
+				doc.documentElement.innerHTML = IS_EMPTY_INPUT ? emptyHTML : dirtyPayload;
+			} catch (_) {}
+		}
+		const body = doc.body || doc.documentElement;
+		if (dirty && leadingWhitespace) body.insertBefore(document.createTextNode(leadingWhitespace), body.childNodes[0] || null);
+		if (NAMESPACE === HTML_NAMESPACE) return getElementsByTagName.call(doc, WHOLE_DOCUMENT ? "html" : "body")[0];
+		return WHOLE_DOCUMENT ? doc.documentElement : body;
+	};
+	/**
+	* Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
+	*
+	* @param root The root element or node to start traversing on.
+	* @return The created NodeIterator
+	*/
+	const _createNodeIterator = function _createNodeIterator(root) {
+		const doc = getOwnerDocument ? getOwnerDocument(root) : root.ownerDocument;
+		return createNodeIterator.call(doc || root, root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT | NodeFilter.SHOW_PROCESSING_INSTRUCTION | NodeFilter.SHOW_CDATA_SECTION, null);
+	};
+	/**
+	* Replace template expression syntax (mustache, ERB, template
+	* literal) with a space; shared by all SAFE_FOR_TEMPLATES scrub
+	* sites. Order matters: mustache, then ERB, then template literal.
+	*
+	* @param value the string to scrub
+	* @returns the scrubbed string
+	*/
+	const _stripTemplateExpressions = function _stripTemplateExpressions(value) {
+		value = stringReplace(value, MUSTACHE_EXPR$1, " ");
+		value = stringReplace(value, ERB_EXPR$1, " ");
+		value = stringReplace(value, TMPLIT_EXPR$1, " ");
+		return value;
+	};
+	/**
+	* Strip template-engine expressions ({{...}}, ${...}, <%...%>) from the
+	* character data of an element subtree. Used as the final safety net for
+	* SAFE_FOR_TEMPLATES on every DOM-returning code path so that expressions
+	* which only form after text-node normalization (e.g. fragments split across
+	* stripped elements) cannot survive into a template-evaluating framework.
+	*
+	* Walks text/comment/CDATA/processing-instruction nodes and mutates `.data`
+	* in place rather than round-tripping through innerHTML. This preserves
+	* descendant node references (important for IN_PLACE callers), avoids a
+	* serialize/reparse cycle, and reads literal character data — which means
+	* `<%...%>` in text content matches the ERB regex against its real bytes
+	* instead of the HTML-entity-escaped form innerHTML would produce.
+	*
+	* Attribute values are not visited here; SAFE_FOR_TEMPLATES handling for
+	* attributes is performed during the per-node `_sanitizeAttributes` pass.
+	*
+	* @param node The root element whose character data should be scrubbed.
+	*/
+	const _scrubTemplateExpressions2 = function _scrubTemplateExpressions(node) {
+		var _node$querySelectorAl;
+		_scrubOwnCharacterData(node);
+		const templates = (_node$querySelectorAl = node.querySelectorAll) === null || _node$querySelectorAl === void 0 ? void 0 : _node$querySelectorAl.call(node, "template");
+		if (templates) arrayForEach(templates, (tmpl) => {
+			if (_isDocumentFragment(tmpl.content)) _scrubTemplateExpressions2(tmpl.content);
+		});
+	};
+	/**
+	* _scrubOwnCharacterData
+	*
+	* Non-recursive core of _scrubTemplateExpressions: normalize `node` and
+	* strip template expressions from its own character data only. Does not
+	* enter <template>.content or attached shadow roots (NodeIterator never
+	* does). Used by _sanitizeShadowDOM, where every nested template content
+	* and shadow root is already walked - and therefore scrubbed - by its own
+	* recursive _sanitizeShadowDOM call; recursing here as well would rescrub
+	* each nested fragment once per ancestor, which is quadratic in nesting
+	* depth.
+	*
+	* @param node The root whose own character data should be scrubbed.
+	*/
+	const _scrubOwnCharacterData = function _scrubOwnCharacterData(node) {
+		node.normalize();
+		const doc = getOwnerDocument ? getOwnerDocument(node) : node.ownerDocument;
+		const walker = createNodeIterator.call(doc || node, node, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_CDATA_SECTION | NodeFilter.SHOW_PROCESSING_INSTRUCTION, null);
+		let currentNode = walker.nextNode();
+		while (currentNode) {
+			currentNode.data = _stripTemplateExpressions(currentNode.data);
+			currentNode = walker.nextNode();
+		}
+	};
+	/**
+	* _isClobbered
+	*
+	* Detect DOM-clobbering on HTMLFormElement nodes. Form is the only HTML
+	* interface with [LegacyOverrideBuiltIns]; a descendant element with a
+	* `name` attribute matching a prototype property shadows that property
+	* on direct reads. We use this check at the IN_PLACE entry-point and
+	* during attribute sanitization to refuse clobbered forms.
+	*
+	* @param element element to check for clobbering attacks
+	* @return true if clobbered, false if safe
+	*/
+	const _isClobbered = function _isClobbered(element) {
+		const realTagName = getNodeName ? getNodeName(element) : null;
+		if (typeof realTagName !== "string") return false;
+		if (transformCaseFunc(realTagName) !== "form") return false;
+		return typeof element.nodeName !== "string" || typeof element.textContent !== "string" || typeof element.removeChild !== "function" || element.attributes !== getAttributes(element) || typeof element.removeAttribute !== "function" || typeof element.removeAttributeNode !== "function" || typeof element.getAttributeNode !== "function" || typeof element.setAttribute !== "function" || typeof element.namespaceURI !== "string" || typeof element.insertBefore !== "function" || typeof element.hasChildNodes !== "function" || element.nodeType !== getNodeType(element) || element.childNodes !== getChildNodes(element);
+	};
+	/**
+	* Checks whether the given value is a DocumentFragment from any realm.
+	*
+	* The realm-independent replacement reads `nodeType` through the cached
+	* Node.prototype getter and compares to the DOCUMENT_FRAGMENT_NODE
+	* constant (11). nodeType is a numeric value resolved from the node's
+	* internal slot, identical across realms for the same kind of node.
+	*
+	* @param value object to check
+	* @return true if value is a DocumentFragment-shaped node from any realm
+	*/
+	const _isDocumentFragment = function _isDocumentFragment(value) {
+		if (!getNodeType || typeof value !== "object" || value === null) return false;
+		try {
+			return getNodeType(value) === NODE_TYPE.documentFragment;
+		} catch (_) {
+			return false;
+		}
+	};
+	/**
+	* Checks whether the given object is a DOM node, including nodes that
+	* originate from a different window/realm (e.g. an iframe's
+	* contentDocument). The previous `value instanceof Node` check was
+	* realm-bound: nodes from a different window failed it, causing
+	* sanitize() to silently stringify them and reset IN_PLACE to false,
+	* returning the original node unsanitized. See GHSA-4w3q-35jp-p934.
+	*
+	* @param value object to check whether it's a DOM node
+	* @return true if value is a DOM node from any realm
+	*/
+	const _isNode = function _isNode(value) {
+		if (!getNodeType || typeof value !== "object" || value === null) return false;
+		try {
+			return typeof getNodeType(value) === "number";
+		} catch (_) {
+			return false;
+		}
+	};
+	function _executeHooks(hooks, currentNode, data) {
+		if (hooks.length === 0) return;
+		arrayForEach(hooks, (hook) => {
+			hook.call(DOMPurify, currentNode, data, CONFIG);
+		});
+	}
+	/**
+	* Structural-threat checks that condemn a node regardless of the
+	* allowlists: mXSS via namespace confusion, risky CSS construction,
+	* processing instructions, markup-bearing comments. Pure predicate;
+	* the caller removes. Check order is load-bearing.
+	*
+	* @param currentNode the node to inspect
+	* @param tagName the node's transformCaseFunc'd tag name
+	* @return true if the node must be removed
+	*/
+	const _isUnsafeNode = function _isUnsafeNode(currentNode, tagName) {
+		if (SAFE_FOR_XML && currentNode.hasChildNodes() && !_isNode(currentNode.firstElementChild) && regExpTest(ELEMENT_MARKUP_PROBE, currentNode.textContent) && regExpTest(ELEMENT_MARKUP_PROBE, currentNode.innerHTML)) return true;
+		if (SAFE_FOR_XML && LITERAL_TEXT_ELEMENTS[tagName] && _readNodeType(currentNode) === NODE_TYPE.element && _readNamespaceURI(currentNode) === HTML_NAMESPACE && (_isNode(currentNode.firstElementChild) || typeof currentNode.textContent === "string" && regExpTest(ELEMENT_MARKUP_PROBE, currentNode.textContent))) return true;
+		if (currentNode.nodeType === NODE_TYPE.processingInstruction) return true;
+		if (SAFE_FOR_XML && currentNode.nodeType === NODE_TYPE.comment && regExpTest(COMMENT_MARKUP_PROBE, currentNode.data)) return true;
+		return false;
+	};
+	/**
+	* Evaluate a CUSTOM_ELEMENT_HANDLING check (a RegExp or a predicate
+	* function, per the validation in _parseConfig) against a name.
+	* Additional arguments are forwarded to predicate functions - the
+	* attributeNameCheck predicate receives the tag name as its second
+	* argument. A null/absent check never matches.
+	*
+	* @param check the configured tagNameCheck / attributeNameCheck value
+	* @param name the name to test
+	* @param args extra arguments forwarded to a predicate function
+	* @return true if the check matches the name
+	*/
+	const _matchesNameCheck = function _matchesNameCheck(check, name) {
+		if (check instanceof RegExp) return regExpTest(check, name);
+		if (check instanceof Function) {
+			for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) args[_key - 2] = arguments[_key];
+			return Boolean(check(name, ...args));
+		}
+		return false;
+	};
+	/**
+	* Handle a node whose tag is forbidden or not allowlisted: keep
+	* allowed custom elements (false return exits _sanitizeElements
+	* early - the namespace and fallback-tag removal checks are
+	* intentionally skipped for kept custom elements), else hoist
+	* content per KEEP_CONTENT and remove.
+	*
+	* A kept custom element is the ONLY case in which this function
+	* returns false, so the caller uses that return value to run the
+	* afterSanitizeElements hook on the kept element and keep the
+	* element-hook lifecycle consistent with normal allowlisted
+	* elements (GHSA-c2j3-45gr-mqc4).
+	*
+	* @param currentNode the disallowed node
+	* @param tagName the node's transformCaseFunc'd tag name
+	* @return true if the node was removed, false if kept
+	*/
+	const _sanitizeDisallowedNode = function _sanitizeDisallowedNode(currentNode, tagName, root) {
+		if (!FORBID_TAGS[tagName] && _isBasicCustomElement(tagName) && _matchesNameCheck(CUSTOM_ELEMENT_HANDLING.tagNameCheck, tagName)) return false;
+		if (KEEP_CONTENT && !FORBID_CONTENTS[tagName] && !FORBID_CONTENTS[stringToLowerCase(tagName)]) {
+			const parentNode = getParentNode(currentNode);
+			const childNodes = getChildNodes(currentNode);
+			if (childNodes && parentNode) {
+				const childCount = childNodes.length;
+				for (let i = childCount - 1; i >= 0; --i) {
+					const hoisted = currentNode === root ? cloneNode(childNodes[i], true) : childNodes[i];
+					parentNode.insertBefore(hoisted, getNextSibling(currentNode));
+				}
+			}
+		}
+		_forceRemove(currentNode);
+		return true;
+	};
+	/**
+	* Fork a hook-mutable allowlist off its shared binding the first time a
+	* (possibly lazily-installed) uponSanitize* hook is about to see it, so the
+	* hook cannot widen the per-instance default or the setConfig binding by
+	* reference and leak past the call. Returns the set unchanged once it is
+	* already call-local, so repeated calls across elements are idempotent.
+	*
+	* @param hookList the uponSanitize* hook array for this event
+	* @param set the current ALLOWED_TAGS / ALLOWED_ATTR binding
+	* @param defaultSet the per-instance DEFAULT_ALLOWED_* constant
+	* @param setConfigSet the captured setConfig() binding, or null
+	* @return a call-local clone if a hook is present and set is still shared,
+	*   else set unchanged
+	*/
+	const _forkSharedAllowlist = function _forkSharedAllowlist(hookList, set, defaultSet, setConfigSet) {
+		if (hookList.length === 0) return set;
+		return set === defaultSet || set === setConfigSet ? clone(set) : set;
+	};
+	/**
+	* A hook may have detached the node it was called for. If so, treat it as
+	* removed and stop processing it; the walk root is exempt. On the IN_PLACE
+	* path the detached subtree is neutralized right away.
+	*
+	* @param currentNode the node a hook may have detached
+	* @param root the current walk root
+	* @return true if the node was detached
+	*/
+	const _handleHookDetachedNode = function _handleHookDetachedNode(currentNode, root) {
+		if (currentNode === root || getParentNode(currentNode) !== null) return false;
+		if (IN_PLACE) _neutralizeSubtree(currentNode);
+		return true;
+	};
+	/**
+	* _sanitizeElements
+	*
+	* @protect nodeName
+	* @protect textContent
+	* @protect removeChild
+	* @param currentNode to check for permission to exist
+	* @return true if node was killed, false if left alive
+	*/
+	const _sanitizeElements = function _sanitizeElements(currentNode, root) {
+		_markVisited(currentNode);
+		_executeHooks(hooks.beforeSanitizeElements, currentNode, null);
+		if (_handleHookDetachedNode(currentNode, root)) return true;
+		if (_isClobbered(currentNode)) {
+			_forceRemove(currentNode);
+			return true;
+		}
+		const tagName = transformCaseFunc(_readNodeName(currentNode));
+		ALLOWED_TAGS = _forkSharedAllowlist(hooks.uponSanitizeElement, ALLOWED_TAGS, DEFAULT_ALLOWED_TAGS, SET_CONFIG_ALLOWED_TAGS);
+		_executeHooks(hooks.uponSanitizeElement, currentNode, {
+			tagName,
+			allowedTags: ALLOWED_TAGS
+		});
+		if (_handleHookDetachedNode(currentNode, root)) return true;
+		if (_isUnsafeNode(currentNode, tagName)) {
+			_forceRemove(currentNode);
+			return true;
+		}
+		if (FORBID_TAGS[tagName] || !(EXTRA_ELEMENT_HANDLING.tagCheck instanceof Function && EXTRA_ELEMENT_HANDLING.tagCheck(tagName)) && !ALLOWED_TAGS[tagName]) {
+			const removed = _sanitizeDisallowedNode(currentNode, tagName, root);
+			if (removed === false) {
+				_executeHooks(hooks.afterSanitizeElements, currentNode, null);
+				if (_handleHookDetachedNode(currentNode, root)) return true;
+			}
+			return removed;
+		}
+		if (_readNodeType(currentNode) === NODE_TYPE.element && !_checkValidNamespace(currentNode)) {
+			_forceRemove(currentNode);
+			return true;
+		}
+		if ((tagName === "noscript" || tagName === "noembed" || tagName === "noframes") && regExpTest(FALLBACK_TAG_CLOSE, currentNode.innerHTML)) {
+			_forceRemove(currentNode);
+			return true;
+		}
+		if (SAFE_FOR_TEMPLATES && currentNode.nodeType === NODE_TYPE.text) {
+			const content = _stripTemplateExpressions(currentNode.textContent);
+			if (currentNode.textContent !== content) {
+				arrayPush(DOMPurify.removed, { element: currentNode.cloneNode() });
+				currentNode.textContent = content;
+			}
+		}
+		_executeHooks(hooks.afterSanitizeElements, currentNode, null);
+		return _handleHookDetachedNode(currentNode, root);
+	};
+	/**
+	* _isValidAttribute
+	*
+	* @param lcTag Lowercase tag name of containing element.
+	* @param lcName Lowercase attribute name.
+	* @param value Attribute value.
+	* @return Returns true if `value` is valid, otherwise false.
+	*/
+	const _isValidAttribute = function _isValidAttribute(lcTag, lcName, value) {
+		if (FORBID_ATTR[lcName]) return false;
+		if (_isPatchLinkageAttribute(lcName, lcTag)) return false;
+		if (SANITIZE_DOM && (lcName === "id" || lcName === "name") && (value in document || value in formElement)) return false;
+		const nameIsPermitted = ALLOWED_ATTR[lcName] || EXTRA_ELEMENT_HANDLING.attributeCheck instanceof Function && EXTRA_ELEMENT_HANDLING.attributeCheck(lcName, lcTag);
+		if (ALLOW_DATA_ATTR && regExpTest(DATA_ATTR$1, lcName)) return true;
+		if (ALLOW_ARIA_ATTR && regExpTest(ARIA_ATTR$1, lcName)) return true;
+		if (!nameIsPermitted) return _isBasicCustomElement(lcTag) && _matchesNameCheck(CUSTOM_ELEMENT_HANDLING.tagNameCheck, lcTag) && _matchesNameCheck(CUSTOM_ELEMENT_HANDLING.attributeNameCheck, lcName, lcTag) || lcName === "is" && CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements && _matchesNameCheck(CUSTOM_ELEMENT_HANDLING.tagNameCheck, value);
+		if (URI_SAFE_ATTRIBUTES[lcName]) return true;
+		if (regExpTest(IS_ALLOWED_URI$1, stringReplace(value, ATTR_WHITESPACE$1, ""))) return true;
+		if ((lcName === "src" || lcName === "xlink:href" || lcName === "href") && lcTag !== "script" && stringIndexOf(value, "data:") === 0 && DATA_URI_TAGS[lcTag]) return true;
+		if (ALLOW_UNKNOWN_PROTOCOLS && !regExpTest(IS_SCRIPT_OR_DATA$1, stringReplace(value, ATTR_WHITESPACE$1, ""))) return true;
+		return !value;
+	};
+	const RESERVED_CUSTOM_ELEMENT_NAMES = addToSet({}, [
+		"annotation-xml",
+		"color-profile",
+		"font-face",
+		"font-face-format",
+		"font-face-name",
+		"font-face-src",
+		"font-face-uri",
+		"missing-glyph"
+	]);
+	/**
+	* _isBasicCustomElement
+	* checks if at least one dash is included in tagName, and it's not the first char
+	* for more sophisticated checking see https://github.com/sindresorhus/validate-element-name
+	*
+	* @param tagName name of the tag of the node to sanitize
+	* @returns Returns true if the tag name meets the basic criteria for a custom element, otherwise false.
+	*/
+	const _isBasicCustomElement = function _isBasicCustomElement(tagName) {
+		return !RESERVED_CUSTOM_ELEMENT_NAMES[stringToLowerCase(tagName)] && regExpTest(CUSTOM_ELEMENT$1, tagName);
+	};
+	/**
+	* Wrap an attribute value in the matching Trusted Types object when
+	* the active policy requires it. Namespaced attributes pass through
+	* unchanged (no TT support yet, see
+	* https://bugs.chromium.org/p/chromium/issues/detail?id=1305293).
+	*
+	* @param lcTag lowercase tag name of the containing element
+	* @param lcName lowercase attribute name
+	* @param namespaceURI the attribute's namespace, if any
+	* @param value the attribute value to wrap
+	* @return the value, wrapped when Trusted Types demand it
+	*/
+	const _applyTrustedTypesToAttribute = function _applyTrustedTypesToAttribute(lcTag, lcName, namespaceURI, value) {
+		if (trustedTypesPolicy && typeof trustedTypes === "object" && typeof trustedTypes.getAttributeType === "function" && !namespaceURI) switch (trustedTypes.getAttributeType(lcTag, lcName)) {
+			case "TrustedHTML": return _createTrustedHTML(value);
+			case "TrustedScriptURL": return _createTrustedScriptURL(value);
+		}
+		return value;
+	};
+	/**
+	* Write a modified attribute value back onto the element. On
+	* success, re-probe for clobbering introduced by the new value and
+	* remove the element when found; otherwise, when this writeback is the
+	* recreate half of the SANITIZE_NAMED_PROPS remove-and-recreate, pop the
+	* removal entry that path recorded so it does not show as removed. On
+	* failure, remove the attribute instead.
+	*
+	* Returns true only on a clean write (the value was set and the new value
+	* introduced no clobbering). The caller uses that, together with its own
+	* knowledge of whether this attribute pushed a DOMPurify.removed record, to
+	* decide whether to pop that record. The pop must happen ONLY for the
+	* named-prop remove-and-recreate; popping on any other value change (trim,
+	* template scrubbing, Trusted Types) would consume an unrelated _forceRemove
+	* subtree-cleanup record and let that detached subtree keep a live event
+	* handler through the IN_PLACE neutralization pass (SO-001).
+	*
+	* @param currentNode the element carrying the attribute
+	* @param name the attribute name as present on the element
+	* @param namespaceURI the attribute's namespace, if any
+	* @param value the new attribute value
+	* @return true if the value was written without introducing clobbering
+	*/
+	const _setAttributeValue = function _setAttributeValue(currentNode, name, namespaceURI, value) {
+		try {
+			if (namespaceURI) currentNode.setAttributeNS(namespaceURI, name, value);
+			else currentNode.setAttribute(name, value);
+			if (_isClobbered(currentNode)) {
+				_forceRemove(currentNode);
+				return false;
+			}
+			return true;
+		} catch (_) {
+			_removeAttribute(name, currentNode);
+			return false;
+		}
+	};
+	/**
+	* _isUnsafeAttributeValue
+	*
+	* Value-based attribute checks that the attribute walk applies before any
+	* hook can force-keep an attribute, shared with the public
+	* isValidAttribute() so that it never approves a value sanitize() would
+	* strip.
+	*
+	* @param name the attribute name as found on the node (case preserved)
+	* @param value the attribute value
+	* @returns true if the attribute must be removed because of its value
+	*/
+	const _isUnsafeAttributeValue = function _isUnsafeAttributeValue(name, value) {
+		if (SAFE_FOR_XML && regExpTest(/((--!?|])>)|<\/(style|script|title|xmp|textarea|noscript|iframe|noembed|noframes)/i, value)) return true;
+		return stringToLowerCase(name) === "attributename" && stringMatch(value, "href") !== null;
+	};
+	/**
+	* _sanitizeAttributes
+	*
+	* @protect attributes
+	* @protect nodeName
+	* @protect removeAttribute
+	* @protect setAttribute
+	*
+	* @param currentNode to sanitize
+	* @param root the current walk root
+	*/
+	const _sanitizeAttributes = function _sanitizeAttributes(currentNode, root) {
+		_executeHooks(hooks.beforeSanitizeAttributes, currentNode, null);
+		if (_handleHookDetachedNode(currentNode, root)) return;
+		const attributes = currentNode.attributes;
+		if (!attributes || _isClobbered(currentNode)) return;
+		ALLOWED_ATTR = _forkSharedAllowlist(hooks.uponSanitizeAttribute, ALLOWED_ATTR, DEFAULT_ALLOWED_ATTR, SET_CONFIG_ALLOWED_ATTR);
+		const hookEvent = {
+			attrName: "",
+			attrValue: "",
+			keepAttr: true,
+			allowedAttributes: ALLOWED_ATTR,
+			forceKeepAttr: void 0
+		};
+		let l = attributes.length;
+		const lcTag = transformCaseFunc(currentNode.nodeName);
+		while (l--) {
+			const attr = attributes[l];
+			const name = attr.name, namespaceURI = attr.namespaceURI, attrValue = attr.value;
+			const lcName = transformCaseFunc(name);
+			const initValue = attrValue;
+			let value = name === "value" ? initValue : stringTrim(initValue);
+			let recreatedNamedProp = false;
+			hookEvent.attrName = lcName;
+			hookEvent.attrValue = value;
+			hookEvent.keepAttr = true;
+			hookEvent.forceKeepAttr = void 0;
+			_executeHooks(hooks.uponSanitizeAttribute, currentNode, hookEvent);
+			value = hookEvent.attrValue;
+			if (SANITIZE_NAMED_PROPS && (lcName === "id" || lcName === "name") && stringIndexOf(value, SANITIZE_NAMED_PROPS_PREFIX) !== 0) {
+				_removeAttribute(name, currentNode, attr);
+				value = SANITIZE_NAMED_PROPS_PREFIX + value;
+				recreatedNamedProp = true;
+			}
+			if (_isUnsafeAttributeValue(name, value)) {
+				_removeAttribute(name, currentNode, attr);
+				continue;
+			}
+			if (hookEvent.forceKeepAttr) continue;
+			if (!hookEvent.keepAttr) {
+				_removeAttribute(name, currentNode, attr);
+				continue;
+			}
+			if (!ALLOW_SELF_CLOSE_IN_ATTR && regExpTest(SELF_CLOSING_TAG, value)) {
+				_removeAttribute(name, currentNode, attr);
+				continue;
+			}
+			if (SAFE_FOR_TEMPLATES) value = _stripTemplateExpressions(value);
+			if (!_isValidAttribute(lcTag, lcName, value)) {
+				_removeAttribute(name, currentNode, attr);
+				continue;
+			}
+			value = _applyTrustedTypesToAttribute(lcTag, lcName, namespaceURI, value);
+			if (value !== initValue) {
+				if (_setAttributeValue(currentNode, name, namespaceURI, value) && recreatedNamedProp) arrayPop(DOMPurify.removed);
+			}
+		}
+		_executeHooks(hooks.afterSanitizeAttributes, currentNode, null);
+		_handleHookDetachedNode(currentNode, root);
+	};
+	/**
+	* _sanitizeShadowDOM
+	*
+	* @param fragment to iterate over recursively
+	*/
+	const _sanitizeShadowDOM2 = function _sanitizeShadowDOM(fragment) {
+		let shadowNode = null;
+		const shadowIterator = _createNodeIterator(fragment);
+		_executeHooks(hooks.beforeSanitizeShadowDOM, fragment, null);
+		while (shadowNode = shadowIterator.nextNode()) {
+			_executeHooks(hooks.uponSanitizeShadowNode, shadowNode, null);
+			_sanitizeElements(shadowNode, fragment);
+			_sanitizeAttributes(shadowNode, fragment);
+			if (_isDocumentFragment(shadowNode.content)) _sanitizeShadowDOM2(shadowNode.content);
+			if (_readNodeType(shadowNode) === NODE_TYPE.element) {
+				const innerSr = getShadowRoot(shadowNode);
+				if (_isDocumentFragment(innerSr)) {
+					_sanitizeAttachedShadowRoots(innerSr);
+					_sanitizeShadowDOM2(innerSr);
+				}
+			}
+		}
+		if (SAFE_FOR_TEMPLATES) _scrubOwnCharacterData(fragment);
+		_executeHooks(hooks.afterSanitizeShadowDOM, fragment, null);
+	};
+	/**
+	* Sanitizes every attached shadow root under `root`, since the node
+	* iterator does not enter shadow trees. Needed for IN_PLACE input and for
+	* DOM input whose clonable shadow roots were copied by importNode().
+	*
+	* @param root the subtree root to walk for attached shadow roots
+	*/
+	const _sanitizeAttachedShadowRoots = function _sanitizeAttachedShadowRoots(root) {
+		const stack = [{
+			node: root,
+			shadow: null
+		}];
+		while (stack.length > 0) {
+			const item = stack.pop();
+			if (item.shadow) {
+				_sanitizeShadowDOM2(item.shadow);
+				continue;
+			}
+			const node = item.node;
+			const isElement = _readNodeType(node) === NODE_TYPE.element;
+			const childNodes = getChildNodes(node);
+			if (childNodes) for (let i = childNodes.length - 1; i >= 0; --i) stack.push({
+				node: childNodes[i],
+				shadow: null
+			});
+			if (isElement) {
+				const rootName = getNodeName ? getNodeName(node) : null;
+				if (typeof rootName === "string" && transformCaseFunc(rootName) === "template") {
+					const content = node.content;
+					if (_isDocumentFragment(content)) stack.push({
+						node: content,
+						shadow: null
+					});
+				}
+			}
+			if (isElement) {
+				const sr = getShadowRoot(node);
+				if (_isDocumentFragment(sr)) stack.push({
+					node: null,
+					shadow: sr
+				}, {
+					node: sr,
+					shadow: null
+				});
+			}
+		}
+	};
+	DOMPurify.sanitize = function(dirty) {
+		let cfg = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+		let body = null;
+		let importedNode = null;
+		let currentNode = null;
+		let returnNode = null;
+		IS_EMPTY_INPUT = !dirty;
+		if (IS_EMPTY_INPUT) dirty = "<!-->";
+		if (typeof dirty !== "string" && !_isNode(dirty)) {
+			dirty = stringifyValue(dirty);
+			if (typeof dirty !== "string") throw typeErrorCreate("dirty is not a string, aborting");
+		}
+		if (!DOMPurify.isSupported) return dirty;
+		if (SET_CONFIG) {
+			ALLOWED_TAGS = SET_CONFIG_ALLOWED_TAGS;
+			ALLOWED_ATTR = SET_CONFIG_ALLOWED_ATTR;
+		} else _parseConfig(cfg);
+		if (hooks.uponSanitizeElement.length > 0 || hooks.uponSanitizeAttribute.length > 0) ALLOWED_TAGS = clone(ALLOWED_TAGS);
+		if (hooks.uponSanitizeAttribute.length > 0) ALLOWED_ATTR = clone(ALLOWED_ATTR);
+		DOMPurify.removed = [];
+		const inPlace = IN_PLACE && typeof dirty !== "string" && _isNode(dirty);
+		let inPlaceNodes = [];
+		const outerVisited = IN_PLACE_VISITED;
+		if (inPlace) {
+			_neutralizePatchLinkage(dirty);
+			const nn = _readNodeName(dirty);
+			if (typeof nn === "string") {
+				const tagName = transformCaseFunc(nn);
+				if (!ALLOWED_TAGS[tagName] || FORBID_TAGS[tagName]) {
+					_neutralizeRoot(dirty);
+					throw typeErrorCreate("root node is forbidden and cannot be sanitized in-place");
+				}
+			}
+			if (_isClobbered(dirty)) {
+				_neutralizeRoot(dirty);
+				throw typeErrorCreate("root node is clobbered and cannot be sanitized in-place");
+			}
+			inPlaceNodes = _collectLiveNodes(dirty);
+			IN_PLACE_VISITED = setCreate();
+		} else if (_isNode(dirty)) {
+			body = _initDocument("<!---->");
+			importedNode = body.ownerDocument.importNode(dirty, true);
+			if (importedNode.nodeType === NODE_TYPE.element && importedNode.nodeName === "BODY") body = importedNode;
+			else if (importedNode.nodeName === "HTML") body = importedNode;
+			else body.appendChild(importedNode);
+			_sanitizeAttachedShadowRoots(body);
+		} else {
+			if (!RETURN_DOM && !SAFE_FOR_TEMPLATES && !WHOLE_DOCUMENT && dirty.indexOf("<") === -1) return trustedTypesPolicy && RETURN_TRUSTED_TYPE ? _createTrustedHTML(dirty) : dirty;
+			body = _initDocument(dirty);
+			if (!body) return RETURN_DOM ? null : RETURN_TRUSTED_TYPE ? emptyHTML : "";
+		}
+		if (body && FORCE_BODY) _forceRemove(body.firstChild);
+		const walkRoot = inPlace ? dirty : body;
+		try {
+			if (inPlace) _sanitizeAttachedShadowRoots(dirty);
+			const nodeIterator = _createNodeIterator(walkRoot);
+			while (currentNode = nodeIterator.nextNode()) {
+				_sanitizeElements(currentNode, walkRoot);
+				_sanitizeAttributes(currentNode, walkRoot);
+				if (_isDocumentFragment(currentNode.content)) _sanitizeShadowDOM2(currentNode.content);
+			}
+			if (inPlace) _sanitizeUnvisitedNodes(dirty, inPlaceNodes);
+		} catch (error) {
+			if (inPlace) {
+				_neutralizeRoot(dirty);
+				_neutralizeDiscarded(dirty, inPlaceNodes);
+			}
+			throw error;
+		} finally {
+			IN_PLACE_VISITED = outerVisited;
+		}
+		if (inPlace) {
+			if (_neutralizeDiscarded(dirty, inPlaceNodes)) throw typeErrorCreate("a node selected for removal could not be safely returned; refusing to sanitize in place");
+			if (SAFE_FOR_TEMPLATES) _scrubTemplateExpressions2(dirty);
+			return dirty;
+		}
+		if (RETURN_DOM) {
+			if (SAFE_FOR_TEMPLATES) _scrubTemplateExpressions2(body);
+			if (RETURN_DOM_FRAGMENT) {
+				returnNode = createDocumentFragment.call(body.ownerDocument);
+				while (body.firstChild) returnNode.appendChild(body.firstChild);
+			} else returnNode = body;
+			if (ALLOWED_ATTR.shadowroot || ALLOWED_ATTR.shadowrootmode) returnNode = importNode.call(originalDocument, returnNode, true);
+			return returnNode;
+		}
+		let serializedHTML = WHOLE_DOCUMENT ? body.outerHTML : body.innerHTML;
+		if (WHOLE_DOCUMENT && ALLOWED_TAGS["!doctype"] && body.ownerDocument && body.ownerDocument.doctype && body.ownerDocument.doctype.name && regExpTest(DOCTYPE_NAME, body.ownerDocument.doctype.name)) serializedHTML = "<!DOCTYPE " + body.ownerDocument.doctype.name + ">\n" + serializedHTML;
+		if (SAFE_FOR_TEMPLATES) serializedHTML = _stripTemplateExpressions(serializedHTML);
+		return trustedTypesPolicy && RETURN_TRUSTED_TYPE ? _createTrustedHTML(serializedHTML) : serializedHTML;
+	};
+	DOMPurify.setConfig = function() {
+		let cfg = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+		_parseConfig(cfg);
+		SET_CONFIG = true;
+		SET_CONFIG_ALLOWED_TAGS = ALLOWED_TAGS;
+		SET_CONFIG_ALLOWED_ATTR = ALLOWED_ATTR;
+	};
+	DOMPurify.clearConfig = function() {
+		CONFIG = null;
+		SET_CONFIG = false;
+		SET_CONFIG_ALLOWED_TAGS = null;
+		SET_CONFIG_ALLOWED_ATTR = null;
+		trustedTypesPolicy = defaultTrustedTypesPolicy;
+		emptyHTML = "";
+	};
+	DOMPurify.isValidAttribute = function(tag, attr, value) {
+		if (!CONFIG) _parseConfig({});
+		const lcTag = transformCaseFunc(tag);
+		const lcName = transformCaseFunc(attr);
+		if (typeof value === "string" && (_isUnsafeAttributeValue(attr, value) || !ALLOW_SELF_CLOSE_IN_ATTR && regExpTest(SELF_CLOSING_TAG, value))) return false;
+		return _isValidAttribute(lcTag, lcName, value);
+	};
+	DOMPurify.addHook = function(entryPoint, hookFunction) {
+		if (typeof hookFunction !== "function") return;
+		if (!objectHasOwnProperty(hooks, entryPoint)) return;
+		arrayPush(hooks[entryPoint], hookFunction);
+	};
+	DOMPurify.removeHook = function(entryPoint, hookFunction) {
+		if (!objectHasOwnProperty(hooks, entryPoint)) return;
+		if (hookFunction !== void 0) {
+			const index = arrayLastIndexOf(hooks[entryPoint], hookFunction);
+			return index === -1 ? void 0 : arraySplice(hooks[entryPoint], index, 1)[0];
+		}
+		return arrayPop(hooks[entryPoint]);
+	};
+	DOMPurify.removeHooks = function(entryPoint) {
+		if (!objectHasOwnProperty(hooks, entryPoint)) return;
+		hooks[entryPoint] = [];
+	};
+	DOMPurify.removeAllHooks = function() {
+		hooks = _createHooksMap();
+	};
+	return DOMPurify;
+}
+var purify_default = createDOMPurify();
+
+
+//# sourceMappingURL=purify.es.mjs.map
+
+/***/ }
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	const __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			const e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = (module) => {
+/******/ 		const getter = module && module.__esModule ?
+/******/ 			() => (module['default']) :
+/******/ 			() => (module);
+/******/ 		__webpack_require__.d(getter, { a: getter });
+/******/ 		return getter;
+/******/ 	};
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	// define getter/value functions for harmony exports
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 			}
+/******/ 		}
+/******/ 	};
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.hasOwn(obj, prop));
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = (exports) => {
+/******/ 		Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/ 	
+/************************************************************************/
+let __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+/*!*********************************************************!*\
+  !*** ./src/js/blocks/commands/commands-block-editor.js ***!
+  \*********************************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_commands_ToggleContainerOutlines__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/commands/ToggleContainerOutlines */ "./src/js/blocks/commands/components/commands/ToggleContainerOutlines.js");
+/* harmony import */ var _components_commands_TransformV1ToV2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/commands/TransformV1ToV2 */ "./src/js/blocks/commands/components/commands/TransformV1ToV2.js");
+/* harmony import */ var _components_commands_TransformHeadingToGBText__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/commands/TransformHeadingToGBText */ "./src/js/blocks/commands/components/commands/TransformHeadingToGBText.js");
+/* harmony import */ var _components_commands_TransformParagraphToGBText__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/commands/TransformParagraphToGBText */ "./src/js/blocks/commands/components/commands/TransformParagraphToGBText.js");
+/* harmony import */ var _components_commands_SaveSVGToAssetLibrary__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/commands/SaveSVGToAssetLibrary */ "./src/js/blocks/commands/components/commands/SaveSVGToAssetLibrary.js");
+/**
+ * Block editor commands registration.
+ */
+
+
+
+
+
+
+
+
+/**
+ * Commands block editor component.
+ *
+ * @return {JSX.Element} The CommandsBlockEditor component.
+ */
+var CommandsBlockEditor = function CommandsBlockEditor() {
+  (0,_components_commands_ToggleContainerOutlines__WEBPACK_IMPORTED_MODULE_1__.useToggleContainerOutlinesCommand)();
+  var transformModal = (0,_components_commands_TransformV1ToV2__WEBPACK_IMPORTED_MODULE_2__.useTransformV1ToV2Command)();
+  var headingTransformModal = (0,_components_commands_TransformHeadingToGBText__WEBPACK_IMPORTED_MODULE_3__.useTransformHeadingToGBTextCommand)();
+  var paragraphTransformModal = (0,_components_commands_TransformParagraphToGBText__WEBPACK_IMPORTED_MODULE_4__.useTransformParagraphToGBTextCommand)();
+  var saveSvgModal = (0,_components_commands_SaveSVGToAssetLibrary__WEBPACK_IMPORTED_MODULE_5__.useSaveSVGToAssetLibraryCommand)();
+
+  // Return all modals (they handle their own visibility).
+  return /*#__PURE__*/React.createElement(React.Fragment, null, transformModal, headingTransformModal, paragraphTransformModal, saveSvgModal);
+};
+(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('mrshortcuts-gb-commands-block-editor', {
+  render: CommandsBlockEditor
+});
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=mrshortcuts-gb-commands-block-editor.js.map

@@ -1,1 +1,10 @@
-.mr-block-shortcuts-gb-card-checkbox input{width:100%!important}.mr-block-shortcuts-gb-card-checkbox label.components-checkbox-control__label{display:inline-block;width:unset}
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/js/blocks/pattern-importer/editor.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+.mr-block-shortcuts-gb-card-checkbox input {
+  width: 100% !important;
+}
+.mr-block-shortcuts-gb-card-checkbox label.components-checkbox-control__label {
+  display: inline-block;
+  width: unset;
+}
