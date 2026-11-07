@@ -6,7 +6,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 
 | Capability | GenerateBlocks (free) | GenerateBlocks Pro |
 | --- | --- | --- |
-| Settings screen, Adobe fonts, markdown, styles post types, auto-regen, v1/v2 tools, commands, Pattern Inserter | Yes | Yes |
+| Settings screen, Adobe fonts, markdown, styles post types, auto-regen, v1/v2 tools, commands, Pattern Inserter, paste pattern processing | Yes | Yes |
 | Hide GenerateBlocks admin-bar items | Soft (no-op if Pro menu absent) | Yes |
 | Replace Overlay Panels admin-bar menu with full GenerateBlocks menu | — | Yes |
 
@@ -26,6 +26,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 | `v1CategoryLabel` / `v2CategoryLabel` | GenerateBlocks v1 / v2 | Inserter category titles when v1 blocks enabled |
 | `v1BlockSuffix` / `v2BlockSuffix` | `(v1)` / `(v2)` | Appended to block titles when dual blocks are enabled |
 | `enableFrontendCommandPalette` | `false` | Loads command palette assets on the frontend for administrators (WordPress 6.9+) |
+| `enablePastePatternProcessing` | `false` | On paste of block markup, sideload remote images and regenerate GenerateBlocks unique IDs before insert |
 
 ### Markdown to Text block
 
@@ -72,6 +73,12 @@ Also registered:
 
 - Block: `mediaron/mrshortcuts-pattern-inserter`
 - Paste pattern markup, sideload remote images via REST `POST mediaron/block-shortcuts-for-gb/v1/process_image`, regenerate unique IDs.
+
+## Paste pattern processing
+
+- **Option:** `enablePastePatternProcessing` (default `false`), Block Settings.
+- When on, pasting WordPress block markup (`<!-- wp:`) that includes GenerateBlocks blocks regenerates `uniqueId` values and matching `css` selectors before the blocks are inserted. Synced patterns (`core/block`) are left unchanged. Remote images are downloaded first, and that download is shown in a dialog.
+- Shared helper: `processPatternMarkup` in `src/js/blocks/utils/processPattern.js` (editor bundle today; the command bundle can import it).
 
 ## Asset Library capture (Pro)
 

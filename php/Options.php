@@ -116,6 +116,7 @@ class Options {
 		$defaults = array(
 			'enableAdobeFonts'              => true,
 			'enableMarkdownToHeadlineBlock' => false,
+			'enablePastePatternProcessing'  => false,
 			'enabledPostTypes'              => array(
 				'post' => true,
 				'page' => true,

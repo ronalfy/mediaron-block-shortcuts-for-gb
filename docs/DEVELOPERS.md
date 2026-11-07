@@ -54,6 +54,7 @@ Stored under option key **`mrshortcutsgb_options`** (site option on multisite). 
 | --- | --- | --- |
 | `enableAdobeFonts` | bool | `true` |
 | `enableMarkdownToHeadlineBlock` | bool | `false` |
+| `enablePastePatternProcessing` | bool | `false` |
 | `enabledPostTypes` | object | `{ post: true, page: true }` |
 | `autoRegenerateStylesPostTypes` | object | `{}` |
 | `allowedGoogleFonts` | array | `[]` (unused in UI) |
@@ -97,7 +98,7 @@ Namespace: `mediaron/block-shortcuts-for-gb/v1`
 
 | Route | Method | Purpose |
 | --- | --- | --- |
-| `/process_image` | POST | Sideload a remote image for Pattern Inserter |
+| `/process_image` | POST | Sideload a remote image for the Pattern Inserter and for paste pattern processing |
 | `/regenerate_css_files` | POST | Clear `generateblocks_dynamic_css_posts`; Pro calls `GenerateBlocks_Pro_Enqueue_Styles::build_css()` |
 | `/asset_icon_groups` | GET | Unique group names from `generateblocks_svg_icons` (Pro) |
 | `/save_asset_icon` | POST | Append one icon to `generateblocks_svg_icons` (Pro); reuse an existing group item when the SVG markup already matches. Sanitizes via Safe SVG when present, else Pro’s `unfiltered_html` / `generateblocks_pro_kses_svg()` path. |
@@ -109,7 +110,7 @@ Namespace: `mediaron/block-shortcuts-for-gb/v1`
 | Global | Script | Contents |
 | --- | --- | --- |
 | `mrshortcutsgbAdmin` | Admin settings | Nonces, `ajaxurl`, post type list, `isProActive` |
-| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags, REST URL/nonce, v1/v2 suffix strings, `isProActive`, `canManageAssetLibrary` |
+| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags (including `enablePastePatternProcessing`), REST URL/nonce, v1/v2 suffix strings, `isProActive`, `canManageAssetLibrary`, `canSideloadImages` |
 | `mrshortcutsgbCommands` | Block-editor commands | `isProActive` |
 
 ## Coding standards

@@ -57,6 +57,14 @@ Turn this on to load the WordPress command palette on the front end for logged-i
 
 See [Command palette](../editor/command-palette.md) for the commands you can run.
 
+## Process pasted patterns
+
+Turn this on to handle WordPress block markup when you paste it in the editor. Remote images are downloaded into the Media Library, and GenerateBlocks blocks receive new unique IDs, before the blocks are inserted.
+
+Leave this off to keep normal paste. It is off by default.
+
+See [Paste patterns](../editor/paste-patterns.md).
+
 ## Related
 
 Markdown headings are also configured in this panel. See [Markdown to Text](markdown-to-text.md).
