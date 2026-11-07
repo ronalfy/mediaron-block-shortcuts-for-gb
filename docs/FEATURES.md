@@ -1,6 +1,6 @@
 # Features
 
-MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Extras**.
+MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Shortcuts**.
 
 ## Free vs Pro
 
@@ -46,7 +46,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Extra
 
 - **Options:** `adminMenuBar.enabled` (default `true`), `adminMenuBar.replaceWithFullMenu` (default `false`)
 - When disabled: removes GenerateBlocks admin-bar nodes for Administrators and Editors.
-- When replace is enabled: swaps the Overlay Panels root for a fuller menu (Settings, Local Patterns, Global Styles, Overlay Panels, Forms, Conditions, Editor Access, Asset Library, Extras — items appear when the corresponding Pro features exist).
+- When replace is enabled: swaps the Overlay Panels root for a fuller menu (Settings, Local Patterns, Global Styles, Overlay Panels, Forms, Conditions, Editor Access, Asset Library, Shortcuts — items appear when the corresponding Pro features exist).
 
 ## Always-on editor tools
 

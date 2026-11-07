@@ -78,6 +78,9 @@ Renaming any of these needs a migration plan (saved options, content with the pa
 
 ## Useful docs
 
+`docs/` is the developer reference. `documentation/` is the end-user knowledge base, written for WebberZone Knowledge Base Pro GitHub sync (frontmatter includes `products: [block-shortcuts-for-gb]` and a `sections` list). The settings screen is **GenerateBlocks → Shortcuts**.
+
+- [documentation/README.md](documentation/README.md)
 - [docs/FEATURES.md](docs/FEATURES.md)
 - [docs/DEVELOPERS.md](docs/DEVELOPERS.md)
 - [docs/COMMANDS.md](docs/COMMANDS.md)

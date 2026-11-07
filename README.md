@@ -12,7 +12,7 @@ MediaRon Block Shortcuts for GenerateBlocks is a companion plugin for [GenerateB
 
 ## Features
 
-Settings live under **GenerateBlocks → Extras**.
+Settings live under **GenerateBlocks → Shortcuts**.
 
 - **Adobe Fonts** — Show Adobe Fonts (and Blocksy Adobe fonts when present) in the GenerateBlocks typography picker.
 - **Block settings** — Enable v1→v2 transform commands, show both v1 and v2 blocks with custom category labels/suffixes, and optionally enable the frontend command palette for administrators.
@@ -29,7 +29,7 @@ Full detail: [docs/FEATURES.md](docs/FEATURES.md). Commands: [docs/COMMANDS.md](
 
 1. Copy this plugin into `wp-content/plugins/mediaron-block-shortcuts-for-gb` (or install a release ZIP).
 2. Activate **GenerateBlocks**, then activate **MediaRon Block Shortcuts for GenerateBlocks**.
-3. Open **GenerateBlocks → Extras** to configure options.
+3. Open **GenerateBlocks → Shortcuts** to configure options.
 
 ## Development
 
@@ -46,6 +46,7 @@ See [docs/DEVELOPERS.md](docs/DEVELOPERS.md) for architecture (`build/` vs `dist
 
 | Doc | Audience |
 | --- | --- |
+| [documentation/](documentation/README.md) | User knowledge base (GitHub sync source) |
 | [docs/FEATURES.md](docs/FEATURES.md) | Feature reference and Free vs Pro |
 | [docs/DEVELOPERS.md](docs/DEVELOPERS.md) | Architecture and contributor reference |
 | [docs/COMMANDS.md](docs/COMMANDS.md) | Command palette IDs |
