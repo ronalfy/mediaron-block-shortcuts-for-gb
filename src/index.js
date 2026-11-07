@@ -441,6 +441,126 @@ const ClearIcon = ( props ) => {
 	} );
 
 	/**
+	 * Greatest common divisor of two integers.
+	 *
+	 * @param {number} left  First value.
+	 * @param {number} right Second value.
+	 * @return {number} Shared divisor.
+	 */
+	const greatestCommonDivisor = ( left, right ) => {
+		let a = Math.abs( left );
+		let b = Math.abs( right );
+		while ( b ) {
+			const remainder = a % b;
+			a = b;
+			b = remainder;
+		}
+		return a || 1;
+	};
+
+	/**
+	 * Read a column width percentage.
+	 *
+	 * @param {Object} column Column block.
+	 * @return {number|null} Percentage, or null when the column has no width.
+	 */
+	const columnWidthPercent = ( column ) => {
+		const width = column?.attributes?.width;
+		if ( 'string' !== typeof width || ! width.trim() ) {
+			return null;
+		}
+		const value = parseFloat( width );
+		if ( ! Number.isFinite( value ) || value <= 0 ) {
+			return null;
+		}
+		return value;
+	};
+
+	/**
+	 * Turn column widths into a simplified `fr` track list.
+	 *
+	 * @param {number[]} widths Column width percentages.
+	 * @return {number[]} Track sizes.
+	 */
+	const columnWidthTracks = ( widths ) => {
+		const smallest = Math.min( ...widths );
+		const ratios = widths.map( ( width ) => width / smallest );
+		const nearest = ratios.map( ( ratio ) => Math.round( ratio ) );
+		const closeToWhole = ratios.every( ( ratio, index ) => Math.abs( ratio - nearest[ index ] ) < 0.08 );
+		if ( closeToWhole && nearest.every( ( part ) => part >= 1 && part <= 12 ) ) {
+			return nearest;
+		}
+
+		const percents = widths.map( ( width ) => Math.max( 1, Math.round( width ) ) );
+		const divisor = percents.reduce( ( current, value ) => greatestCommonDivisor( current, value ) );
+		return percents.map( ( value ) => Math.round( value / divisor ) );
+	};
+
+	/**
+	 * Build the desktop grid-template-columns value.
+	 *
+	 * @param {Array} columns Column blocks.
+	 * @return {string} CSS grid template.
+	 */
+	const gridTemplateColumns = ( columns ) => {
+		const count = Math.max( columns.length, 1 );
+		const equal = `repeat(${ count }, minmax(0, 1fr))`;
+		const widths = columns.map( columnWidthPercent );
+		if ( ! widths.length || widths.some( ( width ) => null === width ) ) {
+			return equal;
+		}
+
+		const tracks = columnWidthTracks( widths );
+		if ( ! tracks || tracks.every( ( track ) => track === tracks[ 0 ] ) ) {
+			return equal;
+		}
+
+		return tracks.map( ( track ) => `${ track }fr` ).join( ' ' );
+	};
+
+	/**
+	 * Column and row gaps for the grid.
+	 *
+	 * @param {Object} attributes Columns block attributes.
+	 * @return {Object} `columnGap` and `rowGap`.
+	 */
+	const gridGaps = ( attributes ) => {
+		const blockGap = attributes?.style?.spacing?.blockGap;
+		let columnGap = '1em';
+		let rowGap = '1em';
+
+		if ( 'string' === typeof blockGap && blockGap ) {
+			columnGap = blockGap;
+			rowGap = blockGap;
+		} else if ( blockGap && 'object' === typeof blockGap ) {
+			if ( blockGap.left ) {
+				columnGap = blockGap.left;
+			}
+			if ( blockGap.top ) {
+				rowGap = blockGap.top;
+			}
+		}
+
+		return { columnGap, rowGap };
+	};
+
+	/**
+	 * Small-screen media query used by the GenerateBlocks Grid variation.
+	 *
+	 * @return {string} At-rule.
+	 */
+	const smallWidthQuery = () => {
+		const rules = window.generateBlocksDefaultAtRules;
+		if ( Array.isArray( rules ) ) {
+			const match = rules.find( ( rule ) => 'smallWidth' === rule?.id && 'string' === typeof rule.value && rule.value );
+			if ( match ) {
+				return match.value;
+			}
+		}
+		return '@media (max-width:767px)';
+	};
+
+	/**
 	 * Allow transform from group block.
 	 *
 	 * Updated for v2 blocks.
@@ -459,6 +579,54 @@ const ClearIcon = ( props ) => {
 							'generateblocks/element',
 							{},
 							innerBlocks
+						);
+					},
+				} );
+				blockSettings.transforms.to = transformsTo;
+			}
+			return blockSettings;
+		}
+	);
+
+	/**
+	 * Allow transform from a Columns block to a GenerateBlocks grid.
+	 */
+	wp.hooks.addFilter(
+		'blocks.registerBlockType',
+		'generateblocks/transform/columns',
+		( blockSettings ) => {
+			if ( blockSettings.name === 'core/columns' ) {
+				const transformsTo = blockSettings.transforms?.to || [];
+				transformsTo.push( {
+					type: 'block',
+					blocks: [ 'generateblocks/element' ],
+					transform: ( attributes, innerBlocks ) => {
+						const columns = ( innerBlocks || [] ).filter( ( block ) => 'core/column' === block?.name );
+						const styles = {
+							display: 'grid',
+							gridTemplateColumns: gridTemplateColumns( columns ),
+							...gridGaps( attributes ),
+						};
+
+						if ( false !== attributes?.isStackedOnMobile ) {
+							styles[ smallWidthQuery() ] = {
+								gridTemplateColumns: '1fr',
+							};
+						}
+
+						const cells = columns.map( ( column ) => wp.blocks.createBlock(
+							'generateblocks/element',
+							{ tagName: 'div' },
+							column.innerBlocks || []
+						) );
+
+						return wp.blocks.createBlock(
+							'generateblocks/element',
+							{
+								tagName: 'div',
+								styles,
+							},
+							cells
 						);
 					},
 				} );
