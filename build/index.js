@@ -13748,6 +13748,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_blocks_utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/blocks/utils/svgAssetLibrary */ "./src/js/blocks/utils/svgAssetLibrary.js");
 /* harmony import */ var _js_blocks_commands_components_modals_SaveSVGToAssetLibraryModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal */ "./src/js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -14144,6 +14148,148 @@ var ClearIcon = function ClearIcon(props) {
   });
 
   /**
+   * Greatest common divisor of two integers.
+   *
+   * @param {number} left  First value.
+   * @param {number} right Second value.
+   * @return {number} Shared divisor.
+   */
+  var greatestCommonDivisor = function greatestCommonDivisor(left, right) {
+    var a = Math.abs(left);
+    var b = Math.abs(right);
+    while (b) {
+      var remainder = a % b;
+      a = b;
+      b = remainder;
+    }
+    return a || 1;
+  };
+
+  /**
+   * Read a column width percentage.
+   *
+   * @param {Object} column Column block.
+   * @return {number|null} Percentage, or null when the column has no width.
+   */
+  var columnWidthPercent = function columnWidthPercent(column) {
+    var _column$attributes;
+    var width = column === null || column === void 0 || (_column$attributes = column.attributes) === null || _column$attributes === void 0 ? void 0 : _column$attributes.width;
+    if ('string' !== typeof width || !width.trim()) {
+      return null;
+    }
+    var value = parseFloat(width);
+    if (!Number.isFinite(value) || value <= 0) {
+      return null;
+    }
+    return value;
+  };
+
+  /**
+   * Turn column widths into a simplified `fr` track list.
+   *
+   * @param {number[]} widths Column width percentages.
+   * @return {number[]} Track sizes.
+   */
+  var columnWidthTracks = function columnWidthTracks(widths) {
+    var smallest = Math.min.apply(Math, _toConsumableArray(widths));
+    var ratios = widths.map(function (width) {
+      return width / smallest;
+    });
+    var nearest = ratios.map(function (ratio) {
+      return Math.round(ratio);
+    });
+    var closeToWhole = ratios.every(function (ratio, index) {
+      return Math.abs(ratio - nearest[index]) < 0.08;
+    });
+    if (closeToWhole && nearest.every(function (part) {
+      return part >= 1 && part <= 12;
+    })) {
+      return nearest;
+    }
+    var percents = widths.map(function (width) {
+      return Math.max(1, Math.round(width));
+    });
+    var divisor = percents.reduce(function (current, value) {
+      return greatestCommonDivisor(current, value);
+    });
+    return percents.map(function (value) {
+      return Math.round(value / divisor);
+    });
+  };
+
+  /**
+   * Build the desktop grid-template-columns value.
+   *
+   * @param {Array} columns Column blocks.
+   * @return {string} CSS grid template.
+   */
+  var gridTemplateColumns = function gridTemplateColumns(columns) {
+    var count = Math.max(columns.length, 1);
+    var equal = "repeat(".concat(count, ", minmax(0, 1fr))");
+    var widths = columns.map(columnWidthPercent);
+    if (!widths.length || widths.some(function (width) {
+      return null === width;
+    })) {
+      return equal;
+    }
+    var tracks = columnWidthTracks(widths);
+    if (!tracks || tracks.every(function (track) {
+      return track === tracks[0];
+    })) {
+      return equal;
+    }
+    return tracks.map(function (track) {
+      return "".concat(track, "fr");
+    }).join(' ');
+  };
+
+  /**
+   * Column and row gaps for the grid.
+   *
+   * @param {Object} attributes Columns block attributes.
+   * @return {Object} `columnGap` and `rowGap`.
+   */
+  var gridGaps = function gridGaps(attributes) {
+    var _attributes$style;
+    var blockGap = attributes === null || attributes === void 0 || (_attributes$style = attributes.style) === null || _attributes$style === void 0 || (_attributes$style = _attributes$style.spacing) === null || _attributes$style === void 0 ? void 0 : _attributes$style.blockGap;
+    var columnGap = '1em';
+    var rowGap = '1em';
+    if ('string' === typeof blockGap && blockGap) {
+      columnGap = blockGap;
+      rowGap = blockGap;
+    } else if (blockGap && 'object' === _typeof(blockGap)) {
+      if (blockGap.left) {
+        columnGap = blockGap.left;
+      }
+      if (blockGap.top) {
+        rowGap = blockGap.top;
+      }
+    }
+    return {
+      columnGap: columnGap,
+      rowGap: rowGap
+    };
+  };
+
+  /**
+   * Small-screen media query used by the GenerateBlocks Grid variation.
+   *
+   * @return {string} At-rule.
+   */
+  var smallWidthQuery = function smallWidthQuery() {
+    var rules = window.generateBlocksDefaultAtRules;
+    if (Array.isArray(rules)) {
+      var match = rules.find(function (rule) {
+        return 'smallWidth' === (rule === null || rule === void 0 ? void 0 : rule.id) && 'string' === typeof rule.value && rule.value;
+      });
+      if (match) {
+        return match.value;
+      }
+    }
+    return '@media (max-width:767px)';
+  };
+
+  /**
    * Allow transform from group block.
    *
    * Updated for v2 blocks.
@@ -14165,14 +14311,53 @@ var ClearIcon = function ClearIcon(props) {
   });
 
   /**
+   * Allow transform from a Columns block to a GenerateBlocks grid.
+   */
+  wp.hooks.addFilter('blocks.registerBlockType', 'generateblocks/transform/columns', function (blockSettings) {
+    if (blockSettings.name === 'core/columns') {
+      var _blockSettings$transf2;
+      var transformsTo = ((_blockSettings$transf2 = blockSettings.transforms) === null || _blockSettings$transf2 === void 0 ? void 0 : _blockSettings$transf2.to) || [];
+      transformsTo.push({
+        type: 'block',
+        blocks: ['generateblocks/element'],
+        transform: function transform(attributes, innerBlocks) {
+          var columns = (innerBlocks || []).filter(function (block) {
+            return 'core/column' === (block === null || block === void 0 ? void 0 : block.name);
+          });
+          var styles = _objectSpread({
+            display: 'grid',
+            gridTemplateColumns: gridTemplateColumns(columns)
+          }, gridGaps(attributes));
+          if (false !== (attributes === null || attributes === void 0 ? void 0 : attributes.isStackedOnMobile)) {
+            styles[smallWidthQuery()] = {
+              gridTemplateColumns: '1fr'
+            };
+          }
+          var cells = columns.map(function (column) {
+            return wp.blocks.createBlock('generateblocks/element', {
+              tagName: 'div'
+            }, column.innerBlocks || []);
+          });
+          return wp.blocks.createBlock('generateblocks/element', {
+            tagName: 'div',
+            styles: styles
+          }, cells);
+        }
+      });
+      blockSettings.transforms.to = transformsTo;
+    }
+    return blockSettings;
+  });
+
+  /**
    * Allow transform from the Shape to Text block.
    *
    * Updated for v2 blocks.
    */
   wp.hooks.addFilter('blocks.registerBlockType', 'generateblocks/transform/shape', function (blockSettings) {
     if (blockSettings.name === 'generateblocks/shape') {
-      var _blockSettings$transf2;
-      var transformsTo = ((_blockSettings$transf2 = blockSettings.transforms) === null || _blockSettings$transf2 === void 0 ? void 0 : _blockSettings$transf2.to) || [];
+      var _blockSettings$transf3;
+      var transformsTo = ((_blockSettings$transf3 = blockSettings.transforms) === null || _blockSettings$transf3 === void 0 ? void 0 : _blockSettings$transf3.to) || [];
       transformsTo.push({
         type: 'block',
         blocks: ['generateblocks/text'],
@@ -14204,8 +14389,8 @@ var ClearIcon = function ClearIcon(props) {
   if (mrshortcutsgbPatternInserter.enableMarkdownToHeadlineBlock) {
     wp.hooks.addFilter('blocks.registerBlockType', 'generateblocks/transform/markdown', function (blockSettings) {
       if (blockSettings.name === 'core/paragraph' || blockSettings.name === 'generateblocks/text') {
-        var _blockSettings$transf3;
-        var transformFrom = ((_blockSettings$transf3 = blockSettings.transforms) === null || _blockSettings$transf3 === void 0 ? void 0 : _blockSettings$transf3.from) || [];
+        var _blockSettings$transf4;
+        var transformFrom = ((_blockSettings$transf4 = blockSettings.transforms) === null || _blockSettings$transf4 === void 0 ? void 0 : _blockSettings$transf4.from) || [];
         transformFrom.push({
           type: 'prefix',
           prefix: '#',

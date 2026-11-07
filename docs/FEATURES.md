@@ -66,6 +66,7 @@ Block overflow menu items (`PluginBlockSettingsMenuItem` in `src/index.js`):
 Also registered:
 
 - Transform **core/group → generateblocks/element**
+- Transform **core/columns → generateblocks/element** (grid). Column count sets `gridTemplateColumns`. Uneven column widths become a simplified `fr` track list. Each column becomes an Element that keeps its inner blocks.
 - Transform **generateblocks/shape → generateblocks/text** (link-style icon text)
 - Optional markdown prefix transforms when markdown setting is on
 

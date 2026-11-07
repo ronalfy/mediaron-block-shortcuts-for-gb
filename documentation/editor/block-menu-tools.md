@@ -62,3 +62,9 @@ Shown for Administrators when GenerateBlocks Pro is active and the selected Shap
 ## Transform a Group
 
 A core Group block can be transformed into a GenerateBlocks Element. Select the Group, open **Transform to**, and choose the Element block. Inner blocks are kept.
+
+## Transform Columns
+
+A core Columns block can be transformed into a GenerateBlocks grid. Select the Columns block, open **Transform to**, and choose the Element block. The result is a grid whose column count matches the Columns block.
+
+Equal columns use an even grid. When every column has a width, those widths become the grid tracks, so a one-third and two-thirds layout stays one-third and two-thirds. Each column becomes its own Element, and the blocks inside it are kept. Columns that stack on smaller screens still stack after the transform.
