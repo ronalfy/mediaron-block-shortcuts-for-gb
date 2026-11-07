@@ -21,6 +21,7 @@ Commands register via `@wordpress/commands` `useCommand`. Source lives under `sr
 | `mrshortcuts-gb-refresh-css-files` | GenerateBlocks: Generate CSS Files | Admin + frontend | `POST mediaron/block-shortcuts-for-gb/v1/regenerate_css_files` |
 | `mrshortcuts-gb-save-svg-to-asset-library` | GenerateBlocks: Save SVG to Asset Library | Block editor | Pro only; paste SVG into the Asset Library |
 | `mrshortcuts-gb-generate-unique-ids` | GenerateBlocks: Generate New Unique IDs | Block editor | New `uniqueId` for every GenerateBlocks block in the post. Rewrites saved `css` selectors. Skips synced patterns (`core/block`). |
+| `mrshortcuts-gb-import-pattern` | GenerateBlocks: Import Pattern | Block editor | Textarea for block markup. Sideloads remote images via `POST /process_image`, shows each image’s status, regenerates GenerateBlocks unique IDs, then inserts the blocks. |
 
 ## Implementation tips
 

@@ -70,3 +70,15 @@ Synced patterns are left unchanged. Query loop pagination keys use these IDs, so
 The confirmation box reports how many blocks will change. If the post has no GenerateBlocks blocks, there is nothing to update.
 
 The block options menu has a smaller version of this tool that only renumbers the selected block and its inner blocks. See [Block menu tools](block-menu-tools.md).
+
+## Import Pattern
+
+**GenerateBlocks: Import Pattern**
+
+Opens a dialog with a text area. Paste WordPress block markup, then select **Import**.
+
+Remote images are downloaded into the Media Library. The dialog lists each image as Waiting, Downloaded, or Kept original address. GenerateBlocks blocks in the pattern receive new unique IDs, including the selectors stored in their CSS, before the blocks are inserted.
+
+If an image cannot be downloaded, the pattern is still inserted and that image keeps its original address. The dialog stays open so you can read which images failed.
+
+If you do not have permission to upload files, images stay at their original addresses and unique IDs are still updated.

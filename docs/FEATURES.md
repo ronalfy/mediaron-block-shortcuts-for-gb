@@ -78,7 +78,7 @@ Also registered:
 
 - **Option:** `enablePastePatternProcessing` (default `false`), Block Settings.
 - When on, pasting WordPress block markup (`<!-- wp:`) that includes GenerateBlocks blocks regenerates `uniqueId` values and matching `css` selectors before the blocks are inserted. Synced patterns (`core/block`) are left unchanged. Remote images are downloaded first, and that download is shown in a dialog.
-- Shared helper: `processPatternMarkup` in `src/js/blocks/utils/processPattern.js` (editor bundle today; the command bundle can import it).
+- Shared helper: `processPatternMarkup` in `src/js/blocks/utils/processPattern.js`. Paste and the Import Pattern command both call it.
 
 ## Asset Library capture (Pro)
 
@@ -96,5 +96,6 @@ GenerateBlocks highlights a library tile when its SVG string matches the block, 
 ## Command palette
 
 - **Generate New Unique IDs** regenerates `uniqueId` on every GenerateBlocks block in the current post, including blocks nested inside core groups, and rewrites each block’s saved `css` selectors. Synced patterns are left unchanged. Query loop pagination keys change with the new IDs. The editor undo stack can revert the edit.
+- **Import Pattern** opens a dialog with a textarea. `processPatternMarkup` sideloads remote images through `POST mediaron/block-shortcuts-for-gb/v1/process_image`, reports each image’s status in the dialog, regenerates GenerateBlocks unique IDs (including `css`), and inserts the blocks.
 
 See [COMMANDS.md](COMMANDS.md) for IDs and contexts.

@@ -1094,7 +1094,10 @@ class Blocks {
 			'mrshortcuts-gb-commands-block-editor',
 			'mrshortcutsgbCommands',
 			array(
-				'isProActive' => Functions::is_generateblocks_pro_active() ? 'true' : 'false',
+				'isProActive'       => Functions::is_generateblocks_pro_active() ? 'true' : 'false',
+				'restUrl'           => rest_url( 'mediaron/block-shortcuts-for-gb/v1' ),
+				'restNonce'         => wp_create_nonce( 'wp_rest' ),
+				'canSideloadImages' => ( current_user_can( 'upload_files' ) && current_user_can( 'publish_posts' ) ) ? 'true' : 'false',
 			)
 		);
 	}

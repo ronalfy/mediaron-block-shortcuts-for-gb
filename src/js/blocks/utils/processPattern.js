@@ -229,17 +229,19 @@ function applyAttachmentIds( blocks, replacements ) {
 /**
  * Download one remote image.
  *
- * @param {string} rawUrl URL as it appears in the markup.
+ * @param {string} rawUrl    URL as it appears in the markup.
+ * @param {string} restUrl   REST namespace URL.
+ * @param {string} restNonce REST nonce.
  * @return {Promise<Object>} Replacement `{ rawUrl, url, id, failed }`.
  */
-async function sideloadImage( rawUrl ) {
+async function sideloadImage( rawUrl, restUrl, restNonce ) {
 	const settings = window.mrshortcutsgbPatternInserter || {};
-	const endpoint = `${ settings.restUrl || '' }/process_image`;
+	const endpoint = `${ restUrl || settings.restUrl || '' }/process_image`;
 	const normalized = rawUrl.replace( /\\\//g, '/' ).replace( /&amp;/g, '&' );
 
 	try {
 		const response = await SendCommand(
-			settings.restNonce,
+			restNonce || settings.restNonce,
 			{
 				imgUrl: normalized,
 				imgAlt: '',
@@ -276,6 +278,8 @@ async function sideloadImage( rawUrl ) {
  * @param {Function} [options.onProgress]  Called with `( done, total, failed, image )`. `image` is `{ url, ok }`.
  * @param {Set}      [options.reservedIds] Unique IDs already used on the page.
  * @param {boolean}  [options.sideload]    When false, skip downloads.
+ * @param {string}   [options.restUrl]     REST namespace URL. Falls back to the pattern inserter script.
+ * @param {string}   [options.restNonce]   REST nonce. Falls back to the pattern inserter script.
  * @return {Promise<Array>} Parsed blocks.
  */
 export async function processPatternMarkup( markup, options = {} ) {
@@ -283,6 +287,8 @@ export async function processPatternMarkup( markup, options = {} ) {
 		onProgress,
 		reservedIds,
 		sideload = true,
+		restUrl = '',
+		restNonce = '',
 	} = options;
 	const urls = sideload ? collectRemoteImageUrls( markup ) : [];
 	const replacements = new Map();
@@ -291,7 +297,7 @@ export async function processPatternMarkup( markup, options = {} ) {
 
 	if ( urls.length ) {
 		await Promise.all( urls.map( async( rawUrl ) => {
-			const result = await sideloadImage( rawUrl );
+			const result = await sideloadImage( rawUrl, restUrl, restNonce );
 			if ( result.failed || ! result.url ) {
 				failed += 1;
 			} else {

@@ -2450,10 +2450,12 @@ function applyAttachmentIds(blocks, replacements) {
 /**
  * Download one remote image.
  *
- * @param {string} rawUrl URL as it appears in the markup.
+ * @param {string} rawUrl    URL as it appears in the markup.
+ * @param {string} restUrl   REST namespace URL.
+ * @param {string} restNonce REST nonce.
  * @return {Promise<Object>} Replacement `{ rawUrl, url, id, failed }`.
  */
-function sideloadImage(_x) {
+function sideloadImage(_x, _x2, _x3) {
   return _sideloadImage.apply(this, arguments);
 }
 /**
@@ -2464,20 +2466,22 @@ function sideloadImage(_x) {
  * @param {Function} [options.onProgress]  Called with `( done, total, failed, image )`. `image` is `{ url, ok }`.
  * @param {Set}      [options.reservedIds] Unique IDs already used on the page.
  * @param {boolean}  [options.sideload]    When false, skip downloads.
+ * @param {string}   [options.restUrl]     REST namespace URL. Falls back to the pattern inserter script.
+ * @param {string}   [options.restNonce]   REST nonce. Falls back to the pattern inserter script.
  * @return {Promise<Array>} Parsed blocks.
  */
 function _sideloadImage() {
-  _sideloadImage = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(rawUrl) {
+  _sideloadImage = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(rawUrl, restUrl, restNonce) {
     var settings, endpoint, normalized, _body$data, response, body, attachmentId, _t;
     return _regenerator().w(function (_context) {
       while (1) switch (_context.p = _context.n) {
         case 0:
           settings = window.mrshortcutsgbPatternInserter || {};
-          endpoint = "".concat(settings.restUrl || '', "/process_image");
+          endpoint = "".concat(restUrl || settings.restUrl || '', "/process_image");
           normalized = rawUrl.replace(/\\\//g, '/').replace(/&amp;/g, '&');
           _context.p = 1;
           _context.n = 2;
-          return (0,_SendCommand__WEBPACK_IMPORTED_MODULE_1__["default"])(settings.restNonce, {
+          return (0,_SendCommand__WEBPACK_IMPORTED_MODULE_1__["default"])(restNonce || settings.restNonce, {
             imgUrl: normalized,
             imgAlt: ''
           }, endpoint);
@@ -2513,7 +2517,7 @@ function _sideloadImage() {
   }));
   return _sideloadImage.apply(this, arguments);
 }
-function processPatternMarkup(_x2) {
+function processPatternMarkup(_x4) {
   return _processPatternMarkup.apply(this, arguments);
 }
 function _processPatternMarkup() {
@@ -2523,6 +2527,10 @@ function _processPatternMarkup() {
       reservedIds,
       _options$sideload,
       sideload,
+      _options$restUrl,
+      restUrl,
+      _options$restNonce,
+      restNonce,
       urls,
       replacements,
       done,
@@ -2534,7 +2542,7 @@ function _processPatternMarkup() {
       while (1) switch (_context3.n) {
         case 0:
           options = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : {};
-          onProgress = options.onProgress, reservedIds = options.reservedIds, _options$sideload = options.sideload, sideload = _options$sideload === void 0 ? true : _options$sideload;
+          onProgress = options.onProgress, reservedIds = options.reservedIds, _options$sideload = options.sideload, sideload = _options$sideload === void 0 ? true : _options$sideload, _options$restUrl = options.restUrl, restUrl = _options$restUrl === void 0 ? '' : _options$restUrl, _options$restNonce = options.restNonce, restNonce = _options$restNonce === void 0 ? '' : _options$restNonce;
           urls = sideload ? collectRemoteImageUrls(markup) : [];
           replacements = new Map();
           done = 0;
@@ -2551,7 +2559,7 @@ function _processPatternMarkup() {
                 while (1) switch (_context2.n) {
                   case 0:
                     _context2.n = 1;
-                    return sideloadImage(rawUrl);
+                    return sideloadImage(rawUrl, restUrl, restNonce);
                   case 1:
                     result = _context2.v;
                     if (result.failed || !result.url) {
@@ -2574,7 +2582,7 @@ function _processPatternMarkup() {
                 }
               }, _callee2);
             }));
-            return function (_x3) {
+            return function (_x5) {
               return _ref3.apply(this, arguments);
             };
           }()));

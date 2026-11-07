@@ -9,6 +9,7 @@ import { useTransformHeadingToGBTextCommand } from './components/commands/Transf
 import { useTransformParagraphToGBTextCommand } from './components/commands/TransformParagraphToGBText';
 import { useSaveSVGToAssetLibraryCommand } from './components/commands/SaveSVGToAssetLibrary';
 import { useGenerateUniqueIdsCommand } from './components/commands/GenerateUniqueIds';
+import { useImportPatternCommand } from './components/commands/ImportPattern';
 
 /**
  * Commands block editor component.
@@ -22,6 +23,7 @@ const CommandsBlockEditor = () => {
 	const paragraphTransformModal = useTransformParagraphToGBTextCommand();
 	const saveSvgModal = useSaveSVGToAssetLibraryCommand();
 	const generateUniqueIdsModal = useGenerateUniqueIdsCommand();
+	const importPatternModal = useImportPatternCommand();
 
 	// Return all modals (they handle their own visibility).
 	return (
@@ -31,6 +33,7 @@ const CommandsBlockEditor = () => {
 			{ paragraphTransformModal }
 			{ saveSvgModal }
 			{ generateUniqueIdsModal }
+			{ importPatternModal }
 		</>
 	);
 };
