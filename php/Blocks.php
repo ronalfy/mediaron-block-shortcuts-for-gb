@@ -1046,6 +1046,8 @@ class Blocks {
 				'restNonce'                     => wp_create_nonce( 'wp_rest' ),
 				'allowedGoogleFonts'            => $options['allowedGoogleFonts'] ?? array(),
 				'enableMarkdownToHeadlineBlock' => ( ( $options['enableMarkdownToHeadlineBlock'] ?? false ) ? 'true' : 'false' ),
+				'enablePastePatternProcessing'  => ( ( $options['enablePastePatternProcessing'] ?? false ) ? 'true' : 'false' ),
+				'canSideloadImages'             => ( current_user_can( 'upload_files' ) && current_user_can( 'publish_posts' ) ) ? 'true' : 'false',
 				'enableV1Transformations'       => ( ( $options['enableV1Transformations'] ?? false ) ? 'true' : 'false' ),
 				'enableV1Blocks'                => ( ( $options['enableV1Blocks'] ?? false ) ? 'true' : 'false' ),
 				'v1CategoryLabel'               => esc_html( $options['v1CategoryLabel'] ?? esc_html__( 'GenerateBlocks v1', 'mediaron-block-shortcuts-for-gb' ) ),

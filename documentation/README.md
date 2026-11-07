@@ -52,4 +52,5 @@ Settings live under **GenerateBlocks → Shortcuts**.
 - [Block menu tools](editor/block-menu-tools.md)
 - [Command palette](editor/command-palette.md)
 - [Pattern Inserter](editor/pattern-inserter.md)
+- [Paste patterns](editor/paste-patterns.md)
 - [Save an SVG to the Asset Library](editor/asset-library.md)

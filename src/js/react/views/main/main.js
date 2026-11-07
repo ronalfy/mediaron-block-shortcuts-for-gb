@@ -60,6 +60,7 @@ const Interface = ( props ) => {
 			autoRegenerateStylesPostTypes: data.autoRegenerateStylesPostTypes || {},
 			allowedGoogleFonts: data.allowedGoogleFonts,
 			enableMarkdownToHeadlineBlock: data.enableMarkdownToHeadlineBlock,
+			enablePastePatternProcessing: data.enablePastePatternProcessing || false,
 			enableV1Transformations: data.enableV1Transformations,
 			enableV1Blocks: data.enableV1Blocks,
 			v1CategoryLabel: data.v1CategoryLabel,
@@ -271,6 +272,25 @@ const Interface = ( props ) => {
 										) }
 									/>
 								) }
+							</div>
+							<div className="dlx-admin__row">
+								<Controller
+									name="enablePastePatternProcessing"
+									control={ control }
+									render={ ( { field: { onChange } } ) => (
+										<ToggleControl
+											label={ __( 'Process pasted patterns', 'mediaron-block-shortcuts-for-gb' ) }
+											checked={ getValues( 'enablePastePatternProcessing' ) }
+											onChange={ ( boolValue ) => {
+												onChange( boolValue );
+											} }
+											help={ __(
+												'When pasting WordPress block markup in the editor, download remote images into the Media Library and give GenerateBlocks blocks new unique IDs before the blocks are inserted.',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+										/>
+									) }
+								/>
 							</div>
 						</div>
 					</PanelBody>

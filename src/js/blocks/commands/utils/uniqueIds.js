@@ -216,6 +216,35 @@ export function regenerateUniqueIds( blocks ) {
 }
 
 /**
+ * Collect every uniqueId in a block tree.
+ *
+ * @param {Array} blocks Root blocks.
+ * @return {Set} Reserved unique IDs.
+ */
+export function collectDocumentUniqueIds( blocks ) {
+	const used = new Set();
+	( blocks || [] ).forEach( ( block ) => collectSubtreeIds( block, used ) );
+	return used;
+}
+
+/**
+ * Regenerate unique IDs for a block tree without changing the rest of the document.
+ *
+ * Synced patterns are left unchanged. Saved `css` selectors that contain the
+ * previous ID are rewritten. IDs in `reservedIds` are not reused.
+ *
+ * @param {Array}     blocks      Blocks to update.
+ * @param {Set|Array} reservedIds Unique IDs already used on the page.
+ * @return {Array} Updated blocks.
+ */
+export function regenerateUniqueIdsForBlocks( blocks, reservedIds ) {
+	const used = reservedIds instanceof Set ? new Set( reservedIds ) : new Set( reservedIds || [] );
+	const roots = blocks || [];
+	collectRetainedIds( roots, used );
+	return roots.map( ( block ) => regenerateBlock( block, used ) );
+}
+
+/**
  * Replace unique IDs for every GenerateBlocks block in the editor.
  *
  * @return {Promise<number>} Number of blocks updated.

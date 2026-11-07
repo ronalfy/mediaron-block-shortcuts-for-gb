@@ -8,9 +8,10 @@
 		'wp-compose',
 		'wp-data',
 		'wp-editor',
+		'wp-element',
 		'wp-hooks',
 		'wp-i18n',
 		'wp-plugins'
 	),
-	'version' => '9ef9d556d19b709b0759'
+	'version' => 'be6c6df1983b5712de45'
 );

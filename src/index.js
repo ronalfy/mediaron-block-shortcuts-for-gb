@@ -4,6 +4,7 @@ import { PluginBlockSettingsMenuItem } from '@wordpress/editor';
 import { useSelect, useDispatch, store, select } from '@wordpress/data';
 import { registerPlugin } from '@wordpress/plugins';
 import './js/blocks/pattern-importer/index.js';
+import './js/blocks/utils/pastePattern.js';
 import ContainerLogo from './js/blocks/components/ContainerIcon.js';
 import ReplaceIcon from './js/blocks/components/ReplaceIcon.js';
 import { v1Blocks, v2Blocks } from './js/blocks/utils/BlockTypes.js';
