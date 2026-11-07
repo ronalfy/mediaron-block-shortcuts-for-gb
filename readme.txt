@@ -2,7 +2,7 @@
 Tags: blocks, gutenberg, helpers, add-ons, gutenberg blocks
 Requires at least: 7.0
 Tested up to: 7.1
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,17 +13,20 @@ Enhance your GB experience with Block Shortcuts for GenerateBlocks, featuring a 
 
 MediaRon Block Shortcuts for GenerateBlocks is an add-on for <a href="https://generatepress.com/">GenerateBlocks</a> that brings additional functionality and enhancements to your block editing experience. Key features include:
 
-1. **Pattern Importer**: Easily import remote patterns, including all images and unique IDs, ensuring no style conflicts.
+1. **Pattern Importer**: Easily import remote patterns, including all images and unique IDs, ensuring no style conflicts. This can work on paste if enabled in the admin settings, and also via a command.
 2. **Version 1 to Version 2 Blocks Converter**: Stuck on an old v1 site? Convert v1 to v2 blocks with a quick transform, or surgically behind a useful contextual menu shortcut.
 3. **Adobe Font Support**: Integrate Adobe Fonts from popular font plugins like <a href="https://wordpress.org/plugins/custom-typekit-fonts/">Astra’s Typekit plugin</a> and <a href="https://creativethemes.com/blocksy/docs/extensions/adobe-typekit-fonts/">Blocksy’s Adobe Font module</a>.
 4. **Container Block Wrapping and Unwrapping**: Select multiple blocks and wrap them in a Container block with ease. Just as easily, you can unwrap the container via a contextual shortcut.
 5. **Transform the Group block to a Container**: Convert Group blocks into Container blocks, maintaining all internal blocks.
-6. **Command Palette Shortcuts**: Access GenerateBlocks settings quickly with shortcut commands in the block editor’s Command Palette. This includes a post-wide v1 to v2 block conversion shortcut. Other commands allow for quick regeneration of GenerateBlocks styles, and a command for outlining different blocks such as grids and containers. Add SVGs to the asset libary. Generate new unique IDs for the entire page.
-7. **Unique ID Generation**: Avoid style conflicts by generating new unique IDs for duplicated or copied blocks. This is still very useful today.
-8. **Build Styles for Select Post Types and Templates**: Have GenerateBlocks regenerate site-wide styles based on your selected post types or FSE templates.
-9. **Useful Block Commands**: Convert all paragraph blocks into Text blocks (with paragraphs being selected) as well as converting all headlines into a Text block with appropriate headings selected.
-10. **Add a Global Menu Toolbar Shortcut**: The current admin bar only shows overlays. With Block Shortcuts, you can see all available menu items from a top-level admin menu in the toolbar in both the admin and the frontend.
-11. **SVG Asset Libary** Add an SVG to the asset library without leaving the post. This works via a contextual menu or the command palette.
+6. **Transform the Columns block to a Grid**: Convert columns to a GenerateBlocks grid using a useful transform.
+7. **Command Palette Shortcuts**: Access GenerateBlocks settings quickly with shortcut commands in the block editor’s Command Palette. This includes a post-wide v1 to v2 block conversion shortcut. Other commands allow for quick regeneration of GenerateBlocks styles, and a command for outlining different blocks such as grids and containers. Add SVGs to the asset libary. Generate new unique IDs for the entire page.
+9. **Unique ID Generation**: Avoid style conflicts by generating new unique IDs for duplicated or copied blocks. This is still very useful today.
+9. **Build Styles for Select Post Types and Templates**: Have GenerateBlocks regenerate site-wide styles based on your selected post types or FSE templates.
+10. **Useful Block Commands**: Convert all paragraph blocks into Text blocks (with paragraphs being selected) as well as converting all headlines into a Text block with appropriate headings selected.
+11. **Add a Global Menu Toolbar Shortcut**: The current admin bar only shows overlays. With Block Shortcuts, you can see all available menu items from a top-level admin menu in the toolbar in both the admin and the frontend.
+12. **SVG Asset Libary** Add an SVG to the asset library without leaving the post. This works via a contextual menu or the command palette.
+
+> <a href="https://docs.mediaron.com/product/block-shortcuts-for-gb/">See all features and documentation</a> | <a href="https://github.com/ronalfy/mediaron-block-shortcuts-for-gb">Find us on GitHub</a>.
 
 MediaRon Block Shortcuts for GenerateBlocks is perfect for users looking to streamline their GenerateBlocks workflow and add more versatility to the block editor design experience.
 
@@ -90,6 +93,12 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 1.2.0 =
+* Released 2026-11-07
+* New: Added an option to allow pasting a pattern to generate unique IDs and download remote images.
+* New: Command for importing patterns, including downloading remote images.
+* New: Added columns transform to the grid block.
+
 = 1.1.0 =
 * Released 2026-11-03
 * New: Add SVGs to the asset library from the block editor, either via contextual shortcut or command palette.
@@ -100,5 +109,5 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Upgrade Notice ==
 
-= 1.1.0 =
-Add SVGs to the asset library from the block editor, either via contextual shortcut or command palette. Generate Unique IDs from the command palette for the entire post.
+= 1.2.0 =
+Added an option to allow pasting a pattern to generate unique IDs and download remote images. New Command for importing patterns, including downloading remote images. Added columns transform to the grid block.
