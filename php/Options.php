@@ -117,6 +117,7 @@ class Options {
 			'enableAdobeFonts'              => true,
 			'enableMarkdownToHeadlineBlock' => false,
 			'enablePastePatternProcessing'  => false,
+			'disablePatternLibrary'         => false,
 			'enabledPostTypes'              => array(
 				'post' => true,
 				'page' => true,

@@ -33,7 +33,22 @@ class Blocks {
 
 		// Add any block categories needed.
 		add_filter( 'block_categories_all', array( $self, 'add_block_categories' ), 500, 1 ); // High priority so others can add their categories first.
+		add_filter( 'generateblocks_enable_pattern_library', array( $self, 'maybe_disable_pattern_library' ), 100 );
 		return $self;
+	}
+
+	/**
+	 * Hide the GenerateBlocks Pattern Library when the setting is on.
+	 *
+	 * @param bool $enabled Whether GenerateBlocks should load the editor library.
+	 * @return bool Whether the library should load.
+	 */
+	public function maybe_disable_pattern_library( $enabled ) {
+		$options = Options::get_options();
+		if ( ! empty( $options['disablePatternLibrary'] ) ) {
+			return false;
+		}
+		return $enabled;
 	}
 
 	/**

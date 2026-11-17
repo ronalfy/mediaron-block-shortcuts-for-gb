@@ -65,6 +65,12 @@ Leave this off to keep normal paste. It is off by default.
 
 See [Paste patterns](../editor/paste-patterns.md).
 
+## Disable GenerateBlocks Pattern Library
+
+Turn this on to hide the Pattern Library button in the block editor header and the Pattern Library item in the editor options menu.
+
+Leave this off to keep the Pattern Library available. It is off by default. Select **Save Options**, then open the editor again so the change applies.
+
 ## Related
 
 Markdown headings are also configured in this panel. See [Markdown to Text](markdown-to-text.md).

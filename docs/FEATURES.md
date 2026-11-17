@@ -27,6 +27,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 | `v1BlockSuffix` / `v2BlockSuffix` | `(v1)` / `(v2)` | Appended to block titles when dual blocks are enabled |
 | `enableFrontendCommandPalette` | `false` | Loads command palette assets on the frontend for administrators (WordPress 6.9+) |
 | `enablePastePatternProcessing` | `false` | On paste of block markup, sideload remote images and regenerate GenerateBlocks unique IDs before insert |
+| `disablePatternLibrary` | `false` | When true, `generateblocks_enable_pattern_library` returns false so the editor Pattern Library button is not loaded |
 
 ### Markdown to Text block
 
