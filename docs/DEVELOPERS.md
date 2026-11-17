@@ -55,6 +55,7 @@ Stored under option key **`mrshortcutsgb_options`** (site option on multisite). 
 | `enableAdobeFonts` | bool | `true` |
 | `enableMarkdownToHeadlineBlock` | bool | `false` |
 | `enablePastePatternProcessing` | bool | `false` |
+| `disablePatternLibrary` | bool | `false` |
 | `enabledPostTypes` | object | `{ post: true, page: true }` |
 | `autoRegenerateStylesPostTypes` | object | `{}` |
 | `allowedGoogleFonts` | array | `[]` (unused in UI) |
