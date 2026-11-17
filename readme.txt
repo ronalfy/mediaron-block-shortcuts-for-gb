@@ -2,7 +2,7 @@
 Tags: blocks, gutenberg, helpers, add-ons, gutenberg blocks
 Requires at least: 7.0
 Tested up to: 7.1
-Stable tag: 1.2.0
+Stable tag: 1.2.2
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -93,6 +93,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 1.2.2 =
+* Released 2026-11-17
+* New: Added an option to disable the Pattern Library button in the block editor.
+
 = 1.2.0 =
 * Released 2026-11-07
 * New: Added an option to allow pasting a pattern to generate unique IDs and download remote images.
@@ -109,5 +113,5 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Upgrade Notice ==
 
-= 1.2.0 =
-Added an option to allow pasting a pattern to generate unique IDs and download remote images. New Command for importing patterns, including downloading remote images. Added columns transform to the grid block.
+= 1.2.2 =
+Added an option to disable the new Pattern Library block editor button for GenerateBlocks.
