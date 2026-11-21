@@ -15,7 +15,7 @@ MediaRon Block Shortcuts for GenerateBlocks is a companion plugin for [GenerateB
 Settings live under **GenerateBlocks → Shortcuts**.
 
 - **Adobe Fonts** — Show Adobe Fonts (and Blocksy Adobe fonts when present) in the GenerateBlocks typography picker.
-- **Block settings** — Enable v1→v2 transform commands, show both v1 and v2 blocks with custom category labels/suffixes, and optionally enable the frontend command palette for administrators.
+- **Block settings** — Enable v1→v2 transform commands, show both v1 and v2 blocks with version suffixes, set inserter category titles, and optionally enable the frontend command palette for administrators.
 - **Markdown to Text** — Type `#` / `##` prefixes to insert GenerateBlocks Text blocks instead of core headings.
 - **Post type styles** — Choose which post types GenerateBlocks styles should run on.
 - **Auto-regenerate styles on save** — Clear GenerateBlocks CSS caches when selected post types are saved.

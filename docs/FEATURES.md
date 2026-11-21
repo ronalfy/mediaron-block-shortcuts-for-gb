@@ -22,11 +22,11 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 | Option | Default | Behavior |
 | --- | --- | --- |
 | `enableV1Transformations` | `false` | Enables command-palette and contextual “Convert v1 Blocks to v2” tools. The toggle is on the Block Identification Helpers panel |
-| `enableV1Blocks` | `false` | Keeps both v1 and v2 blocks visible. The toggle is on the Block Identification Helpers panel. Category labels and version suffixes on that panel apply only while this is on |
+| `enableV1Blocks` | `false` | Keeps both v1 and v2 blocks visible and gates the version suffixes (`v1BlockSuffix` / `v2BlockSuffix`). The toggle is on the Block Identification Helpers panel |
 | `identifyGenerateBlocks` | `false` | Appends a suffix to GenerateBlocks and GenerateBlocks Pro block titles. Works while v1 blocks are hidden |
 | `generateBlocksSuffix` | `(GB)` | Suffix used when identification is on. A space is inserted before it. Blank adds nothing |
-| `v1CategoryLabel` / `v2CategoryLabel` | GenerateBlocks v1 / v2 | Inserter category titles when v1 blocks are enabled. Edited on the Block Identification Helpers panel |
-| `v1BlockSuffix` / `v2BlockSuffix` | `(v1)` / `(v2)` | Appended after the block title when dual blocks are enabled, and after the GenerateBlocks suffix when that is also on |
+| `v1CategoryLabel` / `v2CategoryLabel` | GenerateBlocks v1 / v2 | Inserter category titles. `Blocks::add_block_categories()` applies them. Its guard is the constant `true`, so the saved titles rename categories while `enableV1Blocks` is false. The fields are on the Block Identification Helpers panel and show while that toggle is on |
+| `v1BlockSuffix` / `v2BlockSuffix` | `(v1)` / `(v2)` | Appended after the block title while `enableV1Blocks` is on, and after the GenerateBlocks suffix when identification is also on |
 | `enableFrontendCommandPalette` | `false` | Loads command palette assets on the frontend for administrators (WordPress 6.9+) |
 | `enablePastePatternProcessing` | `false` | On paste of block markup, sideload remote images and regenerate GenerateBlocks unique IDs before insert |
 | `disablePatternLibrary` | `false` | When true, `generateblocks_enable_pattern_library` returns false so the editor Pattern Library button is not loaded |
