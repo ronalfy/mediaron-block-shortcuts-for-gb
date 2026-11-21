@@ -83,19 +83,23 @@ Turn this on to keep GenerateBlocks 1.x and 2.x blocks in the inserter at the sa
 
 When GenerateBlocks is active, a notice under this option reports that version 1 blocks are already enabled, or warns that turning this option on shows both versions because GenerateBlocks turned version 1 blocks off.
 
-Category names and version suffixes for this option are under **Version labels** below. They appear only while this option is on.
+Version suffixes for this option are under **Version labels** below. They are added only while this option is on.
+
+Category titles are separate. **v1 Category Label** and **v2 Category Label** rename the inserter categories, and that renaming stays active while this option is off.
 
 ### Version labels
 
-These fields apply only when **Enable v1 and v2 Blocks (Both Visible)** is on. The version suffix is added after the GenerateBlocks suffix. With both systems on, a 1.x block reads **Container (GB) (v1)** and a 2.x block reads **Container (GB) (v2)**.
+The version suffix is added only while **Enable v1 and v2 Blocks (Both Visible)** is on. It is added after the GenerateBlocks suffix. With both systems on, a 1.x block reads **Container (GB) (v1)** and a 2.x block reads **Container (GB) (v2)**.
+
+The category label fields edit those inserter titles. A saved title remains after this option is turned off.
 
 #### v1 Category Label
 
-The inserter category title for 1.x blocks. The default is **GenerateBlocks v1**. These categories are listed toward the end of the category list.
+The inserter category title for 1.x blocks. The default is **GenerateBlocks v1**. These categories are listed toward the end of the category list. The plugin applies this title while **Enable v1 and v2 Blocks (Both Visible)** is off.
 
 #### v2 Category Label
 
-The inserter category title for 2.x blocks. The default is **GenerateBlocks v2**. These categories are listed toward the beginning of the category list.
+The inserter category title for 2.x blocks. The default is **GenerateBlocks v2**. These categories are listed toward the beginning of the category list. The plugin applies this title while **Enable v1 and v2 Blocks (Both Visible)** is off.
 
 #### v1 Block Suffix
 

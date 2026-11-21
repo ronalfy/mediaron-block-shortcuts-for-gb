@@ -349,7 +349,7 @@ const Interface = ( props ) => {
 									</strong>
 									<br />
 									{ __(
-										'These labels apply when Enable v1 and v2 Blocks (Both Visible) is on. The version suffix is added after the GenerateBlocks suffix, for example Container (GB) (v1).',
+										'Version suffixes are added when Enable v1 and v2 Blocks (Both Visible) is on, after the GenerateBlocks suffix, for example Container (GB) (v1). Saved category titles stay in place when that option is off.',
 										'mediaron-block-shortcuts-for-gb'
 									) }
 								</p>

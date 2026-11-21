@@ -8,7 +8,6 @@ import {
 	unregisterBlockVariation,
 	registerBlockVariation,
 } from '@wordpress/blocks';
-import { escapeAttribute } from '@wordpress/escape-html';
 import { v1Blocks } from '../../utils/BlockTypes';
 
 const originalTitles = new Map();
@@ -77,13 +76,15 @@ function isGenerateBlocksBlock( name ) {
 }
 
 /**
- * Trim a suffix and escape it for use in a block title.
+ * Trim a suffix for use in a block title.
+ *
+ * The suffix stays plain text. The inserter escapes it when the title is rendered.
  *
  * @param {string} suffix Raw suffix.
- * @return {string} Suffix ready to append, or an empty string.
+ * @return {string} Trimmed suffix, or an empty string.
  */
 function cleanSuffix( suffix ) {
-	return escapeAttribute( suffix || '' ).trim();
+	return ( suffix || '' ).trim();
 }
 
 /**
@@ -185,6 +186,21 @@ function rememberOriginalLabel( name, label ) {
 }
 
 /**
+ * Read a label callback result as plain text.
+ *
+ * Strings pass through. Objects that provide toPlainText() are converted before suffixes are appended.
+ *
+ * @param {*} label Label callback result.
+ * @return {*} Plain text for a string or label object, otherwise the original result.
+ */
+function labelToPlainText( label ) {
+	if ( label && 'function' === typeof label.toPlainText ) {
+		return label.toPlainText();
+	}
+	return label;
+}
+
+/**
  * Label callback that keeps custom list-view names and appends suffixes once.
  *
  * @param {Function|undefined} originalLabel Original label callback.
@@ -202,7 +218,7 @@ function wrapLabel( originalLabel, originalTitle, blockName ) {
 		if ( 'function' !== typeof originalLabel ) {
 			return composed;
 		}
-		const base = originalLabel( attrs, context );
+		const base = labelToPlainText( originalLabel( attrs, context ) );
 		if ( ! base || base === originalTitle || base === composed ) {
 			return composed;
 		}
