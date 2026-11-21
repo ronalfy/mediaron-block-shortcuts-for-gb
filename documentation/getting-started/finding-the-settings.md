@@ -22,11 +22,10 @@ You need to be an Administrator. Other roles do not see this screen.
 
 | Panel | What it controls |
 | --- | --- |
-| [Block Settings](../settings/block-settings.md) | The frontend command palette |
+| [Block Settings](../settings/block-settings.md) | The Pattern Library and Pattern Inserter toggles |
 | [Block Identification Helpers](../settings/block-settings.md#block-identification-helpers) | The 1.x conversion command, showing 1.x and 2.x blocks together, the GenerateBlocks suffix, version suffixes, and inserter category labels |
 | [Markdown](../settings/markdown-to-text.md) | The **Enable Markdown to Text Block** toggle, which sits in Block Settings |
 | [Post Type Styles](../settings/post-type-styles.md) | Which post types receive GenerateBlocks styles |
-| [Auto-Regenerate Styles on Save](../settings/auto-regenerate-styles.md) | Which post types clear GenerateBlocks CSS caches when saved |
 | [Admin Menu Bar](../settings/admin-menu-bar.md) | Whether Administrators and Editors see the GenerateBlocks toolbar menu, and whether that menu is replaced with a fuller one |
 | [Adobe Fonts](../settings/adobe-fonts.md) | The **Enable Adobe Fonts in the Block Editor** toggle, under Miscellaneous |
 

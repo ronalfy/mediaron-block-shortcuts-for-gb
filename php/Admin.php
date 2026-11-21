@@ -120,21 +120,6 @@ class Admin {
 		// Assign back.
 		$form_data['enabledPostTypes'] = $enabled_post_types;
 
-		$form_auto_regen_post_types = $form_data['autoRegenerateStylesPostTypes'] ?? array();
-		$auto_regen_post_types      = array();
-
-		// Loop through auto-regenerate post types to save them in the right format.
-		foreach ( $form_auto_regen_post_types as $post_type => $enabled ) {
-			$post_type = trim( sanitize_text_field( $post_type ) );
-			if ( is_numeric( $post_type ) ) {
-				continue;
-			}
-			$auto_regen_post_types[ $post_type ] = filter_var( $enabled, FILTER_VALIDATE_BOOLEAN );
-		}
-
-		// Assign back.
-		$form_data['autoRegenerateStylesPostTypes'] = $auto_regen_post_types;
-
 		// Get array values.
 		$form_data = Functions::sanitize_array_recursive( $form_data );
 

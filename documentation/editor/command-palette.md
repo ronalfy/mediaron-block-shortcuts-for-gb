@@ -12,7 +12,7 @@ toc: true
 
 Open the WordPress command palette with Ctrl+K (Windows and Linux) or Cmd+K (Mac). Search for **GenerateBlocks** to list the shortcuts from this plugin.
 
-Most commands run in the block editor. **Generate CSS Files** also runs from wp-admin, and from the front end when [the frontend command palette](../settings/block-settings.md) is enabled.
+Commands run in the block editor.
 
 ## Toggle Container/Element Outlines
 
@@ -44,14 +44,6 @@ Converts every core Heading in the current post into a GenerateBlocks Text block
 **GenerateBlocks: Convert Paragraphs to Text Blocks**
 
 Converts every core Paragraph in the current post into a GenerateBlocks Text block. Confirm before it runs.
-
-## Generate CSS Files
-
-**GenerateBlocks: Generate CSS Files**
-
-Rebuilds GenerateBlocks CSS files. Administrators can run it from the block editor, from wp-admin, and from the front end when the frontend command palette is on.
-
-Use this when styles look stale and you do not want to wait for the next save. To clear caches automatically when certain post types are saved, use [Auto-Regenerate Styles on Save](../settings/auto-regenerate-styles.md).
 
 ## Save SVG to Asset Library
 

@@ -19,7 +19,3 @@ Posts and pages are checked by default. Any other public post type on the site i
 Select **Save Options** after you change the list.
 
 This does not delete styles already saved on a block. It controls whether GenerateBlocks processes content for that post type.
-
-## Related
-
-To clear cached CSS when a post type is saved, use [Auto-Regenerate Styles on Save](auto-regenerate-styles.md).

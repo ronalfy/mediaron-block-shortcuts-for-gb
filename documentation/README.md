@@ -30,9 +30,6 @@ Settings live under **GenerateBlocks → Shortcuts**.
 - GenerateBlocks
 - GenerateBlocks Pro, only for the full admin-bar menu and for saving SVGs to the Asset Library
 
-> [!NOTE]
-> The frontend command palette option needs WordPress 6.9 or later. This plugin itself requires WordPress 7.0 or later.
-
 ## Start here
 
 - [Installation](getting-started/installation.md)
@@ -43,7 +40,6 @@ Settings live under **GenerateBlocks → Shortcuts**.
 - [Block Settings](settings/block-settings.md)
 - [Markdown to Text](settings/markdown-to-text.md)
 - [Post Type Styles](settings/post-type-styles.md)
-- [Auto-Regenerate Styles on Save](settings/auto-regenerate-styles.md)
 - [Admin Menu Bar](settings/admin-menu-bar.md)
 - [Adobe Fonts](settings/adobe-fonts.md)
 

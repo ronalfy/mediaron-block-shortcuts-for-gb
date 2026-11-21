@@ -12,15 +12,6 @@ toc: true
 
 Open **GenerateBlocks → Shortcuts** and use the **Block Settings** panel. Select **Save Options** when you are done. Open the editor again so the saved options apply.
 
-## Enable Frontend Command Palette
-
-Turn this on to load the WordPress command palette on the front end for logged-in Administrators. Open it with Ctrl+K (Windows and Linux) or Cmd+K (Mac), then search for **GenerateBlocks**.
-
-> [!NOTE]
-> This option needs WordPress 6.9 or later and can be limited compared with the palette inside the editor. It is off by default.
-
-See [Command palette](../editor/command-palette.md) for the commands you can run.
-
 ## Disable GenerateBlocks Pattern Library
 
 Turn this on to hide the Pattern Library button in the block editor header and the Pattern Library item in the editor options menu.

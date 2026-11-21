@@ -29,7 +29,6 @@ class Blocks {
 		add_filter( 'generateblocks_typography_font_family_list', array( $self, 'add_adobe_fonts' ), 10, 1 );
 		add_filter( 'generateblocks_typography_font_family_list', array( $self, 'add_blocksy_adobe_fonts' ), 10, 1 );
 		add_filter( 'generateblocks_do_content', array( $self, 'add_post_type_content' ), 10, 2 );
-		add_action( 'save_post', array( $self, 'maybe_regenerate_styles_on_save' ), 20, 2 );
 
 		// Add any block categories needed.
 		add_filter( 'block_categories_all', array( $self, 'add_block_categories' ), 500, 1 ); // High priority so others can add their categories first.
@@ -119,35 +118,6 @@ class Blocks {
 			}
 		}
 		return $content;
-	}
-
-	/**
-	 * Clear GenerateBlocks dynamic CSS tracking when a selected post type is saved.
-	 *
-	 * @param int      $post_id Post ID.
-	 * @param \WP_Post $post    Post object.
-	 */
-	public function maybe_regenerate_styles_on_save( $post_id, $post ) {
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
-
-		if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) {
-			return;
-		}
-
-		if ( empty( $post->post_type ) ) {
-			return;
-		}
-
-		$options               = Options::get_options();
-		$auto_regen_post_types = $options['autoRegenerateStylesPostTypes'] ?? array();
-
-		if ( empty( $auto_regen_post_types[ $post->post_type ] ) ) {
-			return;
-		}
-
-		update_option( 'generateblocks_dynamic_css_posts', array() );
 	}
 
 	/**
@@ -267,15 +237,6 @@ class Blocks {
 				'methods'             => 'POST',
 				'callback'            => array( $this, 'rest_add_remote_image' ),
 				'permission_callback' => array( $this, 'rest_image_sideload_permissions' ),
-			)
-		);
-		register_rest_route(
-			'mediaron/block-shortcuts-for-gb/v1',
-			'/regenerate_css_files',
-			array(
-				'methods'             => 'POST',
-				'callback'            => array( $this, 'rest_regenerate_css_files' ),
-				'permission_callback' => array( $this, 'rest_can_regenerate_css_files' ),
 			)
 		);
 		register_rest_route(
@@ -404,59 +365,11 @@ class Blocks {
 	}
 
 	/**
-	 * Regenerate GenerateBlocks CSS caches and global stylesheet files.
-	 *
-	 * @param \WP_REST_Request $request REST request.
-	 * @return \WP_REST_Response
-	 */
-	public function rest_regenerate_css_files( $request ) {
-		unset( $request );
-
-		update_option( 'generateblocks_dynamic_css_posts', array() );
-
-		if ( class_exists( 'GenerateBlocks_Pro_Enqueue_Styles' ) ) {
-			$styles_enqueue = \GenerateBlocks_Pro_Enqueue_Styles::get_instance();
-			$styles_enqueue->build_css();
-
-			return new \WP_REST_Response(
-				array(
-					'success'  => true,
-					'response' => __( 'Global styles CSS regenerated successfully.', 'mediaron-block-shortcuts-for-gb' ),
-				),
-				200
-			);
-		}
-
-		if ( class_exists( 'GenerateBlocks_Enqueue_CSS' ) ) {
-			$legacy_enqueue = \GenerateBlocks_Enqueue_CSS::get_instance();
-
-			if ( is_callable( array( $legacy_enqueue, 'make_css' ) ) ) {
-				$legacy_enqueue->make_css();
-			}
-		}
-
-		return new \WP_REST_Response(
-			array(
-				'success'  => true,
-				'response' => __( 'CSS caches cleared. Block styles will regenerate on the next page load.', 'mediaron-block-shortcuts-for-gb' ),
-			),
-			200
-		);
-	}
-
-	/**
 	 * Check if user has access to REST API for retrieving and sideloading images.
 	 */
 	public function rest_image_sideload_permissions() {
 		// Only allow authors and up the ability to import remote images.
 		return current_user_can( 'upload_files' ) && current_user_can( 'publish_posts' );
-	}
-
-	/**
-	 * Check if user has access to REST API for regenerating CSS files.
-	 */
-	public function rest_can_regenerate_css_files() {
-		return current_user_can( 'manage_options' );
 	}
 
 	/**
@@ -980,10 +893,6 @@ class Blocks {
 
 		// Enqueue command scripts.
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_commands' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_commands' ) );
-		add_action( 'admin_footer', array( $this, 'admin_commands_footer' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_commands' ) );
-		add_action( 'wp_footer', array( $this, 'frontend_commands_footer' ) );
 	}
 
 	/**
@@ -1124,96 +1033,6 @@ class Blocks {
 				'canSideloadImages'      => ( current_user_can( 'upload_files' ) && current_user_can( 'publish_posts' ) ) ? 'true' : 'false',
 				'disablePatternInserter' => ( ( $options['disablePatternInserter'] ?? false ) ? 'true' : 'false' ),
 			)
-		);
-	}
-
-	/**
-	 * Enqueue admin-wide commands.
-	 */
-	public function enqueue_admin_commands() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		if ( get_current_screen()->is_block_editor() ) {
-			return;
-		}
-
-		$deps = require Functions::get_plugin_dir( 'build/mrshortcuts-gb-commands-admin.asset.php' );
-		wp_enqueue_script(
-			'mrshortcuts-gb-commands-admin',
-			Functions::get_plugin_url( 'build/mrshortcuts-gb-commands-admin.js' ),
-			$deps['dependencies'],
-			$deps['version'],
-			true
-		);
-	}
-
-	/**
-	 * Add hidden div for admin-wide command palette.
-	 */
-	public function admin_commands_footer() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-		echo '<div id="mrshortcuts-gb-commands-admin" style="display: none; visibility: hidden; position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden;"></div>';
-	}
-
-	/**
-	 * Add hidden div for frontend command palette.
-	 */
-	public function frontend_commands_footer() {
-		if ( ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-		echo '<div id="mrshortcuts-gb-commands-frontend" style="display: none; visibility: hidden; position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden;"></div>';
-	}
-
-	/**
-	 * Enqueue frontend commands (optional).
-	 *
-	 * Note: WordPress doesn't officially support command palette on frontend,
-	 * but we can manually enqueue assets and initialize it.
-	 */
-	public function enqueue_frontend_commands() {
-		if ( ! is_user_logged_in() ) {
-			return;
-		}
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		// Check if frontend command palette is enabled.
-		$options                         = Options::get_options();
-		$enable_frontend_command_palette = (bool) $options['enableFrontendCommandPalette'];
-		if ( ! $enable_frontend_command_palette ) {
-			return;
-		}
-
-		// Enqueue WordPress command palette assets (WordPress 6.9+).
-		// Only call if not already enqueued (check if wp-commands script is already queued).
-		if ( function_exists( 'wp_enqueue_command_palette_assets' ) && ! wp_script_is( 'wp-commands', 'enqueued' ) ) {
-			wp_enqueue_command_palette_assets();
-		}
-
-		// Enqueue our frontend commands script.
-		$deps = require Functions::get_plugin_dir( 'build/mrshortcuts-gb-commands-frontend.asset.php' );
-		wp_enqueue_script(
-			'mrshortcuts-gb-commands-frontend',
-			Functions::get_plugin_url( 'build/mrshortcuts-gb-commands-frontend.js' ),
-			$deps['dependencies'],
-			$deps['version'],
-			true
-		);
-
-		// Needed to clear up some potential conflicts with other plugins.
-		wp_add_inline_style(
-			'wp-commands',
-			'.commands-command-menu__container .has-icon:not(.components-button) {
-				width: inherit;
-				height: inherit;
-			}'
 		);
 	}
 }

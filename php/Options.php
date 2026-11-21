@@ -46,7 +46,6 @@ class Options {
 		foreach ( $options as $key => &$option ) {
 			switch ( $key ) {
 				case 'enabled':
-				case 'enableFrontendCommandPalette':
 				case 'identifyGenerateBlocks':
 					$option = filter_var( $options[ $key ], FILTER_VALIDATE_BOOLEAN );
 					break;
@@ -123,7 +122,6 @@ class Options {
 				'post' => true,
 				'page' => true,
 			),
-			'autoRegenerateStylesPostTypes' => array(),
 			'allowedGoogleFonts'            => array(),
 			'enableV1Transformations'       => false,
 			'enableV1Blocks'                => false,
@@ -137,7 +135,6 @@ class Options {
 				'enabled'             => true,
 				'replaceWithFullMenu' => true,
 			),
-			'enableFrontendCommandPalette'  => false,
 		);
 		return $defaults;
 	}

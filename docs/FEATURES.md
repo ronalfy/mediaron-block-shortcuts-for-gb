@@ -6,7 +6,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 
 | Capability | GenerateBlocks (free) | GenerateBlocks Pro |
 | --- | --- | --- |
-| Settings screen, Adobe fonts, markdown, styles post types, auto-regen, v1/v2 tools, commands, Pattern Inserter | Yes | Yes |
+| Settings screen, Adobe fonts, markdown, styles post types, v1/v2 tools, commands, Pattern Inserter | Yes | Yes |
 | Hide GenerateBlocks admin-bar items | Soft (no-op if Pro menu absent) | Yes |
 | Replace Overlay Panels admin-bar menu with full GenerateBlocks menu | — | Yes |
 
@@ -27,7 +27,6 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 | `generateBlocksSuffix` | `(GB)` | Suffix used when identification is on. A space is inserted before it. Blank adds nothing |
 | `v1CategoryLabel` / `v2CategoryLabel` | GenerateBlocks v1 / v2 | Inserter category titles. `Blocks::add_block_categories()` applies them. Its guard is the constant `true`, so the saved titles rename categories while `enableV1Blocks` is false. The fields are on the Block Identification Helpers panel and show while that toggle is on |
 | `v1BlockSuffix` / `v2BlockSuffix` | `(v1)` / `(v2)` | Appended after the block title while `enableV1Blocks` is on, and after the GenerateBlocks suffix when identification is also on |
-| `enableFrontendCommandPalette` | `false` | Loads command palette assets on the frontend for administrators (WordPress 6.9+) |
 | `disablePatternLibrary` | `false` | When true, `generateblocks_enable_pattern_library` returns false so the editor Pattern Library button is not loaded |
 | `disablePatternInserter` | `false` | When true, unregisters the Pattern Inserter block and hides the Import Pattern command |
 
@@ -40,11 +39,6 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 
 - **Option:** `enabledPostTypes` (default: `post` and `page` true)
 - Controls which post types are included via `generateblocks_do_content` so GenerateBlocks styles apply.
-
-### Auto-regenerate styles on save
-
-- **Option:** `autoRegenerateStylesPostTypes` (default empty)
-- On `save_post` for selected types, clears `generateblocks_dynamic_css_posts` so CSS regenerates on the next load. Skips autosaves and revisions.
 
 ### Admin menu bar (Pro-oriented)
 
