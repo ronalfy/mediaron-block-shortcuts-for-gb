@@ -56,6 +56,7 @@ Stored under option key **`mrshortcutsgb_options`** (site option on multisite). 
 | `enableMarkdownToHeadlineBlock` | bool | `false` |
 | `enablePastePatternProcessing` | bool | `false` |
 | `disablePatternLibrary` | bool | `false` |
+| `disablePatternInserter` | bool | `false` |
 | `enabledPostTypes` | object | `{ post: true, page: true }` |
 | `autoRegenerateStylesPostTypes` | object | `{}` |
 | `allowedGoogleFonts` | array | `[]` (unused in UI) |
@@ -113,8 +114,8 @@ Namespace: `mediaron/block-shortcuts-for-gb/v1`
 | Global | Script | Contents |
 | --- | --- | --- |
 | `mrshortcutsgbAdmin` | Admin settings | Nonces, `ajaxurl`, post type list, `isProActive` |
-| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags (including `enablePastePatternProcessing`), REST URL/nonce, v1/v2 suffix strings, `isProActive`, `canManageAssetLibrary`, `canSideloadImages` |
-| `mrshortcutsgbCommands` | Block-editor commands | `isProActive`, `restUrl`, `restNonce`, `canSideloadImages` |
+| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags (including `enablePastePatternProcessing` and `disablePatternInserter`), REST URL/nonce, v1/v2 suffix strings, `isProActive`, `canManageAssetLibrary`, `canSideloadImages` |
+| `mrshortcutsgbCommands` | Block-editor commands | `isProActive`, `restUrl`, `restNonce`, `canSideloadImages`, `disablePatternInserter` |
 
 ## Coding standards
 

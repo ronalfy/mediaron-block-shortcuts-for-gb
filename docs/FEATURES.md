@@ -30,6 +30,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 | `enableFrontendCommandPalette` | `false` | Loads command palette assets on the frontend for administrators (WordPress 6.9+) |
 | `enablePastePatternProcessing` | `false` | On paste of block markup, sideload remote images and regenerate GenerateBlocks unique IDs before insert |
 | `disablePatternLibrary` | `false` | When true, `generateblocks_enable_pattern_library` returns false so the editor Pattern Library button is not loaded |
+| `disablePatternInserter` | `false` | When true, unregisters the Pattern Inserter block and hides the Import Pattern command |
 
 ### Markdown to Text block
 
@@ -77,6 +78,7 @@ Also registered:
 
 - Block: `mediaron/mrshortcuts-pattern-inserter`
 - Paste pattern markup, sideload remote images via REST `POST mediaron/block-shortcuts-for-gb/v1/process_image`, regenerate unique IDs.
+- **Option:** `disablePatternInserter` (default `false`). When true, the block is unregistered and the Import Pattern command is hidden. Paste pattern processing is unchanged.
 
 ## Paste pattern processing
 
@@ -100,6 +102,6 @@ GenerateBlocks highlights a library tile when its SVG string matches the block, 
 ## Command palette
 
 - **Generate New Unique IDs** regenerates `uniqueId` on every GenerateBlocks block in the current post, including blocks nested inside core groups, and rewrites each block’s saved `css` selectors. Synced patterns are left unchanged. Query loop pagination keys change with the new IDs. The editor undo stack can revert the edit.
-- **Import Pattern** opens a dialog with a textarea. `processPatternMarkup` sideloads remote images through `POST mediaron/block-shortcuts-for-gb/v1/process_image`, reports each image’s status in the dialog, regenerates GenerateBlocks unique IDs (including `css`), and inserts the blocks.
+- **Import Pattern** opens a dialog with a textarea. Hidden when `disablePatternInserter` is true. `processPatternMarkup` sideloads remote images through `POST mediaron/block-shortcuts-for-gb/v1/process_image`, reports each image’s status in the dialog, regenerates GenerateBlocks unique IDs (including `css`), and inserts the blocks.
 
 See [COMMANDS.md](COMMANDS.md) for IDs and contexts.

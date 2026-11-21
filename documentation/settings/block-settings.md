@@ -35,6 +35,16 @@ Turn this on to hide the Pattern Library button in the block editor header and t
 
 Leave this off to keep the Pattern Library available. It is off by default. Select **Save Options**, then open the editor again so the change applies.
 
+## Disable Pattern Inserter
+
+Turn this on to hide the Pattern Inserter block and the **GenerateBlocks: Import Pattern** command.
+
+Leave this off to keep both available. It is off by default. Select **Save Options**, then open the editor again so the change applies.
+
+[Process pasted patterns](#process-pasted-patterns) is a separate option and stays available either way.
+
+See [Pattern Inserter](../editor/pattern-inserter.md) and [Command palette](../editor/command-palette.md).
+
 ## Block Identification Helpers
 
 Open **GenerateBlocks → Shortcuts** and use the **Block Identification Helpers** panel. Select **Save Options** when you are done. Open the editor again so the saved options apply.

@@ -119,6 +119,7 @@ class Options {
 			'enableMarkdownToHeadlineBlock' => false,
 			'enablePastePatternProcessing'  => false,
 			'disablePatternLibrary'         => false,
+			'disablePatternInserter'        => false,
 			'enabledPostTypes'              => array(
 				'post' => true,
 				'page' => true,

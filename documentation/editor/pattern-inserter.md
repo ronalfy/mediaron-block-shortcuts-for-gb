@@ -12,6 +12,10 @@ toc: true
 
 The Pattern Inserter block pastes pattern markup into the current post. Remote images in that markup can be downloaded into the Media Library, and GenerateBlocks unique IDs in the pattern are regenerated so they do not collide with blocks already on the page.
 
+Turn on **Disable Pattern Inserter** under [Block Settings](../settings/block-settings.md) to hide this block and the **GenerateBlocks: Import Pattern** command. Leave that option off to keep both available. It is off by default. Select **Save Options**, then open the editor again so the change applies.
+
+A Pattern Inserter that was added and not imported shows as unavailable while the option is on. Turn the option off and open the editor again to finish that import. Blocks that were already imported stay in the post.
+
 ## Insert the block
 
 1. Open a post or page in the block editor.

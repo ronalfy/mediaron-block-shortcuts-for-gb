@@ -968,6 +968,12 @@ class Blocks {
 			}
 		}
 
+		// Hide the Pattern Inserter when the setting is on. The editor bundle still loads.
+		$options = Options::get_options();
+		if ( ! empty( $options['disablePatternInserter'] ) ) {
+			unregister_block_type( 'mediaron/mrshortcuts-pattern-inserter' );
+		}
+
 		// Enqueue block assets.
 		add_action( 'enqueue_block_assets', array( $this, 'register_block_styles' ) );
 		add_action( 'enqueue_block_assets', array( $this, 'register_block_editor_scripts' ) );
@@ -1062,6 +1068,7 @@ class Blocks {
 				'allowedGoogleFonts'            => $options['allowedGoogleFonts'] ?? array(),
 				'enableMarkdownToHeadlineBlock' => ( ( $options['enableMarkdownToHeadlineBlock'] ?? false ) ? 'true' : 'false' ),
 				'enablePastePatternProcessing'  => ( ( $options['enablePastePatternProcessing'] ?? false ) ? 'true' : 'false' ),
+				'disablePatternInserter'        => ( ( $options['disablePatternInserter'] ?? false ) ? 'true' : 'false' ),
 				'canSideloadImages'             => ( current_user_can( 'upload_files' ) && current_user_can( 'publish_posts' ) ) ? 'true' : 'false',
 				'enableV1Transformations'       => ( ( $options['enableV1Transformations'] ?? false ) ? 'true' : 'false' ),
 				'enableV1Blocks'                => ( ( $options['enableV1Blocks'] ?? false ) ? 'true' : 'false' ),
@@ -1098,7 +1105,8 @@ class Blocks {
 			return;
 		}
 
-		$deps = require Functions::get_plugin_dir( 'build/mrshortcuts-gb-commands-block-editor.asset.php' );
+		$options = Options::get_options();
+		$deps    = require Functions::get_plugin_dir( 'build/mrshortcuts-gb-commands-block-editor.asset.php' );
 		wp_enqueue_script(
 			'mrshortcuts-gb-commands-block-editor',
 			Functions::get_plugin_url( 'build/mrshortcuts-gb-commands-block-editor.js' ),
@@ -1111,10 +1119,11 @@ class Blocks {
 			'mrshortcuts-gb-commands-block-editor',
 			'mrshortcutsgbCommands',
 			array(
-				'isProActive'       => Functions::is_generateblocks_pro_active() ? 'true' : 'false',
-				'restUrl'           => rest_url( 'mediaron/block-shortcuts-for-gb/v1' ),
-				'restNonce'         => wp_create_nonce( 'wp_rest' ),
-				'canSideloadImages' => ( current_user_can( 'upload_files' ) && current_user_can( 'publish_posts' ) ) ? 'true' : 'false',
+				'isProActive'            => Functions::is_generateblocks_pro_active() ? 'true' : 'false',
+				'restUrl'                => rest_url( 'mediaron/block-shortcuts-for-gb/v1' ),
+				'restNonce'              => wp_create_nonce( 'wp_rest' ),
+				'canSideloadImages'      => ( current_user_can( 'upload_files' ) && current_user_can( 'publish_posts' ) ) ? 'true' : 'false',
+				'disablePatternInserter' => ( ( $options['disablePatternInserter'] ?? false ) ? 'true' : 'false' ),
 			)
 		);
 	}

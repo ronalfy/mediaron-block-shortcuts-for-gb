@@ -75,6 +75,8 @@ The block options menu has a smaller version of this tool that only renumbers th
 
 **GenerateBlocks: Import Pattern**
 
+Hidden when **Disable Pattern Inserter** is on. See [Block Settings](../settings/block-settings.md).
+
 Opens a dialog with a text area. Paste WordPress block markup, then select **Import**.
 
 Remote images are downloaded into the Media Library. The dialog lists each image as Waiting, Downloaded, or Kept original address. GenerateBlocks blocks in the pattern receive new unique IDs, including the selectors stored in their CSS, before the blocks are inserted.
