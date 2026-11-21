@@ -17,10 +17,16 @@ const PatternIcon = ( props ) => (
 	</svg>
 );
 
-registerBlockType( metaData, {
-	edit: Edit,
-	save() {
-		return null;
-	},
-	icon: PatternIcon,
-} );
+const patternInserterDisabled =
+	typeof mrshortcutsgbPatternInserter !== 'undefined' &&
+	'true' === ( mrshortcutsgbPatternInserter.disablePatternInserter || 'false' );
+
+if ( ! patternInserterDisabled ) {
+	registerBlockType( metaData, {
+		edit: Edit,
+		save() {
+			return null;
+		},
+		icon: PatternIcon,
+	} );
+}

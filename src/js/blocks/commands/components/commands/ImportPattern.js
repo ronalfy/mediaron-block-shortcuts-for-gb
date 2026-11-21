@@ -28,6 +28,9 @@ export function useImportPatternCommand() {
 			}
 		},
 		context: 'block-editor',
+		disabled:
+			typeof mrshortcutsgbCommands !== 'undefined' &&
+			'true' === ( mrshortcutsgbCommands.disablePatternInserter || 'false' ),
 	} );
 
 	return (

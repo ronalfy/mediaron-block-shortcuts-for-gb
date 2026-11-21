@@ -62,6 +62,7 @@ const Interface = ( props ) => {
 			enableMarkdownToHeadlineBlock: data.enableMarkdownToHeadlineBlock,
 			enablePastePatternProcessing: data.enablePastePatternProcessing || false,
 			disablePatternLibrary: data.disablePatternLibrary || false,
+			disablePatternInserter: data.disablePatternInserter || false,
 			enableV1Transformations: data.enableV1Transformations,
 			enableV1Blocks: data.enableV1Blocks,
 			v1CategoryLabel: data.v1CategoryLabel,
@@ -180,6 +181,25 @@ const Interface = ( props ) => {
 											} }
 											help={ __(
 												'Hides the Pattern Library button in the block editor header and the Pattern Library item in the editor options menu.',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+										/>
+									) }
+								/>
+							</div>
+							<div className="dlx-admin__row">
+								<Controller
+									name="disablePatternInserter"
+									control={ control }
+									render={ ( { field: { onChange } } ) => (
+										<ToggleControl
+											label={ __( 'Disable Pattern Inserter', 'mediaron-block-shortcuts-for-gb' ) }
+											checked={ getValues( 'disablePatternInserter' ) }
+											onChange={ ( boolValue ) => {
+												onChange( boolValue );
+											} }
+											help={ __(
+												'Hides the Pattern Inserter block and the GenerateBlocks: Import Pattern command.',
 												'mediaron-block-shortcuts-for-gb'
 											) }
 										/>
