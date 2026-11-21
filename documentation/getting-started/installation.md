@@ -31,4 +31,4 @@ Only Administrators can open the Shortcuts screen.
 ## What's next
 
 - [Finding the Shortcuts settings](finding-the-settings.md) explains each panel.
-- [Block menu tools](../editor/block-menu-tools.md) are available in the editor as soon as the plugin is active. They do not have a separate on/off switch, except the 1.x to 2.x conversion, which you turn on under Block Settings.
+- [Block menu tools](../editor/block-menu-tools.md) are available in the editor as soon as the plugin is active. They do not have a separate on/off switch, except the 1.x to 2.x conversion, which you turn on under Block Identification Helpers.

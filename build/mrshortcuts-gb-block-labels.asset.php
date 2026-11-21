@@ -6,5 +6,5 @@
 		'wp-escape-html',
 		'wp-hooks'
 	),
-	'version' => '758ab8178de083f9f16a'
+	'version' => '8397efd4b358787cc589'
 );

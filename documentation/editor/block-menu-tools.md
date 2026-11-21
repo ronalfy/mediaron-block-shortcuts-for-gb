@@ -51,7 +51,7 @@ Replaces the Shape with a GenerateBlocks Text block. The text block is a link, a
 
 ## Convert v1 Blocks to v2
 
-Shown when a single block is selected, that block or something inside it is still a GenerateBlocks 1.x block, and **Enable v1 Transformations Block Command** is on. See [Block Settings](../settings/block-settings.md).
+Shown when a single block is selected, that block or something inside it is still a GenerateBlocks 1.x block, and **Enable v1 Transformations Block Command** is on. See [Block Identification Helpers](../settings/block-settings.md#enable-v1-transformations-block-command).
 
 Converts that selection from 1.x to 2.x. It does not convert other 1.x blocks elsewhere in the post. For the whole post, use the command palette. Back up first. The whole-post command cannot be undone.
 

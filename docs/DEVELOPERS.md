@@ -65,6 +65,8 @@ Stored under option key **`mrshortcutsgb_options`** (site option on multisite). 
 | `v2CategoryLabel` | string | `GenerateBlocks v2` |
 | `v1BlockSuffix` | string | `(v1)` |
 | `v2BlockSuffix` | string | `(v2)` |
+| `identifyGenerateBlocks` | bool | `false` |
+| `generateBlocksSuffix` | string | `(GB)` |
 | `adminMenuBar.enabled` | bool | `true` |
 | `adminMenuBar.replaceWithFullMenu` | bool | `false` |
 | `enableFrontendCommandPalette` | bool | `false` |
