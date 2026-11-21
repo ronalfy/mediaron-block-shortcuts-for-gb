@@ -118,3 +118,6 @@ src/js/blocks/commands/.DS_Store
 .DS_Store
 # Kimi project memory
 .kimi-memory/
+
+# Compiled editor assets (webpack)
+build/
