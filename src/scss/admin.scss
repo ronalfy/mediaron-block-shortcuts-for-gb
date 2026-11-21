@@ -67,6 +67,52 @@
 	}
 }
 
+.gblocks-dashboard-header .mrshortcuts-gb-docs-link,
+.mrshortcuts-gb-docs-fallback .mrshortcuts-gb-docs-link {
+	align-items: center;
+	background: #000;
+	border: 0;
+	border-radius: 100px;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: inline-flex;
+	font-size: 14px;
+	font-weight: 500;
+	height: 42px;
+	justify-content: center;
+	line-height: 1;
+	padding: 0 24px;
+	text-decoration: none;
+	transition: background-color 0.14s ease;
+	white-space: nowrap;
+
+	&:visited {
+		color: #fff;
+	}
+
+	&:hover,
+	&:focus {
+		background: #1a1a1a;
+		color: #fff;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:focus-visible {
+		box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
+		color: #fff;
+	}
+}
+
+.mrshortcuts-gb-docs-fallback {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 0 12px;
+}
+
 .mrshortcuts-gb-admin-buttons {
 	display: flex;
 	justify-content: space-between;

@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
 	ToggleControl,
 	CheckboxControl,
@@ -16,6 +17,73 @@ import { AlertCircle, Info } from 'lucide-react';
 import SendCommand from '../../utils/SendCommand';
 import Notice from '../../components/Notice';
 import SaveResetButtons from '../../components/SaveResetButtons';
+
+const DOCS_URL = 'https://docs.mediaron.com/product/block-shortcuts-for-gb/';
+
+/**
+ * Documentation anchor shared by the header and the in-page fallback.
+ */
+const DocsAnchor = () => {
+	return (
+		<a
+			className="mrshortcuts-gb-docs-link"
+			href={ DOCS_URL }
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			{ __( 'Documentation', 'mediaron-block-shortcuts-for-gb' ) }
+		</a>
+	);
+};
+
+/**
+ * Place the docs link in the GenerateBlocks dashboard header.
+ *
+ * The header action slot is absent while GenerateBlocks Pro is active, so this
+ * creates it. Without that header, the link sits above the settings panels.
+ */
+const DocsLink = () => {
+	const [ slot, setSlot ] = useState( null );
+	const [ useFallback, setUseFallback ] = useState( false );
+
+	useEffect( () => {
+		const header = document.querySelector( '.gblocks-dashboard-header' );
+		if ( ! header ) {
+			setUseFallback( true );
+			return undefined;
+		}
+
+		let actions = header.querySelector( '.gblocks-dashboard-header-actions' );
+		let created = false;
+		if ( ! actions ) {
+			actions = document.createElement( 'div' );
+			actions.className = 'gblocks-dashboard-header-actions';
+			header.appendChild( actions );
+			created = true;
+		}
+		setSlot( actions );
+
+		return () => {
+			if ( created && actions.parentNode ) {
+				actions.parentNode.removeChild( actions );
+			}
+		};
+	}, [] );
+
+	if ( useFallback ) {
+		return (
+			<div className="mrshortcuts-gb-docs-fallback">
+				<DocsAnchor />
+			</div>
+		);
+	}
+
+	if ( ! slot ) {
+		return null;
+	}
+
+	return createPortal( <DocsAnchor />, slot );
+};
 
 const retrieveOptions = () => {
 	return SendCommand( 'mrshortcutsgb_get_options', {
@@ -86,6 +154,7 @@ const Interface = ( props ) => {
 		<>
 			{ /* eslint-disable-next-line no-unused-vars */ }
 			<form onSubmit={ handleSubmit( ( formData ) => {} ) }>
+				<DocsLink />
 				<div id="mrshortcuts-gb-admin-table">
 					<PanelBody
 						title={ __( 'Block Settings', 'mediaron-block-shortcuts-for-gb' ) }

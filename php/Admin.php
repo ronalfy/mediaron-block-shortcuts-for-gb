@@ -299,12 +299,13 @@ class Admin {
 			$admin_script_data
 		);
 
-		// Enqueue admin styles.
+		// Enqueue admin styles. Use the build hash so a new stylesheet is not stuck on the plugin version.
+		$css_deps = require Functions::get_plugin_dir( 'dist/mrshortcuts-gb-admin-css.asset.php' );
 		wp_enqueue_style(
 			'mrshortcuts-gb-admin-css',
 			Functions::get_plugin_url( 'dist/mrshortcuts-gb-admin-css.css' ),
 			array(),
-			Functions::get_plugin_version(),
+			$css_deps['version'],
 			'all'
 		);
 	}
