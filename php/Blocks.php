@@ -1067,10 +1067,10 @@ class Blocks {
 				'enableV1Blocks'                => ( ( $options['enableV1Blocks'] ?? false ) ? 'true' : 'false' ),
 				'v1CategoryLabel'               => esc_html( $options['v1CategoryLabel'] ?? esc_html__( 'GenerateBlocks v1', 'mediaron-block-shortcuts-for-gb' ) ),
 				'v2CategoryLabel'               => esc_html( $options['v2CategoryLabel'] ?? esc_html__( 'GenerateBlocks v2', 'mediaron-block-shortcuts-for-gb' ) ),
-				'v1BlockSuffix'                 => esc_html( $options['v1BlockSuffix'] ?? esc_html__( '(v1)', 'mediaron-block-shortcuts-for-gb' ) ),
-				'v2BlockSuffix'                 => esc_html( $options['v2BlockSuffix'] ?? esc_html__( '(v2)', 'mediaron-block-shortcuts-for-gb' ) ),
+				'v1BlockSuffix'                 => $options['v1BlockSuffix'] ?? __( '(v1)', 'mediaron-block-shortcuts-for-gb' ),
+				'v2BlockSuffix'                 => $options['v2BlockSuffix'] ?? __( '(v2)', 'mediaron-block-shortcuts-for-gb' ),
 				'identifyGenerateBlocks'        => ( ( $options['identifyGenerateBlocks'] ?? false ) ? 'true' : 'false' ),
-				'generateBlocksSuffix'          => esc_html( $options['generateBlocksSuffix'] ?? '(GB)' ),
+				'generateBlocksSuffix'          => $options['generateBlocksSuffix'] ?? '(GB)',
 				'isProActive'                   => Functions::is_generateblocks_pro_active() ? 'true' : 'false',
 				'canManageAssetLibrary'         => current_user_can( 'manage_options' ) ? 'true' : 'false',
 			)
