@@ -21,14 +21,6 @@ Turn this on to load the WordPress command palette on the front end for logged-i
 
 See [Command palette](../editor/command-palette.md) for the commands you can run.
 
-## Process pasted patterns
-
-Turn this on to handle WordPress block markup when you paste it in the editor. Remote images are downloaded into the Media Library, and GenerateBlocks blocks receive new unique IDs, before the blocks are inserted.
-
-Leave this off to keep normal paste. It is off by default.
-
-See [Paste patterns](../editor/paste-patterns.md).
-
 ## Disable GenerateBlocks Pattern Library
 
 Turn this on to hide the Pattern Library button in the block editor header and the Pattern Library item in the editor options menu.
@@ -40,8 +32,6 @@ Leave this off to keep the Pattern Library available. It is off by default. Sele
 Turn this on to hide the Pattern Inserter block and the **GenerateBlocks: Import Pattern** command.
 
 Leave this off to keep both available. It is off by default. Select **Save Options**, then open the editor again so the change applies.
-
-[Process pasted patterns](#process-pasted-patterns) is a separate option and stays available either way.
 
 See [Pattern Inserter](../editor/pattern-inserter.md) and [Command palette](../editor/command-palette.md).
 
