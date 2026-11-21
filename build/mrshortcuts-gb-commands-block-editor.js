@@ -3029,7 +3029,11 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 /**
  * Download remote images in block markup and regenerate GenerateBlocks unique IDs.
  *
+<<<<<<< Updated upstream
  * The Pattern Inserter and the Import Pattern command call `processPatternMarkup`.
+=======
+ * Paste handling and a later command can both call `processPatternMarkup`.
+>>>>>>> Stashed changes
  */
 
 ;

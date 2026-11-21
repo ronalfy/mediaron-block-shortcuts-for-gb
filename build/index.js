@@ -719,6 +719,307 @@ function _transformBlockSubtreeFromContext() {
 
 /***/ },
 
+<<<<<<< Updated upstream
+=======
+/***/ "./src/js/blocks/commands/utils/uniqueIds.js"
+/*!***************************************************!*\
+  !*** ./src/js/blocks/commands/utils/uniqueIds.js ***!
+  \***************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   collectDocumentUniqueIds: () => (/* binding */ collectDocumentUniqueIds),
+/* harmony export */   countUniqueIdTargets: () => (/* binding */ countUniqueIdTargets),
+/* harmony export */   regenerateAllUniqueIds: () => (/* binding */ regenerateAllUniqueIds),
+/* harmony export */   regenerateUniqueIds: () => (/* binding */ regenerateUniqueIds),
+/* harmony export */   regenerateUniqueIdsForBlocks: () => (/* binding */ regenerateUniqueIdsForBlocks)
+/* harmony export */ });
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, e) { if ("object" != _typeof(t) || !t) return t; var r; if ("undefined" != typeof Symbol && void 0 !== (r = t[Symbol.toPrimitive])) { var i = r.call(t, e || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === e ? String : Number)(t); }
+/**
+ * Regenerate GenerateBlocks unique IDs across the current editor document.
+ */
+
+;
+var SYNCED_PATTERN = 'core/block';
+
+/**
+ * Whether the block is a GenerateBlocks or GenerateBlocks Pro block.
+ *
+ * @param {Object} block Block object.
+ * @return {boolean} True when the block name is a GenerateBlocks block.
+ */
+function isGenerateBlocksBlock(block) {
+  var name = (block === null || block === void 0 ? void 0 : block.name) || '';
+  return name.startsWith('generateblocks/') || name.startsWith('generateblocks-pro/');
+}
+
+/**
+ * Whether the block stores a uniqueId attribute.
+ *
+ * @param {Object} block Block object.
+ * @return {boolean} True when uniqueId is an attribute.
+ */
+function hasUniqueIdAttribute(block) {
+  return !!(block !== null && block !== void 0 && block.attributes) && Object.prototype.hasOwnProperty.call(block.attributes, 'uniqueId');
+}
+
+/**
+ * Whether this block should receive a new unique ID.
+ *
+ * @param {Object} block Block object.
+ * @return {boolean} True when the command updates the block.
+ */
+function isUniqueIdTarget(block) {
+  return isGenerateBlocksBlock(block) && hasUniqueIdAttribute(block);
+}
+
+/**
+ * Add every uniqueId in a subtree to the reserved set.
+ *
+ * @param {Object} block Block object.
+ * @param {Set}    used  Reserved IDs.
+ */
+function collectSubtreeIds(block, used) {
+  var _block$attributes;
+  if (!block) {
+    return;
+  }
+  var uniqueId = (_block$attributes = block.attributes) === null || _block$attributes === void 0 ? void 0 : _block$attributes.uniqueId;
+  if (typeof uniqueId === 'string' && uniqueId) {
+    used.add(uniqueId);
+  }
+  (block.innerBlocks || []).forEach(function (innerBlock) {
+    collectSubtreeIds(innerBlock, used);
+  });
+}
+
+/**
+ * Reserve IDs that this command will leave unchanged.
+ *
+ * Synced patterns are included so new IDs do not collide with pattern blocks.
+ *
+ * @param {Array} blocks Root blocks.
+ * @param {Set}   used   Reserved IDs.
+ */
+function collectRetainedIds(blocks, used) {
+  var _walk = function walk(block) {
+    if (!block) {
+      return;
+    }
+    if (SYNCED_PATTERN === block.name) {
+      collectSubtreeIds(block, used);
+      return;
+    }
+    if (!isUniqueIdTarget(block)) {
+      var _block$attributes2;
+      var uniqueId = (_block$attributes2 = block.attributes) === null || _block$attributes2 === void 0 ? void 0 : _block$attributes2.uniqueId;
+      if (typeof uniqueId === 'string' && uniqueId) {
+        used.add(uniqueId);
+      }
+    }
+    (block.innerBlocks || []).forEach(_walk);
+  };
+  (blocks || []).forEach(_walk);
+}
+
+/**
+ * Count GenerateBlocks blocks that will receive a new unique ID.
+ *
+ * @param {Array} blocks Root blocks.
+ * @return {number} Target count.
+ */
+function countUniqueIdTargets(blocks) {
+  var count = 0;
+  var _walk2 = function walk(block) {
+    if (!block || SYNCED_PATTERN === block.name) {
+      return;
+    }
+    if (isUniqueIdTarget(block)) {
+      count++;
+    }
+    (block.innerBlocks || []).forEach(_walk2);
+  };
+  (blocks || []).forEach(_walk2);
+  return count;
+}
+
+/**
+ * Create a short unique ID that is not already reserved.
+ *
+ * @param {Set}    used      Reserved IDs. The new ID is added to this set.
+ * @param {string} currentId The block's current unique ID.
+ * @return {string} New unique ID.
+ */
+function createUniqueId(used, currentId) {
+  var id = '';
+  var attempts = 0;
+  do {
+    id = Math.random().toString(36).slice(2, 9);
+    attempts++;
+  } while ((id.length < 6 || used.has(id) || id === currentId) && attempts < 20);
+  if (id.length < 6 || used.has(id) || id === currentId) {
+    id = "".concat(Math.random().toString(36).slice(2)).concat(attempts.toString(36)).slice(0, 8);
+  }
+  used.add(id);
+  return id;
+}
+
+/**
+ * Rewrite compiled CSS so selectors follow the new unique ID.
+ *
+ * @param {string} css       Compiled CSS.
+ * @param {string} currentId Previous unique ID.
+ * @param {string} nextId    Next unique ID.
+ * @return {string} CSS with the previous ID replaced.
+ */
+function replaceIdInCss(css, currentId, nextId) {
+  if (!currentId || 'string' !== typeof css || !css.includes(currentId)) {
+    return css;
+  }
+  return css.split(currentId).join(nextId);
+}
+
+/**
+ * Return a block tree with new unique IDs.
+ *
+ * Synced patterns are returned unchanged.
+ *
+ * @param {Object} block Block object.
+ * @param {Set}    used  Reserved IDs.
+ * @return {Object} Original block or a copy with updated IDs.
+ */
+function regenerateBlock(block, used) {
+  if (!block || SYNCED_PATTERN === block.name) {
+    return block;
+  }
+  var originalInner = block.innerBlocks || [];
+  var innerBlocks = originalInner.map(function (innerBlock) {
+    return regenerateBlock(innerBlock, used);
+  });
+  var innerChanged = innerBlocks.some(function (innerBlock, index) {
+    return innerBlock !== originalInner[index];
+  });
+  if (!isUniqueIdTarget(block)) {
+    if (!innerChanged) {
+      return block;
+    }
+    return _objectSpread(_objectSpread({}, block), {}, {
+      innerBlocks: innerBlocks
+    });
+  }
+  var currentId = 'string' === typeof block.attributes.uniqueId ? block.attributes.uniqueId : '';
+  var nextId = createUniqueId(used, currentId);
+  var attributes = _objectSpread(_objectSpread({}, block.attributes), {}, {
+    uniqueId: nextId
+  });
+  if ('string' === typeof attributes.css) {
+    attributes.css = replaceIdInCss(attributes.css, currentId, nextId);
+  }
+  return _objectSpread(_objectSpread({}, block), {}, {
+    attributes: attributes,
+    innerBlocks: innerBlocks
+  });
+}
+
+/**
+ * Build the next root block list with regenerated unique IDs.
+ *
+ * @param {Array} blocks Root blocks.
+ * @return {Array} Next root blocks.
+ */
+function regenerateUniqueIds(blocks) {
+  var used = new Set();
+  var roots = blocks || [];
+  collectRetainedIds(roots, used);
+  return roots.map(function (block) {
+    return regenerateBlock(block, used);
+  });
+}
+
+/**
+ * Collect every uniqueId in a block tree.
+ *
+ * @param {Array} blocks Root blocks.
+ * @return {Set} Reserved unique IDs.
+ */
+function collectDocumentUniqueIds(blocks) {
+  var used = new Set();
+  (blocks || []).forEach(function (block) {
+    return collectSubtreeIds(block, used);
+  });
+  return used;
+}
+
+/**
+ * Regenerate unique IDs for a block tree without changing the rest of the document.
+ *
+ * Synced patterns are left unchanged. Saved `css` selectors that contain the
+ * previous ID are rewritten. IDs in `reservedIds` are not reused.
+ *
+ * @param {Array}     blocks      Blocks to update.
+ * @param {Set|Array} reservedIds Unique IDs already used on the page.
+ * @return {Array} Updated blocks.
+ */
+function regenerateUniqueIdsForBlocks(blocks, reservedIds) {
+  var used = reservedIds instanceof Set ? new Set(reservedIds) : new Set(reservedIds || []);
+  var roots = blocks || [];
+  collectRetainedIds(roots, used);
+  return roots.map(function (block) {
+    return regenerateBlock(block, used);
+  });
+}
+
+/**
+ * Replace unique IDs for every GenerateBlocks block in the editor.
+ *
+ * @return {Promise<number>} Number of blocks updated.
+ */
+function regenerateAllUniqueIds() {
+  return _regenerateAllUniqueIds.apply(this, arguments);
+}
+function _regenerateAllUniqueIds() {
+  _regenerateAllUniqueIds = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+    var blocks, count, nextBlocks;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.n) {
+        case 0:
+          blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.select)('core/block-editor').getBlocks();
+          count = countUniqueIdTargets(blocks);
+          if (count) {
+            _context.n = 1;
+            break;
+          }
+          return _context.a(2, 0);
+        case 1:
+          nextBlocks = regenerateUniqueIds(blocks);
+          _context.n = 2;
+          return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.dispatch)('core/block-editor').replaceBlocks(blocks.map(function (block) {
+            return block.clientId;
+          }), nextBlocks);
+        case 2:
+          return _context.a(2, count);
+      }
+    }, _callee);
+  }));
+  return _regenerateAllUniqueIds.apply(this, arguments);
+}
+
+/***/ },
+
+>>>>>>> Stashed changes
 /***/ "./src/js/blocks/components/ContainerIcon.js"
 /*!***************************************************!*\
   !*** ./src/js/blocks/components/ContainerIcon.js ***!
@@ -1116,6 +1417,262 @@ var vdVariationNames = [];
 
 /***/ },
 
+<<<<<<< Updated upstream
+=======
+/***/ "./src/js/blocks/utils/PastePatternDialog.js"
+/*!***************************************************!*\
+  !*** ./src/js/blocks/utils/PastePatternDialog.js ***!
+  \***************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   closePastePatternDialog: () => (/* binding */ closePastePatternDialog),
+/* harmony export */   finishPastePatternDialog: () => (/* binding */ finishPastePatternDialog),
+/* harmony export */   markPastePatternImage: () => (/* binding */ markPastePatternImage),
+/* harmony export */   openPastePatternDialog: () => (/* binding */ openPastePatternDialog)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, e) { if ("object" != _typeof(t) || !t) return t; var r; if ("undefined" != typeof Symbol && void 0 !== (r = t[Symbol.toPrimitive])) { var i = r.call(t, e || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === e ? String : Number)(t); }
+/**
+ * Dialog that shows remote image downloads for a pasted pattern.
+ */
+
+;
+
+
+
+var listeners = new Set();
+var dialogState = {
+  open: false,
+  phase: 'working',
+  images: [],
+  message: ''
+};
+
+/**
+ * Notify the dialog that its state changed.
+ */
+function emit() {
+  listeners.forEach(function (listener) {
+    return listener();
+  });
+}
+
+/**
+ * Subscribe to dialog state.
+ *
+ * @param {Function} listener Listener.
+ * @return {Function} Unsubscribe.
+ */
+function subscribe(listener) {
+  listeners.add(listener);
+  return function () {
+    return listeners["delete"](listener);
+  };
+}
+
+/**
+ * Read the current dialog state.
+ *
+ * @return {Object} Dialog state.
+ */
+function getSnapshot() {
+  return dialogState;
+}
+
+/**
+ * Open the dialog with one row per remote image.
+ *
+ * @param {string[]} urls Remote image URLs.
+ */
+function openPastePatternDialog(urls) {
+  dialogState = {
+    open: true,
+    phase: 'working',
+    images: (urls || []).map(function (url) {
+      return {
+        url: url,
+        status: 'pending'
+      };
+    }),
+    message: ''
+  };
+  emit();
+}
+
+/**
+ * Mark one image as downloaded or failed.
+ *
+ * @param {string} url    Image URL from the paste.
+ * @param {string} status `downloaded` or `failed`.
+ */
+function markPastePatternImage(url, status) {
+  dialogState = _objectSpread(_objectSpread({}, dialogState), {}, {
+    images: dialogState.images.map(function (image) {
+      return image.url === url ? _objectSpread(_objectSpread({}, image), {}, {
+        status: status
+      }) : image;
+    })
+  });
+  emit();
+}
+
+/**
+ * Leave the dialog open with a finished message until it is closed.
+ *
+ * @param {Object} result         Result.
+ * @param {string} result.phase   `done`, `warning`, or `error`.
+ * @param {string} result.message Message shown above the image list.
+ */
+function finishPastePatternDialog(_ref) {
+  var phase = _ref.phase,
+    message = _ref.message;
+  dialogState = _objectSpread(_objectSpread({}, dialogState), {}, {
+    phase: phase,
+    message: message
+  });
+  emit();
+}
+
+/**
+ * Close the dialog.
+ */
+function closePastePatternDialog() {
+  dialogState = {
+    open: false,
+    phase: 'working',
+    images: [],
+    message: ''
+  };
+  emit();
+}
+
+/**
+ * Show a readable image address.
+ *
+ * @param {string} url Raw or escaped URL.
+ * @return {string} Display URL.
+ */
+function displayUrl(url) {
+  return (url || '').replace(/\\\//g, '/');
+}
+
+/**
+ * Status label for one image row.
+ *
+ * @param {string} status Row status.
+ * @return {string} Label.
+ */
+function statusLabel(status) {
+  if ('downloaded' === status) {
+    return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Downloaded', 'mediaron-block-shortcuts-for-gb');
+  }
+  if ('failed' === status) {
+    return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Kept original address', 'mediaron-block-shortcuts-for-gb');
+  }
+  return (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Waiting', 'mediaron-block-shortcuts-for-gb');
+}
+
+/**
+ * Paste pattern image dialog.
+ *
+ * @return {JSX.Element|null} Dialog.
+ */
+function PastePatternDialog() {
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(getSnapshot),
+    _useState2 = _slicedToArray(_useState, 2),
+    dialog = _useState2[0],
+    setDialog = _useState2[1];
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return subscribe(function () {
+      return setDialog(getSnapshot());
+    });
+  }, []);
+  if (!dialog.open) {
+    return null;
+  }
+  var total = dialog.images.length;
+  var done = dialog.images.filter(function (image) {
+    return 'pending' !== image.status;
+  }).length;
+  var working = 'working' === dialog.phase;
+  return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Modal, {
+    title: working ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Importing pattern images', 'mediaron-block-shortcuts-for-gb') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Pattern images', 'mediaron-block-shortcuts-for-gb'),
+    isDismissible: !working,
+    shouldCloseOnClickOutside: false,
+    shouldCloseOnEsc: !working,
+    onRequestClose: closePastePatternDialog,
+    size: "medium"
+  }, working && /*#__PURE__*/React.createElement("p", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, null), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.sprintf)(/* translators: 1: images finished, 2: total images. */
+  (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Importing images (%1$d of %2$d)…', 'mediaron-block-shortcuts-for-gb'), done, total)), !!dialog.message && /*#__PURE__*/React.createElement("p", null, dialog.message), /*#__PURE__*/React.createElement("ul", {
+    style: {
+      maxHeight: '240px',
+      overflow: 'auto',
+      margin: '0 0 16px',
+      padding: 0,
+      listStyle: 'none'
+    }
+  }, dialog.images.map(function (image) {
+    return /*#__PURE__*/React.createElement("li", {
+      key: image.url,
+      style: {
+        display: 'flex',
+        gap: '12px',
+        padding: '8px 0',
+        borderTop: '1px solid #dcdcde'
+      }
+    }, /*#__PURE__*/React.createElement("strong", {
+      style: {
+        flex: '0 0 11em'
+      }
+    }, statusLabel(image.status)), /*#__PURE__*/React.createElement("span", {
+      style: {
+        wordBreak: 'break-all'
+      }
+    }, displayUrl(image.url)));
+  })), !working && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end'
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    variant: "primary",
+    onClick: closePastePatternDialog
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Close', 'mediaron-block-shortcuts-for-gb'))));
+}
+;(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_3__.registerPlugin)('mrshortcuts-gb-paste-pattern-dialog', {
+  render: PastePatternDialog
+});
+
+/***/ },
+
+>>>>>>> Stashed changes
 /***/ "./src/js/blocks/utils/ReplaceUniqueIds.js"
 /*!*************************************************!*\
   !*** ./src/js/blocks/utils/ReplaceUniqueIds.js ***!
@@ -1241,6 +1798,819 @@ function SendCommand(nonce, data, restEndPoint) {
 
 /***/ },
 
+<<<<<<< Updated upstream
+=======
+/***/ "./src/js/blocks/utils/pastePattern.js"
+/*!*********************************************!*\
+  !*** ./src/js/blocks/utils/pastePattern.js ***!
+  \*********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _commands_utils_uniqueIds__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../commands/utils/uniqueIds */ "./src/js/blocks/commands/utils/uniqueIds.js");
+/* harmony import */ var _PastePatternDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PastePatternDialog */ "./src/js/blocks/utils/PastePatternDialog.js");
+/* harmony import */ var _processPattern__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./processPattern */ "./src/js/blocks/utils/processPattern.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+/**
+ * Intercept block-markup paste, download remote images, and refresh unique IDs.
+ */
+
+;
+
+
+
+
+
+var NOTICE_ID = 'mrshortcuts-gb-paste-pattern';
+var EDITOR_TARGET = '.block-editor-writing-flow, .editor-visual-editor, .block-editor-list-view, .edit-post-visual-editor, .edit-site-visual-editor';
+var processing = false;
+
+/**
+ * Whether paste pattern processing is enabled for this editor load.
+ *
+ * @return {boolean} True when the Block Settings toggle is on.
+ */
+function isPasteProcessingEnabled() {
+  var _window$mrshortcutsgb;
+  return ((_window$mrshortcutsgb = window.mrshortcutsgbPatternInserter) === null || _window$mrshortcutsgb === void 0 ? void 0 : _window$mrshortcutsgb.enablePastePatternProcessing) === 'true';
+}
+
+/**
+ * Whether this user can upload sideloaded images.
+ *
+ * @return {boolean} True when the REST permission check would pass.
+ */
+function canSideloadImages() {
+  var _window$mrshortcutsgb2;
+  return ((_window$mrshortcutsgb2 = window.mrshortcutsgbPatternInserter) === null || _window$mrshortcutsgb2 === void 0 ? void 0 : _window$mrshortcutsgb2.canSideloadImages) === 'true';
+}
+
+/**
+ * Read clipboard fields without throwing on unsupported types.
+ *
+ * @param {ClipboardEvent} event Paste event.
+ * @return {Object} Clipboard text and file count.
+ */
+function readClipboard(event) {
+  var _data$files;
+  var data = event.clipboardData;
+  if (!data) {
+    return {
+      richText: '',
+      html: '',
+      plain: '',
+      fileCount: 0
+    };
+  }
+  var richText = '';
+  try {
+    richText = data.getData('rich-text') || '';
+  } catch (error) {
+    richText = '';
+  }
+  return {
+    richText: richText,
+    html: data.getData('text/html') || '',
+    plain: data.getData('text/plain') || '',
+    fileCount: ((_data$files = data.files) === null || _data$files === void 0 ? void 0 : _data$files.length) || 0
+  };
+}
+
+/**
+ * Whether the paste landed in the block editor canvas or list view.
+ *
+ * Sidebar inputs, including the Pattern Inserter textarea, stay native.
+ *
+ * @param {ClipboardEvent} event Paste event.
+ * @return {boolean} True when this paste should be considered.
+ */
+function shouldHandlePasteEvent(event) {
+  var target = event.target;
+  var doc = target === null || target === void 0 ? void 0 : target.ownerDocument;
+  if (!doc || !(target !== null && target !== void 0 && target.closest)) {
+    return false;
+  }
+
+  // Text fields, including the Pattern Inserter box inside the canvas, stay native.
+  if (target.closest('input, textarea, select')) {
+    return false;
+  }
+  var iframe = window.document.querySelector('iframe[name="editor-canvas"]');
+  if (iframe && iframe.contentDocument === doc) {
+    return true;
+  }
+  return !!target.closest(EDITOR_TARGET);
+}
+
+/**
+ * Show or replace the pattern import snackbar.
+ *
+ * @param {string} status  Notice status.
+ * @param {string} message Notice text.
+ */
+function showNotice(status, message) {
+  ;(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.dispatch)('core/notices').createNotice(status, message, {
+    id: NOTICE_ID,
+    type: 'snackbar',
+    isDismissible: true
+  });
+}
+
+/**
+ * Snapshot where the pasted blocks should land.
+ *
+ * The download is async, so the caret may move before insert.
+ *
+ * @return {Object} Selection snapshot.
+ */
+function captureInsertionTarget() {
+  var _editor$getSelectedBl, _editor$getSelectionS, _editor$getSelectionE, _block$attributes, _editor$__unstableIsF, _editor$hasMultiSelec;
+  var editor = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor');
+  var selected = ((_editor$getSelectedBl = editor.getSelectedBlockClientIds) === null || _editor$getSelectedBl === void 0 ? void 0 : _editor$getSelectedBl.call(editor)) || [];
+  var selectionStart = ((_editor$getSelectionS = editor.getSelectionStart) === null || _editor$getSelectionS === void 0 ? void 0 : _editor$getSelectionS.call(editor)) || {};
+  var selectionEnd = ((_editor$getSelectionE = editor.getSelectionEnd) === null || _editor$getSelectionE === void 0 ? void 0 : _editor$getSelectionE.call(editor)) || {};
+  var block = selected.length === 1 ? editor.getBlock(selected[0]) : null;
+  var content = block === null || block === void 0 || (_block$attributes = block.attributes) === null || _block$attributes === void 0 ? void 0 : _block$attributes.content;
+  var isEmptyParagraph = (block === null || block === void 0 ? void 0 : block.name) === 'core/paragraph' && !content;
+  var fullySelected = !!((_editor$__unstableIsF = editor.__unstableIsFullySelected) !== null && _editor$__unstableIsF !== void 0 && _editor$__unstableIsF.call(editor));
+  return {
+    selected: _toConsumableArray(selected),
+    rootClientId: selected.length ? editor.getBlockRootClientId(selected[0]) || '' : '',
+    index: selected.length === 1 ? editor.getBlockIndex(selected[0]) : null,
+    multi: !!((_editor$hasMultiSelec = editor.hasMultiSelection) !== null && _editor$hasMultiSelec !== void 0 && _editor$hasMultiSelec.call(editor)),
+    fullySelected: fullySelected,
+    isEmptyTarget: !!(block && (isEmptyParagraph || (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.isUnmodifiedDefaultBlock)(block))),
+    selectionStart: selectionStart,
+    selectionEnd: selectionEnd
+  };
+}
+
+/**
+ * Put the caret back where it was when the paste started.
+ *
+ * @param {Object} target Selection snapshot.
+ */
+function restoreSelection(target) {
+  var _target$selectionEnd;
+  var start = target.selectionStart;
+  if (!(start !== null && start !== void 0 && start.clientId) || 'number' !== typeof start.offset) {
+    return;
+  }
+  ;(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.dispatch)('core/block-editor').selectionChange(start.clientId, start.attributeKey, start.offset, (_target$selectionEnd = target.selectionEnd) === null || _target$selectionEnd === void 0 ? void 0 : _target$selectionEnd.offset);
+}
+
+/**
+ * Insert processed blocks at the snapshotted selection.
+ *
+ * @param {Array}  blocks Parsed blocks.
+ * @param {Object} target Selection snapshot.
+ */
+function insertProcessedBlocks(blocks, target) {
+  var editorDispatch = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.dispatch)('core/block-editor');
+  var selected = target.selected || [];
+  if (!selected.length) {
+    var order = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor').getBlockOrder(target.rootClientId || '');
+    editorDispatch.insertBlocks(blocks, order.length, target.rootClientId || undefined);
+    return;
+  }
+  if (target.multi || target.fullySelected || target.isEmptyTarget) {
+    editorDispatch.replaceBlocks(selected, blocks, blocks.length - 1, -1);
+    return;
+  }
+  var start = target.selectionStart;
+  var hasCaret = start && 'number' === typeof start.offset;
+  if (hasCaret && 'function' === typeof editorDispatch.__unstableSplitSelection) {
+    restoreSelection(target);
+    var beforeIds = new Set((0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor').getClientIdsWithDescendants());
+    editorDispatch.__unstableSplitSelection(blocks);
+    var inserted = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor').getClientIdsWithDescendants().some(function (clientId) {
+      return !beforeIds.has(clientId);
+    });
+    if (inserted) {
+      return;
+    }
+  }
+  var index = null === target.index || 'undefined' === typeof target.index ? selected.length : target.index + 1;
+  editorDispatch.insertBlocks(blocks, index, target.rootClientId || undefined);
+}
+
+/**
+ * Let the dialog paint before the downloads start.
+ *
+ * @return {Promise<void>} Resolves after two frames.
+ */
+function waitForDialogPaint() {
+  return new Promise(function (resolve) {
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(resolve);
+    });
+  });
+}
+
+/**
+ * Download images, then insert the pattern.
+ *
+ * The dialog stays open until it is closed so a fast local download is still visible.
+ *
+ * @param {string} markup Block markup.
+ * @param {Object} target Selection snapshot.
+ */
+function importPastedPattern(_x, _x2) {
+  return _importPastedPattern.apply(this, arguments);
+}
+/**
+ * Capture-phase paste handler.
+ *
+ * @param {ClipboardEvent} event Paste event.
+ */
+function _importPastedPattern() {
+  _importPastedPattern = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(markup, target) {
+    var _editor$getBlocks;
+    var editor, reservedIds, remoteUrls, failed, blocks, _t;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.p = _context.n) {
+        case 0:
+          editor = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor');
+          reservedIds = (0,_commands_utils_uniqueIds__WEBPACK_IMPORTED_MODULE_3__.collectDocumentUniqueIds)(((_editor$getBlocks = editor.getBlocks) === null || _editor$getBlocks === void 0 ? void 0 : _editor$getBlocks.call(editor)) || []);
+          remoteUrls = (0,_processPattern__WEBPACK_IMPORTED_MODULE_5__.collectRemoteImageUrls)(markup);
+          failed = 0;
+          (0,_PastePatternDialog__WEBPACK_IMPORTED_MODULE_4__.openPastePatternDialog)(remoteUrls);
+          _context.n = 1;
+          return waitForDialogPaint();
+        case 1:
+          _context.p = 1;
+          _context.n = 2;
+          return (0,_processPattern__WEBPACK_IMPORTED_MODULE_5__.processPatternMarkup)(markup, {
+            sideload: true,
+            reservedIds: reservedIds,
+            onProgress: function onProgress(done, total, failedCount, image) {
+              failed = failedCount;
+              if (image !== null && image !== void 0 && image.url) {
+                (0,_PastePatternDialog__WEBPACK_IMPORTED_MODULE_4__.markPastePatternImage)(image.url, image.ok ? 'downloaded' : 'failed');
+              }
+            }
+          });
+        case 2:
+          blocks = _context.v;
+          if (blocks.length) {
+            _context.n = 3;
+            break;
+          }
+          ;(0,_PastePatternDialog__WEBPACK_IMPORTED_MODULE_4__.finishPastePatternDialog)({
+            phase: 'error',
+            message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('The pasted pattern could not be read.', 'mediaron-block-shortcuts-for-gb')
+          });
+          return _context.a(2);
+        case 3:
+          insertProcessedBlocks(blocks, target);
+          if (failed) {
+            (0,_PastePatternDialog__WEBPACK_IMPORTED_MODULE_4__.finishPastePatternDialog)({
+              phase: 'warning',
+              message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Some images could not be downloaded. Those images kept their original addresses. The pattern has been inserted.', 'mediaron-block-shortcuts-for-gb')
+            });
+          } else {
+            (0,_PastePatternDialog__WEBPACK_IMPORTED_MODULE_4__.finishPastePatternDialog)({
+              phase: 'done',
+              message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('The images were downloaded and the pattern has been inserted.', 'mediaron-block-shortcuts-for-gb')
+            });
+          }
+          _context.n = 5;
+          break;
+        case 4:
+          _context.p = 4;
+          _t = _context.v;
+          (0,_PastePatternDialog__WEBPACK_IMPORTED_MODULE_4__.finishPastePatternDialog)({
+            phase: 'error',
+            message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('The pasted pattern could not be imported.', 'mediaron-block-shortcuts-for-gb')
+          });
+        case 5:
+          return _context.a(2);
+      }
+    }, _callee, null, [[1, 4]]);
+  }));
+  return _importPastedPattern.apply(this, arguments);
+}
+function onPaste(event) {
+  var _select$getBlocks, _select;
+  if (event.defaultPrevented && !processing) {
+    return;
+  }
+  if (!shouldHandlePasteEvent(event)) {
+    return;
+  }
+  var clipboard = readClipboard(event);
+  if (clipboard.richText === 'true') {
+    return;
+  }
+  var markup = (0,_processPattern__WEBPACK_IMPORTED_MODULE_5__.getBlockMarkupFromClipboard)(clipboard.html, clipboard.plain);
+  if (!markup) {
+    return;
+  }
+  var remoteUrls = (0,_processPattern__WEBPACK_IMPORTED_MODULE_5__.collectRemoteImageUrls)(markup);
+  var shouldSideload = remoteUrls.length > 0 && canSideloadImages();
+  if (processing) {
+    if (shouldSideload || /generateblocks(?:-pro)?\//.test(markup)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      showNotice('info', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Still importing the previous pattern.', 'mediaron-block-shortcuts-for-gb'));
+    }
+    return;
+  }
+  if (shouldSideload) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    processing = true;
+    var _target = captureInsertionTarget();
+    importPastedPattern(markup, _target)["finally"](function () {
+      processing = false;
+    });
+    return;
+  }
+  if (!/generateblocks(?:-pro)?\//.test(markup)) {
+    return;
+  }
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  processing = true;
+  var target = captureInsertionTarget();
+  var reservedIds = (0,_commands_utils_uniqueIds__WEBPACK_IMPORTED_MODULE_3__.collectDocumentUniqueIds)(((_select$getBlocks = (_select = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.select)('core/block-editor')).getBlocks) === null || _select$getBlocks === void 0 ? void 0 : _select$getBlocks.call(_select)) || []);
+  (0,_processPattern__WEBPACK_IMPORTED_MODULE_5__.processPatternMarkup)(markup, {
+    sideload: false,
+    reservedIds: reservedIds
+  }).then(function (blocks) {
+    if (blocks !== null && blocks !== void 0 && blocks.length) {
+      insertProcessedBlocks(blocks, target);
+    }
+  })["finally"](function () {
+    processing = false;
+  });
+}
+
+/**
+ * Bind the capture listener once per document.
+ *
+ * @param {Document} doc Document that receives paste events.
+ */
+function bindDocument(doc) {
+  if (!(doc !== null && doc !== void 0 && doc.documentElement) || doc.documentElement.dataset.mrshortcutsPasteBound) {
+    return;
+  }
+  doc.documentElement.dataset.mrshortcutsPasteBound = '1';
+  doc.addEventListener('paste', onPaste, true);
+}
+
+/**
+ * Start paste handling when the setting is enabled.
+ */
+function initPastePatternProcessing() {
+  if (!isPasteProcessingEnabled() || window.mrshortcutsGbPastePatternBound) {
+    return;
+  }
+  window.mrshortcutsGbPastePatternBound = true;
+  bindDocument(document);
+  (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.subscribe)(function () {
+    var _iframe$contentDocume;
+    var iframe = document.querySelector('iframe[name="editor-canvas"]');
+    if (iframe !== null && iframe !== void 0 && (_iframe$contentDocume = iframe.contentDocument) !== null && _iframe$contentDocume !== void 0 && _iframe$contentDocume.documentElement) {
+      bindDocument(iframe.contentDocument);
+    }
+  });
+}
+initPastePatternProcessing();
+
+/***/ },
+
+/***/ "./src/js/blocks/utils/processPattern.js"
+/*!***********************************************!*\
+  !*** ./src/js/blocks/utils/processPattern.js ***!
+  \***********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   collectRemoteImageUrls: () => (/* binding */ collectRemoteImageUrls),
+/* harmony export */   getBlockMarkupFromClipboard: () => (/* binding */ getBlockMarkupFromClipboard),
+/* harmony export */   normalizePastedMarkup: () => (/* binding */ normalizePastedMarkup),
+/* harmony export */   processPatternMarkup: () => (/* binding */ processPatternMarkup)
+/* harmony export */ });
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SendCommand__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SendCommand */ "./src/js/blocks/utils/SendCommand.js");
+/* harmony import */ var _commands_utils_uniqueIds__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../commands/utils/uniqueIds */ "./src/js/blocks/commands/utils/uniqueIds.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+/**
+ * Download remote images in block markup and regenerate GenerateBlocks unique IDs.
+ *
+ * Paste handling and a later command can both call `processPatternMarkup`.
+ */
+
+;
+
+
+var IMAGE_EXTENSION = /\.(?:jpe?g|png|gif|webp|avif)$/i;
+var RAW_URL = /https?:(?:\/\/|\\\/\\\/)[^\s"'<>]+/gi;
+var MEDIA_ID_BLOCKS = ['generateblocks/media', 'generateblocks/image', 'core/media-text'];
+
+/**
+ * Strip browser clipboard wrappers so block comments can be parsed.
+ *
+ * @param {string} html Clipboard HTML.
+ * @return {string} Block markup.
+ */
+function normalizePastedMarkup(html) {
+  var markup = html || '';
+  markup = markup.replace(/<meta[^>]+>/gi, '');
+  markup = markup.replace(/^\s*<html[^>]*>\s*<body[^>]*>(?:\s*<!--\s*StartFragment\s*-->)?/i, '');
+  markup = markup.replace(/(?:<!--\s*EndFragment\s*-->\s*)?<\/body>\s*<\/html>\s*$/i, '');
+  var startToken = '<!--StartFragment-->';
+  var start = markup.indexOf(startToken);
+  if (start !== -1) {
+    markup = markup.slice(start + startToken.length);
+    var end = markup.indexOf('<!--EndFragment-->');
+    if (end !== -1) {
+      markup = markup.slice(0, end);
+    }
+  }
+  return markup.trim();
+}
+
+/**
+ * Choose clipboard text that contains WordPress block markup.
+ *
+ * @param {string} html  Clipboard HTML.
+ * @param {string} plain Clipboard plain text.
+ * @return {string} Block markup, or an empty string.
+ */
+function getBlockMarkupFromClipboard(html, plain) {
+  var normalizedHtml = normalizePastedMarkup(html);
+  if (normalizedHtml.includes('<!-- wp:')) {
+    return normalizedHtml;
+  }
+  if ((plain || '').includes('<!-- wp:')) {
+    return plain;
+  }
+  return '';
+}
+
+/**
+ * Unique remote image URLs in markup whose host is not this site.
+ *
+ * @param {string} markup Block markup or other pasted text.
+ * @return {string[]} Image URLs as they appear in the markup.
+ */
+function collectRemoteImageUrls(markup) {
+  if (!markup) {
+    return [];
+  }
+  var found = new Set();
+  var host = window.location.host;
+  var matches = markup.match(RAW_URL) || [];
+  matches.forEach(function (rawMatch) {
+    var raw = rawMatch.replace(/[),.;]+$/g, '');
+    var normalized = raw.replace(/\\\//g, '/').replace(/&amp;/g, '&');
+    var parsed;
+    try {
+      parsed = new URL(normalized);
+    } catch (error) {
+      return;
+    }
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+      return;
+    }
+    if (parsed.host === host) {
+      return;
+    }
+    if (!IMAGE_EXTENSION.test(parsed.pathname)) {
+      return;
+    }
+    found.add(raw);
+  });
+  return _toConsumableArray(found);
+}
+
+/**
+ * Replace downloaded image URLs in markup, longest match first.
+ *
+ * @param {string} markup       Original markup.
+ * @param {Map}    replacements Raw URL to `{ url, id }`.
+ * @return {string} Updated markup.
+ */
+function rewriteImageUrls(markup, replacements) {
+  var next = markup;
+  var entries = _toConsumableArray(replacements.entries()).sort(function (a, b) {
+    return b[0].length - a[0].length;
+  });
+  entries.forEach(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+      raw = _ref2[0],
+      value = _ref2[1];
+    if (!(value !== null && value !== void 0 && value.url) || value.url === raw) {
+      return;
+    }
+    next = next.split(raw).join(value.url);
+    var normalized = raw.replace(/\\\//g, '/');
+    if (normalized !== raw && normalized !== value.url) {
+      next = next.split(normalized).join(value.url);
+    }
+  });
+  return next;
+}
+
+/**
+ * Point attachment id fields at the sideloaded file when the URL matches.
+ *
+ * @param {*}   value    Attribute value.
+ * @param {Map} byNewUrl Local URL to attachment id.
+ */
+function mapAttributeIds(value, byNewUrl) {
+  if (Array.isArray(value)) {
+    value.forEach(function (item) {
+      return mapAttributeIds(item, byNewUrl);
+    });
+    return;
+  }
+  if (!value || 'object' !== _typeof(value)) {
+    return;
+  }
+  var nestedUrl = value.image && 'string' === typeof value.image.url ? value.image.url : '';
+  if (nestedUrl && byNewUrl.has(nestedUrl) && Object.prototype.hasOwnProperty.call(value, 'id')) {
+    value.id = byNewUrl.get(nestedUrl);
+  }
+  var directKey = ['url', 'src', 'mediaUrl'].find(function (key) {
+    return 'string' === typeof value[key] && byNewUrl.has(value[key]);
+  });
+  if (directKey) {
+    var attachmentId = byNewUrl.get(value[directKey]);
+    if (Object.prototype.hasOwnProperty.call(value, 'mediaId')) {
+      value.mediaId = attachmentId;
+    } else if (Object.prototype.hasOwnProperty.call(value, 'id')) {
+      value.id = attachmentId;
+    }
+  }
+  Object.keys(value).forEach(function (key) {
+    mapAttributeIds(value[key], byNewUrl);
+  });
+}
+
+/**
+ * Whether a block's attributes or saved HTML still contain a URL.
+ *
+ * @param {Object} block    Parsed block.
+ * @param {string} imageUrl Local image URL.
+ * @return {boolean} True when the URL is part of this block.
+ */
+function blockContainsUrl(block, imageUrl) {
+  var attributes = JSON.stringify((block === null || block === void 0 ? void 0 : block.attributes) || {});
+  if (attributes.includes(imageUrl)) {
+    return true;
+  }
+  var inner = "".concat(((block === null || block === void 0 ? void 0 : block.innerContent) || []).join('')).concat((block === null || block === void 0 ? void 0 : block.innerHTML) || '');
+  return inner.includes(imageUrl);
+}
+
+/**
+ * Update media and gallery ids after URLs have been rewritten.
+ *
+ * @param {Array} blocks       Parsed blocks.
+ * @param {Map}   replacements Raw URL to `{ url, id }`.
+ */
+function applyAttachmentIds(blocks, replacements) {
+  var byNewUrl = new Map();
+  replacements.forEach(function (value) {
+    if ((value === null || value === void 0 ? void 0 : value.id) > 0 && value.url) {
+      byNewUrl.set(value.url, value.id);
+    }
+  });
+  if (!byNewUrl.size) {
+    return;
+  }
+  var _walk = function walk(block) {
+    var _block$attributes;
+    if (!block || 'core/block' === block.name) {
+      return;
+    }
+    if (block.attributes) {
+      mapAttributeIds(block.attributes, byNewUrl);
+    }
+    if (block.attributes && MEDIA_ID_BLOCKS.includes(block.name) && Object.prototype.hasOwnProperty.call(block.attributes, 'mediaId')) {
+      var _iterator = _createForOfIteratorHelper(byNewUrl.entries()),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _step$value = _slicedToArray(_step.value, 2),
+            imageUrl = _step$value[0],
+            attachmentId = _step$value[1];
+          if (blockContainsUrl(block, imageUrl)) {
+            block.attributes.mediaId = attachmentId;
+            break;
+          }
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
+    if ('core/gallery' === block.name && Array.isArray((_block$attributes = block.attributes) === null || _block$attributes === void 0 ? void 0 : _block$attributes.images)) {
+      var ids = block.attributes.images.map(function (image) {
+        return parseInt(image === null || image === void 0 ? void 0 : image.id, 10);
+      }).filter(function (id) {
+        return id > 0;
+      });
+      if (ids.length) {
+        block.attributes.ids = ids;
+      }
+    }
+    (block.innerBlocks || []).forEach(_walk);
+  };
+  (blocks || []).forEach(_walk);
+}
+
+/**
+ * Download one remote image.
+ *
+ * @param {string} rawUrl    URL as it appears in the markup.
+ * @param {string} restUrl   REST namespace URL.
+ * @param {string} restNonce REST nonce.
+ * @return {Promise<Object>} Replacement `{ rawUrl, url, id, failed }`.
+ */
+function sideloadImage(_x, _x2, _x3) {
+  return _sideloadImage.apply(this, arguments);
+}
+/**
+ * Sideload remote images, then return blocks with new GenerateBlocks unique IDs.
+ *
+ * @param {string}   markup                Block markup.
+ * @param {Object}   [options]             Options.
+ * @param {Function} [options.onProgress]  Called with `( done, total, failed, image )`. `image` is `{ url, ok }`.
+ * @param {Set}      [options.reservedIds] Unique IDs already used on the page.
+ * @param {boolean}  [options.sideload]    When false, skip downloads.
+ * @param {string}   [options.restUrl]     REST namespace URL. Falls back to the pattern inserter script.
+ * @param {string}   [options.restNonce]   REST nonce. Falls back to the pattern inserter script.
+ * @return {Promise<Array>} Parsed blocks.
+ */
+function _sideloadImage() {
+  _sideloadImage = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(rawUrl, restUrl, restNonce) {
+    var settings, endpoint, normalized, _body$data, response, body, attachmentId, _t;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.p = _context.n) {
+        case 0:
+          settings = window.mrshortcutsgbPatternInserter || {};
+          endpoint = "".concat(restUrl || settings.restUrl || '', "/process_image");
+          normalized = rawUrl.replace(/\\\//g, '/').replace(/&amp;/g, '&');
+          _context.p = 1;
+          _context.n = 2;
+          return (0,_SendCommand__WEBPACK_IMPORTED_MODULE_1__["default"])(restNonce || settings.restNonce, {
+            imgUrl: normalized,
+            imgAlt: ''
+          }, endpoint);
+        case 2:
+          response = _context.v;
+          body = response === null || response === void 0 ? void 0 : response.data;
+          if (!(body !== null && body !== void 0 && body.success && body !== null && body !== void 0 && (_body$data = body.data) !== null && _body$data !== void 0 && _body$data.attachmentUrl)) {
+            _context.n = 3;
+            break;
+          }
+          attachmentId = parseInt(body.data.attachmentId, 10);
+          return _context.a(2, {
+            rawUrl: rawUrl,
+            url: body.data.attachmentUrl,
+            id: attachmentId > 0 ? attachmentId : 0,
+            failed: false
+          });
+        case 3:
+          _context.n = 5;
+          break;
+        case 4:
+          _context.p = 4;
+          _t = _context.v;
+        case 5:
+          return _context.a(2, {
+            rawUrl: rawUrl,
+            url: '',
+            id: 0,
+            failed: true
+          });
+      }
+    }, _callee, null, [[1, 4]]);
+  }));
+  return _sideloadImage.apply(this, arguments);
+}
+function processPatternMarkup(_x4) {
+  return _processPatternMarkup.apply(this, arguments);
+}
+function _processPatternMarkup() {
+  _processPatternMarkup = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(markup) {
+    var options,
+      onProgress,
+      reservedIds,
+      _options$sideload,
+      sideload,
+      _options$restUrl,
+      restUrl,
+      _options$restNonce,
+      restNonce,
+      urls,
+      replacements,
+      done,
+      failed,
+      rewritten,
+      blocks,
+      _args3 = arguments;
+    return _regenerator().w(function (_context3) {
+      while (1) switch (_context3.n) {
+        case 0:
+          options = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : {};
+          onProgress = options.onProgress, reservedIds = options.reservedIds, _options$sideload = options.sideload, sideload = _options$sideload === void 0 ? true : _options$sideload, _options$restUrl = options.restUrl, restUrl = _options$restUrl === void 0 ? '' : _options$restUrl, _options$restNonce = options.restNonce, restNonce = _options$restNonce === void 0 ? '' : _options$restNonce;
+          urls = sideload ? collectRemoteImageUrls(markup) : [];
+          replacements = new Map();
+          done = 0;
+          failed = 0;
+          if (!urls.length) {
+            _context3.n = 1;
+            break;
+          }
+          _context3.n = 1;
+          return Promise.all(urls.map(/*#__PURE__*/function () {
+            var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(rawUrl) {
+              var result;
+              return _regenerator().w(function (_context2) {
+                while (1) switch (_context2.n) {
+                  case 0:
+                    _context2.n = 1;
+                    return sideloadImage(rawUrl, restUrl, restNonce);
+                  case 1:
+                    result = _context2.v;
+                    if (result.failed || !result.url) {
+                      failed += 1;
+                    } else {
+                      replacements.set(rawUrl, {
+                        url: result.url,
+                        id: result.id
+                      });
+                    }
+                    done += 1;
+                    if (onProgress) {
+                      onProgress(done, urls.length, failed, {
+                        url: rawUrl,
+                        ok: !result.failed && !!result.url
+                      });
+                    }
+                  case 2:
+                    return _context2.a(2);
+                }
+              }, _callee2);
+            }));
+            return function (_x5) {
+              return _ref3.apply(this, arguments);
+            };
+          }()));
+        case 1:
+          rewritten = rewriteImageUrls(markup, replacements);
+          blocks = (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.parse)(rewritten);
+          applyAttachmentIds(blocks, replacements);
+          return _context3.a(2, (0,_commands_utils_uniqueIds__WEBPACK_IMPORTED_MODULE_2__.regenerateUniqueIdsForBlocks)(blocks, reservedIds));
+      }
+    }, _callee3);
+  }));
+  return _processPatternMarkup.apply(this, arguments);
+}
+
+/***/ },
+
+>>>>>>> Stashed changes
 /***/ "./src/js/blocks/utils/sanitize-svg/index.js"
 /*!***************************************************!*\
   !*** ./src/js/blocks/utils/sanitize-svg/index.js ***!
@@ -1801,6 +3171,20 @@ module.exports = window["wp"]["editor"];
 
 /***/ },
 
+<<<<<<< Updated upstream
+=======
+/***/ "@wordpress/element"
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+(module) {
+
+"use strict";
+module.exports = window["wp"]["element"];
+
+/***/ },
+
+>>>>>>> Stashed changes
 /***/ "@wordpress/hooks"
 /*!*******************************!*\
   !*** external ["wp","hooks"] ***!
@@ -12370,6 +13754,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
 /* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _js_blocks_pattern_importer_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/blocks/pattern-importer/index.js */ "./src/js/blocks/pattern-importer/index.js");
+<<<<<<< Updated upstream
 /* harmony import */ var _js_blocks_components_ContainerIcon_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/blocks/components/ContainerIcon.js */ "./src/js/blocks/components/ContainerIcon.js");
 /* harmony import */ var _js_blocks_components_ReplaceIcon_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/blocks/components/ReplaceIcon.js */ "./src/js/blocks/components/ReplaceIcon.js");
 /* harmony import */ var _js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/blocks/utils/BlockTypes.js */ "./src/js/blocks/utils/BlockTypes.js");
@@ -12377,6 +13762,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_blocks_commands_utils_blockTransforms_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/blocks/commands/utils/blockTransforms.js */ "./src/js/blocks/commands/utils/blockTransforms.js");
 /* harmony import */ var _js_blocks_utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/blocks/utils/svgAssetLibrary */ "./src/js/blocks/utils/svgAssetLibrary.js");
 /* harmony import */ var _js_blocks_commands_components_modals_SaveSVGToAssetLibraryModal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal */ "./src/js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal.js");
+=======
+/* harmony import */ var _js_blocks_utils_pastePattern_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/blocks/utils/pastePattern.js */ "./src/js/blocks/utils/pastePattern.js");
+/* harmony import */ var _js_blocks_components_ContainerIcon_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/blocks/components/ContainerIcon.js */ "./src/js/blocks/components/ContainerIcon.js");
+/* harmony import */ var _js_blocks_components_ReplaceIcon_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/blocks/components/ReplaceIcon.js */ "./src/js/blocks/components/ReplaceIcon.js");
+/* harmony import */ var _js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/blocks/utils/BlockTypes.js */ "./src/js/blocks/utils/BlockTypes.js");
+/* harmony import */ var _js_blocks_utils_ReplaceUniqueIds_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/blocks/utils/ReplaceUniqueIds.js */ "./src/js/blocks/utils/ReplaceUniqueIds.js");
+/* harmony import */ var _js_blocks_commands_utils_blockTransforms_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/blocks/commands/utils/blockTransforms.js */ "./src/js/blocks/commands/utils/blockTransforms.js");
+/* harmony import */ var _js_blocks_utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/blocks/utils/svgAssetLibrary */ "./src/js/blocks/utils/svgAssetLibrary.js");
+/* harmony import */ var _js_blocks_commands_components_modals_SaveSVGToAssetLibraryModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal */ "./src/js/blocks/commands/components/modals/SaveSVGToAssetLibraryModal.js");
+>>>>>>> Stashed changes
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -12407,6 +13802,10 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 var UnGroupIcon = function UnGroupIcon(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
@@ -12514,7 +13913,11 @@ var ClearIcon = function ClearIcon(props) {
       // If a block is selected, add toolbar option to wrap container.
       if (clientIds.length > 0) {
         return /*#__PURE__*/React.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_2__.PluginBlockSettingsMenuItem, {
+<<<<<<< Updated upstream
           icon: /*#__PURE__*/React.createElement(_js_blocks_components_ContainerIcon_js__WEBPACK_IMPORTED_MODULE_6__["default"], null),
+=======
+          icon: /*#__PURE__*/React.createElement(_js_blocks_components_ContainerIcon_js__WEBPACK_IMPORTED_MODULE_7__["default"], null),
+>>>>>>> Stashed changes
           label: "Wrap in Container",
           onClick: function onClick() {
             if (selectedBlockCount > 1) {
@@ -12561,16 +13964,27 @@ var ClearIcon = function ClearIcon(props) {
       var name = selectedBlock.name;
 
       // If name contains `generateblocks`, proceed.
+<<<<<<< Updated upstream
       if (!_js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_8__.v1Blocks.includes(name) && !_js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_8__.v2Blocks.includes(name)) {
+=======
+      if (!_js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_9__.v1Blocks.includes(name) && !_js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_9__.v2Blocks.includes(name)) {
+>>>>>>> Stashed changes
         return null;
       }
 
       // If more than one block is selected, add toolbar option to replace the Unique ID.
       return /*#__PURE__*/React.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_2__.PluginBlockSettingsMenuItem, {
+<<<<<<< Updated upstream
         icon: /*#__PURE__*/React.createElement(_js_blocks_components_ReplaceIcon_js__WEBPACK_IMPORTED_MODULE_7__["default"], null),
         label: "Generate New Unique IDs",
         onClick: function onClick() {
           var newBlock = (0,_js_blocks_utils_ReplaceUniqueIds_js__WEBPACK_IMPORTED_MODULE_9__.replaceUniqueIds)(selectedBlock); // This gets the selected block and all innerBlocks.
+=======
+        icon: /*#__PURE__*/React.createElement(_js_blocks_components_ReplaceIcon_js__WEBPACK_IMPORTED_MODULE_8__["default"], null),
+        label: "Generate New Unique IDs",
+        onClick: function onClick() {
+          var newBlock = (0,_js_blocks_utils_ReplaceUniqueIds_js__WEBPACK_IMPORTED_MODULE_10__.replaceUniqueIds)(selectedBlock); // This gets the selected block and all innerBlocks.
+>>>>>>> Stashed changes
           replaceBlocks(selectedBlock.clientId, newBlock);
         }
       });
@@ -12601,7 +14015,11 @@ var ClearIcon = function ClearIcon(props) {
       var name = selectedBlock.name;
 
       // If name contains `generateblocks`, proceed.
+<<<<<<< Updated upstream
       if (!_js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_8__.v2Blocks.includes(name)) {
+=======
+      if (!_js_blocks_utils_BlockTypes_js__WEBPACK_IMPORTED_MODULE_9__.v2Blocks.includes(name)) {
+>>>>>>> Stashed changes
         return null;
       }
 
@@ -12725,7 +14143,11 @@ var ClearIcon = function ClearIcon(props) {
         return selectStore('core/block-editor').getSelectedBlockCount();
       }, []);
       var canManageLibrary = typeof mrshortcutsgbPatternInserter !== 'undefined' && 'true' === mrshortcutsgbPatternInserter.isProActive && 'true' === mrshortcutsgbPatternInserter.canManageAssetLibrary;
+<<<<<<< Updated upstream
       var svgMarkup = (0,_js_blocks_utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_11__.extractSvgFromBlock)(selectedBlock);
+=======
+      var svgMarkup = (0,_js_blocks_utils_svgAssetLibrary__WEBPACK_IMPORTED_MODULE_12__.extractSvgFromBlock)(selectedBlock);
+>>>>>>> Stashed changes
       var showMenuItem = canManageLibrary && selectedBlockCount === 1 && selectedBlock !== null && !!svgMarkup;
       return /*#__PURE__*/React.createElement(React.Fragment, null, showMenuItem && /*#__PURE__*/React.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_2__.PluginBlockSettingsMenuItem, {
         icon: /*#__PURE__*/React.createElement(SaveLibraryIcon, null),
@@ -12734,7 +14156,11 @@ var ClearIcon = function ClearIcon(props) {
           setCapturedSvg(svgMarkup);
           setIsOpen(true);
         }
+<<<<<<< Updated upstream
       }), /*#__PURE__*/React.createElement(_js_blocks_commands_components_modals_SaveSVGToAssetLibraryModal__WEBPACK_IMPORTED_MODULE_12__["default"], {
+=======
+      }), /*#__PURE__*/React.createElement(_js_blocks_commands_components_modals_SaveSVGToAssetLibraryModal__WEBPACK_IMPORTED_MODULE_13__["default"], {
+>>>>>>> Stashed changes
         isOpen: isOpen,
         onClose: function onClose() {
           return setIsOpen(false);
@@ -12763,6 +14189,7 @@ var ClearIcon = function ClearIcon(props) {
       if (typeof mrshortcutsgbPatternInserter !== 'undefined' && 'false' === (mrshortcutsgbPatternInserter.enableV1Transformations || 'false')) {
         return null;
       }
+<<<<<<< Updated upstream
       if (!(0,_js_blocks_commands_utils_blockTransforms_js__WEBPACK_IMPORTED_MODULE_10__.hasV1BlockInSubtree)(selectedBlock)) {
         return null;
       }
@@ -12771,6 +14198,16 @@ var ClearIcon = function ClearIcon(props) {
         label: "Convert v1 Blocks to v2",
         onClick: function onClick() {
           ;(0,_js_blocks_commands_utils_blockTransforms_js__WEBPACK_IMPORTED_MODULE_10__.transformBlockSubtreeFromContext)(selectedBlock, _wordpress_data__WEBPACK_IMPORTED_MODULE_3__.select, dispatch);
+=======
+      if (!(0,_js_blocks_commands_utils_blockTransforms_js__WEBPACK_IMPORTED_MODULE_11__.hasV1BlockInSubtree)(selectedBlock)) {
+        return null;
+      }
+      return /*#__PURE__*/React.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_2__.PluginBlockSettingsMenuItem, {
+        icon: /*#__PURE__*/React.createElement(_js_blocks_components_ReplaceIcon_js__WEBPACK_IMPORTED_MODULE_8__["default"], null),
+        label: "Convert v1 Blocks to v2",
+        onClick: function onClick() {
+          ;(0,_js_blocks_commands_utils_blockTransforms_js__WEBPACK_IMPORTED_MODULE_11__.transformBlockSubtreeFromContext)(selectedBlock, _wordpress_data__WEBPACK_IMPORTED_MODULE_3__.select, dispatch);
+>>>>>>> Stashed changes
         }
       });
     }

@@ -10,5 +10,9 @@
 		'wp-i18n',
 		'wp-plugins'
 	),
+<<<<<<< Updated upstream
 	'version' => '6355ad15c13b88c7953e'
+=======
+	'version' => 'cb3f97b6e4519a1f8280'
+>>>>>>> Stashed changes
 );
