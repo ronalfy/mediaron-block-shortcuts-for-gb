@@ -24,7 +24,7 @@ Draws an outline around GenerateBlocks Containers and Elements in the editor so 
 
 **GenerateBlocks: Convert v1 Blocks to v2 (Experimental)**
 
-Appears only when **Enable v1 Transformations Block Command** is on.
+Appears only when **Enable v1 to v2 conversion** is on.
 
 Converts every GenerateBlocks 1.x block in the current post to 2.x. A confirmation box asks you to check **I understand and want to proceed** before it runs.
 

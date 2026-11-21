@@ -51,9 +51,11 @@ The suffix shows in the block inserter, slash commands, List View, and block nav
 
 Text added to the end of each GenerateBlocks block title. The default is `(GB)`, which displays as **Container (GB)**. A space is inserted automatically. Leave the field blank to add no suffix.
 
-### Enable v1 Transformations Block Command
+### Enable v1 to v2 conversion
 
 Turn this on to convert GenerateBlocks 1.x blocks to 2.x blocks.
+
+A notice under this option says the conversion is experimental and is only needed when both version 1 and version 2 blocks are present.
 
 When it is on, you can:
 

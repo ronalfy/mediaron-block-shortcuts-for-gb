@@ -246,11 +246,11 @@ const Interface = ( props ) => {
 									render={ ( { field: { onChange } } ) => (
 										<ToggleControl
 											label={ __(
-												'Enable v1 Transformations Block Command',
+												'Enable v1 to v2 conversion',
 												'mediaron-block-shortcuts-for-gb'
 											) }
 											help={ __(
-												'Enable a command in the block editor to transform GenerateBlocks 1.x blocks to 2.x blocks.',
+												'Shows the experimental conversion in the command palette and in the block options menu when a selected block contains 1.x blocks.',
 												'mediaron-block-shortcuts-for-gb'
 											) }
 											checked={ getValues( 'enableV1Transformations' ) }
@@ -259,6 +259,18 @@ const Interface = ( props ) => {
 											} }
 										/>
 									) }
+								/>
+							</div>
+							<div className="dlx-admin__row">
+								<Notice
+									message={ __(
+										'This command is experimental. It is only needed when both version 1 and version 2 blocks are present.',
+										'mediaron-block-shortcuts-for-gb'
+									) }
+									status="warning"
+									politeness="assertive"
+									inline={ true }
+									icon={ () => <AlertCircle strokeWidth={ 2.5 } /> }
 								/>
 							</div>
 							<div className="dlx-admin__row">
