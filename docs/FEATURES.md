@@ -6,7 +6,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 
 | Capability | GenerateBlocks (free) | GenerateBlocks Pro |
 | --- | --- | --- |
-| Settings screen, Adobe fonts, markdown, styles post types, auto-regen, v1/v2 tools, commands, Pattern Inserter, paste pattern processing | Yes | Yes |
+| Settings screen, Adobe fonts, markdown, styles post types, auto-regen, v1/v2 tools, commands, Pattern Inserter | Yes | Yes |
 | Hide GenerateBlocks admin-bar items | Soft (no-op if Pro menu absent) | Yes |
 | Replace Overlay Panels admin-bar menu with full GenerateBlocks menu | — | Yes |
 
@@ -28,7 +28,6 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 | `v1CategoryLabel` / `v2CategoryLabel` | GenerateBlocks v1 / v2 | Inserter category titles. `Blocks::add_block_categories()` applies them. Its guard is the constant `true`, so the saved titles rename categories while `enableV1Blocks` is false. The fields are on the Block Identification Helpers panel and show while that toggle is on |
 | `v1BlockSuffix` / `v2BlockSuffix` | `(v1)` / `(v2)` | Appended after the block title while `enableV1Blocks` is on, and after the GenerateBlocks suffix when identification is also on |
 | `enableFrontendCommandPalette` | `false` | Loads command palette assets on the frontend for administrators (WordPress 6.9+) |
-| `enablePastePatternProcessing` | `false` | On paste of block markup, sideload remote images and regenerate GenerateBlocks unique IDs before insert |
 | `disablePatternLibrary` | `false` | When true, `generateblocks_enable_pattern_library` returns false so the editor Pattern Library button is not loaded |
 | `disablePatternInserter` | `false` | When true, unregisters the Pattern Inserter block and hides the Import Pattern command |
 
@@ -78,13 +77,7 @@ Also registered:
 
 - Block: `mediaron/mrshortcuts-pattern-inserter`
 - Paste pattern markup, sideload remote images via REST `POST mediaron/block-shortcuts-for-gb/v1/process_image`, regenerate unique IDs.
-- **Option:** `disablePatternInserter` (default `false`). When true, the block is unregistered and the Import Pattern command is hidden. Paste pattern processing is unchanged.
-
-## Paste pattern processing
-
-- **Option:** `enablePastePatternProcessing` (default `false`), Block Settings.
-- When on, pasting WordPress block markup (`<!-- wp:`) that includes GenerateBlocks blocks regenerates `uniqueId` values and matching `css` selectors before the blocks are inserted. Synced patterns (`core/block`) are left unchanged. Remote images are downloaded first, and that download is shown in a dialog.
-- Shared helper: `processPatternMarkup` in `src/js/blocks/utils/processPattern.js`. Paste and the Import Pattern command both call it.
+- **Option:** `disablePatternInserter` (default `false`). When true, the block is unregistered and the Import Pattern command is hidden.
 
 ## Asset Library capture (Pro)
 

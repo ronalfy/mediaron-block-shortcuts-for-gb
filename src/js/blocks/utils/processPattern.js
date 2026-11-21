@@ -1,7 +1,7 @@
 /**
  * Download remote images in block markup and regenerate GenerateBlocks unique IDs.
  *
- * Paste handling and a later command can both call `processPatternMarkup`.
+ * The Pattern Inserter and the Import Pattern command call `processPatternMarkup`.
  */
 
 import { parse } from '@wordpress/blocks';

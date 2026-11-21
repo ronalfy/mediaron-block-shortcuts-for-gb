@@ -54,7 +54,6 @@ Stored under option key **`mrshortcutsgb_options`** (site option on multisite). 
 | --- | --- | --- |
 | `enableAdobeFonts` | bool | `true` |
 | `enableMarkdownToHeadlineBlock` | bool | `false` |
-| `enablePastePatternProcessing` | bool | `false` |
 | `disablePatternLibrary` | bool | `false` |
 | `disablePatternInserter` | bool | `false` |
 | `enabledPostTypes` | object | `{ post: true, page: true }` |
@@ -102,19 +101,19 @@ Namespace: `mediaron/block-shortcuts-for-gb/v1`
 
 | Route | Method | Purpose |
 | --- | --- | --- |
-| `/process_image` | POST | Sideload a remote image for the Pattern Inserter, paste pattern processing, and the Import Pattern command |
+| `/process_image` | POST | Sideload a remote image for the Pattern Inserter and the Import Pattern command |
 | `/regenerate_css_files` | POST | Clear `generateblocks_dynamic_css_posts`; Pro calls `GenerateBlocks_Pro_Enqueue_Styles::build_css()` |
 | `/asset_icon_groups` | GET | Unique group names from `generateblocks_svg_icons` (Pro) |
 | `/save_asset_icon` | POST | Append one icon to `generateblocks_svg_icons` (Pro); reuse an existing group item when the SVG markup already matches. Sanitizes via Safe SVG when present, else Pro’s `unfiltered_html` / `generateblocks_pro_kses_svg()` path. |
 
-`/process_image` uses `Blocks::rest_image_sideload_permissions` (`upload_files` and `publish_posts`). The Pattern Inserter, paste pattern processing, and the Import Pattern command all call it. Import Pattern passes `restUrl` and `restNonce` into `processPatternMarkup`; paste falls back to `mrshortcutsgbPatternInserter`. `/regenerate_css_files`, `/asset_icon_groups`, and `/save_asset_icon` require `manage_options`. Asset Library routes return 400 when GenerateBlocks Pro is inactive.
+`/process_image` uses `Blocks::rest_image_sideload_permissions` (`upload_files` and `publish_posts`). The Pattern Inserter and the Import Pattern command call it through `processPatternMarkup`. `/regenerate_css_files`, `/asset_icon_groups`, and `/save_asset_icon` require `manage_options`. Asset Library routes return 400 when GenerateBlocks Pro is inactive.
 
 ## Localized script globals
 
 | Global | Script | Contents |
 | --- | --- | --- |
 | `mrshortcutsgbAdmin` | Admin settings | Nonces, `ajaxurl`, post type list, `isProActive` |
-| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags (including `enablePastePatternProcessing` and `disablePatternInserter`), REST URL/nonce, v1/v2 suffix strings, `isProActive`, `canManageAssetLibrary`, `canSideloadImages` |
+| `mrshortcutsgbPatternInserter` | Editor / pattern tools | Options flags (including `disablePatternInserter`), REST URL/nonce, v1/v2 suffix strings, `isProActive`, `canManageAssetLibrary`, `canSideloadImages` |
 | `mrshortcutsgbCommands` | Block-editor commands | `isProActive`, `restUrl`, `restNonce`, `canSideloadImages`, `disablePatternInserter` |
 
 ## Coding standards
