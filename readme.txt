@@ -2,7 +2,7 @@
 Tags: blocks, gutenberg, helpers, add-ons, gutenberg blocks
 Requires at least: 7.0
 Tested up to: 7.1
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,15 +13,15 @@ Enhance your GB experience with Block Shortcuts for GenerateBlocks, featuring a 
 
 MediaRon Block Shortcuts for GenerateBlocks is an add-on for <a href="https://generatepress.com/">GenerateBlocks</a> that brings additional functionality and enhancements to your block editing experience. Key features include:
 
-1. **Pattern Importer**: Easily import remote patterns, including all images and unique IDs, ensuring no style conflicts. This can work on paste if enabled in the admin settings, and also via a command.
+1. **Pattern Importer**: Easily import remote patterns, including all images and unique IDs, ensuring no style conflicts. Import from the Pattern Importer block or the Import Pattern command.
 2. **Version 1 to Version 2 Blocks Converter**: Stuck on an old v1 site? Convert v1 to v2 blocks with a quick transform, or surgically behind a useful contextual menu shortcut.
 3. **Adobe Font Support**: Integrate Adobe Fonts from popular font plugins like <a href="https://wordpress.org/plugins/custom-typekit-fonts/">Astra’s Typekit plugin</a> and <a href="https://creativethemes.com/blocksy/docs/extensions/adobe-typekit-fonts/">Blocksy’s Adobe Font module</a>.
 4. **Container Block Wrapping and Unwrapping**: Select multiple blocks and wrap them in a Container block with ease. Just as easily, you can unwrap the container via a contextual shortcut.
 5. **Transform the Group block to a Container**: Convert Group blocks into Container blocks, maintaining all internal blocks.
 6. **Transform the Columns block to a Grid**: Convert columns to a GenerateBlocks grid using a useful transform.
-7. **Command Palette Shortcuts**: Access GenerateBlocks settings quickly with shortcut commands in the block editor’s Command Palette. This includes a post-wide v1 to v2 block conversion shortcut. Other commands allow for quick regeneration of GenerateBlocks styles, and a command for outlining different blocks such as grids and containers. Add SVGs to the asset libary. Generate new unique IDs for the entire page.
-9. **Unique ID Generation**: Avoid style conflicts by generating new unique IDs for duplicated or copied blocks. This is still very useful today.
-9. **Build Styles for Select Post Types and Templates**: Have GenerateBlocks regenerate site-wide styles based on your selected post types or FSE templates.
+7. **Command Palette Shortcuts**: Access GenerateBlocks settings quickly with shortcut commands in the block editor’s Command Palette. This includes a post-wide v1 to v2 block conversion shortcut, a command for outlining blocks such as grids and containers, adding SVGs to the asset library, and generating new unique IDs for the entire page.
+8. **Unique ID Generation**: Avoid style conflicts by generating new unique IDs for duplicated or copied blocks. This is still very useful today.
+9. **Styles for Select Post Types and Templates**: Choose which post types GenerateBlocks styles run on, including posts, pages, and FSE templates.
 10. **Useful Block Commands**: Convert all paragraph blocks into Text blocks (with paragraphs being selected) as well as converting all headlines into a Text block with appropriate headings selected.
 11. **Add a Global Menu Toolbar Shortcut**: The current admin bar only shows overlays. With Block Shortcuts, you can see all available menu items from a top-level admin menu in the toolbar in both the admin and the frontend.
 12. **SVG Asset Libary** Add an SVG to the asset library without leaving the post. This works via a contextual menu or the command palette.
@@ -89,9 +89,18 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 6. Useful commands for outlining all Container and Grid blocks, converting v1 to v2, and converting all paragraph and headlines to Text blocks.
 7. Admin Menu Bar shortcuts allow you to quickly access your favorite section of GenerateBlocks directly from the toolbar.
 8. Useful admin settings such as showing v1 and v2 blocks together with different labels. Also markdown to the Text block is very useful.
-9. Generate new GB styles when a post type is updated or inserted, such as with FSE templates and template parts.
+9. Choose which post types GenerateBlocks styles run on, including posts, pages, and templates.
 
 == Changelog ==
+
+= 1.3.0 =
+* Released 2026-11-21
+* New: Identify GenerateBlocks blocks with a suffix in the inserter, slash commands, List View, and block navigation. This makes it easier to tell what is a GB block when you have competing or overlapping block plugins.
+* New: Version suffixes and custom inserter category titles when 1.x and 2.x blocks are both visible.
+* New: Option to hide the Pattern Inserter block and the Import Pattern command.
+* New: Documentation link on the Shortcuts settings screen.
+* Removed: Paste-to-import. Use the Pattern Inserter or Import Pattern command instead.
+* Removed: Frontend command palette, Generate CSS Files, and auto-regenerate styles on save. GenerateBlocks 2.5 builds block CSS when a page loads. Post Type Styles is unchanged.
 
 = 1.2.2 =
 * Released 2026-11-17
@@ -113,5 +122,5 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Upgrade Notice ==
 
-= 1.2.2 =
-Added an option to disable the new Pattern Library block editor button for GenerateBlocks.
+= 1.3.0 =
+Removes the frontend command palette, Generate CSS Files, and auto-regenerate on save. GenerateBlocks 2.5 already builds block CSS on page load. Adds block identification labels and an option to hide the Pattern Inserter. Paste-to-import is removed.
