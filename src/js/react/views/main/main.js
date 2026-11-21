@@ -10,7 +10,7 @@ import {
 import { __ } from '@wordpress/i18n';
 import { useForm, Controller, useWatch, useFormState } from 'react-hook-form';
 import { useAsyncResource } from 'use-async-resource';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, Info } from 'lucide-react';
 
 // Local imports.
 import SendCommand from '../../utils/SendCommand';
@@ -68,6 +68,8 @@ const Interface = ( props ) => {
 			v2CategoryLabel: data.v2CategoryLabel,
 			v1BlockSuffix: data.v1BlockSuffix,
 			v2BlockSuffix: data.v2BlockSuffix,
+			identifyGenerateBlocks: data.identifyGenerateBlocks || false,
+			generateBlocksSuffix: data.generateBlocksSuffix ?? '(GB)',
 			adminMenuBar: data.adminMenuBar || {
 				enabled: true,
 				replaceWithFullMenu: false,
@@ -92,50 +94,6 @@ const Interface = ( props ) => {
 						<div className="gblocks-dashboard-panel-row-wrapper">
 							<div className="dlx-admin__row">
 								<Controller
-									name="enableV1Transformations"
-									control={ control }
-									render={ ( { field: { onChange } } ) => (
-										<ToggleControl
-											label={ __(
-												'Enable v1 Transformations Block Command',
-												'mediaron-block-shortcuts-for-gb'
-											) }
-											help={ __(
-												'Enable a command in the block editor to transform GenerateBlocks 1.x blocks to 2.x blocks.',
-												'mediaron-block-shortcuts-for-gb'
-											) }
-											checked={ getValues( 'enableV1Transformations' ) }
-											onChange={ ( boolValue ) => {
-												onChange( boolValue );
-											} }
-										/>
-									) }
-								/>
-							</div>
-							<div className="dlx-admin__row">
-								<Controller
-									name="enableV1Blocks"
-									control={ control }
-									render={ ( { field: { onChange } } ) => (
-										<ToggleControl
-											label={ __(
-												'Enable v1 and v2 Blocks (Both Visible)',
-												'mediaron-block-shortcuts-for-gb'
-											) }
-											checked={ getValues( 'enableV1Blocks' ) }
-											help={ __(
-												'Enable the use of v1 blocks in the block editor. This can help with the migration from GenerateBlocks 1.x to 2.x.',
-												'mediaron-block-shortcuts-for-gb'
-											) }
-											onChange={ ( boolValue ) => {
-												onChange( boolValue );
-											} }
-										/>
-									) }
-								/>
-							</div>
-							<div className="dlx-admin__row">
-								<Controller
 									name="enableFrontendCommandPalette"
 									control={ control }
 									render={ ( { field: { onChange } } ) => (
@@ -153,90 +111,6 @@ const Interface = ( props ) => {
 									) }
 								/>
 							</div>
-							{ getValues( 'enableV1Blocks' ) && (
-								<>
-									<div className="dlx-admin__row">
-										<div className="dlx-admin__row">
-											<Controller
-												name="v1CategoryLabel"
-												control={ control }
-												render={ ( { field: { onChange } } ) => (
-													<TextControl
-														label={ __( 'v1 Category Label', 'mediaron-block-shortcuts-for-gb' ) }
-														value={ getValues( 'v1CategoryLabel' ) }
-														onChange={ ( textValue ) => {
-															onChange( textValue );
-														} }
-														help={ __(
-															'This label will be the category label for v1 blocks. These will be displayed towards the end of the category list.',
-															'mediaron-block-shortcuts-for-gb'
-														) }
-													/>
-												) }
-											/>
-										</div>
-									</div>
-									<div className="dlx-admin__row">
-										<div className="dlx-admin__row">
-											<Controller
-												name="v2CategoryLabel"
-												control={ control }
-												render={ ( { field: { onChange } } ) => (
-													<TextControl
-														label={ __( 'v2 Category Label', 'mediaron-block-shortcuts-for-gb' ) }
-														value={ getValues( 'v2CategoryLabel' ) }
-														onChange={ ( textValue ) => {
-															onChange( textValue );
-														} }
-														help={ __(
-															'This label will be the category label for v2 blocks. These will be displayed towards the beginning of the category list.',
-															'mediaron-block-shortcuts-for-gb'
-														) }
-													/>
-												) }
-											/>
-										</div>
-									</div>
-									<div className="dlx-admin__row">
-										<Controller
-											name="v1BlockSuffix"
-											control={ control }
-											render={ ( { field: { onChange } } ) => (
-												<TextControl
-													label={ __( 'v1 Block Suffix', 'mediaron-block-shortcuts-for-gb' ) }
-													value={ getValues( 'v1BlockSuffix' ) }
-													onChange={ ( textValue ) => {
-														onChange( textValue );
-													} }
-													help={ __(
-														'This suffix will be added to the end of the block name for v1 blocks. Leave blank to not add a suffix.',
-														'mediaron-block-shortcuts-for-gb'
-													) }
-												/>
-											) }
-										/>
-									</div>
-									<div className="dlx-admin__row">
-										<Controller
-											name="v2BlockSuffix"
-											control={ control }
-											render={ ( { field: { onChange } } ) => (
-												<TextControl
-													label={ __( 'v2 Block Suffix', 'mediaron-block-shortcuts-for-gb' ) }
-													value={ getValues( 'v2BlockSuffix' ) }
-													onChange={ ( textValue ) => {
-														onChange( textValue );
-													} }
-													help={ __(
-														'This suffix will be added to the end of the block name for v2 blocks. Leave blank to not add a suffix.',
-														'mediaron-block-shortcuts-for-gb'
-													) }
-												/>
-											) }
-										/>
-									</div>
-								</>
-							) }
 							<div className="dlx-admin__row">
 								<Controller
 									name="enableMarkdownToHeadlineBlock"
@@ -312,6 +186,234 @@ const Interface = ( props ) => {
 									) }
 								/>
 							</div>
+						</div>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Block Identification Helpers', 'mediaron-block-shortcuts-for-gb' ) }
+						initialOpen={ true }
+					>
+						<div className="gblocks-dashboard-panel-row-wrapper">
+							<div className="dlx-admin__row">
+								<Controller
+									name="identifyGenerateBlocks"
+									control={ control }
+									render={ ( { field: { onChange } } ) => (
+										<ToggleControl
+											label={ __(
+												'Identify GenerateBlocks Blocks',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+											checked={ getValues( 'identifyGenerateBlocks' ) }
+											help={ __(
+												'Add a suffix to GenerateBlocks block titles in the inserter, slash commands, List View, and block navigation. This works while 1.x blocks are hidden.',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+											onChange={ ( boolValue ) => {
+												onChange( boolValue );
+											} }
+										/>
+									) }
+								/>
+							</div>
+							{ getValues( 'identifyGenerateBlocks' ) && (
+								<div className="dlx-admin__row">
+									<Controller
+										name="generateBlocksSuffix"
+										control={ control }
+										render={ ( { field: { onChange } } ) => (
+											<TextControl
+												label={ __(
+													'GenerateBlocks Suffix',
+													'mediaron-block-shortcuts-for-gb'
+												) }
+												value={ getValues( 'generateBlocksSuffix' ) }
+												onChange={ ( textValue ) => {
+													onChange( textValue );
+												} }
+												help={ __(
+													'Added to the end of each GenerateBlocks block title. A space is inserted automatically. The default is (GB). Leave blank to add no suffix.',
+													'mediaron-block-shortcuts-for-gb'
+												) }
+											/>
+										) }
+									/>
+								</div>
+							) }
+							<div className="dlx-admin__row">
+								<Controller
+									name="enableV1Transformations"
+									control={ control }
+									render={ ( { field: { onChange } } ) => (
+										<ToggleControl
+											label={ __(
+												'Enable v1 to v2 conversion',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+											help={ __(
+												'Shows the experimental conversion in the command palette and in the block options menu when a selected block contains 1.x blocks.',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+											checked={ getValues( 'enableV1Transformations' ) }
+											onChange={ ( boolValue ) => {
+												onChange( boolValue );
+											} }
+										/>
+									) }
+								/>
+							</div>
+							<div className="dlx-admin__row">
+								<Notice
+									message={ __(
+										'This command is experimental. It is only needed when both version 1 and version 2 blocks are present.',
+										'mediaron-block-shortcuts-for-gb'
+									) }
+									status="warning"
+									politeness="assertive"
+									inline={ true }
+									icon={ () => <AlertCircle strokeWidth={ 2.5 } /> }
+								/>
+							</div>
+							<div className="dlx-admin__row">
+								<Controller
+									name="enableV1Blocks"
+									control={ control }
+									render={ ( { field: { onChange } } ) => (
+										<ToggleControl
+											label={ __(
+												'Enable v1 and v2 Blocks (Both Visible)',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+											checked={ getValues( 'enableV1Blocks' ) }
+											help={ __(
+												'Enable the use of v1 blocks in the block editor. This can help with the migration from GenerateBlocks 1.x to 2.x.',
+												'mediaron-block-shortcuts-for-gb'
+											) }
+											onChange={ ( boolValue ) => {
+												onChange( boolValue );
+											} }
+										/>
+									) }
+								/>
+							</div>
+							{ 'undefined' !== typeof mrshortcutsgbAdmin.gbUseV1Blocks && (
+								<div className="dlx-admin__row">
+									<Notice
+										message={
+											'true' === mrshortcutsgbAdmin.gbUseV1Blocks
+												? __(
+													'GenerateBlocks already has version 1 blocks enabled. Its inserter shows only version 1 blocks. Enable both v1 and v2 blocks with the toggle above.',
+													'mediaron-block-shortcuts-for-gb'
+												)
+												: __(
+													'GenerateBlocks has hidden v1 blocks because there are none present. Enabling this toggle shows both versions, which is typically used to help with the migration from GenerateBlocks 1.x to 2.x.',
+													'mediaron-block-shortcuts-for-gb'
+												)
+										}
+										status={ 'true' === mrshortcutsgbAdmin.gbUseV1Blocks ? 'info' : 'warning' }
+										politeness={ 'true' === mrshortcutsgbAdmin.gbUseV1Blocks ? 'polite' : 'assertive' }
+										inline={ true }
+										icon={ () => (
+											'true' === mrshortcutsgbAdmin.gbUseV1Blocks ? (
+												<Info strokeWidth={ 2.5 } />
+											) : (
+												<AlertCircle strokeWidth={ 2.5 } />
+											)
+										) }
+									/>
+								</div>
+							) }
+							<div className="dlx-admin__row">
+								<p className="description">
+									<strong>
+										{ __( 'Version labels', 'mediaron-block-shortcuts-for-gb' ) }
+									</strong>
+									<br />
+									{ __(
+										'Version suffixes are added when Enable v1 and v2 Blocks (Both Visible) is on, after the GenerateBlocks suffix, for example Container (GB) (v1). Saved category titles stay in place when that option is off.',
+										'mediaron-block-shortcuts-for-gb'
+									) }
+								</p>
+							</div>
+							{ getValues( 'enableV1Blocks' ) && (
+								<>
+									<div className="dlx-admin__row">
+										<Controller
+											name="v1CategoryLabel"
+											control={ control }
+											render={ ( { field: { onChange } } ) => (
+												<TextControl
+													label={ __( 'v1 Category Label', 'mediaron-block-shortcuts-for-gb' ) }
+													value={ getValues( 'v1CategoryLabel' ) }
+													onChange={ ( textValue ) => {
+														onChange( textValue );
+													} }
+													help={ __(
+														'This label will be the category label for v1 blocks. These will be displayed towards the end of the category list.',
+														'mediaron-block-shortcuts-for-gb'
+													) }
+												/>
+											) }
+										/>
+									</div>
+									<div className="dlx-admin__row">
+										<Controller
+											name="v2CategoryLabel"
+											control={ control }
+											render={ ( { field: { onChange } } ) => (
+												<TextControl
+													label={ __( 'v2 Category Label', 'mediaron-block-shortcuts-for-gb' ) }
+													value={ getValues( 'v2CategoryLabel' ) }
+													onChange={ ( textValue ) => {
+														onChange( textValue );
+													} }
+													help={ __(
+														'This label will be the category label for v2 blocks. These will be displayed towards the beginning of the category list.',
+														'mediaron-block-shortcuts-for-gb'
+													) }
+												/>
+											) }
+										/>
+									</div>
+									<div className="dlx-admin__row">
+										<Controller
+											name="v1BlockSuffix"
+											control={ control }
+											render={ ( { field: { onChange } } ) => (
+												<TextControl
+													label={ __( 'v1 Block Suffix', 'mediaron-block-shortcuts-for-gb' ) }
+													value={ getValues( 'v1BlockSuffix' ) }
+													onChange={ ( textValue ) => {
+														onChange( textValue );
+													} }
+													help={ __(
+														'Added after the 1.x block title, and after the GenerateBlocks suffix when that is also on. Leave blank to add no suffix.',
+														'mediaron-block-shortcuts-for-gb'
+													) }
+												/>
+											) }
+										/>
+									</div>
+									<div className="dlx-admin__row">
+										<Controller
+											name="v2BlockSuffix"
+											control={ control }
+											render={ ( { field: { onChange } } ) => (
+												<TextControl
+													label={ __( 'v2 Block Suffix', 'mediaron-block-shortcuts-for-gb' ) }
+													value={ getValues( 'v2BlockSuffix' ) }
+													onChange={ ( textValue ) => {
+														onChange( textValue );
+													} }
+													help={ __(
+														'Added after the 2.x block title, and after the GenerateBlocks suffix when that is also on. Leave blank to add no suffix.',
+														'mediaron-block-shortcuts-for-gb'
+													) }
+												/>
+											) }
+										/>
+									</div>
+								</>
+							) }
 						</div>
 					</PanelBody>
 					<PanelBody

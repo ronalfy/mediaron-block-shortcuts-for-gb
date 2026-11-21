@@ -3,8 +3,7 @@
 		'wp-blocks',
 		'wp-data',
 		'wp-element',
-		'wp-escape-html',
 		'wp-hooks'
 	),
-	'version' => '758ab8178de083f9f16a'
+	'version' => '627213df07ecf350a9ed'
 );

@@ -22,7 +22,8 @@ You need to be an Administrator. Other roles do not see this screen.
 
 | Panel | What it controls |
 | --- | --- |
-| [Block Settings](../settings/block-settings.md) | 1.x and 2.x blocks, the 1.x conversion command, category labels, block name suffixes, and the frontend command palette |
+| [Block Settings](../settings/block-settings.md) | The frontend command palette |
+| [Block Identification Helpers](../settings/block-settings.md#block-identification-helpers) | The 1.x conversion command, showing 1.x and 2.x blocks together, the GenerateBlocks suffix, version suffixes, and inserter category labels |
 | [Markdown](../settings/markdown-to-text.md) | The **Enable Markdown to Text Block** toggle, which sits in Block Settings |
 | [Post Type Styles](../settings/post-type-styles.md) | Which post types receive GenerateBlocks styles |
 | [Auto-Regenerate Styles on Save](../settings/auto-regenerate-styles.md) | Which post types clear GenerateBlocks CSS caches when saved |

@@ -47,6 +47,7 @@ class Options {
 			switch ( $key ) {
 				case 'enabled':
 				case 'enableFrontendCommandPalette':
+				case 'identifyGenerateBlocks':
 					$option = filter_var( $options[ $key ], FILTER_VALIDATE_BOOLEAN );
 					break;
 				case 'adminMenuBar':
@@ -130,6 +131,8 @@ class Options {
 			'v2CategoryLabel'               => 'GenerateBlocks v2',
 			'v1BlockSuffix'                 => '(v1)',
 			'v2BlockSuffix'                 => '(v2)',
+			'identifyGenerateBlocks'        => false,
+			'generateBlocksSuffix'          => '(GB)',
 			'adminMenuBar'                  => array(
 				'enabled'             => true,
 				'replaceWithFullMenu' => true,

@@ -486,6 +486,38 @@ html {
 		svg path {
 			fill: var(--mrshortcutsgb-admin--color-notice--warning-alt);
 		}
+
+		.mrshortcutsgb-admin__notice-icon svg.lucide {
+			color: currentColor;
+			stroke: currentColor;
+		}
+	}
+
+	// Inline notices zero the left padding, which pins the icon to the border.
+	&.mrshortcutsgb-admin__notice-appearance--inline.mrshortcutsgb-admin__notice--has-icon {
+
+		&.mrshortcutsgb-admin__notice-type--warning,
+		&.mrshortcutsgb-admin__notice-type--info {
+			.components-notice {
+				padding: 12px 16px;
+			}
+
+			.components-notice__content {
+				align-items: flex-start;
+				column-gap: 12px;
+			}
+
+			.mrshortcutsgb-admin__notice-icon {
+				display: flex;
+				margin: 1px 0 0;
+
+				svg.lucide {
+					width: 20px;
+					height: 20px;
+					stroke-width: 2.5;
+				}
+			}
+		}
 	}
 }
 

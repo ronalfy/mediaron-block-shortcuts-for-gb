@@ -278,18 +278,25 @@ class Admin {
 			}
 		}
 
+		$admin_script_data = array(
+			'getNonce'     => wp_create_nonce( 'mrshortcuts-gb-admin-get-options' ),
+			'saveNonce'    => wp_create_nonce( 'mrshortcuts-gb-admin-save-options' ),
+			'resetNonce'   => wp_create_nonce( 'mrshortcuts-gb-admin-reset-options' ),
+			'previewNonce' => wp_create_nonce( 'mrshortcuts-gb-admin-preview' ),
+			'ajaxurl'      => admin_url( 'admin-ajax.php' ),
+			'postTypes'    => $post_types,
+			'isProActive'  => Functions::is_generateblocks_pro_active(),
+		);
+
+		// Omit the flag when GenerateBlocks is inactive so the settings notice stays hidden.
+		if ( function_exists( 'generateblocks_use_v1_blocks' ) ) {
+			$admin_script_data['gbUseV1Blocks'] = \generateblocks_use_v1_blocks() ? 'true' : 'false';
+		}
+
 		wp_localize_script(
 			'mrshortcuts-gb-admin',
 			'mrshortcutsgbAdmin',
-			array(
-				'getNonce'     => wp_create_nonce( 'mrshortcuts-gb-admin-get-options' ),
-				'saveNonce'    => wp_create_nonce( 'mrshortcuts-gb-admin-save-options' ),
-				'resetNonce'   => wp_create_nonce( 'mrshortcuts-gb-admin-reset-options' ),
-				'previewNonce' => wp_create_nonce( 'mrshortcuts-gb-admin-preview' ),
-				'ajaxurl'      => admin_url( 'admin-ajax.php' ),
-				'postTypes'    => $post_types,
-				'isProActive'  => Functions::is_generateblocks_pro_active(),
-			)
+			$admin_script_data
 		);
 
 		// Enqueue admin styles.
