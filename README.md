@@ -8,17 +8,15 @@ MediaRon Block Shortcuts for GenerateBlocks is a companion plugin for [GenerateB
 - PHP 7.2 or later
 - [GenerateBlocks](https://wordpress.org/plugins/generateblocks/) (required)
 - GenerateBlocks Pro (optional; required for admin-bar menu replacement features)
-- WordPress 6.9+ for the frontend command palette option
 
 ## Features
 
 Settings live under **GenerateBlocks → Shortcuts**.
 
 - **Adobe Fonts** — Show Adobe Fonts (and Blocksy Adobe fonts when present) in the GenerateBlocks typography picker.
-- **Block settings** — Enable v1→v2 transform commands, show both v1 and v2 blocks with version suffixes, set inserter category titles, and optionally enable the frontend command palette for administrators.
+- **Block settings** — Enable v1→v2 transform commands, show both v1 and v2 blocks with version suffixes, and set inserter category titles.
 - **Markdown to Text** — Type `#` / `##` prefixes to insert GenerateBlocks Text blocks instead of core headings.
 - **Post type styles** — Choose which post types GenerateBlocks styles should run on.
-- **Auto-regenerate styles on save** — Clear GenerateBlocks CSS caches when selected post types are saved.
 - **Admin menu bar** — Hide or replace the GenerateBlocks Pro overlay admin-bar menu with a fuller GenerateBlocks menu (Pro).
 
 Always-on editor tools include wrap in container, generate unique IDs, clear v2 styles, unwrap container/grid, transform shape to link, contextual v1→v2 conversion, Pattern Inserter, and command-palette shortcuts.

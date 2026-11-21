@@ -125,7 +125,6 @@ const Interface = ( props ) => {
 			saveNonce: mrshortcutsgbAdmin.saveNonce,
 			resetNonce: mrshortcutsgbAdmin.resetNonce,
 			enabledPostTypes: data.enabledPostTypes,
-			autoRegenerateStylesPostTypes: data.autoRegenerateStylesPostTypes || {},
 			allowedGoogleFonts: data.allowedGoogleFonts,
 			enableMarkdownToHeadlineBlock: data.enableMarkdownToHeadlineBlock,
 			disablePatternLibrary: data.disablePatternLibrary || false,
@@ -142,7 +141,6 @@ const Interface = ( props ) => {
 				enabled: true,
 				replaceWithFullMenu: false,
 			},
-			enableFrontendCommandPalette: data.enableFrontendCommandPalette || false,
 		},
 	} );
 	const formValues = useWatch( { control } );
@@ -161,25 +159,6 @@ const Interface = ( props ) => {
 						initialOpen={ true }
 					>
 						<div className="gblocks-dashboard-panel-row-wrapper">
-							<div className="dlx-admin__row">
-								<Controller
-									name="enableFrontendCommandPalette"
-									control={ control }
-									render={ ( { field: { onChange } } ) => (
-										<ToggleControl
-											label={ __( 'Enable Frontend Command Palette', 'mediaron-block-shortcuts-for-gb' ) }
-											checked={ getValues( 'enableFrontendCommandPalette' ) }
-											help={ __(
-												'Enable the WordPress command palette (Ctrl/Cmd+K) on the frontend for logged-in administrators. Note: This requires WordPress 6.9+ and may have limitations. Search for GenerateBlocks for shortcuts.',
-												'mediaron-block-shortcuts-for-gb'
-											) }
-											onChange={ ( boolValue ) => {
-												onChange( boolValue );
-											} }
-										/>
-									) }
-								/>
-							</div>
 							<div className="dlx-admin__row">
 								<Controller
 									name="enableMarkdownToHeadlineBlock"
@@ -517,51 +496,6 @@ const Interface = ( props ) => {
 													onChange={ ( boolValue ) => {
 														setValue(
 															`enabledPostTypes[${ postTypeSlug }]`,
-															boolValue
-														);
-														onChange( boolValue );
-													} }
-												/>
-											) }
-										/>
-									);
-								} ) }
-							</div>
-						</div>
-					</PanelBody>
-					<PanelBody
-						title={ __( 'Auto-Regenerate Styles on Save', 'mediaron-block-shortcuts-for-gb' ) }
-						initialOpen={ true }
-					>
-						<div className="gblocks-dashboard-panel-row-wrapper">
-							<div className="dlx-admin__row">
-								<p className="description">
-									{ __(
-										'Select post types that should clear GenerateBlocks CSS caches when saved, so styles regenerate on the next page load. Useful for template parts and other shared content.',
-										'mediaron-block-shortcuts-for-gb'
-									) }
-								</p>
-							</div>
-							<div className="dlx-admin__row">
-								{ Object.values( mrshortcutsgbAdmin.postTypes ).map( ( postType ) => {
-									const postTypeSlug = postType.name;
-									return (
-										<Controller
-											key={ `auto-regen-${ postTypeSlug }` }
-											name={ `autoRegenerateStylesPostTypes[${ postTypeSlug }]` }
-											control={ control }
-											render={ ( { field: { onChange } } ) => (
-												<CheckboxControl
-													label={ postType.label }
-													className="dlx-admin__checkbox-control"
-													checked={
-														getValues(
-															`autoRegenerateStylesPostTypes[${ postTypeSlug }]`
-														) ?? false
-													}
-													onChange={ ( boolValue ) => {
-														setValue(
-															`autoRegenerateStylesPostTypes[${ postTypeSlug }]`,
 															boolValue
 														);
 														onChange( boolValue );

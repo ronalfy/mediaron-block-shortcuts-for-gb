@@ -17,10 +17,6 @@ module.exports = ( env ) => {
 					'./src/js/blocks/components/GBBlockLabels/index.js',
 				'mrshortcuts-gb-commands-block-editor':
 					'./src/js/blocks/commands/commands-block-editor.js',
-				'mrshortcuts-gb-commands-admin':
-					'./src/js/blocks/commands/commands-admin.js',
-				'mrshortcuts-gb-commands-frontend':
-					'./src/js/blocks/commands/commands-frontend.js',
 			},
 			mode: env.mode,
 			devtool: env.mode === 'development' ? 'source-map' : false,

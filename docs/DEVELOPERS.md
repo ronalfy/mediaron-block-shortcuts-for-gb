@@ -33,8 +33,6 @@ grunt            # optional zip
    - `index` ← `src/index.js`
    - `mrshortcuts-gb-block-labels`
    - `mrshortcuts-gb-commands-block-editor`
-   - `mrshortcuts-gb-commands-admin`
-   - `mrshortcuts-gb-commands-frontend`
 2. **Custom admin config** → `dist/`
    - `mrshortcuts-gb-admin` ← `src/js/react/views/main/index.js`
    - `mrshortcuts-gb-admin-css` ← `src/scss/admin.scss`
@@ -57,7 +55,6 @@ Stored under option key **`mrshortcutsgb_options`** (site option on multisite). 
 | `disablePatternLibrary` | bool | `false` |
 | `disablePatternInserter` | bool | `false` |
 | `enabledPostTypes` | object | `{ post: true, page: true }` |
-| `autoRegenerateStylesPostTypes` | object | `{}` |
 | `allowedGoogleFonts` | array | `[]` (unused in UI) |
 | `enableV1Transformations` | bool | `false` |
 | `enableV1Blocks` | bool | `false` |
@@ -69,7 +66,6 @@ Stored under option key **`mrshortcutsgb_options`** (site option on multisite). 
 | `generateBlocksSuffix` | string | `(GB)` |
 | `adminMenuBar.enabled` | bool | `true` |
 | `adminMenuBar.replaceWithFullMenu` | bool | `false` |
-| `enableFrontendCommandPalette` | bool | `false` |
 
 ## Extension points
 
@@ -102,11 +98,10 @@ Namespace: `mediaron/block-shortcuts-for-gb/v1`
 | Route | Method | Purpose |
 | --- | --- | --- |
 | `/process_image` | POST | Sideload a remote image for the Pattern Inserter and the Import Pattern command |
-| `/regenerate_css_files` | POST | Clear `generateblocks_dynamic_css_posts`; Pro calls `GenerateBlocks_Pro_Enqueue_Styles::build_css()` |
 | `/asset_icon_groups` | GET | Unique group names from `generateblocks_svg_icons` (Pro) |
 | `/save_asset_icon` | POST | Append one icon to `generateblocks_svg_icons` (Pro); reuse an existing group item when the SVG markup already matches. Sanitizes via Safe SVG when present, else Pro’s `unfiltered_html` / `generateblocks_pro_kses_svg()` path. |
 
-`/process_image` uses `Blocks::rest_image_sideload_permissions` (`upload_files` and `publish_posts`). The Pattern Inserter and the Import Pattern command call it through `processPatternMarkup`. `/regenerate_css_files`, `/asset_icon_groups`, and `/save_asset_icon` require `manage_options`. Asset Library routes return 400 when GenerateBlocks Pro is inactive.
+`/process_image` uses `Blocks::rest_image_sideload_permissions` (`upload_files` and `publish_posts`). The Pattern Inserter and the Import Pattern command call it through `processPatternMarkup`. `/asset_icon_groups` and `/save_asset_icon` require `manage_options`. Asset Library routes return 400 when GenerateBlocks Pro is inactive.
 
 ## Localized script globals
 
