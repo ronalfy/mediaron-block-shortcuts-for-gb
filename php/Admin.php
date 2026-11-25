@@ -89,7 +89,7 @@ class Admin {
 		$form_data = Functions::sanitize_array_recursive( wp_unslash( filter_input( INPUT_POST, 'formData', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY ) ) );
 
 		$nonce = isset( $form_data['saveNonce'] ) ? sanitize_text_field( $form_data['saveNonce'] ) : false;
-		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-save-options' ) || ! current_user_can( 'manage_options' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-save-options' ) || ! current_user_can( Functions::get_options_capability() ) ) {
 			wp_send_json_error(
 				array(
 					'message'     => __( 'Nonce or permission verification failed.', 'mediaron-block-shortcuts-for-gb' ),
@@ -144,7 +144,7 @@ class Admin {
 		$form_data = Functions::sanitize_array_recursive( wp_unslash( filter_input( INPUT_POST, 'formData', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY ) ) );
 
 		$nonce = isset( $form_data['resetNonce'] ) ? sanitize_text_field( $form_data['resetNonce'] ) : false;
-		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-reset-options' ) || ! current_user_can( 'manage_options' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-reset-options' ) || ! current_user_can( Functions::get_options_capability() ) ) {
 			wp_send_json_error(
 				array(
 					'message'     => __( 'Nonce or permission verification failed.', 'mediaron-block-shortcuts-for-gb' ),
@@ -191,7 +191,7 @@ class Admin {
 
 		// Verify nonce.
 		$nonce_action = 'mrshortcuts-gb-admin-get-options';
-		if ( ! wp_verify_nonce( $nonce, $nonce_action ) || ! current_user_can( 'manage_options' ) ) {
+		if ( ! wp_verify_nonce( $nonce, $nonce_action ) || ! current_user_can( Functions::get_options_capability() ) ) {
 			wp_send_json_error(
 				array(
 					'message'     => __( 'Nonce or permission verification failed.', 'mediaron-block-shortcuts-for-gb' ),
@@ -213,7 +213,7 @@ class Admin {
 			'generateblocks',
 			__( 'Shortcuts', 'mediaron-block-shortcuts-for-gb' ),
 			__( 'Shortcuts', 'mediaron-block-shortcuts-for-gb' ),
-			'manage_options',
+			Functions::get_options_capability(),
 			'mrshortcuts-gb',
 			array( $this, 'admin_page' ),
 			99

@@ -46,6 +46,22 @@ class Functions {
 	}
 
 	/**
+	 * Capability required to read or write plugin options.
+	 *
+	 * Network activation stores the option with update_site_option(). A site
+	 * administrator must not be able to change those shared values, including
+	 * the block colors other sites show in the editor.
+	 *
+	 * @return string
+	 */
+	public static function get_options_capability() {
+		if ( self::is_multisite() ) {
+			return 'manage_network_options';
+		}
+		return 'manage_options';
+	}
+
+	/**
 	 * Sanitize an attribute based on type.
 	 *
 	 * @param array  $attributes Array of attributes.
