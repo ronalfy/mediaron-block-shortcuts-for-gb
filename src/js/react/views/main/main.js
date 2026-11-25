@@ -100,7 +100,7 @@ function BlockColorPreview( { blockListColors } ) {
 					<TextBlockIcon />
 				</span>
 				<span className="mrshortcuts-gb-color-preview__slash-label">
-					{ __( 'Slash', 'mediaron-block-shortcuts-for-gb' ) }
+					{ __( 'Slash Command', 'mediaron-block-shortcuts-for-gb' ) }
 				</span>
 			</div>
 		</div>
