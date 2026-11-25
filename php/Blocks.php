@@ -975,8 +975,12 @@ class Blocks {
 		$css     = '';
 
 		// Hover rules in WordPress core use !important, so these do too.
+		// A long title with a suffix wraps and makes the row taller than the
+		// button. The list item is what fills that extra space.
 		if ( '' !== $background ) {
-			$css .= $item . ',' . $hover . ',' . $focus . '{background-color:' . $background . ';}';
+			$list_item = '.block-editor-block-types-list__list-item:has(' . $icon_in . ')';
+			$css      .= $list_item . ',' . $list_item . ':has(:hover),' . $list_item . ':has(:focus){background-color:' . $background . ';}';
+			$css      .= $item . ',' . $hover . ',' . $focus . '{background-color:' . $background . ';}';
 		}
 		if ( '' !== $text ) {
 			$css .= $item . ',' . $item . ' .block-editor-block-types-list__item-title{color:' . $text . ';}';
