@@ -1,8 +1,8 @@
 === MediaRon Block Shortcuts for GenerateBlocks ===
 Tags: blocks, gutenberg, helpers, add-ons, gutenberg blocks
 Requires at least: 7.0
-Tested up to: 7.1
-Stable tag: 1.3.0
+Tested up to: 7.2
+Stable tag: 1.4.0
 Requires PHP: 8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -93,6 +93,12 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 1.4.0 =
+* Released 2026-11-25
+* New: Added background color, text color, and icon color options so you can change the appearance of GB blocks in the list view.
+* New: Added icon color option to change the color of GB blocks in the "slash command" block inserter.
+* Fix: Permissions check for multisite users.
+
 = 1.3.0 =
 * Released 2026-11-21
 * New: Identify GenerateBlocks blocks with a suffix in the inserter, slash commands, List View, and block navigation. This makes it easier to tell what is a GB block when you have competing or overlapping block plugins.
@@ -122,5 +128,5 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Upgrade Notice ==
 
-= 1.3.0 =
-Removes the frontend command palette, Generate CSS Files, and auto-regenerate on save. GenerateBlocks 2.5 already builds block CSS on page load. Adds block identification labels and an option to hide the Pattern Inserter. Paste-to-import is removed.
+= 1.4.0 =
+Added background color, text color, and icon color options so you can change the appearance of GB blocks in the list view. Added icon color option to change the color of GB blocks in the "slash command" block inserter. Permissions check for multisite users.
