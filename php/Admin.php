@@ -89,7 +89,7 @@ class Admin {
 		$form_data = Functions::sanitize_array_recursive( wp_unslash( filter_input( INPUT_POST, 'formData', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY ) ) );
 
 		$nonce = isset( $form_data['saveNonce'] ) ? sanitize_text_field( $form_data['saveNonce'] ) : false;
-		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-save-options' ) || ! current_user_can( 'manage_options' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-save-options' ) || ! current_user_can( Functions::get_options_capability() ) ) {
 			wp_send_json_error(
 				array(
 					'message'     => __( 'Nonce or permission verification failed.', 'mediaron-block-shortcuts-for-gb' ),
@@ -144,7 +144,7 @@ class Admin {
 		$form_data = Functions::sanitize_array_recursive( wp_unslash( filter_input( INPUT_POST, 'formData', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY ) ) );
 
 		$nonce = isset( $form_data['resetNonce'] ) ? sanitize_text_field( $form_data['resetNonce'] ) : false;
-		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-reset-options' ) || ! current_user_can( 'manage_options' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'mrshortcuts-gb-admin-reset-options' ) || ! current_user_can( Functions::get_options_capability() ) ) {
 			wp_send_json_error(
 				array(
 					'message'     => __( 'Nonce or permission verification failed.', 'mediaron-block-shortcuts-for-gb' ),
@@ -191,7 +191,7 @@ class Admin {
 
 		// Verify nonce.
 		$nonce_action = 'mrshortcuts-gb-admin-get-options';
-		if ( ! wp_verify_nonce( $nonce, $nonce_action ) || ! current_user_can( 'manage_options' ) ) {
+		if ( ! wp_verify_nonce( $nonce, $nonce_action ) || ! current_user_can( Functions::get_options_capability() ) ) {
 			wp_send_json_error(
 				array(
 					'message'     => __( 'Nonce or permission verification failed.', 'mediaron-block-shortcuts-for-gb' ),
@@ -213,7 +213,7 @@ class Admin {
 			'generateblocks',
 			__( 'Shortcuts', 'mediaron-block-shortcuts-for-gb' ),
 			__( 'Shortcuts', 'mediaron-block-shortcuts-for-gb' ),
-			'manage_options',
+			Functions::get_options_capability(),
 			'mrshortcuts-gb',
 			array( $this, 'admin_page' ),
 			99
@@ -271,6 +271,7 @@ class Admin {
 			'ajaxurl'      => admin_url( 'admin-ajax.php' ),
 			'postTypes'    => $post_types,
 			'isProActive'  => Functions::is_generateblocks_pro_active(),
+			'colorPalette' => $this->get_color_palette(),
 		);
 
 		// Omit the flag when GenerateBlocks is inactive so the settings notice stays hidden.
@@ -292,6 +293,68 @@ class Admin {
 			array(),
 			$css_deps['version'],
 			'all'
+		);
+	}
+
+	/**
+	 * Swatches for the block color control.
+	 *
+	 * GenerateBlocks brand colors lead the list, then Ink and Paper.
+	 * Theme, default, and custom palette colors follow. Each hex is included once.
+	 *
+	 * @return array
+	 */
+	private function get_color_palette() {
+		$palette = array();
+		$seen    = array();
+
+		$this->add_palette_color( $palette, $seen, __( 'Blue', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-blue', '#1e72bd' );
+		$this->add_palette_color( $palette, $seen, __( 'Light Blue', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-light-blue', '#e8f0fe' );
+		$this->add_palette_color( $palette, $seen, __( 'Brand', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-brand', '#0e1120' );
+		$this->add_palette_color( $palette, $seen, __( 'Ink', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-ink', '#0c0e0f' );
+		$this->add_palette_color( $palette, $seen, __( 'Paper', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-paper', '#fafbff' );
+
+		if ( ! function_exists( 'wp_get_global_settings' ) ) {
+			return $palette;
+		}
+
+		foreach ( array( 'theme', 'default', 'custom' ) as $origin ) {
+			$colors = wp_get_global_settings( array( 'color', 'palette', $origin ) );
+			if ( ! is_array( $colors ) ) {
+				continue;
+			}
+			foreach ( $colors as $color ) {
+				if ( ! is_array( $color ) || empty( $color['color'] ) || ! is_string( $color['color'] ) ) {
+					continue;
+				}
+				$name = isset( $color['name'] ) ? (string) $color['name'] : '';
+				$slug = isset( $color['slug'] ) ? (string) $color['slug'] : '';
+				$this->add_palette_color( $palette, $seen, $name, $slug, $color['color'] );
+			}
+		}
+
+		return $palette;
+	}
+
+	/**
+	 * Append one unique hex swatch.
+	 *
+	 * @param array  $palette Palette being built.
+	 * @param array  $seen    Hex values already added.
+	 * @param string $name    Swatch name.
+	 * @param string $slug    Swatch slug.
+	 * @param string $color   Raw color.
+	 */
+	private function add_palette_color( &$palette, &$seen, $name, $slug, $color ) {
+		$hex = Options::sanitize_hex_color_value( $color );
+		if ( '' === $hex || isset( $seen[ $hex ] ) ) {
+			return;
+		}
+		$seen[ $hex ] = true;
+		$palette[]    = array(
+			'name'  => '' !== $name ? $name : $hex,
+			'slug'  => '' !== $slug ? $slug : sanitize_title( $hex ),
+			'color' => $hex,
 		);
 	}
 

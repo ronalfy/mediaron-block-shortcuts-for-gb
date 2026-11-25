@@ -30,7 +30,7 @@ See [Pattern Inserter](../editor/pattern-inserter.md) and [Command palette](../e
 
 Open **GenerateBlocks → Shortcuts** and use the **Block Identification Helpers** panel. Select **Save Options** when you are done. Open the editor again so the saved options apply.
 
-Saved block content is unchanged. These options change the titles shown in the editor, and whether 1.x and 2.x blocks are both available.
+Saved block content is unchanged. These options change how GenerateBlocks blocks are identified in the editor, and whether 1.x and 2.x blocks are both available.
 
 ### Identify GenerateBlocks Blocks
 
@@ -89,6 +89,14 @@ Text added to the end of each 1.x block name. The default is `(v1)`. A space is 
 #### v2 Block Suffix
 
 Text added to the end of each 2.x block name. The default is `(v2)`. A space is inserted automatically. Leave the field blank to add no suffix.
+
+### Block Colors
+
+Background, icon, and text colors apply to GenerateBlocks and GenerateBlocks Pro blocks in the block inserter. Slash command icon color applies only to those blocks in the slash command inserter. Core blocks and blocks from other plugins are unchanged.
+
+All four colors start cleared, so the editor is unchanged until you choose one. The palette leads with Blue (`#1e72bd`), Light Blue (`#e8f0fe`), Brand (`#0e1120`), Ink (`#0c0e0f`), and Paper (`#fafbff`), then the theme colors. Light Blue stays readable with dark text such as Ink or Brand. Each color appears once. Clear one color to remove only that color. Select **Reset Options** to clear all four.
+
+Select **Save Options**, then open the editor again so the change applies.
 
 ## Related
 

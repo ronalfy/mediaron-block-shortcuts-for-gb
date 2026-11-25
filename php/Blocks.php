@@ -939,6 +939,80 @@ class Blocks {
 				z-index: 30;
 			}'
 		);
+		$options   = Options::get_options();
+		$color_css = $this->get_block_list_color_css( $options['blockListColors'] ?? array() );
+		if ( '' !== $color_css ) {
+			wp_add_inline_style( 'mrshortcuts-gb-block-editor-styles', $color_css );
+		}
+	}
+
+	/**
+	 * Editor CSS for GenerateBlocks inserter tiles and slash-command icons.
+	 *
+	 * A blank color omits that declaration. Pro blocks use the same icon
+	 * classes as GenerateBlocks, so no extra marker is required.
+	 *
+	 * @param array $colors Saved background, icon, text, and slash-command icon colors.
+	 * @return string CSS, or an empty string when no color is set.
+	 */
+	private function get_block_list_color_css( $colors ) {
+		if ( ! is_array( $colors ) ) {
+			return '';
+		}
+
+		$background = $this->sanitize_block_list_color( $colors['background'] ?? '' );
+		$icon       = $this->sanitize_block_list_color( $colors['icon'] ?? '' );
+		$text       = $this->sanitize_block_list_color( $colors['text'] ?? '' );
+		$slash_icon = $this->sanitize_block_list_color( $colors['slashIcon'] ?? '' );
+		if ( '' === $background && '' === $icon && '' === $text && '' === $slash_icon ) {
+			return '';
+		}
+
+		$icon_in = ':is(.gb-block-icon,.gblocks-block-icon)';
+		$item    = '.components-button.block-editor-block-types-list__item:has(' . $icon_in . ')';
+		$hover   = $item . ':not(:disabled,[aria-disabled=true]):hover';
+		$focus   = $item . ':focus';
+		$css     = '';
+
+		// Hover rules in WordPress core use !important, so these do too.
+		// A long title with a suffix wraps and makes the row taller than the
+		// button. The list item is what fills that extra space.
+		if ( '' !== $background ) {
+			$list_item = '.block-editor-block-types-list__list-item:has(' . $icon_in . ')';
+			$css      .= $list_item . ',' . $list_item . ':has(:hover),' . $list_item . ':has(:focus){background-color:' . $background . ';}';
+			$css      .= $item . ',' . $hover . ',' . $focus . '{background-color:' . $background . ';}';
+		}
+		if ( '' !== $text ) {
+			$css .= $item . ',' . $item . ' .block-editor-block-types-list__item-title{color:' . $text . ';}';
+			$css .= $hover . ',' . $hover . ' .block-editor-block-types-list__item-title,';
+			$css .= $focus . ',' . $focus . ' .block-editor-block-types-list__item-title{color:' . $text . ' !important;}';
+		}
+		if ( '' !== $icon ) {
+			$css .= $item . ' ' . $icon_in . '{color:' . $icon . ';}';
+			$css .= $hover . ' svg,' . $focus . ' svg{color:' . $icon . ' !important;}';
+		}
+		if ( '' !== $slash_icon ) {
+			$css .= '.components-autocomplete__result.components-button:not(.is-selected):has(' . $icon_in . ') ' . $icon_in . '{color:' . $slash_icon . ';}';
+		}
+
+		return $css;
+	}
+
+	/**
+	 * Sanitize one block-list color for CSS.
+	 *
+	 * @param mixed $color Raw color.
+	 * @return string Hex color, or an empty string.
+	 */
+	private function sanitize_block_list_color( $color ) {
+		if ( ! is_string( $color ) || '' === $color ) {
+			return '';
+		}
+		$hex = Options::sanitize_hex_color_value( $color );
+		if ( '' === $hex ) {
+			return '';
+		}
+		return esc_attr( $hex );
 	}
 
 	/**

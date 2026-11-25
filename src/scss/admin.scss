@@ -240,6 +240,33 @@ html {
 	}
 }
 
+.mrshortcuts-gb-block-colors {
+	.block-editor-tools-panel-color-gradient-settings__dropdown {
+		display: block;
+		padding: 0;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown>button {
+		height: auto;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		text-align: left;
+	}
+
+	.block-editor-panel-color-gradient-settings__reset {
+		margin: auto 8px auto;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 8px;
+	}
+
+	.block-editor-panel-color-gradient-settings__item:hover .block-editor-panel-color-gradient-settings__reset,
+	.block-editor-panel-color-gradient-settings__item:focus-within .block-editor-panel-color-gradient-settings__reset {
+		opacity: 1;
+	}
+}
+
 .form-table {
 
 	input[type="text"],
@@ -813,4 +840,136 @@ html {
 .fancybox__container {
 	z-index: 9999;
 	/* so we're over the admin menus */
+}
+
+.mrshortcuts-gb-block-colors {
+
+	// The tools panel menu only toggles which colors are visible. All three stay shown.
+	.components-dropdown-menu {
+		display: none;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown,
+	.block-editor-panel-color-gradient-settings__dropdown {
+		display: block;
+		padding: 0;
+		position: relative;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown>button,
+	.block-editor-panel-color-gradient-settings__dropdown>button {
+		height: auto;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		text-align: left;
+	}
+
+	.block-editor-panel-color-gradient-settings__reset {
+		margin: auto 8px;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 8px;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown:hover .block-editor-panel-color-gradient-settings__reset,
+	.block-editor-tools-panel-color-gradient-settings__dropdown:focus-within .block-editor-panel-color-gradient-settings__reset,
+	.block-editor-panel-color-gradient-settings__dropdown:hover+.block-editor-panel-color-gradient-settings__reset,
+	.block-editor-panel-color-gradient-settings__reset:hover,
+	.block-editor-panel-color-gradient-settings__reset:focus {
+		opacity: 1;
+	}
+}
+
+// The preview is a sibling of the color panel, so these rules stay outside it.
+.mrshortcuts-gb-color-preview {
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.mrshortcuts-gb-color-preview__tile {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 104px;
+	flex-direction: column;
+	padding: 8px 8px 4px;
+	width: 104px;
+}
+
+.mrshortcuts-gb-color-preview__icon {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	padding: 8px 0 4px;
+
+	.gblocks-block-icon {
+		display: block;
+		height: 24px;
+		width: 24px;
+	}
+
+	path {
+		fill: currentColor;
+	}
+}
+
+.mrshortcuts-gb-color-preview__title {
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.3;
+	padding: 4px 2px 8px;
+	text-align: center;
+}
+
+.mrshortcuts-gb-color-preview__slash {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 auto;
+	gap: 8px;
+	min-height: 40px;
+	padding: 8px 12px;
+
+	.mrshortcuts-gb-color-preview__icon {
+		padding: 0;
+	}
+}
+
+.mrshortcuts-gb-color-preview__slash-label {
+	color: #1e1e1e;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+// The color popover is portaled outside the panel, so it is not nested above.
+.components-popover__content:has(.block-editor-panel-color-gradient-settings__dropdown-content) {
+	box-sizing: border-box;
+	min-width: 260px;
+	overflow-x: hidden;
+	padding: 16px;
+	width: 260px;
+
+	.block-editor-panel-color-gradient-settings__dropdown-content,
+	.components-circular-option-picker {
+		min-width: 0;
+		width: 100%;
+	}
+
+	.components-circular-option-picker__swatches {
+		display: grid;
+		gap: 12px;
+		grid-template-columns: repeat(6, 28px);
+		justify-content: space-between;
+	}
+
+	.components-circular-option-picker__custom-clear-wrapper .components-button {
+		color: #1e1e1e;
+		height: auto;
+		padding: 0;
+	}
 }

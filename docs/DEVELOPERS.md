@@ -83,7 +83,7 @@ Examples: `generateblocks_typography_font_family_list`, `generateblocks_do_conte
 
 ## AJAX
 
-All require `manage_options` and matching nonces.
+All require a matching nonce. The capability is `manage_options` on a single site. When the plugin is network-activated, options are stored with `update_site_option()`, so save, reset, and load require `manage_network_options`.
 
 | Action | Purpose |
 | --- | --- |

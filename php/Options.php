@@ -61,6 +61,21 @@ class Options {
 						}
 					}
 					break;
+				case 'blockListColors':
+					$sanitized_colors = array(
+						'background' => '',
+						'icon'       => '',
+						'text'       => '',
+						'slashIcon'  => '',
+					);
+					if ( is_array( $option ) ) {
+						foreach ( array_keys( $sanitized_colors ) as $color_key ) {
+							$raw                            = isset( $option[ $color_key ] ) && is_string( $option[ $color_key ] ) ? $option[ $color_key ] : '';
+							$sanitized_colors[ $color_key ] = self::sanitize_hex_color_value( $raw );
+						}
+					}
+					$option = $sanitized_colors;
+					break;
 				default:
 					if ( is_array( $option ) ) {
 						$option = Functions::sanitize_array_recursive( $option );
@@ -131,11 +146,33 @@ class Options {
 			'v2BlockSuffix'                 => '(v2)',
 			'identifyGenerateBlocks'        => false,
 			'generateBlocksSuffix'          => '(GB)',
+			'blockListColors'               => array(
+				'background' => '',
+				'icon'       => '',
+				'text'       => '',
+				'slashIcon'  => '',
+			),
 			'adminMenuBar'                  => array(
 				'enabled'             => true,
 				'replaceWithFullMenu' => true,
 			),
 		);
 		return $defaults;
+	}
+
+	/**
+	 * Sanitize a block-list color.
+	 *
+	 * Accepts #RGB, #RRGGBB, and #RRGGBBAA. Theme palettes include 8-digit hex.
+	 *
+	 * @param string $color Raw color.
+	 * @return string Lowercase hex color, or an empty string.
+	 */
+	public static function sanitize_hex_color_value( $color ) {
+		$color = strtolower( trim( (string) $color ) );
+		if ( preg_match( '/^#(?:[0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/', $color ) ) {
+			return $color;
+		}
+		return '';
 	}
 }
