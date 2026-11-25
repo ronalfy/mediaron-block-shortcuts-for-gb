@@ -299,35 +299,19 @@ class Admin {
 	/**
 	 * Swatches for the block color control.
 	 *
-	 * The default background, icon, and text colors lead the list. Theme,
-	 * default, and custom palette colors follow. A theme color is skipped
-	 * when its hex is already present.
+	 * GenerateBlocks brand colors lead the list, then Ink and Paper.
+	 * Theme, default, and custom palette colors follow. Each hex is included once.
 	 *
 	 * @return array
 	 */
 	private function get_color_palette() {
-		$palette = array(
-			array(
-				'name'  => __( 'Background', 'mediaron-block-shortcuts-for-gb' ),
-				'slug'  => 'mrshortcutsgb-background',
-				'color' => '#e8f0fe',
-			),
-			array(
-				'name'  => __( 'Icon', 'mediaron-block-shortcuts-for-gb' ),
-				'slug'  => 'mrshortcutsgb-icon',
-				'color' => '#1e72bd',
-			),
-			array(
-				'name'  => __( 'Text', 'mediaron-block-shortcuts-for-gb' ),
-				'slug'  => 'mrshortcutsgb-text',
-				'color' => '#1e72bd',
-			),
-		);
+		$palette = array();
+		$seen    = array();
 
-		$seen = array();
-		foreach ( $palette as $swatch ) {
-			$seen[ strtolower( $swatch['color'] ) ] = true;
-		}
+		$this->add_palette_color( $palette, $seen, __( 'Blue', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-blue', '#1e72bd' );
+		$this->add_palette_color( $palette, $seen, __( 'Brand', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-brand', '#0e1120' );
+		$this->add_palette_color( $palette, $seen, __( 'Ink', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-ink', '#0c0e0f' );
+		$this->add_palette_color( $palette, $seen, __( 'Paper', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-paper', '#fafbff' );
 
 		if ( ! function_exists( 'wp_get_global_settings' ) ) {
 			return $palette;
@@ -342,20 +326,35 @@ class Admin {
 				if ( ! is_array( $color ) || empty( $color['color'] ) || ! is_string( $color['color'] ) ) {
 					continue;
 				}
-				$hex = strtolower( $color['color'] );
-				if ( isset( $seen[ $hex ] ) ) {
-					continue;
-				}
-				$seen[ $hex ] = true;
-				$palette[]    = array(
-					'name'  => isset( $color['name'] ) ? (string) $color['name'] : (string) ( $color['slug'] ?? '' ),
-					'slug'  => isset( $color['slug'] ) ? (string) $color['slug'] : sanitize_title( $hex ),
-					'color' => $color['color'],
-				);
+				$name = isset( $color['name'] ) ? (string) $color['name'] : '';
+				$slug = isset( $color['slug'] ) ? (string) $color['slug'] : '';
+				$this->add_palette_color( $palette, $seen, $name, $slug, $color['color'] );
 			}
 		}
 
 		return $palette;
+	}
+
+	/**
+	 * Append one unique hex swatch.
+	 *
+	 * @param array  $palette Palette being built.
+	 * @param array  $seen    Hex values already added.
+	 * @param string $name    Swatch name.
+	 * @param string $slug    Swatch slug.
+	 * @param string $color   Raw color.
+	 */
+	private function add_palette_color( &$palette, &$seen, $name, $slug, $color ) {
+		$hex = Options::sanitize_hex_color_value( $color );
+		if ( '' === $hex || isset( $seen[ $hex ] ) ) {
+			return;
+		}
+		$seen[ $hex ] = true;
+		$palette[]    = array(
+			'name'  => '' !== $name ? $name : $hex,
+			'slug'  => '' !== $slug ? $slug : sanitize_title( $hex ),
+			'color' => $hex,
+		);
 	}
 
 	/**

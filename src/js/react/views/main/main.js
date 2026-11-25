@@ -41,8 +41,8 @@ function normalizeBlockListColor( value ) {
 		return '';
 	}
 	const next = String( value ).trim();
-	if ( /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test( next ) ) {
-		return next;
+	if ( /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test( next ) ) {
+		return next.toLowerCase();
 	}
 	return null;
 }

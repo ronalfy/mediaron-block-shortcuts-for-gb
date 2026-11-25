@@ -880,3 +880,31 @@ html {
 		opacity: 1;
 	}
 }
+
+// The color popover is portaled outside the panel, so it is not nested above.
+.components-popover__content:has(.block-editor-panel-color-gradient-settings__dropdown-content) {
+	box-sizing: border-box;
+	min-width: 260px;
+	overflow-x: hidden;
+	padding: 16px;
+	width: 260px;
+
+	.block-editor-panel-color-gradient-settings__dropdown-content,
+	.components-circular-option-picker {
+		min-width: 0;
+		width: 100%;
+	}
+
+	.components-circular-option-picker__swatches {
+		display: grid;
+		gap: 12px;
+		grid-template-columns: repeat(6, 28px);
+		justify-content: space-between;
+	}
+
+	.components-circular-option-picker__custom-clear-wrapper .components-button {
+		color: #1e1e1e;
+		height: auto;
+		padding: 0;
+	}
+}

@@ -1001,8 +1001,8 @@ class Blocks {
 		if ( ! is_string( $color ) || '' === $color ) {
 			return '';
 		}
-		$hex = sanitize_hex_color( $color );
-		if ( ! $hex ) {
+		$hex = Options::sanitize_hex_color_value( $color );
+		if ( '' === $hex ) {
 			return '';
 		}
 		return esc_attr( $hex );

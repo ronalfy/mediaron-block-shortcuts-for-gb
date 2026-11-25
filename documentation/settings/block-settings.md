@@ -94,7 +94,7 @@ Text added to the end of each 2.x block name. The default is `(v2)`. A space is 
 
 Background, icon, and text colors apply to GenerateBlocks and GenerateBlocks Pro blocks in the block inserter. The icon color also applies to slash commands. Core blocks and blocks from other plugins are unchanged.
 
-All three colors start cleared, so the editor is unchanged until you choose one. The palette offers Background (`#e8f0fe`), Icon (`#1e72bd`), and Text (`#1e72bd`) before the theme colors. Clear one color to remove only that color. Select **Reset Options** to clear all three.
+All three colors start cleared, so the editor is unchanged until you choose one. The palette leads with Blue (`#1e72bd`), Brand (`#0e1120`), Ink (`#0c0e0f`), and Paper (`#fafbff`), then the theme colors. Each color appears once. Clear one color to remove only that color. Select **Reset Options** to clear all three.
 
 Select **Save Options**, then open the editor again so the change applies.
 
