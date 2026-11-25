@@ -61,6 +61,21 @@ class Options {
 						}
 					}
 					break;
+				case 'blockListColors':
+					$sanitized_colors = array(
+						'background' => '',
+						'icon'       => '',
+						'text'       => '',
+					);
+					if ( is_array( $option ) ) {
+						foreach ( array_keys( $sanitized_colors ) as $color_key ) {
+							$raw                            = isset( $option[ $color_key ] ) && is_string( $option[ $color_key ] ) ? $option[ $color_key ] : '';
+							$hex                            = sanitize_hex_color( $raw );
+							$sanitized_colors[ $color_key ] = $hex ? $hex : '';
+						}
+					}
+					$option = $sanitized_colors;
+					break;
 				default:
 					if ( is_array( $option ) ) {
 						$option = Functions::sanitize_array_recursive( $option );
@@ -131,6 +146,11 @@ class Options {
 			'v2BlockSuffix'                 => '(v2)',
 			'identifyGenerateBlocks'        => false,
 			'generateBlocksSuffix'          => '(GB)',
+			'blockListColors'               => array(
+				'background' => '',
+				'icon'       => '',
+				'text'       => '',
+			),
 			'adminMenuBar'                  => array(
 				'enabled'             => true,
 				'replaceWithFullMenu' => true,

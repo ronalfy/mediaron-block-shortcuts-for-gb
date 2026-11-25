@@ -8,6 +8,7 @@ import {
 	PanelBody,
 	PanelRow,
 } from '@wordpress/components';
+import { PanelColorSettings } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useForm, Controller, useWatch, useFormState } from 'react-hook-form';
 import { useAsyncResource } from 'use-async-resource';
@@ -19,6 +20,32 @@ import Notice from '../../components/Notice';
 import SaveResetButtons from '../../components/SaveResetButtons';
 
 const DOCS_URL = 'https://docs.mediaron.com/product/block-shortcuts-for-gb/';
+
+const DEFAULT_BLOCK_LIST_COLORS = {
+	background: '',
+	icon: '',
+	text: '',
+};
+
+/**
+ * Keep a hex color, or clear the field.
+ *
+ * The color panel calls onChange with undefined when a color is cleared.
+ * Palette values that are not hex are ignored so a saved color stays put.
+ *
+ * @param {string|undefined} value Color from PanelColorSettings.
+ * @return {string|null} Hex color, an empty string when cleared, or null to ignore.
+ */
+function normalizeBlockListColor( value ) {
+	if ( ! value ) {
+		return '';
+	}
+	const next = String( value ).trim();
+	if ( /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test( next ) ) {
+		return next;
+	}
+	return null;
+}
 
 /**
  * Documentation anchor shared by the header and the in-page fallback.
@@ -137,6 +164,11 @@ const Interface = ( props ) => {
 			v2BlockSuffix: data.v2BlockSuffix,
 			identifyGenerateBlocks: data.identifyGenerateBlocks || false,
 			generateBlocksSuffix: data.generateBlocksSuffix ?? '(GB)',
+			blockListColors: {
+				background: data.blockListColors?.background ?? DEFAULT_BLOCK_LIST_COLORS.background,
+				icon: data.blockListColors?.icon ?? DEFAULT_BLOCK_LIST_COLORS.icon,
+				text: data.blockListColors?.text ?? DEFAULT_BLOCK_LIST_COLORS.text,
+			},
 			adminMenuBar: data.adminMenuBar || {
 				enabled: true,
 				replaceWithFullMenu: false,
@@ -147,6 +179,14 @@ const Interface = ( props ) => {
 	const { errors, isDirty, dirtyFields } = useFormState( {
 		control,
 	} );
+	const blockListColors = formValues.blockListColors || DEFAULT_BLOCK_LIST_COLORS;
+	const setBlockListColor = ( key ) => ( value ) => {
+		const next = normalizeBlockListColor( value );
+		if ( null === next ) {
+			return;
+		}
+		setValue( `blockListColors.${ key }`, next, { shouldDirty: true } );
+	};
 
 	return (
 		<>
@@ -462,6 +502,42 @@ const Interface = ( props ) => {
 									</div>
 								</>
 							) }
+							<div className="dlx-admin__row">
+								<p className="description">
+									{ __(
+										'Colors apply to GenerateBlocks and GenerateBlocks Pro blocks in the inserter. Slash commands use the icon color only. Save, then open the editor again.',
+										'mediaron-block-shortcuts-for-gb'
+									) }
+								</p>
+								<PanelColorSettings
+									__experimentalIsRenderedInSidebar
+									className="mrshortcuts-gb-block-colors"
+									title={ __( 'Block colors', 'mediaron-block-shortcuts-for-gb' ) }
+									enableAlpha={ false }
+									disableCustomColors={ false }
+									colors={ mrshortcutsgbAdmin.colorPalette || [] }
+									colorSettings={ [
+										{
+											label: __( 'Background color', 'mediaron-block-shortcuts-for-gb' ),
+											value: blockListColors.background || undefined,
+											onChange: setBlockListColor( 'background' ),
+											clearable: true,
+										},
+										{
+											label: __( 'Icon color', 'mediaron-block-shortcuts-for-gb' ),
+											value: blockListColors.icon || undefined,
+											onChange: setBlockListColor( 'icon' ),
+											clearable: true,
+										},
+										{
+											label: __( 'Text color', 'mediaron-block-shortcuts-for-gb' ),
+											value: blockListColors.text || undefined,
+											onChange: setBlockListColor( 'text' ),
+											clearable: true,
+										},
+									] }
+								/>
+							</div>
 						</div>
 					</PanelBody>
 					<PanelBody

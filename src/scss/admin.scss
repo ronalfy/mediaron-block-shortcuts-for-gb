@@ -240,6 +240,33 @@ html {
 	}
 }
 
+.mrshortcuts-gb-block-colors {
+	.block-editor-tools-panel-color-gradient-settings__dropdown {
+		display: block;
+		padding: 0;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown>button {
+		height: auto;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		text-align: left;
+	}
+
+	.block-editor-panel-color-gradient-settings__reset {
+		margin: auto 8px auto;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 8px;
+	}
+
+	.block-editor-panel-color-gradient-settings__item:hover .block-editor-panel-color-gradient-settings__reset,
+	.block-editor-panel-color-gradient-settings__item:focus-within .block-editor-panel-color-gradient-settings__reset {
+		opacity: 1;
+	}
+}
+
 .form-table {
 
 	input[type="text"],
@@ -813,4 +840,43 @@ html {
 .fancybox__container {
 	z-index: 9999;
 	/* so we're over the admin menus */
+}
+
+.mrshortcuts-gb-block-colors {
+
+	// The tools panel menu only toggles which colors are visible. All three stay shown.
+	.components-dropdown-menu {
+		display: none;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown,
+	.block-editor-panel-color-gradient-settings__dropdown {
+		display: block;
+		padding: 0;
+		position: relative;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown>button,
+	.block-editor-panel-color-gradient-settings__dropdown>button {
+		height: auto;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		text-align: left;
+	}
+
+	.block-editor-panel-color-gradient-settings__reset {
+		margin: auto 8px;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 8px;
+	}
+
+	.block-editor-tools-panel-color-gradient-settings__dropdown:hover .block-editor-panel-color-gradient-settings__reset,
+	.block-editor-tools-panel-color-gradient-settings__dropdown:focus-within .block-editor-panel-color-gradient-settings__reset,
+	.block-editor-panel-color-gradient-settings__dropdown:hover+.block-editor-panel-color-gradient-settings__reset,
+	.block-editor-panel-color-gradient-settings__reset:hover,
+	.block-editor-panel-color-gradient-settings__reset:focus {
+		opacity: 1;
+	}
 }

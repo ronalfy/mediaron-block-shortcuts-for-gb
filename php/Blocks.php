@@ -939,6 +939,73 @@ class Blocks {
 				z-index: 30;
 			}'
 		);
+		$options   = Options::get_options();
+		$color_css = $this->get_block_list_color_css( $options['blockListColors'] ?? array() );
+		if ( '' !== $color_css ) {
+			wp_add_inline_style( 'mrshortcuts-gb-block-editor-styles', $color_css );
+		}
+	}
+
+	/**
+	 * Editor CSS for GenerateBlocks inserter tiles and slash-command icons.
+	 *
+	 * A blank color omits that declaration. Pro blocks use the same icon
+	 * classes as GenerateBlocks, so no extra marker is required.
+	 *
+	 * @param array $colors Saved background, icon, and text colors.
+	 * @return string CSS, or an empty string when no color is set.
+	 */
+	private function get_block_list_color_css( $colors ) {
+		if ( ! is_array( $colors ) ) {
+			return '';
+		}
+
+		$background = $this->sanitize_block_list_color( $colors['background'] ?? '' );
+		$icon       = $this->sanitize_block_list_color( $colors['icon'] ?? '' );
+		$text       = $this->sanitize_block_list_color( $colors['text'] ?? '' );
+		if ( '' === $background && '' === $icon && '' === $text ) {
+			return '';
+		}
+
+		$icon_in = ':is(.gb-block-icon,.gblocks-block-icon)';
+		$item    = '.components-button.block-editor-block-types-list__item:has(' . $icon_in . ')';
+		$hover   = $item . ':not(:disabled,[aria-disabled=true]):hover';
+		$focus   = $item . ':focus';
+		$css     = '';
+
+		// Hover rules in WordPress core use !important, so these do too.
+		if ( '' !== $background ) {
+			$css .= $item . ',' . $hover . ',' . $focus . '{background-color:' . $background . ';}';
+		}
+		if ( '' !== $text ) {
+			$css .= $item . ',' . $item . ' .block-editor-block-types-list__item-title{color:' . $text . ';}';
+			$css .= $hover . ',' . $hover . ' .block-editor-block-types-list__item-title,';
+			$css .= $focus . ',' . $focus . ' .block-editor-block-types-list__item-title{color:' . $text . ' !important;}';
+		}
+		if ( '' !== $icon ) {
+			$css .= $item . ' ' . $icon_in . '{color:' . $icon . ';}';
+			$css .= $hover . ' svg,' . $focus . ' svg{color:' . $icon . ' !important;}';
+			$css .= '.components-autocomplete__result.components-button:not(.is-selected):has(' . $icon_in . ') ' . $icon_in . '{color:' . $icon . ';}';
+		}
+
+		return $css;
+	}
+
+	/**
+	 * Sanitize one block-list color for CSS.
+	 *
+	 * @param mixed $color Raw color.
+	 * @return string Hex color, or an empty string.
+	 */
+	private function sanitize_block_list_color( $color ) {
+		if ( ! is_string( $color ) || '' === $color ) {
+			return '';
+		}
+		$hex = sanitize_hex_color( $color );
+		if ( ! $hex ) {
+			return '';
+		}
+		return esc_attr( $hex );
 	}
 
 	/**

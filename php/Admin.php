@@ -271,6 +271,7 @@ class Admin {
 			'ajaxurl'      => admin_url( 'admin-ajax.php' ),
 			'postTypes'    => $post_types,
 			'isProActive'  => Functions::is_generateblocks_pro_active(),
+			'colorPalette' => $this->get_color_palette(),
 		);
 
 		// Omit the flag when GenerateBlocks is inactive so the settings notice stays hidden.
@@ -293,6 +294,68 @@ class Admin {
 			$css_deps['version'],
 			'all'
 		);
+	}
+
+	/**
+	 * Swatches for the block color control.
+	 *
+	 * The default background, icon, and text colors lead the list. Theme,
+	 * default, and custom palette colors follow. A theme color is skipped
+	 * when its hex is already present.
+	 *
+	 * @return array
+	 */
+	private function get_color_palette() {
+		$palette = array(
+			array(
+				'name'  => __( 'Background', 'mediaron-block-shortcuts-for-gb' ),
+				'slug'  => 'mrshortcutsgb-background',
+				'color' => '#e8f0fe',
+			),
+			array(
+				'name'  => __( 'Icon', 'mediaron-block-shortcuts-for-gb' ),
+				'slug'  => 'mrshortcutsgb-icon',
+				'color' => '#1e72bd',
+			),
+			array(
+				'name'  => __( 'Text', 'mediaron-block-shortcuts-for-gb' ),
+				'slug'  => 'mrshortcutsgb-text',
+				'color' => '#1e72bd',
+			),
+		);
+
+		$seen = array();
+		foreach ( $palette as $swatch ) {
+			$seen[ strtolower( $swatch['color'] ) ] = true;
+		}
+
+		if ( ! function_exists( 'wp_get_global_settings' ) ) {
+			return $palette;
+		}
+
+		foreach ( array( 'theme', 'default', 'custom' ) as $origin ) {
+			$colors = wp_get_global_settings( array( 'color', 'palette', $origin ) );
+			if ( ! is_array( $colors ) ) {
+				continue;
+			}
+			foreach ( $colors as $color ) {
+				if ( ! is_array( $color ) || empty( $color['color'] ) || ! is_string( $color['color'] ) ) {
+					continue;
+				}
+				$hex = strtolower( $color['color'] );
+				if ( isset( $seen[ $hex ] ) ) {
+					continue;
+				}
+				$seen[ $hex ] = true;
+				$palette[]    = array(
+					'name'  => isset( $color['name'] ) ? (string) $color['name'] : (string) ( $color['slug'] ?? '' ),
+					'slug'  => isset( $color['slug'] ) ? (string) $color['slug'] : sanitize_title( $hex ),
+					'color' => $color['color'],
+				);
+			}
+		}
+
+		return $palette;
 	}
 
 	/**

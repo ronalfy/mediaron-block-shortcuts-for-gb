@@ -24,6 +24,7 @@ MediaRon Block Shortcuts for GenerateBlocks settings: **GenerateBlocks → Short
 | `enableV1Transformations` | `false` | Enables command-palette and contextual “Convert v1 Blocks to v2” tools. The toggle is on the Block Identification Helpers panel |
 | `enableV1Blocks` | `false` | Keeps both v1 and v2 blocks visible and gates the version suffixes (`v1BlockSuffix` / `v2BlockSuffix`). The toggle is on the Block Identification Helpers panel |
 | `identifyGenerateBlocks` | `false` | Appends a suffix to GenerateBlocks and GenerateBlocks Pro block titles. Works while v1 blocks are hidden |
+| `blockListColors` | background, icon, and text all `''` | Inserter tile colors for GenerateBlocks and GenerateBlocks Pro. Slash commands use the icon color. A blank value omits that rule. The palette still offers `#e8f0fe` and `#1e72bd`. The fields are at the bottom of the Block Identification Helpers panel |
 | `generateBlocksSuffix` | `(GB)` | Suffix used when identification is on. A space is inserted before it. Blank adds nothing |
 | `v1CategoryLabel` / `v2CategoryLabel` | GenerateBlocks v1 / v2 | Inserter category titles. `Blocks::add_block_categories()` applies them. Its guard is the constant `true`, so the saved titles rename categories while `enableV1Blocks` is false. The fields are on the Block Identification Helpers panel and show while that toggle is on |
 | `v1BlockSuffix` / `v2BlockSuffix` | `(v1)` / `(v2)` | Appended after the block title while `enableV1Blocks` is on, and after the GenerateBlocks suffix when identification is also on |
