@@ -37,6 +37,76 @@ const DEFAULT_BLOCK_LIST_COLORS = {
  * @param {string|undefined} value Color from PanelColorSettings.
  * @return {string|null} Hex color, an empty string when cleared, or null to ignore.
  */
+const DEFAULT_PREVIEW_ICON_COLOR = '#1e72bd';
+const DEFAULT_PREVIEW_TEXT_COLOR = '#1e1e1e';
+
+/**
+ * GenerateBlocks Text block icon.
+ *
+ * Path copied from the Text block so the settings preview matches the inserter.
+ *
+ * @return {Element} Text icon.
+ */
+function TextBlockIcon() {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			width="24"
+			height="24"
+			className="gblocks-block-icon"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path d="M8.666,21.375L8.667,9.019L2.625,9.019C2.282,9.019 2,8.737 2,8.394L2,2.625C2,2.282 2.282,2 2.625,2L21.375,2C21.72,2 22,2.28 22,2.625L22,8.394C22,8.74 21.72,9.019 21.375,9.019L15.334,9.019L15.348,21.375C15.348,21.72 15.068,22 14.723,22L9.291,22C8.946,22 8.666,21.72 8.666,21.375ZM9.917,8.394L9.916,20.75L14.098,20.75L14.084,8.394C14.084,8.051 14.366,7.769 14.709,7.769L20.75,7.769L20.75,3.25L3.25,3.25L3.25,7.769L9.292,7.769C9.637,7.769 9.917,8.049 9.917,8.394Z" />
+		</svg>
+	);
+}
+
+/**
+ * Live inserter preview for the block color controls.
+ *
+ * @param {Object} props                 Component props.
+ * @param {Object} props.blockListColors Current color values.
+ * @return {Element} Preview tile and slash icon.
+ */
+function BlockColorPreview( { blockListColors } ) {
+	const colors = blockListColors || DEFAULT_BLOCK_LIST_COLORS;
+
+	return (
+		<div className="mrshortcuts-gb-color-preview">
+			<div
+				className="mrshortcuts-gb-color-preview__tile"
+				style={ {
+					backgroundColor: colors.background || undefined,
+					color: colors.text || DEFAULT_PREVIEW_TEXT_COLOR,
+				} }
+			>
+				<span
+					className="mrshortcuts-gb-color-preview__icon"
+					style={ { color: colors.icon || DEFAULT_PREVIEW_ICON_COLOR } }
+				>
+					<TextBlockIcon />
+				</span>
+				<span className="mrshortcuts-gb-color-preview__title">
+					{ __( 'Text', 'mediaron-block-shortcuts-for-gb' ) }
+				</span>
+			</div>
+			<div className="mrshortcuts-gb-color-preview__slash">
+				<span
+					className="mrshortcuts-gb-color-preview__icon"
+					style={ { color: colors.slashIcon || DEFAULT_PREVIEW_ICON_COLOR } }
+				>
+					<TextBlockIcon />
+				</span>
+				<span className="mrshortcuts-gb-color-preview__slash-label">
+					{ __( 'Slash', 'mediaron-block-shortcuts-for-gb' ) }
+				</span>
+			</div>
+		</div>
+	);
+}
+
 function normalizeBlockListColor( value ) {
 	if ( ! value ) {
 		return '';
@@ -545,6 +615,7 @@ const Interface = ( props ) => {
 										},
 									] }
 								/>
+								<BlockColorPreview blockListColors={ blockListColors } />
 							</div>
 						</div>
 					</PanelBody>

@@ -881,6 +881,71 @@ html {
 	}
 }
 
+// The preview is a sibling of the color panel, so these rules stay outside it.
+.mrshortcuts-gb-color-preview {
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.mrshortcuts-gb-color-preview__tile {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 104px;
+	flex-direction: column;
+	padding: 8px 8px 4px;
+	width: 104px;
+}
+
+.mrshortcuts-gb-color-preview__icon {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	padding: 8px 0 4px;
+
+	.gblocks-block-icon {
+		display: block;
+		height: 24px;
+		width: 24px;
+	}
+
+	path {
+		fill: currentColor;
+	}
+}
+
+.mrshortcuts-gb-color-preview__title {
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.3;
+	padding: 4px 2px 8px;
+	text-align: center;
+}
+
+.mrshortcuts-gb-color-preview__slash {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 auto;
+	gap: 8px;
+	min-height: 40px;
+	padding: 8px 12px;
+
+	.mrshortcuts-gb-color-preview__icon {
+		padding: 0;
+	}
+}
+
+.mrshortcuts-gb-color-preview__slash-label {
+	color: #1e1e1e;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
 // The color popover is portaled outside the panel, so it is not nested above.
 .components-popover__content:has(.block-editor-panel-color-gradient-settings__dropdown-content) {
 	box-sizing: border-box;
