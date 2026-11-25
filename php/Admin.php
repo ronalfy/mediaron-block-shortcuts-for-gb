@@ -309,6 +309,7 @@ class Admin {
 		$seen    = array();
 
 		$this->add_palette_color( $palette, $seen, __( 'Blue', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-blue', '#1e72bd' );
+		$this->add_palette_color( $palette, $seen, __( 'Light Blue', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-light-blue', '#e8f0fe' );
 		$this->add_palette_color( $palette, $seen, __( 'Brand', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-brand', '#0e1120' );
 		$this->add_palette_color( $palette, $seen, __( 'Ink', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-ink', '#0c0e0f' );
 		$this->add_palette_color( $palette, $seen, __( 'Paper', 'mediaron-block-shortcuts-for-gb' ), 'mrshortcutsgb-paper', '#fafbff' );

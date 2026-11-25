@@ -952,7 +952,7 @@ class Blocks {
 	 * A blank color omits that declaration. Pro blocks use the same icon
 	 * classes as GenerateBlocks, so no extra marker is required.
 	 *
-	 * @param array $colors Saved background, icon, and text colors.
+	 * @param array $colors Saved background, icon, text, and slash-command icon colors.
 	 * @return string CSS, or an empty string when no color is set.
 	 */
 	private function get_block_list_color_css( $colors ) {
@@ -963,7 +963,8 @@ class Blocks {
 		$background = $this->sanitize_block_list_color( $colors['background'] ?? '' );
 		$icon       = $this->sanitize_block_list_color( $colors['icon'] ?? '' );
 		$text       = $this->sanitize_block_list_color( $colors['text'] ?? '' );
-		if ( '' === $background && '' === $icon && '' === $text ) {
+		$slash_icon = $this->sanitize_block_list_color( $colors['slashIcon'] ?? '' );
+		if ( '' === $background && '' === $icon && '' === $text && '' === $slash_icon ) {
 			return '';
 		}
 
@@ -985,7 +986,9 @@ class Blocks {
 		if ( '' !== $icon ) {
 			$css .= $item . ' ' . $icon_in . '{color:' . $icon . ';}';
 			$css .= $hover . ' svg,' . $focus . ' svg{color:' . $icon . ' !important;}';
-			$css .= '.components-autocomplete__result.components-button:not(.is-selected):has(' . $icon_in . ') ' . $icon_in . '{color:' . $icon . ';}';
+		}
+		if ( '' !== $slash_icon ) {
+			$css .= '.components-autocomplete__result.components-button:not(.is-selected):has(' . $icon_in . ') ' . $icon_in . '{color:' . $slash_icon . ';}';
 		}
 
 		return $css;

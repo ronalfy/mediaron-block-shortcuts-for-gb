@@ -25,6 +25,7 @@ const DEFAULT_BLOCK_LIST_COLORS = {
 	background: '',
 	icon: '',
 	text: '',
+	slashIcon: '',
 };
 
 /**
@@ -168,6 +169,7 @@ const Interface = ( props ) => {
 				background: data.blockListColors?.background ?? DEFAULT_BLOCK_LIST_COLORS.background,
 				icon: data.blockListColors?.icon ?? DEFAULT_BLOCK_LIST_COLORS.icon,
 				text: data.blockListColors?.text ?? DEFAULT_BLOCK_LIST_COLORS.text,
+				slashIcon: data.blockListColors?.slashIcon ?? DEFAULT_BLOCK_LIST_COLORS.slashIcon,
 			},
 			adminMenuBar: data.adminMenuBar || {
 				enabled: true,
@@ -505,34 +507,40 @@ const Interface = ( props ) => {
 							<div className="dlx-admin__row">
 								<p className="description">
 									{ __(
-										'Colors apply to GenerateBlocks and GenerateBlocks Pro blocks in the inserter. Slash commands use the icon color only. Save, then open the editor again.',
+										'Background, icon, and text colors apply to GenerateBlocks and GenerateBlocks Pro blocks in the inserter. The slash command icon color applies only when you type / in the editor. Save, then open the editor again.',
 										'mediaron-block-shortcuts-for-gb'
 									) }
 								</p>
 								<PanelColorSettings
 									__experimentalIsRenderedInSidebar
 									className="mrshortcuts-gb-block-colors"
-									title={ __( 'Block colors', 'mediaron-block-shortcuts-for-gb' ) }
+									title={ __( 'Block Colors', 'mediaron-block-shortcuts-for-gb' ) }
 									enableAlpha={ false }
 									disableCustomColors={ false }
 									colors={ mrshortcutsgbAdmin.colorPalette || [] }
 									colorSettings={ [
 										{
-											label: __( 'Background color', 'mediaron-block-shortcuts-for-gb' ),
+											label: __( 'Background Color', 'mediaron-block-shortcuts-for-gb' ),
 											value: blockListColors.background || undefined,
 											onChange: setBlockListColor( 'background' ),
 											clearable: true,
 										},
 										{
-											label: __( 'Icon color', 'mediaron-block-shortcuts-for-gb' ),
+											label: __( 'Icon Color', 'mediaron-block-shortcuts-for-gb' ),
 											value: blockListColors.icon || undefined,
 											onChange: setBlockListColor( 'icon' ),
 											clearable: true,
 										},
 										{
-											label: __( 'Text color', 'mediaron-block-shortcuts-for-gb' ),
+											label: __( 'Text Color', 'mediaron-block-shortcuts-for-gb' ),
 											value: blockListColors.text || undefined,
 											onChange: setBlockListColor( 'text' ),
+											clearable: true,
+										},
+										{
+											label: __( 'Slash Command Icon Color', 'mediaron-block-shortcuts-for-gb' ),
+											value: blockListColors.slashIcon || undefined,
+											onChange: setBlockListColor( 'slashIcon' ),
 											clearable: true,
 										},
 									] }

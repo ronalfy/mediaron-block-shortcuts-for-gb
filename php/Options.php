@@ -66,6 +66,7 @@ class Options {
 						'background' => '',
 						'icon'       => '',
 						'text'       => '',
+						'slashIcon'  => '',
 					);
 					if ( is_array( $option ) ) {
 						foreach ( array_keys( $sanitized_colors ) as $color_key ) {
@@ -149,6 +150,7 @@ class Options {
 				'background' => '',
 				'icon'       => '',
 				'text'       => '',
+				'slashIcon'  => '',
 			),
 			'adminMenuBar'                  => array(
 				'enabled'             => true,

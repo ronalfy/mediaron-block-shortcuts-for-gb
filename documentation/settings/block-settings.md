@@ -90,11 +90,11 @@ Text added to the end of each 1.x block name. The default is `(v1)`. A space is 
 
 Text added to the end of each 2.x block name. The default is `(v2)`. A space is inserted automatically. Leave the field blank to add no suffix.
 
-### Block colors
+### Block Colors
 
-Background, icon, and text colors apply to GenerateBlocks and GenerateBlocks Pro blocks in the block inserter. The icon color also applies to slash commands. Core blocks and blocks from other plugins are unchanged.
+Background, icon, and text colors apply to GenerateBlocks and GenerateBlocks Pro blocks in the block inserter. Slash command icon color applies only to those blocks in the slash command inserter. Core blocks and blocks from other plugins are unchanged.
 
-All three colors start cleared, so the editor is unchanged until you choose one. The palette leads with Blue (`#1e72bd`), Brand (`#0e1120`), Ink (`#0c0e0f`), and Paper (`#fafbff`), then the theme colors. Each color appears once. Clear one color to remove only that color. Select **Reset Options** to clear all three.
+All four colors start cleared, so the editor is unchanged until you choose one. The palette leads with Blue (`#1e72bd`), Light Blue (`#e8f0fe`), Brand (`#0e1120`), Ink (`#0c0e0f`), and Paper (`#fafbff`), then the theme colors. Light Blue stays readable with dark text such as Ink or Brand. Each color appears once. Clear one color to remove only that color. Select **Reset Options** to clear all four.
 
 Select **Save Options**, then open the editor again so the change applies.
 
