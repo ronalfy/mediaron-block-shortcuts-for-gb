@@ -1,0 +1,125 @@
+{
+    "preferredVersions": {
+        "php": "8.3",
+        "wp": "latest"
+    },
+    "features": {
+        "networking": true
+    },
+    "landingPage": "/",
+    "steps": [
+        {
+            "step": "login",
+            "username": "admin",
+            "password": "password"
+        },
+        {
+            "step": "setSiteOptions",
+            "options": {
+                "blogname": "Block Shortcuts for GenerateBlocks",
+                "blogdescription": "Shortcuts that make a difference in your workflow",
+                "timezone_string": "",
+                "gmt_offset": "0",
+                "date_format": "F j, Y",
+                "time_format": "g:i a",
+                "start_of_week": "1",
+                "permalink_structure": "/%postname%/",
+                "category_base": "",
+                "tag_base": "",
+                "default_comment_status": "open",
+                "default_ping_status": "open",
+                "comment_moderation": "1",
+                "comment_previously_approved": "1",
+                "comment_max_links": "2",
+                "moderation_keys": "",
+                "disallowed_keys": "",
+                "comment_registration": "",
+                "require_name_email": "1",
+                "show_comments_cookies_opt_in": "1",
+                "thread_comments": "1",
+                "thread_comments_depth": "5",
+                "page_comments": "",
+                "comments_per_page": "50",
+                "default_comments_page": "newest",
+                "comment_order": "asc",
+                "close_comments_for_old_posts": "1",
+                "close_comments_days_old": "1",
+                "show_avatars": "1",
+                "avatar_rating": "G",
+                "avatar_default": "mystery",
+                "thumbnail_size_w": "150",
+                "thumbnail_size_h": "150",
+                "thumbnail_crop": "1",
+                "medium_size_w": "300",
+                "medium_size_h": "300",
+                "medium_large_size_w": "768",
+                "medium_large_size_h": "0",
+                "large_size_w": "1024",
+                "large_size_h": "1024",
+                "uploads_use_yearmonth_folders": "1",
+                "generateblocks_version": "2.5.1"
+            }
+        },
+        {
+            "step": "installTheme",
+            "themeData": {
+                "resource": "wordpress.org/themes",
+                "slug": "generatepress"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
+            "step": "installPlugin",
+            "pluginData": {
+                "resource": "wordpress.org/plugins",
+                "slug": "generateblocks"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
+            "step": "installPlugin",
+            "pluginData": {
+                "resource": "wordpress.org/plugins",
+                "slug": "mediaron-block-shortcuts-for-gb"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
+            "step": "installPlugin",
+            "pluginData": {
+                "resource": "wordpress.org/plugins",
+                "slug": "wp-plugin-info-card"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
+            "step": "importWxr",
+            "file": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/ronalfy/mediaron-block-shortcuts-for-gb/refs/heads/main/gb-shortcuts.xml"
+            },
+            "rewriteUrls": true,
+            "fetchAttachments": true,
+            "authorsMap": {
+                "ronalfy": "admin"
+            },
+            "defaultAuthorUsername": "admin"
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php require '/wordpress/wp-load.php'; $page = get_page_by_path( 'front-page', OBJECT, 'page' ); if ( $page instanceof WP_Post ) { update_option( 'page_on_front', (int) $page->ID ); update_option( 'show_on_front', 'page' ); }"
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php require '/wordpress/wp-load.php'; update_option( 'theme_mods_generatepress', maybe_unserialize( 'a:3:{i:0;b:0;s:18:\"nav_menu_locations\";a:0:{}s:18:\"custom_css_post_id\";i:-1;}' ) ); update_option( 'sidebars_widgets', maybe_unserialize( 'a:12:{s:19:\"wp_inactive_widgets\";a:0:{}s:9:\"sidebar-1\";a:3:{i:0;s:7:\"block-2\";i:1;s:7:\"block-3\";i:2;s:7:\"block-4\";}s:9:\"sidebar-2\";a:2:{i:0;s:7:\"block-5\";i:1;s:7:\"block-6\";}s:6:\"header\";a:0:{}s:8:\"footer-1\";a:0:{}s:8:\"footer-2\";a:0:{}s:8:\"footer-3\";a:0:{}s:8:\"footer-4\";a:0:{}s:8:\"footer-5\";a:0:{}s:10:\"footer-bar\";a:0:{}s:7:\"top-bar\";a:0:{}s:13:\"array_version\";i:3;}' ) ); update_option( 'widget_archives', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_block', maybe_unserialize( 'a:6:{i:2;a:1:{s:7:\"content\";s:19:\"<!-- wp:search /-->\";}i:3;a:1:{s:7:\"content\";s:154:\"<!-- wp:group --><div class=\"wp-block-group\"><!-- wp:heading --><h2>Recent Posts</h2><!-- /wp:heading --><!-- wp:latest-posts /--></div><!-- /wp:group -->\";}i:4;a:1:{s:7:\"content\";s:227:\"<!-- wp:group --><div class=\"wp-block-group\"><!-- wp:heading --><h2>Recent Comments</h2><!-- /wp:heading --><!-- wp:latest-comments {\"displayAvatar\":false,\"displayDate\":false,\"displayExcerpt\":false} /--></div><!-- /wp:group -->\";}i:5;a:1:{s:7:\"content\";s:146:\"<!-- wp:group --><div class=\"wp-block-group\"><!-- wp:heading --><h2>Archives</h2><!-- /wp:heading --><!-- wp:archives /--></div><!-- /wp:group -->\";}i:6;a:1:{s:7:\"content\";s:150:\"<!-- wp:group --><div class=\"wp-block-group\"><!-- wp:heading --><h2>Categories</h2><!-- /wp:heading --><!-- wp:categories /--></div><!-- /wp:group -->\";}s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_calendar', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_categories', maybe_unserialize( 'a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_custom_html', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_media_audio', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_media_gallery', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_media_image', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_media_video', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_meta', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_nav_menu', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_pages', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_recent-comments', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_recent-posts', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_rss', maybe_unserialize( 'a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_search', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_tag_cloud', maybe_unserialize( 'a:1:{s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'widget_text', maybe_unserialize( 'a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}' ) ); update_option( 'wppic_plugin_generateblocks', maybe_unserialize( 'O:8:\"stdClass\":28:{s:3:\"url\";s:45:\"https://wordpress.org/plugins/generateblocks/\";s:4:\"name\";s:14:\"GenerateBlocks\";s:4:\"slug\";s:14:\"generateblocks\";s:7:\"version\";s:5:\"2.5.1\";s:6:\"author\";s:3:\"Tom\";s:14:\"author_profile\";s:38:\"https://profiles.wordpress.org/edge22/\";s:12:\"contributors\";s:6:\"edge22\";s:6:\"tested\";s:5:\"7.1.5\";s:8:\"requires\";s:3:\"6.7\";s:6:\"rating\";i:98;s:11:\"num_ratings\";i:122;s:7:\"ratings\";a:5:{i:5;i:115;i:4;i:1;i:3;i:4;i:2;i:0;i:1;i:2;}s:10:\"downloaded\";i:200000;s:15:\"active_installs\";i:200000;s:23:\"last_updated_human_time\";s:6:\"1 week\";s:12:\"last_updated\";s:21:\"2026-11-10 2:44pm GMT\";s:15:\"last_updated_mk\";s:21:\"2026-11-10 2:44pm GMT\";s:5:\"added\";s:10:\"2020-05-19\";s:8:\"homepage\";s:26:\"https://generateblocks.com\";s:17:\"short_description\";s:87:\"A small collection of lightweight WordPress blocks that can accomplish nearly anything.\";s:13:\"download_link\";s:63:\"https://downloads.wordpress.org/plugin/generateblocks.2.5.1.zip\";s:11:\"donate_link\";s:25:\"https://generatepress.com\";s:5:\"icons\";a:2:{s:2:\"1x\";s:59:\"https://ps.w.org/generateblocks/assets/icon.svg?rev=3744275\";s:3:\"svg\";s:59:\"https://ps.w.org/generateblocks/assets/icon.svg?rev=3744275\";}s:7:\"banners\";a:2:{s:3:\"low\";s:69:\"https://ps.w.org/generateblocks/assets/banner-772x250.png?rev=3744275\";s:4:\"high\";s:70:\"https://ps.w.org/generateblocks/assets/banner-1544x500.png?rev=3744275\";}s:11:\"screenshots\";a:0:{}s:6:\"is_edd\";b:0;s:10:\"review_url\";s:0:\"\";s:12:\"requires_php\";s:3:\"7.2\";}' ) ); update_option( 'mrshortcutsgb_options', maybe_unserialize( 'a:18:{s:16:\"enableAdobeFonts\";s:1:\"1\";s:29:\"enableMarkdownToHeadlineBlock\";s:1:\"1\";s:21:\"disablePatternLibrary\";s:1:\"1\";s:22:\"disablePatternInserter\";s:0:\"\";s:16:\"enabledPostTypes\";a:3:{s:4:\"post\";b:1;s:4:\"page\";b:1;s:8:\"wp_block\";b:1;}s:18:\"allowedGoogleFonts\";a:0:{}s:23:\"enableV1Transformations\";s:0:\"\";s:14:\"enableV1Blocks\";s:0:\"\";s:15:\"v1CategoryLabel\";s:17:\"GenerateBlocks v1\";s:15:\"v2CategoryLabel\";s:17:\"GenerateBlocks v2\";s:13:\"v1BlockSuffix\";s:4:\"(v1)\";s:13:\"v2BlockSuffix\";s:4:\"(v2)\";s:22:\"identifyGenerateBlocks\";b:1;s:20:\"generateBlocksSuffix\";s:4:\"(GB)\";s:15:\"blockListColors\";a:4:{s:10:\"background\";s:7:\"#e8f0fe\";s:4:\"icon\";s:0:\"\";s:4:\"text\";s:0:\"\";s:9:\"slashIcon\";s:7:\"#ff6900\";}s:12:\"adminMenuBar\";a:2:{s:7:\"enabled\";b:1;s:19:\"replaceWithFullMenu\";b:1;}s:9:\"saveNonce\";s:10:\"f7dbc2374e\";s:10:\"resetNonce\";s:10:\"b571019475\";}' ) ); ?>"
+        }
+    ]
+}
