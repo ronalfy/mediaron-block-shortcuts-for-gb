@@ -6,7 +6,7 @@
     "features": {
         "networking": true
     },
-    "landingPage": "/",
+    "landingPage": "/wp-admin/admin.php?page=mrshortcuts-gb",
     "steps": [
         {
             "step": "login",
